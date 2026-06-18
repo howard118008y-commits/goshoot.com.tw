@@ -62,7 +62,7 @@ const GOSHOOT_LINKS = {
 - **手機選單**：全頁可正常開合
 
 ### 🟡 網域相關（買好網域後一次改）
-把以下檔案中的 `https://goshoot.tw` 換成實際網址：
+把以下檔案中的 `https://goshoot.com.tw` 換成實際網址：
 `sitemap.xml`、`robots.txt`、各頁的 `og:image`
 
 ### 🟢 內容維護
@@ -98,7 +98,7 @@ Settings → Pages → Source 選 `Deploy from a branch` → Branch `main` /`(ro
 2. 勾選 **Enforce HTTPS**（憑證簽發需數分鐘到一小時）
 
 ### ⑥ 換掉網域佔位
-網域確定後，把 `https://goshoot.tw` 全部換成實際網址並重新上傳。
+網域確定後，把 `https://goshoot.com.tw` 全部換成實際網址並重新上傳。
 
 ### ⑦ 讓 Google 找到你
 1. Google Search Console 加入網域，提交 `sitemap.xml`

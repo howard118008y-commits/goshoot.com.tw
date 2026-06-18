@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 部署後把 https://goshoot.tw 換成你的實際網域 -->
+<!-- 部署後把 https://goshoot.com.tw 換成你的實際網域 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://goshoot.tw/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://goshoot.tw/events.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://goshoot.tw/guide.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://goshoot.tw/faq.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://goshoot.tw/guide-tierlist.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://goshoot.tw/guide-beginner.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://goshoot.tw/guide-mods.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://goshoot.tw/guide-daikou.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://goshoot.com.tw/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://goshoot.com.tw/events.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://goshoot.com.tw/guide.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://goshoot.com.tw/faq.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://goshoot.com.tw/guide-tierlist.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://goshoot.com.tw/guide-beginner.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://goshoot.com.tw/guide-mods.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://goshoot.com.tw/guide-daikou.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
