@@ -1,0 +1,35 @@
+name: Update Shopee hot products
+
+# 每月自動更新 products.json（蝦皮熱門商品）
+# 放在 repo 的 .github/workflows/ 底下
+on:
+  schedule:
+    - cron: '0 1 1 * *'     # 每月 1 號 01:00 (UTC) 執行一次
+  workflow_dispatch: {}       # 也可在 Actions 頁面手動觸發
+
+permissions:
+  contents: write             # 允許把更新後的檔案 commit 回 repo
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 執行更新腳本
+        env:
+          SHOPEE_APP_ID: ${{ secrets.SHOPEE_APP_ID }}
+          SHOPEE_APP_SECRET: ${{ secrets.SHOPEE_APP_SECRET }}
+        run: python scripts/update_products.py
+
+      - name: Commit 更新
+        run: |
+          git config user.name  "github-actions"
+          git config user.email "actions@github.com"
+          git add products.json assets/photos 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "chore: update shopee hot products $(date +%Y-%m)"
+          git push

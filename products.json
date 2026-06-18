@@ -1,0 +1,15 @@
+{
+  "updated": "2026-06",
+  "source": "Go Shoot 蝦皮賣場",
+  "note": "範例資料，請替換為實際商品。每月由排程更新此檔即可，網站會自動渲染。",
+  "products": [
+    { "rank": 1, "name": "Beyblade X 入門組（含發射器）", "price": "NT$590", "image": "assets/photos/product-1.jpg", "url": "#" },
+    { "rank": 2, "name": "BX 攻擊型陀螺 單顆", "price": "NT$320", "image": "assets/photos/product-2.jpg", "url": "#" },
+    { "rank": 3, "name": "BX 持久型陀螺 單顆", "price": "NT$320", "image": "assets/photos/product-3.jpg", "url": "#" },
+    { "rank": 4, "name": "高性能發射器（含握把）", "price": "NT$450", "image": "assets/photos/product-1.jpg", "url": "#" },
+    { "rank": 5, "name": "競技盤 Xtreme Stadium", "price": "NT$880", "image": "assets/photos/product-2.jpg", "url": "#" },
+    { "rank": 6, "name": "改裝配件組（軌道環＋軸尖）", "price": "NT$260", "image": "assets/photos/product-3.jpg", "url": "#" },
+    { "rank": 7, "name": "限定配色陀螺", "price": "NT$420", "image": "assets/photos/product-1.jpg", "url": "#" },
+    { "rank": 8, "name": "發射器握把（強化版）", "price": "NT$180", "image": "assets/photos/product-2.jpg", "url": "#" }
+  ]
+}
