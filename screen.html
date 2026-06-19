@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Go Shoot｜本月熱門 TOP 100（店內螢幕）</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FBF6EE;--ink:#262329;--coral:#FF6A4D;--coral2:#FF9F86;--muted:#b7b1a8;
+  --disp:'Poppins','Noto Sans TC',sans-serif;--body:'Noto Sans TC','Poppins',sans-serif;}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);overflow:hidden;
+  -webkit-font-smoothing:antialiased}
+.kiosk{height:100vh;display:flex;flex-direction:column;padding:2.2vh 2.4vw}
+/* header */
+.khead{display:flex;align-items:center;gap:2vw;flex:0 0 auto;padding-bottom:1.6vh;
+  border-bottom:2px solid rgba(251,246,238,.14)}
+.kbrand{display:flex;align-items:center;gap:.8vw;font-family:var(--disp);font-weight:700;
+  font-size:3.2vh;letter-spacing:.5px}
+.kbrand img{height:5.2vh;width:5.2vh;border-radius:14px;display:block}
+.ktitle{flex:1;text-align:center;font-family:var(--disp);font-weight:700;
+  font-size:4.4vh;letter-spacing:1px}
+.ktitle b{color:var(--coral)}
+.kupd{font-size:2vh;color:var(--muted);text-align:right;min-width:14vw;font-family:var(--disp)}
+.kupd b{color:var(--cream)}
+/* stage */
+.kstage{flex:1;position:relative;margin-top:1.6vh}
+.page{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);
+  grid-template-rows:repeat(2,1fr);gap:1.6vh 1.4vw;opacity:0;transition:opacity .6s ease}
+.page.on{opacity:1}
+.pcard{background:#322e34;border:1px solid rgba(251,246,238,.10);border-radius:18px;
+  overflow:hidden;display:flex;flex-direction:column;position:relative}
+.pcard .imgwrap{flex:1;background:#3d383f;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pcard img{width:100%;height:100%;object-fit:cover;display:block}
+.pcard .ph{font-family:var(--disp);font-size:3vh;color:var(--muted)}
+.pcard .rk{position:absolute;top:1vh;left:1vh;background:var(--ink);color:var(--cream);
+  font-family:var(--disp);font-weight:700;font-size:2vh;padding:.4vh 1.2vh;border-radius:999px;
+  border:1px solid rgba(251,246,238,.2)}
+.pcard .rk.top{background:var(--coral);border-color:var(--coral)}
+.pcard .info{padding:1vh 1.2vh 1.3vh;flex:0 0 auto}
+.pcard .nm{font-size:2.05vh;line-height:1.35;height:5.5vh;overflow:hidden;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.pcard .pr{font-family:var(--disp);font-weight:700;font-size:2.8vh;color:var(--coral2);margin-top:.5vh}
+/* empty state */
+.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:2vh;text-align:center}
+.empty .spin{width:14vh;height:14vh;animation:spin 9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty h2{font-family:var(--disp);font-size:4vh}
+.empty p{color:var(--muted);font-size:2.4vh}
+/* footer / progress */
+.kfoot{flex:0 0 auto;display:flex;align-items:center;gap:1.6vw;padding-top:1.4vh;
+  font-family:var(--disp);font-size:2vh;color:var(--muted)}
+.kbar{flex:1;height:.8vh;background:rgba(251,246,238,.12);border-radius:999px;overflow:hidden}
+.kbar span{display:block;height:100%;width:0;background:var(--coral);border-radius:999px}
+.tagline{color:var(--coral2);font-weight:600}
+</style>
+</head>
+<body>
+<div class="kiosk">
+  <div class="khead">
+    <div class="kbrand"><img src="assets/logo-coral.png" alt="Go Shoot"> Go Shoot</div>
+    <div class="ktitle">本月熱門 <b>TOP <span id="total">100</span></b></div>
+    <div class="kupd">更新 <b id="updated">—</b></div>
+  </div>
+  <div id="stage" class="kstage"></div>
+  <div class="kfoot">
+    <span id="pageno">—</span>
+    <div class="kbar"><span id="bar"></span></div>
+    <span class="tagline">一起 Go Shoot！</span>
+  </div>
+</div>
+
+<script>
+(function(){
+  var PAGE_SIZE = 10;        // 每頁顯示幾項（5×2）
+  var PAGE_MS   = 8000;      // 每頁停留毫秒
+  var RELOAD_MS = 60*60*1000;// 多久重抓一次 products.json（1 小時）
+  var stage = document.getElementById('stage');
+  var barEl = document.getElementById('bar');
+  var pageNoEl = document.getElementById('pageno');
+  var pages = [], idx = 0, timer = null, rafStart = 0;
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  function chunk(arr,n){var out=[];for(var i=0;i<arr.length;i+=n)out.push(arr.slice(i,i+n));return out;}
+
+  function cardHTML(p,rank){
+    var top = rank<=3 ? ' top':'';
+    var img = p.image
+      ? '<img src="'+esc(p.image)+'" alt="" onerror="this.parentNode.innerHTML=\'<span class=&quot;ph&quot;>Go Shoot</span>\'">'
+      : '<span class="ph">Go Shoot</span>';
+    return '<div class="pcard"><span class="rk'+top+'">#'+esc(rank)+'</span>'
+      +'<div class="imgwrap">'+img+'</div>'
+      +'<div class="info"><div class="nm">'+esc(p.name||'')+'</div>'
+      +'<div class="pr">'+esc(p.price||'')+'</div></div></div>';
+  }
+
+  function showEmpty(){
+    stage.innerHTML='<div class="empty">'
+      +'<svg class="spin" viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#FBF6EE" stroke-width="3.5"/><circle cx="32" cy="32" r="7" fill="#FF6A4D"/><circle cx="32" cy="32" r="2.5" fill="#FBF6EE"/><path d="M32 5 A27 27 0 0 1 59 32" fill="none" stroke="#FF6A4D" stroke-width="4" stroke-linecap="round"/></svg>'
+      +'<h2>本月熱門商品 敬請期待</h2><p>商品資料更新中</p></div>';
+    pageNoEl.textContent=''; barEl.style.width='0';
+  }
+
+  function buildPages(list){
+    stage.innerHTML='';
+    pages = chunk(list, PAGE_SIZE).map(function(group, gi){
+      var el=document.createElement('div'); el.className='page';
+      el.innerHTML=group.map(function(p,i){
+        var rank=(p.rank!=null?p.rank:(gi*PAGE_SIZE+i+1));
+        return cardHTML(p,rank);
+      }).join('');
+      stage.appendChild(el);
+      return el;
+    });
+  }
+
+  function tick(ts){
+    if(!rafStart) rafStart=ts;
+    var prog=Math.min(1,(ts-rafStart)/PAGE_MS);
+    barEl.style.width=(prog*100)+'%';
+    if(prog>=1){ rafStart=0; next(); }
+    timer=requestAnimationFrame(tick);
+  }
+  function next(){
+    if(!pages.length) return;
+    pages[idx].classList.remove('on');
+    idx=(idx+1)%pages.length;
+    pages[idx].classList.add('on');
+    pageNoEl.textContent=(idx+1)+' / '+pages.length;
+  }
+  function start(){
+    if(!pages.length){ showEmpty(); return; }
+    idx=0; pages[0].classList.add('on');
+    pageNoEl.textContent='1 / '+pages.length;
+    rafStart=0; if(timer)cancelAnimationFrame(timer); timer=requestAnimationFrame(tick);
+  }
+
+  function load(){
+    fetch('products.json',{cache:'no-store'}).then(function(r){
+      if(!r.ok) throw 0; return r.json();
+    }).then(function(data){
+      var list=(data.products||[]).slice(0,100);
+      document.getElementById('updated').textContent=data.updated||'—';
+      document.getElementById('total').textContent=list.length||'100';
+      if(timer)cancelAnimationFrame(timer);
+      if(!list.length){ showEmpty(); return; }
+      buildPages(list); start();
+    }).catch(function(){ showEmpty(); });
+  }
+
+  load();
+  setInterval(load, RELOAD_MS);   // 定時重抓，資料更新後螢幕自動換新
+})();
+</script>
+</body>
+</html>
