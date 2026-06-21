@@ -93,6 +93,7 @@
         +'<div class="imgwrap">'+img+'</div>'
         +'<div class="body">'
         +'<div class="name">'+esc(p.name||'商品')+'</div>'
+        +(p.blurb?'<div class="blurb" style="font-size:13px;color:#6b6660;line-height:1.5;margin:4px 0 8px">'+esc(p.blurb)+'</div>':'')
         +'<div class="price">'+esc(p.price||'')+'</div>'
         +'<a class="buy" href="'+url+'" target="_blank" rel="noopener">在蝦皮購買</a>'
         +'</div></div>';
