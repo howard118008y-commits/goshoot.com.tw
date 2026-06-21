@@ -68,6 +68,23 @@ const GOSHOOT_LINKS = {
 ### 🟢 內容維護
 - `guide-tierlist.html`：每月更新天梯配置
 - 賽事頁／海報數字（NT$50＝1 幣、報名費）可依實際調整
+- `products.json`：蝦皮熱銷商品清單（`shop.html` 讀取渲染）；每個商品可有 `blurb` 欄位＝商品卡上的 AI 短描述
+
+---
+
+## 🤖 商品文案（AI 自動更新）
+
+`shop.html` 的商品卡會顯示 `products.json` 裡每個商品的 `blurb`（AI 生成短描述）。
+文案由專案根目錄的 AI 工具產生（`anthropic-api/`，需 `ANTHROPIC_API_KEY`）。
+
+**一鍵更新 + 上線**（改完 `products.json` 的商品名稱/價格/連結後）：
+```bash
+cd <goshoot 專案根目錄>
+./update_shop.sh          # 產文案 → 套用 → 問 y/N 後 push 上線
+```
+- 預設用便宜的 `claude-haiku-4-5`；想要更好品質：`GOSHOOT_MODEL=claude-opus-4-8 ./update_shop.sh`
+- 手動版工具：`anthropic-api/goshoot_ai.py`（`copy` 單篇 / `batch` 批量 / `social` IG・FB 貼文）
+- 細節見 `anthropic-api/README.md`
 
 ---
 
