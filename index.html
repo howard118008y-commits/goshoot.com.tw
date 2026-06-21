@@ -4,22 +4,166 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Go Shoot 戰鬥陀螺・玩具・娃娃機｜中和站旁</title>
-<meta name="description" content="Go Shoot 是中和捷運站旁的戰鬥陀螺・玩具・娃娃機店。戰鬥陀螺與配件、精選公仔／扭蛋／模型現場零售與日本代購，店內設娃娃機台區與對戰賽場，景品定期更新、定期舉辦賽事。一起 Go Shoot！">
-<meta property="og:image" content="https://goshoot.com.tw/assets/og-cover.png">
+<meta name="description" content="Go Shoot 是中和捷運站旁的戰鬥陀螺・玩具・娃娃機店。戰鬥陀螺與配件、公仔扭蛋模型零售與日本代購，店內娃娃機台區與對戰賽場。">
 <link rel="icon" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta property="og:title" content="Go Shoot 戰鬥陀螺・玩具・娃娃機｜中和站旁">
-<meta property="og:description" content="戰鬥陀螺・精選玩具公仔・娃娃機台區・日本代購・店內對戰賽場。中和站旁，一起來開戰！">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ToyStore","name":"Go Shoot 戰鬥陀螺","image":"assets/favicon.png","address":{"@type":"PostalAddress","streetAddress":"景平路593號之1","addressLocality":"中和區","addressRegion":"新北市","addressCountry":"TW"},"url":"https://goshoot.com.tw","areaServed":"新北市中和區","description":"中和站旁的戰鬥陀螺・玩具・娃娃機店：戰鬥陀螺與公仔扭蛋模型零售、日本代購、娃娃機台區與店內對戰賽場。"}
-</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF6EE; --ink:#262329; --coral:#FF6A4D; --coral2:#FF9F86; --coral-deep:#E5512E;
+  --sky:#8FCDE0; --sky-deep:#5BB3CE; --gold:#FFC24B;
+  --disp:'Poppins','Noto Sans TC',sans-serif; --body:'Noto Sans TC','Poppins',sans-serif;
+  --shadow:0 6px 24px rgba(38,35,41,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.disp{font-family:var(--disp)}
+.btn{display:inline-block;background:var(--coral);color:#fff;font-weight:700;font-family:var(--disp);
+  padding:13px 22px;border-radius:40px;border:none;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn:hover{background:var(--coral-deep);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--ink)}
+.btn-sm{padding:9px 16px;font-size:14px}
+.eyebrow{display:inline-block;font-family:var(--disp);font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;font-size:12px;color:var(--coral-deep);background:#fff;
+  padding:5px 12px;border-radius:20px;box-shadow:var(--shadow)}
+.sec{font-size:clamp(24px,3.4vw,38px);font-weight:800;margin:14px 0 6px}
+.sec-lead{color:#6b6660;max-width:680px}
+section{padding:64px 0}
+
+/* ===== utility bar ===== */
+.util{background:var(--ink);color:var(--cream);font-size:13px}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.util b{color:var(--gold)}
+.util a{color:var(--sky);font-weight:700}
+
+/* ===== nav ===== */
+.nav{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:var(--shadow)}
+.nav .wrap{display:flex;align-items:center;gap:18px;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:800;font-size:22px}
+.brand svg{width:34px;height:34px}
+.nav-links{display:flex;align-items:center;gap:20px;margin-left:6px}
+.nav-links a{font-weight:500}
+.nav-links a:hover{color:var(--coral-deep)}
+.search{margin-left:auto;display:flex;align-items:center;background:var(--cream);
+  border-radius:30px;padding:8px 14px;gap:8px;min-width:180px}
+.search input{border:none;background:transparent;outline:none;font-family:var(--body);width:100%}
+.menu-btn{display:none;font-size:26px;background:none;border:none;cursor:pointer}
+
+/* ===== hero carousel ===== */
+.hero{position:relative;overflow:hidden}
+.slides{position:relative;height:clamp(380px,46vw,520px)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s;display:flex;align-items:center}
+.slide.on{opacity:1}
+.slide .wrap{display:flex;align-items:center;gap:30px;width:100%}
+.slide .txt{flex:1;min-width:260px;color:#fff}
+.slide h2{font-size:clamp(30px,5vw,56px);font-weight:800;line-height:1.1;margin-bottom:14px}
+.slide p{font-size:clamp(15px,2vw,19px);margin-bottom:22px;max-width:520px}
+.slide .badge{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--disp);
+  font-weight:800;font-size:13px;letter-spacing:1px;padding:6px 14px;border-radius:20px;margin-bottom:16px}
+.slide .emb{flex:0 0 auto}
+.slide .emb svg{width:clamp(140px,22vw,260px);height:auto}
+.s-coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
+.s-ink{background:linear-gradient(120deg,#2f2b33,#46414b)}
+.s-sky{background:linear-gradient(120deg,var(--sky-deep),var(--sky))}
+.dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:3}
+.dots b{width:11px;height:11px;border-radius:50%;background:#ffffff8c;cursor:pointer}
+.dots b.on{background:#fff;width:26px;border-radius:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{transform-origin:32px 32px;animation:spin 3.5s linear infinite}
+
+/* ===== category tiles ===== */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.tile{border-radius:20px;padding:24px 16px;text-align:center;color:#fff;font-family:var(--disp);
+  font-weight:700;box-shadow:var(--shadow);transition:.15s;min-height:150px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.tile:hover{transform:translateY(-4px)}
+.tile svg{width:46px;height:46px}
+.tile small{font-weight:500;opacity:.9;font-family:var(--body);font-size:12px}
+.t1{background:var(--coral)} .t2{background:var(--sky-deep)} .t3{background:var(--ink)}
+.t4{background:var(--coral-deep)} .t5{background:#7BBE9E} .t6{background:var(--gold);color:var(--ink)}
+
+/* ===== product grid ===== */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.15s;position:relative}
+.prod:hover{transform:translateY(-4px)}
+.prod .ph{aspect-ratio:1;background:var(--cream);display:flex;align-items:center;justify-content:center}
+.prod .ph svg{width:70px;height:70px;opacity:.5}
+.prod .ph img{width:100%;height:100%;object-fit:cover}
+.prod .pb{position:absolute;top:12px;left:12px;font-family:var(--disp);font-weight:800;font-size:12px;
+  padding:4px 10px;border-radius:14px;color:#fff;background:var(--coral)}
+.pb.new{background:var(--sky-deep)} .pb.hot{background:var(--coral-deep)} .pb.ltd{background:var(--ink)}
+.prod .pi{padding:14px 16px 18px}
+.prod .pi .nm{font-weight:700;margin-bottom:4px}
+.prod .pi .meta{color:#8a857f;font-size:13px}
+
+/* ===== bands ===== */
+.band{border-radius:24px;padding:40px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;color:#fff}
+.band.ink{background:var(--ink)} .band.coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
+.band .emblem svg{width:120px;height:120px}
+.band h2{font-size:clamp(24px,3vw,34px);font-weight:800;margin-bottom:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.half{border-radius:24px;padding:34px;color:#fff}
+.half.sky{background:linear-gradient(120deg,var(--sky-deep),var(--sky))}
+.half.gold{background:linear-gradient(120deg,#f0a93a,var(--gold));color:var(--ink)}
+.half h3{font-size:24px;font-weight:800;margin-bottom:8px}
+
+/* ===== guide / cards ===== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.guide-card{background:#fff;border-radius:18px;padding:24px;box-shadow:var(--shadow);transition:.15s}
+.guide-card:hover{transform:translateY(-3px)}
+.guide-card .kicker{font-family:var(--disp);font-weight:700;font-size:12px;letter-spacing:1px;color:var(--coral-deep)}
+.guide-card h3{font-size:19px;margin:6px 0}
+.guide-card p{color:#6b6660;font-size:14px}
+
+/* ===== visit ===== */
+.info{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:start}
+.map{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);min-height:300px}
+.map iframe{width:100%;height:100%;min-height:320px;border:0}
+dl dt{font-family:var(--disp);font-weight:700;color:var(--coral-deep);margin-top:14px}
+dl dd{margin-left:0}
+
+/* ===== footer ===== */
+footer{background:var(--ink);color:var(--cream);padding:56px 0 28px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+footer h4{font-family:var(--disp);font-size:15px;margin-bottom:12px;color:#fff}
+footer a{display:block;color:#cfc8bf;padding:4px 0;font-size:14px}
+footer a:hover{color:var(--sky)}
+.fbrand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:800;font-size:22px;color:#fff;margin-bottom:10px}
+.fbrand svg{width:34px;height:34px}
+.fcta{margin-top:14px}
+.fsoc{display:flex;gap:10px;margin-top:10px}
+.fsoc a{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#ffffff1a;align-items:center;justify-content:center;color:#fff}
+.copy{border-top:1px solid #ffffff1f;margin-top:34px;padding-top:18px;color:#9a948c;font-size:13px;text-align:center}
+
+/* ===== responsive ===== */
+@media(max-width:880px){
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;
+    align-items:flex-start;gap:0;padding:8px 22px 16px;box-shadow:var(--shadow);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:10px 0;width:100%;border-bottom:1px solid #f0ece5}
+  .menu-btn{display:block;margin-left:auto}
+  .search{display:none}
+  .tiles{grid-template-columns:repeat(3,1fr)}
+  .prods{grid-template-columns:repeat(2,1fr)}
+  .grid-2,.split,.info,.fgrid{grid-template-columns:1fr}
+  .slide .emb{display:none}
+}
+@media(max-width:480px){ .tiles{grid-template-columns:repeat(2,1fr)} .prods{grid-template-columns:1fr 1fr} }
+</style>
 </head>
 <body>
+
+<!-- ===== UTILITY BAR ===== -->
+<div class="util"><div class="wrap">
+  <span>🚚 線上預購到店取・免運　|　🕹️ 店內娃娃機 &amp; 對戰賽場　|　🎯 <b>中和捷運站旁</b></span>
+  <a href="#" data-line>加 LINE 詢問・預購 →</a>
+</div></div>
 
 <!-- ===== NAV ===== -->
 <nav class="nav"><div class="wrap">
@@ -28,152 +172,153 @@
     Go Shoot
   </a>
   <div class="nav-links">
+    <a href="#cats">分類</a>
     <a href="#products">商品</a>
+    <a href="#arena">賽事</a>
+    <a href="#guides">攻略</a>
     <a href="#preorder">代購預購</a>
-    <a href="events.html">賽事</a>
-    <a href="guide.html">攻略</a>
     <a href="#visit">來店</a>
     <a href="faq.html">常見問題</a>
-    <!-- 換成你的 LINE 加好友連結 -->
     <a class="btn btn-sm" href="#" data-line>加 LINE</a>
   </div>
-  <button class="menu-btn" aria-label="選單" aria-expanded="false">☰</button>
+  <form class="search" onsubmit="location.href='shop.html';return false;">
+    <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋">
+  </form>
+  <button class="menu-btn" aria-label="選單">☰</button>
 </div></nav>
 
-<!-- ===== HERO ===== -->
-<header class="hero"><div class="wrap">
-  <svg class="emblem" viewBox="0 0 64 64" aria-label="Go Shoot 圓徽"><circle cx="32" cy="32" r="24" fill="none" stroke="#262329" stroke-width="3.5"/><circle cx="32" cy="32" r="16" fill="none" stroke="#262329" stroke-width="2" opacity="0.35"/><circle cx="32" cy="32" r="7" fill="#FF6A4D"/><circle cx="32" cy="32" r="2.5" fill="#262329"/><path class="spin" d="M32 5 A27 27 0 0 1 59 32" fill="none" stroke="#FF6A4D" stroke-width="4" stroke-linecap="round"/></svg>
-  <h1>Go Shoot</h1>
-  <p class="tag">戰鬥陀螺 ・ 玩具公仔 ・ 娃娃機</p>
-  <p class="sub">中和捷運站旁的玩具基地：戰鬥陀螺專賣、精選公仔扭蛋模型，還有娃娃機台區。線上預購到店取，順便在店內賽場開戰、上排行榜。</p>
-  <div class="hero-cta">
-    <a class="btn" href="#preorder">線上預購 →</a>
-    <!-- 換成你的蝦皮賣場連結 -->
-    <a class="btn btn-ghost" href="#" data-shopee>逛蝦皮現貨</a>
-    <a class="btn btn-ghost" href="#arena">看賽事</a>
+<!-- ===== HERO CAROUSEL ===== -->
+<section class="hero" style="padding:0">
+  <div class="slides">
+    <div class="slide s-coral on">
+      <div class="wrap">
+        <div class="txt">
+          <span class="badge">NEW・新品到貨</span>
+          <h2>戰鬥陀螺 X<br>新品開戰</h2>
+          <p>Beyblade X 本體、發射器、競技盤與改裝配件現貨陳列，現場試打。日版限定款代購直送。</p>
+          <a class="btn btn-light" href="#" data-shopee>逛蝦皮現貨 →</a>
+          <a class="btn btn-ghost" href="#guides" style="border-color:#fff;color:#fff;margin-left:8px">看攻略</a>
+        </div>
+        <div class="emb"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#fff" stroke-width="3"/><circle cx="32" cy="32" r="16" fill="none" stroke="#fff" stroke-width="1.6" opacity=".5"/><circle cx="32" cy="32" r="7" fill="#fff"/><path class="spin" d="M32 6 A26 26 0 0 1 58 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg></div>
+      </div>
+    </div>
+    <div class="slide s-ink">
+      <div class="wrap">
+        <div class="txt">
+          <span class="badge">假日賽事</span>
+          <h2>來開戰・<br>上排行榜</h2>
+          <p>店內對戰賽場與即時排行榜，平日練習、假日舉辦賽事。贏一場、上一次榜，這裡是你的戰場。</p>
+          <a class="btn btn-light" href="#" data-signup>賽事報名 →</a>
+          <a class="btn btn-ghost" href="events.html" style="border-color:#fff;color:#fff;margin-left:8px">完整賽制</a>
+        </div>
+        <div class="emb"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#FF6A4D" stroke-width="3.5"/><circle cx="32" cy="32" r="7" fill="#FF6A4D"/><path class="spin" d="M32 6 A26 26 0 0 1 58 32" fill="none" stroke="#FF9F86" stroke-width="4" stroke-linecap="round"/></svg></div>
+      </div>
+    </div>
+    <div class="slide s-sky">
+      <div class="wrap">
+        <div class="txt">
+          <span class="badge">店內限定</span>
+          <h2>娃娃機台區<br>保夾活動</h2>
+          <p>店內設娃娃機台區，景品定期更新、不定期保夾活動。逛玩具、開戰之餘，順手夾一發。</p>
+          <a class="btn btn-light" href="#visit">來店看看 →</a>
+        </div>
+        <div class="emb"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#fff" stroke-width="3.5"/><circle cx="32" cy="32" r="8" fill="none" stroke="#fff" stroke-width="4"/></svg></div>
+      </div>
+    </div>
   </div>
-</div></header>
+  <div class="dots" id="dots"></div>
+</section>
 
-<!-- ===== 店裡有什麼（品類）===== -->
-<section id="store"><div class="wrap">
-  <span class="eyebrow">店裡有什麼</span>
-  <h2 class="sec">不只戰鬥陀螺，是中和的玩具基地</h2>
-  <div class="grid grid-3">
-    <div class="card">
-      <svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#262329" stroke-width="4"/><circle cx="32" cy="32" r="8" fill="#FF6A4D"/></svg>
-      <h3>戰鬥陀螺專區</h3>
-      <p>Beyblade X 本體、發射器、競技盤與改裝配件，現貨陳列、現場試打，還有日版限定款代購。</p>
-    </div>
-    <div class="card">
-      <svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#262329" stroke-width="4"/><path d="M32 12 A20 20 0 0 1 52 32" fill="none" stroke="#FF6A4D" stroke-width="5" stroke-linecap="round"/></svg>
-      <h3>精選玩具</h3>
-      <p>公仔、扭蛋、模型與話題玩具定期到貨；想要的款式也能幫你代購調貨。</p>
-    </div>
-    <div class="card">
-      <svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#262329" stroke-width="4"/><circle cx="32" cy="32" r="8" fill="none" stroke="#FF6A4D" stroke-width="4"/></svg>
-      <h3>娃娃機台區</h3>
-      <p>店內設娃娃機台區，景品定期更新、不定期保夾活動，來店順手夾一發。</p>
-    </div>
-  </div>
-</div></section>
-
-<!-- ===== 三大賣點 ===== -->
-<section><div class="wrap">
-  <span class="eyebrow">我們提供什麼</span>
-  <h2 class="sec">三種方式買到你想要的</h2>
-  <div class="grid grid-3">
-    <div class="card">
-      <svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#262329" stroke-width="4"/><circle cx="32" cy="32" r="8" fill="#FF6A4D"/></svg>
-      <h3>現場零售</h3>
-      <p>戰鬥陀螺、發射器、改裝配件，現貨陳列，看得到、摸得到、現場就能試打。</p>
-    </div>
-    <div class="card">
-      <svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#262329" stroke-width="4"/><path d="M32 12 A20 20 0 0 1 52 32" fill="none" stroke="#FF6A4D" stroke-width="5" stroke-linecap="round"/></svg>
-      <h3>日本代購</h3>
-      <p>日版與限定款預購代購，早一步入手別人買不到的款式，到店取貨可現場驗。</p>
-    </div>
-    <div class="card">
-      <svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#262329" stroke-width="4"/><circle cx="32" cy="32" r="8" fill="none" stroke="#FF6A4D" stroke-width="4"/></svg>
-      <h3>線上預購到店取</h3>
-      <p>線上先下單，到貨用 LINE 通知，到店一次領取，省運費又能順便開戰。</p>
-    </div>
+<!-- ===== CATEGORY TILES ===== -->
+<section id="cats"><div class="wrap">
+  <span class="eyebrow">依分類逛</span>
+  <h2 class="sec">想找什麼，一鍵直達</h2>
+  <div class="tiles">
+    <a class="tile t1" href="#products"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="#fff" stroke-width="4"/><circle cx="32" cy="32" r="7" fill="#fff"/></svg>戰鬥陀螺<small>本體・配件</small></a>
+    <a class="tile t2" href="#products"><svg viewBox="0 0 64 64"><circle cx="32" cy="26" r="12" fill="#fff"/><rect x="24" y="36" width="16" height="18" rx="4" fill="#fff"/></svg>玩具公仔<small>話題新品</small></a>
+    <a class="tile t3" href="#products"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="#fff" stroke-width="4"/><circle cx="32" cy="32" r="6" fill="#FF6A4D"/></svg>扭蛋模型<small>定期到貨</small></a>
+    <a class="tile t4" href="#visit"><svg viewBox="0 0 64 64"><rect x="16" y="14" width="32" height="36" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M26 30 l6 6 6-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>娃娃機<small>景品保夾</small></a>
+    <a class="tile t5" href="#preorder"><svg viewBox="0 0 64 64"><path d="M14 24 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="4"/><path d="M24 24 v-4 a8 8 0 0 1 16 0 v4" fill="none" stroke="#fff" stroke-width="4"/></svg>日本代購<small>限定直送</small></a>
+    <a class="tile t6" href="events.html"><svg viewBox="0 0 64 64"><path d="M20 18 h24 v10 a12 12 0 0 1-24 0z" fill="none" stroke="#262329" stroke-width="4"/><path d="M30 40 h4 v8 h-4z M24 48 h16" fill="none" stroke="#262329" stroke-width="4"/></svg>賽事排行<small>上榜領幣</small></a>
   </div>
 </div></section>
 
-<!-- ===== 賽場 ===== -->
-<section id="arena"><div class="wrap">
-  <div class="band">
-    <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#FBF6EE" stroke-width="3.5"/><circle cx="32" cy="32" r="16" fill="none" stroke="#FBF6EE" stroke-width="2" opacity="0.4"/><circle cx="32" cy="32" r="7" fill="#FF6A4D"/><circle cx="32" cy="32" r="2.5" fill="#FBF6EE"/><path class="spin" d="M32 5 A27 27 0 0 1 59 32" fill="none" stroke="#FF6A4D" stroke-width="4" stroke-linecap="round"/></svg>
-    <div style="flex:1;min-width:260px">
-      <span class="eyebrow" style="color:#FF9F86">店內賽場</span>
-      <h2>不只是買，是來開戰</h2>
-      <p>店內設有對戰賽場與即時排行榜，平日開放練習、假日舉辦賽事。贏一場、上一次榜，這裡是屬於你的戰場。</p>
-      <!-- 換成你的賽事報名連結 -->
-      <a class="btn btn-ghost" href="events.html">完整賽制・排行榜・集點 →</a>
-      <a class="btn btn-ghost" href="#" data-signup style="margin-left:10px">賽事報名</a>
-    </div>
-  </div>
-</div></section>
-
-<!-- ===== 商品 ===== -->
-<section id="products"><div class="wrap">
+<!-- ===== PRODUCTS ===== -->
+<section id="products" style="background:#fff"><div class="wrap">
   <span class="eyebrow">精選商品</span>
   <h2 class="sec">現貨在蝦皮，限定來預購</h2>
-  <p class="sec-lead">標準款現貨上架蝦皮，下單最快；日版／限定款走預購代購。</p>
-  <div class="grid grid-3">
-    <!-- 想換真實商品照片：把照片放到 assets/photos/，命名 product-1.jpg ~ product-3.jpg 即可自動顯示；
-         未放圖時會顯示 Go Shoot 品牌圖示佔位。連結預設導向蝦皮（data-shopee）。 -->
-    <a class="prod" href="#" data-shopee aria-label="看現貨商品 1"><img src="assets/photos/product-1.jpg" alt="Go Shoot 現貨戰鬥陀螺" loading="lazy" onerror="this.style.display='none'"></a>
-    <a class="prod" href="#" data-shopee aria-label="看現貨商品 2"><img src="assets/photos/product-2.jpg" alt="Go Shoot 現貨戰鬥陀螺" loading="lazy" onerror="this.style.display='none'"></a>
-    <a class="prod" href="#" data-shopee aria-label="看現貨商品 3"><img src="assets/photos/product-3.jpg" alt="Go Shoot 現貨戰鬥陀螺" loading="lazy" onerror="this.style.display='none'"></a>
+  <p class="sec-lead" style="margin-bottom:26px">標準款現貨上架蝦皮，下單最快；日版／限定款走預購代購。</p>
+  <div class="prods">
+    <a class="prod" href="#" data-shopee><span class="pb new">新品</span><div class="ph"><img src="assets/photos/product-1.jpg" alt="戰鬥陀螺現貨" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">戰鬥陀螺 X 本體</div><div class="meta">現貨・蝦皮下單 →</div></div></a>
+    <a class="prod" href="#" data-shopee><span class="pb hot">熱銷</span><div class="ph"><img src="assets/photos/product-2.jpg" alt="發射器組" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">發射器・競技盤</div><div class="meta">現貨・蝦皮下單 →</div></div></a>
+    <a class="prod" href="#" data-shopee><span class="pb ltd">限定</span><div class="ph"><img src="assets/photos/product-3.jpg" alt="日版限定款" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">日版限定款</div><div class="meta">預購代購 →</div></div></a>
+    <a class="prod" href="#" data-shopee><span class="pb">精選</span><div class="ph"><svg viewBox="0 0 64 64"><circle cx="32" cy="26" r="12" fill="#FF6A4D"/><rect x="24" y="36" width="16" height="18" rx="4" fill="#262329"/></svg></div><div class="pi"><div class="nm">公仔・扭蛋・模型</div><div class="meta">定期到貨 →</div></div></a>
   </div>
-  <div style="margin-top:22px">
-    <a class="btn" href="#" data-shopee>上蝦皮看全部現貨 →</a>
+  <div style="margin-top:24px"><a class="btn" href="#" data-shopee>上蝦皮看全部現貨 →</a></div>
+</div></section>
+
+<!-- ===== ARENA BAND ===== -->
+<section id="arena"><div class="wrap">
+  <div class="band ink">
+    <div class="emblem"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#FBF6EE" stroke-width="3.5"/><circle cx="32" cy="32" r="7" fill="#FF6A4D"/><path class="spin" d="M32 6 A26 26 0 0 1 58 32" fill="none" stroke="#FF6A4D" stroke-width="4" stroke-linecap="round"/></svg></div>
+    <div style="flex:1;min-width:260px">
+      <span class="eyebrow" style="color:var(--ink)">店內賽場</span>
+      <h2>不只是買，是來開戰</h2>
+      <p>店內對戰賽場與即時排行榜，平日開放練習、假日舉辦賽事。贏一場、上一次榜，這裡是屬於你的戰場。</p>
+      <a class="btn btn-light" href="events.html">完整賽制・排行榜 →</a>
+      <a class="btn btn-ghost" href="#" data-signup style="border-color:#fff;color:#fff;margin-left:8px">賽事報名</a>
+    </div>
   </div>
 </div></section>
 
-<!-- ===== 代購預購 ===== -->
-<section id="preorder"><div class="wrap">
-  <span class="eyebrow">代購・預購</span>
-  <h2 class="sec">線上填單 → 到店取貨</h2>
-  <p class="sec-lead">想要的日版或限定款還沒進台灣？填預購單，我們幫你調貨，到貨 LINE 通知你到店領取。</p>
-  <div class="formbox">
-    <!-- 把下面換成你的 Tally 或 Google 表單 iframe，例如：
-    <iframe src="https://tally.so/embed/你的表單ID" width="100%" height="520" frameborder="0"></iframe> -->
-    <p style="margin:0 0 16px;color:var(--muted)">預購表單放這裡（Tally／Google 表單嵌入）</p>
-    <a class="btn" href="#" data-form>填寫預購單 →</a>
+<!-- ===== SPLIT BANDS ===== -->
+<section style="padding-top:0"><div class="wrap">
+  <div class="split">
+    <div class="half sky">
+      <h3>🕹️ 娃娃機台區</h3>
+      <p>景品定期更新、不定期保夾活動。逛玩具之餘順手夾一發，夾到帶回家。</p>
+      <a class="btn btn-light" href="#visit" style="margin-top:14px">來店看看 →</a>
+    </div>
+    <div class="half gold">
+      <h3>🎌 日本代購</h3>
+      <p>日版與限定款預購代購，早一步入手別人買不到的款式，到店取貨可現場驗。</p>
+      <a class="btn" href="#preorder" style="margin-top:14px;background:var(--ink)">填預購單 →</a>
+    </div>
   </div>
 </div></section>
 
-<!-- ===== 攻略 ===== -->
-<section><div class="wrap">
+<!-- ===== GUIDES ===== -->
+<section id="guides" style="background:#fff"><div class="wrap">
   <span class="eyebrow">戰略攻略</span>
   <h2 class="sec">新手到老手，都能變強</h2>
-  <div class="grid grid-2">
+  <div class="grid-2">
     <a class="guide-card" href="guide-beginner.html"><span class="kicker">新手入門</span><h3>第一次玩戰鬥陀螺，要準備什麼？</h3><p>一套需要什麼、第一顆怎麼選、基本玩法一次搞懂。</p></a>
     <a class="guide-card" href="guide-tierlist.html"><span class="kicker">本月天梯</span><h3>Beyblade X 天梯 Tier List（每月更新）</h3><p>現在什麼配置最強？攻擊／防禦／持久代表一次看。</p></a>
     <a class="guide-card" href="guide-mods.html"><span class="kicker">改裝攻略</span><h3>配件怎麼搭，陀螺才會更強？</h3><p>三大部位拆解、性能影響與進階搭配範例。</p></a>
     <a class="guide-card" href="guide-daikou.html"><span class="kicker">代購情報</span><h3>日版／限定款代購怎麼買最划算？</h3><p>代購流程、運費、預購制與在地取貨的好處。</p></a>
   </div>
-  <div style="margin-top:20px"><a class="btn btn-ghost" href="guide.html">看全部攻略 →</a></div>
+  <div style="margin-top:22px"><a class="btn btn-ghost" href="guide.html">看全部攻略 →</a></div>
 </div></section>
 
-<!-- ===== 品牌故事 ===== -->
-<section id="about"><div class="wrap" style="max-width:760px;text-align:center">
-  <span class="eyebrow" style="justify-content:center">關於 Go Shoot</span>
-  <h2 class="sec">不只是賣陀螺，是給玩家一個基地</h2>
-  <p class="sec-lead" style="margin:0 auto">我們相信戰鬥陀螺不只是玩具，而是一場又一場的較量、一個能交朋友的社群。Go Shoot 從一個簡單的想法開始：在中和，給玩家一個真正的家——買得到想要的款、找得到對手、上得了排行榜。從第一次拉發射器的小朋友，到鑽研改裝的老玩家，這裡都有屬於你的戰場。一起 Go Shoot！</p>
+<!-- ===== PREORDER ===== -->
+<section id="preorder"><div class="wrap">
+  <div class="band coral">
+    <div style="flex:1;min-width:260px">
+      <span class="eyebrow" style="color:var(--coral-deep)">代購・預購</span>
+      <h2>線上填單 → 到店取貨</h2>
+      <p>想要的日版或限定款還沒進台灣？填預購單，我們幫你調貨，到貨 LINE 通知你到店領取。</p>
+      <a class="btn btn-light" href="#" data-form>填寫預購單 →</a>
+      <a class="btn btn-ghost" href="#" data-line style="border-color:#fff;color:#fff;margin-left:8px">加 LINE 詢問</a>
+    </div>
+  </div>
 </div></section>
 
-<!-- ===== 來店 ===== -->
-<section id="visit"><div class="wrap">
+<!-- ===== VISIT ===== -->
+<section id="visit" style="background:#fff"><div class="wrap">
   <span class="eyebrow">來店資訊</span>
   <h2 class="sec">中和站旁，走路就到</h2>
-  <div class="info">
-    <div class="map">
-      <iframe title="Go Shoot 戰鬥陀螺 — 地圖位置" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%99%AF%E5%B9%B3%E8%B7%AF593%E8%99%9F%E4%B9%8B1&output=embed"></iframe>
-    </div>
+  <div class="info" style="margin-top:18px">
+    <div class="map"><iframe title="Go Shoot 地圖位置" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%99%AF%E5%B9%B3%E8%B7%AF593%E8%99%9F%E4%B9%8B1&output=embed"></iframe></div>
     <div>
       <dl>
         <dt>地址</dt><dd>新北市中和區景平路593號之1</dd>
@@ -188,21 +333,37 @@
 
 <!-- ===== FOOTER ===== -->
 <footer><div class="wrap">
-  <a class="brand" href="index.html">
-    <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="#FBF6EE" stroke-width="3.5"/><circle cx="32" cy="32" r="7" fill="#FF6A4D"/><circle cx="32" cy="32" r="2.5" fill="#FBF6EE"/><path d="M32 5 A27 27 0 0 1 59 32" fill="none" stroke="#FF6A4D" stroke-width="4" stroke-linecap="round"/></svg>
-    Go Shoot
-  </a>
-  <div class="fnav">
-    <a href="#products">商品</a>
-    <a href="#preorder">代購預購</a>
-    <a href="#arena">賽事</a>
-    <a href="guide.html">攻略</a>
-    <a href="#visit">來店</a>
-    <a href="faq.html">常見問題</a>
+  <div class="fgrid">
+    <div>
+      <div class="fbrand">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#FBF6EE" stroke-width="3.5"/><circle cx="32" cy="32" r="7" fill="#FF6A4D"/><path d="M32 6 A26 26 0 0 1 58 32" fill="none" stroke="#FF6A4D" stroke-width="4" stroke-linecap="round"/></svg>
+        Go Shoot
+      </div>
+      <p style="color:#cfc8bf;font-size:14px;max-width:280px">中和捷運站旁的戰鬥陀螺・玩具・娃娃機店。買得到、找得到對手、上得了排行榜。一起 Go Shoot！</p>
+      <a class="btn btn-sm fcta" href="#" data-line>加 LINE 好友 →</a>
+      <div class="fsoc"><a href="#" data-line title="LINE">💬</a><a href="#" title="Instagram">📷</a><a href="#" title="Facebook">f</a></div>
+    </div>
+    <div><h4>逛商品</h4><a href="#products">戰鬥陀螺</a><a href="#products">玩具公仔</a><a href="#products">扭蛋模型</a><a href="#" data-shopee>蝦皮賣場</a></div>
+    <div><h4>玩家服務</h4><a href="#preorder">代購預購</a><a href="#arena">店內賽事</a><a href="#visit">娃娃機台區</a><a href="faq.html">常見問題</a></div>
+    <div><h4>攻略資源</h4><a href="guide-beginner.html">新手入門</a><a href="guide-tierlist.html">本月天梯</a><a href="guide-mods.html">改裝攻略</a><a href="guide.html">全部攻略</a></div>
   </div>
   <div class="copy">© 2026 Go Shoot 戰鬥陀螺 ・ 新北市中和區景平路593號之1 ・ 一起開戰！</div>
 </div></footer>
 
+<a href="#" class="js-back" aria-label="回上一頁" onclick="if(history.length>1){history.back();return false;}location.href='index.html';return false;" style="position:fixed;left:14px;bottom:14px;z-index:99999;background:#262329;color:#FBF6EE;text-decoration:none;font:600 14px/1 'Noto Sans TC','Poppins',sans-serif;padding:11px 16px;border-radius:24px;box-shadow:0 3px 12px rgba(0,0,0,.25)">← 回上一頁</a>
+
 <script src="assets/site.js" defer></script>
+<script>
+/* Hero 輪播 */
+(function(){
+  var slides=document.querySelectorAll('.slide'), dots=document.getElementById('dots'), i=0;
+  slides.forEach(function(_,n){var b=document.createElement('b');if(n===0)b.className='on';
+    b.onclick=function(){go(n)};dots.appendChild(b);});
+  var dot=dots.children;
+  function go(n){slides[i].classList.remove('on');dot[i].classList.remove('on');
+    i=n;slides[i].classList.add('on');dot[i].classList.add('on');}
+  setInterval(function(){go((i+1)%slides.length);},5000);
+})();
+</script>
 </body>
 </html>

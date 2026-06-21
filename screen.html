@@ -63,7 +63,7 @@ body{background:var(--ink);color:var(--cream);font-family:var(--body);overflow:h
 <body>
 <div class="kiosk">
   <div class="khead">
-    <div class="kbrand"><img src="assets/logo-coral.png" alt="Go Shoot"> Go Shoot</div>
+    <a class="kbrand" href="index.html" title="回首頁" style="text-decoration:none;color:inherit"><img src="assets/logo-coral.png" alt="Go Shoot"> Go Shoot</a>
     <div class="ktitle">本月熱門 <b>TOP <span id="total">100</span></b></div>
     <div class="kupd">更新 <b id="updated">—</b></div>
   </div>
@@ -159,5 +159,6 @@ body{background:var(--ink);color:var(--cream);font-family:var(--body);overflow:h
   setInterval(load, RELOAD_MS);   // 定時重抓，資料更新後螢幕自動換新
 })();
 </script>
+<a href="#" class="js-back" aria-label="回上一頁" onclick="if(history.length>1){history.back();return false;}location.href='index.html';return false;" style="position:fixed;left:14px;bottom:14px;z-index:99999;background:#262329;color:#FBF6EE;text-decoration:none;font:600 14px/1 'Noto Sans TC','Poppins',sans-serif;padding:11px 16px;border-radius:24px;box-shadow:0 3px 12px rgba(0,0,0,.25)">← 回上一頁</a>
 </body>
 </html>
