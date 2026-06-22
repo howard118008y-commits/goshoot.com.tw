@@ -1,0 +1,33 @@
+Go Shoot 官網 — 要索引的網頁清單（共 13 頁）
+更新：2026-06-22
+用途：到 Google Search Console → 網址審查 → 貼上網址 → 「要求建立索引」
+
+【首頁・主要頁】
+https://goshoot.com.tw/
+https://goshoot.com.tw/shop.html
+https://goshoot.com.tw/events.html
+https://goshoot.com.tw/faq.html
+
+【攻略頁（SEO 重點）】
+https://goshoot.com.tw/guide.html
+https://goshoot.com.tw/guide-beginner.html
+https://goshoot.com.tw/guide-tierlist.html
+https://goshoot.com.tw/guide-whatisx.html
+https://goshoot.com.tw/guide-rules.html
+
+★ 以下 4 頁是記憶中尚待手動「要求建立索引」的，優先補送：
+https://goshoot.com.tw/guide-terms.html
+https://goshoot.com.tw/guide-shoot.html
+https://goshoot.com.tw/guide-mods.html
+https://goshoot.com.tw/guide-daikou.html
+
+────────────────────────────────────────
+不要索引（已正確排除，不用送）：
+- screen.html （店內 TOP100 螢幕，已設 noindex）
+- index-classic.html / index-v2.html （備份／預覽，未上線、不在 sitemap）
+- googleea8aada33a914342.html （Google 驗證檔）
+
+備註：
+- sitemap 已含全部 13 頁，Google 會自動陸續收錄；手動「要求建立索引」只是催它快點。
+- GSC 每日「要求建立索引」有配額上限，額滿隔天再補。
+- sitemap 位置：https://goshoot.com.tw/sitemap.xml （已在 GSC 提交）
