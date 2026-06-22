@@ -7,7 +7,7 @@
       "rank": 1,
       "name": "Beyblade X 入門組（含發射器）",
       "price": "NT$590",
-      "image": "assets/photos/product-1.jpg",
+      "image": "assets/photos/product-1.svg",
       "url": "#",
       "blurb": "新世代戰鬥陀螺X系列入門首選！內含陀螺、發射器、競技場，新手也能輕鬆上手，精緻設計與高度可玩性兼具，現在入坑正是時候！ 🔥"
     },
@@ -15,7 +15,7 @@
       "rank": 2,
       "name": "BX 攻擊型陀螺 單顆",
       "price": "NT$320",
-      "image": "assets/photos/product-2.jpg",
+      "image": "assets/photos/product-2.svg",
       "url": "#",
       "blurb": "高速旋轉攻擊力MAX！BX系列頂級攻擊型陀螺，銳利外刃設計讓對手無所遁形，競賽必備聖品。⚡"
     },
@@ -23,7 +23,7 @@
       "rank": 3,
       "name": "BX 持久型陀螺 單顆",
       "price": "NT$320",
-      "image": "assets/photos/product-3.jpg",
+      "image": "assets/photos/product-3.svg",
       "url": "#",
       "blurb": "耐久度超強持久型設計！BX規格認證，穩定旋轉不易倒，是競賽與收藏的必備好手 🌟"
     },
@@ -31,7 +31,7 @@
       "rank": 4,
       "name": "高性能發射器（含握把）",
       "price": "NT$450",
-      "image": "assets/photos/product-1.jpg",
+      "image": "assets/photos/product-4.svg",
       "url": "#",
       "blurb": "精准控制發射力度，符合競賽規格設計，搭配舒適防滑握把，讓你的陀螺發揮最強性能！🔥"
     },
@@ -39,7 +39,7 @@
       "rank": 5,
       "name": "競技盤 Xtreme Stadium",
       "price": "NT$880",
-      "image": "assets/photos/product-2.jpg",
+      "image": "assets/photos/product-5.svg",
       "url": "#",
       "blurb": "專業競技盤設計，穩定耐用承載激烈對戰，完美符合賽事規範標準，讓你的陀螺在戰鬥中發揮最大潛能！⚡"
     },
@@ -47,7 +47,7 @@
       "rank": 6,
       "name": "改裝配件組（軌道環＋軸尖）",
       "price": "NT$260",
-      "image": "assets/photos/product-3.jpg",
+      "image": "assets/photos/product-6.svg",
       "url": "#",
       "blurb": "提升戰鬥力的必備組合！軌道環強化迴旋穩定性，精密軸尖增加攻擊精準度，讓你的陀螺在競技場上無敵 ⚡"
     },
@@ -55,7 +55,7 @@
       "rank": 7,
       "name": "限定配色陀螺",
       "price": "NT$420",
-      "image": "assets/photos/product-1.jpg",
+      "image": "assets/photos/product-7.svg",
       "url": "#",
       "blurb": "限量推出獨家配色設計，炫彩漸層外殼視覺超搶眼！高轉速馬達搭配精密軸承，戰力滿點，收藏對戰必備 🔥"
     },
@@ -63,7 +63,7 @@
       "rank": 8,
       "name": "發射器握把（強化版）",
       "price": "NT$180",
-      "image": "assets/photos/product-2.jpg",
+      "image": "assets/photos/product-8.svg",
       "url": "#",
       "blurb": "🔥強化版握把設計，防滑紋理提升手感，更穩定的發射角度控制，讓你的陀螺旋轉更持久、戰鬥更猛烈！"
     }
