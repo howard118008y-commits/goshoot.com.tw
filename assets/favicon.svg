@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#FF6A4D"/>
-  <g transform="rotate(-12 32 32)">
-    <rect x="12" y="21" width="40" height="22" rx="5" fill="#1A1714"/>
-    <line x1="25" y1="23.5" x2="25" y2="40.5" stroke="#FF6A4D" stroke-width="2" stroke-dasharray="2 2.6" stroke-linecap="round"/>
-    <circle cx="25" cy="21" r="3" fill="#FF6A4D"/>
-    <circle cx="25" cy="43" r="3" fill="#FF6A4D"/>
-    <path d="M39 26 L40.53 29.90 L44.71 30.15 L41.47 32.80 L42.53 36.85 L39 34.6 L35.47 36.85 L36.53 32.80 L33.29 30.15 L37.47 29.90 Z" fill="#FBF6EE"/>
+  <g transform="rotate(-10 32 32)">
+    <rect x="11" y="20" width="42" height="24" rx="6" fill="#1A1714"/>
+    <line x1="25" y1="22.5" x2="25" y2="41.5" stroke="#FF6A4D" stroke-width="2.2" stroke-dasharray="2.4 2.8" stroke-linecap="round"/>
+    <circle cx="25" cy="20" r="3.2" fill="#FF6A4D"/>
+    <circle cx="25" cy="44" r="3.2" fill="#FF6A4D"/>
+    <path d="M39.5 25.2 L41.23 29.61 L45.97 29.90 L42.31 32.91 L43.50 37.50 L39.5 34.95 L35.50 37.50 L36.69 32.91 L33.03 29.90 L37.77 29.61 Z" fill="#FBF6EE"/>
   </g>
 </svg>
