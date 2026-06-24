@@ -2,6 +2,7 @@
 <!-- 部署後把 https://goshoot.com.tw 換成你的實際網域 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://goshoot.com.tw/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://goshoot.com.tw/ichiban.html</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://goshoot.com.tw/events.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://goshoot.com.tw/shop.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://goshoot.com.tw/guide.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>

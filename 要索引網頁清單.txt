@@ -4,6 +4,7 @@ Go Shoot 官網 — 要索引的網頁清單（共 13 頁）
 
 【首頁・主要頁】
 https://goshoot.com.tw/
+★★ https://goshoot.com.tw/ichiban.html  ← 線上一番賞 SEO 主力頁，最優先要求索引
 https://goshoot.com.tw/shop.html
 https://goshoot.com.tw/events.html
 https://goshoot.com.tw/faq.html
