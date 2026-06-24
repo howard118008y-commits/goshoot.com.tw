@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Go Shoot 戰鬥陀螺・玩具・娃娃機｜中和站旁</title>
+<title>Go Shoot 戰鬥陀螺・玩具・娃娃機｜中和站旁（新版預覽）</title>
 <meta name="description" content="Go Shoot 是中和捷運站旁的戰鬥陀螺・玩具・娃娃機店。戰鬥陀螺與配件、公仔扭蛋模型零售與日本代購，店內娃娃機台區與對戰賽場。">
 <link rel="icon" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,19 +167,18 @@ footer a:hover{color:var(--sky)}
 
 <!-- ===== NAV ===== -->
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#FF6A4D"/><g transform="rotate(-12 32 32)"><rect x="12" y="21" width="40" height="22" rx="5" fill="#1A1714"/><line x1="25" y1="23.5" x2="25" y2="40.5" stroke="#FF6A4D" stroke-width="2" stroke-dasharray="2 2.6" stroke-linecap="round"/><circle cx="25" cy="21" r="3" fill="#FF6A4D"/><circle cx="25" cy="43" r="3" fill="#FF6A4D"/><path d="M39 26 L40.53 29.90 L44.71 30.15 L41.47 32.80 L42.53 36.85 L39 34.6 L35.47 36.85 L36.53 32.80 L33.29 30.15 L37.47 29.90 Z" fill="#FBF6EE"/></g></svg>
+  <a class="brand" href="index-v2.html"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#FF6A4D"/><g transform="rotate(-12 32 32)"><rect x="12" y="21" width="40" height="22" rx="5" fill="#1A1714"/><line x1="25" y1="23.5" x2="25" y2="40.5" stroke="#FF6A4D" stroke-width="2" stroke-dasharray="2 2.6" stroke-linecap="round"/><circle cx="25" cy="21" r="3" fill="#FF6A4D"/><circle cx="25" cy="43" r="3" fill="#FF6A4D"/><path d="M39 26 L40.53 29.90 L44.71 30.15 L41.47 32.80 L42.53 36.85 L39 34.6 L35.47 36.85 L36.53 32.80 L33.29 30.15 L37.47 29.90 Z" fill="#FBF6EE"/></g></svg>
     Go Shoot
   </a>
   <div class="nav-links">
     <a href="#cats">分類</a>
     <a href="#products">商品</a>
-    <a href="#ichiban" style="color:var(--coral-deep);font-weight:700">線上一番賞</a>
     <a href="#arena">賽事</a>
     <a href="#guides">攻略</a>
     <a href="#preorder">代購預購</a>
     <a href="#visit">來店</a>
     <a href="faq.html">常見問題</a>
-    <a class="btn btn-sm" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽一番賞</a>
+    <a class="btn btn-sm" href="#" data-line>加 LINE</a>
   </div>
   <form class="search" onsubmit="location.href='shop.html';return false;">
     <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋">
@@ -225,18 +224,6 @@ footer a:hover{color:var(--sky)}
         <div class="emb"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#fff" stroke-width="3.5"/><circle cx="32" cy="32" r="8" fill="none" stroke="#fff" stroke-width="4"/></svg></div>
       </div>
     </div>
-    <div class="slide" style="background:linear-gradient(120deg,#7B3FE4,#FF6A4D)">
-      <div class="wrap">
-        <div class="txt">
-          <span class="badge">線上開抽・必中</span>
-          <h2>線上一番賞<br>每抽必中獎</h2>
-          <p>Go Shoot 線上一番賞正式開抽！透明公正、即時開獎，A 賞到最後賞通通有機會。用 Google 登入，立刻抽。</p>
-          <a class="btn btn-light" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
-          <a class="btn btn-ghost" href="#ichiban" style="border-color:#fff;color:#fff;margin-left:8px">了解玩法</a>
-        </div>
-        <div class="emb"><svg viewBox="0 0 64 64"><path d="M14 26 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M14 26 l18-14 18 14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><path d="M32 12 v40" stroke="#fff" stroke-width="2" opacity=".6"/><circle cx="32" cy="38" r="5" fill="#fff"/></svg></div>
-      </div>
-    </div>
   </div>
   <div class="dots" id="dots"></div>
 </section>
@@ -267,19 +254,6 @@ footer a:hover{color:var(--sky)}
     <a class="prod" href="#" data-shopee><span class="pb">精選</span><div class="ph"><svg viewBox="0 0 64 64"><circle cx="32" cy="26" r="12" fill="#FF6A4D"/><rect x="24" y="36" width="16" height="18" rx="4" fill="#262329"/></svg></div><div class="pi"><div class="nm">公仔・扭蛋・模型</div><div class="meta">定期到貨 →</div></div></a>
   </div>
   <div style="margin-top:24px"><a class="btn" href="#" data-shopee>上蝦皮看全部現貨 →</a></div>
-</div></section>
-
-<!-- ===== ICHIBAN ===== -->
-<section id="ichiban"><div class="wrap">
-  <div class="band" style="background:linear-gradient(120deg,#7B3FE4,#FF6A4D)">
-    <div class="emblem"><svg viewBox="0 0 64 64"><path d="M14 26 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M14 26 l18-14 18 14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="38" r="5" fill="#fff"/></svg></div>
-    <div style="flex:1;min-width:260px">
-      <span class="eyebrow" style="color:#7B3FE4">線上開抽</span>
-      <h2>Go Shoot 線上一番賞</h2>
-      <p>不必到店、隨時開抽。每一抽都有獎，A 賞、最後賞通通有機會帶回家。透明公正、即時開獎，用 Google 帳號登入就能玩。中獎可選宅配到府、到店取貨，或折抵店內消費。</p>
-      <a class="btn btn-light" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
-    </div>
-  </div>
 </div></section>
 
 <!-- ===== ARENA BAND ===== -->
@@ -348,7 +322,7 @@ footer a:hover{color:var(--sky)}
       <dl>
         <dt>地址</dt><dd>新北市中和區景平路593號之1</dd>
         <dt>交通</dt><dd>捷運中和站旁，連城路口公車站步行約 1 分鐘</dd>
-        <dt>營業時間</dt><dd>🕹️ 娃娃機：24 小時<br>🌀 戰鬥陀螺：每日 16:00–24:00</dd>
+        <dt>營業時間</dt><dd>（待填）例：週二–週日 13:00–21:00</dd>
         <dt>聯絡</dt><dd><a href="#" data-line style="color:var(--coral-deep)">LINE 官方帳號</a> ／ 電話（待填）</dd>
       </dl>
       <div style="margin-top:20px"><a class="btn" href="#" data-line>加 LINE 預購・報名 →</a></div>
@@ -368,7 +342,7 @@ footer a:hover{color:var(--sky)}
       <div class="fsoc"><a href="#" data-line title="LINE">💬</a><a href="#" title="Instagram">📷</a><a href="#" title="Facebook">f</a></div>
     </div>
     <div><h4>逛商品</h4><a href="#products">戰鬥陀螺</a><a href="#products">玩具公仔</a><a href="#products">扭蛋模型</a><a href="#" data-shopee>蝦皮賣場</a></div>
-    <div><h4>玩家服務</h4><a href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">線上一番賞</a><a href="#preorder">代購預購</a><a href="#arena">店內賽事</a><a href="#visit">娃娃機台區</a><a href="faq.html">常見問題</a></div>
+    <div><h4>玩家服務</h4><a href="#preorder">代購預購</a><a href="#arena">店內賽事</a><a href="#visit">娃娃機台區</a><a href="faq.html">常見問題</a></div>
     <div><h4>攻略資源</h4><a href="guide-beginner.html">新手入門</a><a href="guide-tierlist.html">本月天梯</a><a href="guide-mods.html">改裝攻略</a><a href="guide.html">全部攻略</a></div>
   </div>
   <div class="copy">© 2026 Go Shoot 戰鬥陀螺 ・ 新北市中和區景平路593號之1 ・ 一起開戰！</div>
