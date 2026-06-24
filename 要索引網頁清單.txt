@@ -2,9 +2,14 @@ Go Shoot 官網 — 要索引的網頁清單（共 13 頁）
 更新：2026-06-22
 用途：到 Google Search Console → 網址審查 → 貼上網址 → 「要求建立索引」
 
+【線上一番賞 SEO 主力（最優先要求索引）】
+★★ https://goshoot.com.tw/ichiban.html  ← 線上一番賞主力落地頁
+★  https://goshoot.com.tw/article-what-is-online-ichiban.html  ← 線上一番賞是什麼
+★  https://goshoot.com.tw/article-online-ichiban-fair.html  ← 會詐騙嗎/公平
+★  https://goshoot.com.tw/article-online-ichiban-odds.html  ← 中獎機率怎麼算
+
 【首頁・主要頁】
 https://goshoot.com.tw/
-★★ https://goshoot.com.tw/ichiban.html  ← 線上一番賞 SEO 主力頁，最優先要求索引
 https://goshoot.com.tw/shop.html
 https://goshoot.com.tw/events.html
 https://goshoot.com.tw/faq.html
