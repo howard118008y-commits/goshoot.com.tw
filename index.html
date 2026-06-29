@@ -283,6 +283,43 @@ footer a:hover{color:var(--sky)}
   <div style="margin-top:24px"><a class="btn" href="#" data-shopee>上蝦皮看全部現貨 →</a></div>
 </div></section>
 
+<!-- ===== CLAW MACHINE ZONE ===== -->
+<section id="claw" style="background:linear-gradient(180deg,#FBF6EE,#FFF1E4)"><div class="wrap">
+  <style>
+    .claw-gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:clamp(320px,48vw,460px)}
+    .claw-photo{border-radius:18px;background-size:cover;background-position:center;box-shadow:var(--shadow)}
+    .claw-big{grid-row:1 / span 2}
+    .claw-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+    .claw-feat{background:#fff;border-radius:16px;padding:18px 14px;text-align:center;box-shadow:var(--shadow)}
+    .claw-feat b{display:block;font-family:var(--disp);font-size:22px;color:var(--coral-deep);margin-bottom:4px}
+    .claw-feat span{font-size:13px;color:#6b6660}
+    @media(max-width:760px){
+      .claw-gallery{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto}
+      .claw-big{grid-column:1 / span 2;aspect-ratio:16/10}
+      .claw-photo:not(.claw-big){aspect-ratio:1}
+      .claw-feats{grid-template-columns:1fr 1fr}
+    }
+  </style>
+  <span class="eyebrow">店內主打</span>
+  <h2 class="sec">整間，都是娃娃機 🕹️</h2>
+  <p class="sec-lead" style="margin-bottom:24px">中和捷運站旁・<b>24 小時營業</b>。場內滿滿娃娃機台，景品定期更新、不定期保夾活動——從人氣公仔、玩偶到限定景品都有。逛玩具、開戰之餘，順手夾一發帶回家。</p>
+  <div class="claw-gallery">
+    <div class="claw-photo claw-big" style="background-image:url('assets/photos/claw-colorful.jpg')" role="img" aria-label="Go Shoot 店內娃娃機台區"></div>
+    <div class="claw-photo" style="background-image:url('assets/photos/claw-blue.jpg')" role="img" aria-label="娃娃機景品"></div>
+    <div class="claw-photo" style="background-image:url('assets/photos/claw-neon.jpg')" role="img" aria-label="娃娃機台"></div>
+  </div>
+  <div class="claw-feats">
+    <div class="claw-feat"><b>24H</b><span>全天候營業，隨時來夾</span></div>
+    <div class="claw-feat"><b>滿場台</b><span>場內主力，機台超多</span></div>
+    <div class="claw-feat"><b>常更新</b><span>景品定期換・不定期保夾</span></div>
+    <div class="claw-feat"><b>站旁</b><span>中和捷運站旁，好到好停</span></div>
+  </div>
+  <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+    <a class="btn" href="#visit">來店看看 →</a>
+    <a class="btn btn-ghost" href="#" data-line>加 LINE 看新景品</a>
+  </div>
+</div></section>
+
 <!-- ===== ICHIBAN ===== -->
 <section id="ichiban"><div class="wrap">
   <div class="band" style="background:linear-gradient(120deg,#7B3FE4,#FF6A4D)">
