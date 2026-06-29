@@ -15,7 +15,7 @@ const GOSHOOT_LINKS = {
    ↓↓↓ 只要填這 2 個 ID，全站每一頁就開始記錄流量 ↓↓↓
 =================================================================== */
 const GOSHOOT_ANALYTICS = {
-  ga4:     "",  // Google Analytics 4 評估 ID，格式 G-XXXXXXXXXX（GA4 後台→管理→資料串流取得）
+  ga4:     "G-77W711JZPL",  // Google Analytics 4 評估 ID，格式 G-XXXXXXXXXX（GA4 後台→管理→資料串流取得）
   clarity: ""   // Microsoft Clarity 專案 ID，10 碼小寫英數（clarity.microsoft.com 免費，建專案後取得）
 };
 /* =================================================================== */
