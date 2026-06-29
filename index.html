@@ -209,7 +209,7 @@ footer a:hover{color:var(--sky)}
           <span class="badge">NEW・新品到貨</span>
           <h2>戰鬥陀螺 X<br>新品開戰</h2>
           <p>Beyblade X 本體、發射器、競技盤與改裝配件現貨陳列，現場試打。日版限定款代購直送。</p>
-          <a class="btn btn-light" href="#" data-shopee>逛蝦皮現貨 →</a>
+          <a class="btn btn-light" href="#products">看新品情報 →</a>
           <a class="btn btn-ghost" href="#guides" style="border-color:#fff;color:#fff;margin-left:8px">看攻略</a>
         </div>
         <div class="emb"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#fff" stroke-width="3"/><circle cx="32" cy="32" r="16" fill="none" stroke="#fff" stroke-width="1.6" opacity=".5"/><circle cx="32" cy="32" r="7" fill="#fff"/><path class="spin" d="M32 6 A26 26 0 0 1 58 32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg></div>
@@ -280,8 +280,8 @@ footer a:hover{color:var(--sky)}
     <a class="pillar p-bey" href="#products">
       <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="#fff" stroke-width="4"/><circle cx="32" cy="32" r="16" fill="none" stroke="#fff" stroke-width="1.6" opacity=".5"/><circle cx="32" cy="32" r="7" fill="#fff"/></svg>
       <h3>戰鬥陀螺</h3>
-      <p>Beyblade X 本體・發射器・改裝配件，現貨陳列、現場試打</p>
-      <span class="go">逛現貨 →</span>
+      <p>Beyblade X 新品快訊、天梯榜與改裝攻略，店內現貨・現場試打</p>
+      <span class="go">看情報 →</span>
     </a>
     <a class="pillar p-claw" href="#claw">
       <svg viewBox="0 0 64 64"><rect x="16" y="14" width="32" height="36" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M26 30 l6 6 6-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
@@ -306,16 +306,66 @@ footer a:hover{color:var(--sky)}
 
 <!-- ===== PRODUCTS ===== -->
 <section id="products" style="background:#fff"><div class="wrap">
-  <span class="eyebrow">精選商品</span>
-  <h2 class="sec">現貨在蝦皮，限定來預購</h2>
-  <p class="sec-lead" style="margin-bottom:26px">標準款現貨上架蝦皮，下單最快；日版／限定款走預購代購。</p>
-  <div class="prods">
-    <a class="prod" href="#" data-shopee><span class="pb new">新品</span><div class="ph"><img src="assets/photos/product-1.svg" alt="戰鬥陀螺現貨" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">戰鬥陀螺 X 本體</div><div class="meta">現貨・蝦皮下單 →</div></div></a>
-    <a class="prod" href="#" data-shopee><span class="pb hot">熱銷</span><div class="ph"><img src="assets/photos/product-2.svg" alt="發射器組" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">發射器・競技盤</div><div class="meta">現貨・蝦皮下單 →</div></div></a>
-    <a class="prod" href="#" data-shopee><span class="pb ltd">限定</span><div class="ph"><img src="assets/photos/product-3.svg" alt="日版限定款" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">日版限定款</div><div class="meta">預購代購 →</div></div></a>
-    <a class="prod" href="#" data-shopee><span class="pb">精選</span><div class="ph"><svg viewBox="0 0 64 64"><circle cx="32" cy="26" r="12" fill="#FF6A4D"/><rect x="24" y="36" width="16" height="18" rx="4" fill="#262329"/></svg></div><div class="pi"><div class="nm">公仔・扭蛋・模型</div><div class="meta">定期到貨 →</div></div></a>
+  <style>
+    .news{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .newscard{background:#fff;border:1px solid var(--cream);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.15s;display:flex;flex-direction:column;color:var(--ink)}
+    .newscard:hover{transform:translateY(-4px)}
+    .news-top{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative}
+    .nt-new{background:linear-gradient(135deg,var(--coral),var(--coral-deep))}
+    .nt-ltd{background:linear-gradient(135deg,#2f2b33,#46414b)}
+    .nt-sky{background:linear-gradient(135deg,var(--sky-deep),#3f8aa3)}
+    .nt-game{background:linear-gradient(135deg,var(--gold),#E5912A)}
+    .news-emoji{font-size:46px}
+    .news-tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--disp);font-weight:800;font-size:12px;padding:4px 11px;border-radius:12px}
+    .news-body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+    .news-title{font-weight:700;font-size:15px;line-height:1.45}
+    .news-meta{color:#6b6660;font-size:13px;line-height:1.5;flex:1}
+    .news-src{color:var(--coral-deep);font-size:12.5px;font-weight:700;font-family:var(--disp)}
+    @media(max-width:900px){.news{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.news{grid-template-columns:1fr}}
+  </style>
+  <span class="eyebrow">戰鬥陀螺情報</span>
+  <h2 class="sec">最新戰況・新品快訊</h2>
+  <p class="sec-lead" style="margin-bottom:26px">Beyblade X 最新新品、限定款與賽事情報，幫你跟上戰局。想入手日版／限定款？店內可代購。</p>
+  <div class="news">
+    <a class="newscard" href="https://universe.oneone.com.tw/posts/5977" target="_blank" rel="noopener">
+      <div class="news-top nt-new"><span class="news-tag">新品</span><span class="news-emoji">🆕</span></div>
+      <div class="news-body">
+        <div class="news-title">UX-20 榮耀女武神 LF・7/11 發售</div>
+        <div class="news-meta">全新「彈跳反擊」機構＋白色金屬塗裝，攻擊型新作公開。</div>
+        <div class="news-src">oneone宇宙 ・ 看詳情 →</div>
+      </div>
+    </a>
+    <a class="newscard" href="https://www.nownews.com/news/6846589" target="_blank" rel="noopener">
+      <div class="news-top nt-ltd"><span class="news-tag">限定</span><span class="news-emoji">⚔️</span></div>
+      <div class="news-body">
+        <div class="news-title">世界盃日本隊「藍武士」限定登場</div>
+        <div class="news-meta">藍武士配色限定戰鬥陀螺，售價、外觀一次看。</div>
+        <div class="news-src">NOWnews ・ 看詳情 →</div>
+      </div>
+    </a>
+    <a class="newscard" href="https://www.nownews.com/news/6846024" target="_blank" rel="noopener">
+      <div class="news-top nt-sky"><span class="news-tag">限定</span><span class="news-emoji">🐉</span></div>
+      <div class="news-body">
+        <div class="news-title">澀谷快閃「限定黑龍」開賣</div>
+        <div class="news-meta">Cobalt Dragoon 黑色金屬版，2,420 日圓每人限購 1 個。</div>
+        <div class="news-src">NOWnews ・ 看詳情 →</div>
+      </div>
+    </a>
+    <a class="newscard" href="https://www.4gamers.com.tw/news/detail/75900/the-chinese-version-of-beyblade-x-xone-will-be-released-2026-february" target="_blank" rel="noopener">
+      <div class="news-top nt-game"><span class="news-tag">遊戲</span><span class="news-emoji">🎮</span></div>
+      <div class="news-body">
+        <div class="news-title">《戰鬥陀螺 X XONE》中文版上市</div>
+        <div class="news-meta">Switch 中文版推出，特典附遊戲限定戰鬥陀螺。</div>
+        <div class="news-src">4Gamers ・ 看詳情 →</div>
+      </div>
+    </a>
   </div>
-  <div style="margin-top:24px"><a class="btn" href="#" data-shopee>上蝦皮看全部現貨 →</a></div>
+  <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <a class="btn" href="guide-tierlist.html">看本月天梯榜 →</a>
+    <a class="btn btn-ghost" href="#preorder">日版／限定款代購</a>
+    <span style="color:#9a948c;font-size:13px">情報定期更新</span>
+  </div>
 </div></section>
 
 <!-- ===== CLAW MACHINE ZONE ===== -->
