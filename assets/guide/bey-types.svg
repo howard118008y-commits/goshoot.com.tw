@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" role="img" aria-label="三大取向：攻擊、防禦、持久">
+  <!-- 攻擊（珊瑚・尖刃）-->
+  <g transform="translate(70,62)">
+    <g fill="#FF6A4D" stroke="#262329" stroke-width="4" stroke-linejoin="round">
+      <path d="M0 -46 l13 22 -26 0z"/><path d="M40 23 l-22 13 -7 -25z"/><path d="M-40 23 l22 13 7 -25z"/>
+    </g>
+    <circle r="24" fill="#FBF6EE" stroke="#262329" stroke-width="4"/><circle r="8" fill="#FF6A4D"/>
+    <text y="74" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-weight="800" font-size="18" fill="#262329">攻擊</text>
+    <text y="96" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" fill="#6b6660">擊飛對手</text>
+  </g>
+  <!-- 防禦（墨黑・厚環）-->
+  <g transform="translate(200,62)">
+    <circle r="44" fill="#262329"/><circle r="44" fill="none" stroke="#262329" stroke-width="4"/>
+    <circle r="30" fill="#FBF6EE"/>
+    <circle r="16" fill="#46414b"/><circle r="6" fill="#FBF6EE"/>
+    <text y="74" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-weight="800" font-size="18" fill="#262329">防禦</text>
+    <text y="96" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" fill="#6b6660">承受化解</text>
+  </g>
+  <!-- 持久（天藍・平滑）-->
+  <g transform="translate(330,62)">
+    <circle r="42" fill="#5BB3CE" stroke="#262329" stroke-width="4"/>
+    <circle r="42" fill="none" stroke="#FBF6EE" stroke-width="3" opacity=".5"/>
+    <circle r="22" fill="#FBF6EE" stroke="#262329" stroke-width="3"/>
+    <circle r="8" fill="#FFC24B"/><circle r="3" fill="#262329"/>
+    <text y="74" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-weight="800" font-size="18" fill="#262329">持久</text>
+    <text y="96" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" fill="#6b6660">轉到最後</text>
+  </g>
+</svg>

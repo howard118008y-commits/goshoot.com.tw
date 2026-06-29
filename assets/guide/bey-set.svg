@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 170" role="img" aria-label="一套戰鬥陀螺：競技盤、陀螺、發射器">
+  <!-- 競技盤 -->
+  <g>
+    <ellipse cx="78" cy="74" rx="64" ry="34" fill="#E6F2F6" stroke="#262329" stroke-width="5"/>
+    <ellipse cx="78" cy="74" rx="40" ry="20" fill="none" stroke="#5BB3CE" stroke-width="3"/>
+    <ellipse cx="86" cy="70" rx="10" ry="5" fill="#FF6A4D"/>
+    <text x="78" y="138" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-weight="700" font-size="17" fill="#262329">競技盤</text>
+  </g>
+  <!-- 陀螺（俯視）-->
+  <g transform="translate(200,70)">
+    <circle r="42" fill="none" stroke="#262329" stroke-width="5"/>
+    <g fill="#FF6A4D" stroke="#262329" stroke-width="3">
+      <path d="M0 -42 l14 10 -14 8 -14 -8z"/><path d="M36 21 l-4 -17 -15 6 6 16z"/><path d="M-36 21 l4 -17 15 6 -6 16z"/>
+    </g>
+    <circle r="22" fill="#FBF6EE" stroke="#262329" stroke-width="3"/>
+    <circle r="9" fill="#FFC24B"/><circle r="3.4" fill="#262329"/>
+    <text y="68" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-weight="700" font-size="17" fill="#262329">陀螺</text>
+  </g>
+  <!-- 發射器 -->
+  <g transform="translate(330,30)">
+    <rect x="-4" y="0" width="44" height="26" rx="6" fill="#FF6A4D" stroke="#262329" stroke-width="4"/>
+    <rect x="6" y="26" width="22" height="40" rx="7" fill="#FBF6EE" stroke="#262329" stroke-width="4"/>
+    <path d="M40 8 h26" stroke="#262329" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="70" cy="8" r="7" fill="#FFC24B" stroke="#262329" stroke-width="3"/>
+    <text x="22" y="106" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-weight="700" font-size="17" fill="#262329">發射器</text>
+  </g>
+</svg>
