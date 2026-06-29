@@ -82,9 +82,10 @@ section{padding:64px 0}
   font-weight:800;font-size:13px;letter-spacing:1px;padding:6px 14px;border-radius:20px;margin-bottom:16px}
 .slide .emb{flex:0 0 auto}
 .slide .emb svg{width:clamp(140px,22vw,260px);height:auto}
+.slide .emb img{width:clamp(170px,25vw,290px);height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.18))}
 .s-coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
 .s-ink{background:linear-gradient(120deg,#2f2b33,#46414b)}
-.s-sky{background:linear-gradient(120deg,rgba(16,26,44,.74),rgba(16,26,44,.32)),url('assets/photos/claw-blue.jpg') center/cover}
+.s-sky{background:linear-gradient(120deg,var(--sky-deep),var(--sky))}
 .dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:3}
 .dots b{width:11px;height:11px;border-radius:50%;background:#ffffff8c;cursor:pointer}
 .dots b.on{background:#fff;width:26px;border-radius:6px}
@@ -224,7 +225,7 @@ footer a:hover{color:var(--sky)}
           <p>中和站旁 24H 營業，場內滿滿娃娃機台。景品定期更新、不定期保夾活動，順手夾一發帶回家。</p>
           <a class="btn btn-light" href="#claw">娃娃機專區 →</a>
         </div>
-        <div class="emb"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#fff" stroke-width="3.5"/><circle cx="32" cy="32" r="8" fill="none" stroke="#fff" stroke-width="4"/></svg></div>
+        <div class="emb"><img src="assets/claw-illus.svg" alt="娃娃機台" width="280"></div>
       </div>
     </div>
     <div class="slide" style="background:linear-gradient(120deg,#7B3FE4,#FF6A4D)">
@@ -285,12 +286,13 @@ footer a:hover{color:var(--sky)}
     .pillar p{font-size:13.5px;opacity:.95;line-height:1.5;margin-bottom:14px}
     .pillar .go{font-family:var(--disp);font-weight:700;font-size:15px}
     .p-bey{background:linear-gradient(150deg,var(--coral),var(--coral-deep))}
-    .p-claw{background:linear-gradient(160deg,rgba(16,14,26,.4),rgba(16,14,26,.74)),url('assets/photos/claw-colorful.jpg') center/cover}
+    .p-claw{background:linear-gradient(150deg,#5BB3CE,#8FCDE0)}
     .p-ichi{background:linear-gradient(150deg,#7B3FE4,#FF6A4D)}
     .pillar .pdeco{position:absolute;pointer-events:none;z-index:0}
     .pillar h3,.pillar p,.pillar .go,.pillar>svg:not(.pdeco){position:relative;z-index:1}
     .p-bey .pdeco{right:-30px;bottom:-32px;width:190px;height:190px;opacity:.18}
     .p-ichi .pdeco{right:-22px;bottom:-46px;width:182px;height:auto;transform:rotate(-11deg);border-radius:12px;box-shadow:0 10px 26px rgba(0,0,0,.3)}
+    .p-claw .pdeco{right:-12px;bottom:-20px;width:152px;height:auto;filter:drop-shadow(0 8px 18px rgba(0,0,0,.22))}
     .subcats{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .subcat{background:#fff;border-radius:30px;padding:11px 20px;font-weight:700;font-size:14px;box-shadow:var(--shadow);transition:.15s;color:var(--ink)}
     .subcat:hover{transform:translateY(-2px);color:var(--coral-deep)}
@@ -308,6 +310,7 @@ footer a:hover{color:var(--sky)}
       <span class="go">看情報 →</span>
     </a>
     <a class="pillar p-claw" href="#claw">
+      <img class="pdeco" src="assets/claw-illus.svg" alt="" aria-hidden="true">
       <svg viewBox="0 0 64 64"><rect x="16" y="14" width="32" height="36" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M26 30 l6 6 6-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
       <h3>娃娃機</h3>
       <p>店內主力・24H 營業・景品定期更新・不定期保夾</p>
@@ -397,27 +400,24 @@ footer a:hover{color:var(--sky)}
 <!-- ===== CLAW MACHINE ZONE ===== -->
 <section id="claw" style="background:linear-gradient(180deg,#FBF6EE,#FFF1E4)"><div class="wrap">
   <style>
-    .claw-gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:clamp(320px,48vw,460px)}
-    .claw-photo{border-radius:18px;background-size:cover;background-position:center;box-shadow:var(--shadow)}
-    .claw-big{grid-row:1 / span 2}
+    .claw-row{background:linear-gradient(135deg,#5BB3CE,#8FCDE0);border-radius:20px;box-shadow:var(--shadow);padding:30px 18px 24px;display:flex;gap:14px;align-items:flex-end;justify-content:center;flex-wrap:wrap}
+    .claw-row img{width:clamp(96px,17vw,160px);height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.2))}
+    .claw-row img.mid{width:clamp(116px,20vw,190px)}
     .claw-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
     .claw-feat{background:#fff;border-radius:16px;padding:18px 14px;text-align:center;box-shadow:var(--shadow)}
     .claw-feat b{display:block;font-family:var(--disp);font-size:22px;color:var(--coral-deep);margin-bottom:4px}
     .claw-feat span{font-size:13px;color:#6b6660}
     @media(max-width:760px){
-      .claw-gallery{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto}
-      .claw-big{grid-column:1 / span 2;aspect-ratio:16/10}
-      .claw-photo:not(.claw-big){aspect-ratio:1}
       .claw-feats{grid-template-columns:1fr 1fr}
     }
   </style>
   <span class="eyebrow">店內主打</span>
   <h2 class="sec">整間，都是娃娃機 🕹️</h2>
   <p class="sec-lead" style="margin-bottom:24px">中和捷運站旁・<b>24 小時營業</b>。場內滿滿娃娃機台，景品定期更新、不定期保夾活動——從人氣公仔、玩偶到限定景品都有。逛玩具、開戰之餘，順手夾一發帶回家。</p>
-  <div class="claw-gallery">
-    <div class="claw-photo claw-big" style="background-image:url('assets/photos/claw-colorful.jpg')" role="img" aria-label="Go Shoot 店內娃娃機台區"></div>
-    <div class="claw-photo" style="background-image:url('assets/photos/claw-blue.jpg')" role="img" aria-label="娃娃機景品"></div>
-    <div class="claw-photo" style="background-image:url('assets/photos/claw-neon.jpg')" role="img" aria-label="娃娃機台"></div>
+  <div class="claw-row" role="img" aria-label="Go Shoot 店內整排娃娃機台">
+    <img src="assets/claw-illus.svg" alt="">
+    <img src="assets/claw-illus.svg" alt="" class="mid">
+    <img src="assets/claw-illus.svg" alt="">
   </div>
   <div class="claw-feats">
     <div class="claw-feat"><b>24H</b><span>全天候營業，隨時來夾</span></div>

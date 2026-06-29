@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 320" role="img" aria-label="娃娃機">
+  <!-- 機台主體 -->
+  <rect x="32" y="16" width="216" height="288" rx="24" fill="#FBF6EE" stroke="#262329" stroke-width="6"/>
+  <!-- 頂蓋招牌 -->
+  <rect x="32" y="16" width="216" height="40" rx="24" fill="#FF6A4D"/>
+  <rect x="32" y="40" width="216" height="16" fill="#FF6A4D"/>
+  <circle cx="70" cy="36" r="6" fill="#FFC24B"/><circle cx="210" cy="36" r="6" fill="#FFC24B"/>
+  <text x="140" y="43" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="700" font-size="20" letter-spacing="2" fill="#FBF6EE">CLAW</text>
+  <!-- 玻璃展示區 -->
+  <rect x="50" y="66" width="180" height="150" rx="12" fill="#E6F2F6" stroke="#262329" stroke-width="4"/>
+  <!-- 軌道 -->
+  <rect x="58" y="74" width="164" height="10" rx="5" fill="#5BB3CE"/>
+  <!-- 爪子吊線 + 爪 -->
+  <line x1="140" y1="84" x2="140" y2="116" stroke="#262329" stroke-width="4"/>
+  <path d="M140 116 q-2 0 -2 6 M126 138 q-2 -16 14 -22 q16 6 14 22" fill="none" stroke="#262329" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M126 138 q-6 6 -2 12 M154 138 q6 6 2 12" fill="none" stroke="#262329" stroke-width="5" stroke-linecap="round"/>
+  <!-- 娃娃們 -->
+  <g>
+    <!-- 珊瑚娃 -->
+    <circle cx="86" cy="186" r="24" fill="#FF6A4D"/><circle cx="76" cy="168" r="8" fill="#FF6A4D"/><circle cx="96" cy="168" r="8" fill="#FF6A4D"/>
+    <circle cx="80" cy="184" r="3" fill="#FBF6EE"/><circle cx="92" cy="184" r="3" fill="#FBF6EE"/><path d="M82 193 q4 4 8 0" fill="none" stroke="#FBF6EE" stroke-width="2.4" stroke-linecap="round"/>
+    <!-- 金娃 -->
+    <circle cx="140" cy="192" r="20" fill="#FFC24B"/><circle cx="131" cy="178" r="7" fill="#FFC24B"/><circle cx="149" cy="178" r="7" fill="#FFC24B"/>
+    <circle cx="135" cy="190" r="2.6" fill="#262329"/><circle cx="145" cy="190" r="2.6" fill="#262329"/>
+    <!-- 天藍娃 -->
+    <circle cx="194" cy="188" r="22" fill="#5BB3CE"/><circle cx="184" cy="171" r="7" fill="#5BB3CE"/><circle cx="204" cy="171" r="7" fill="#5BB3CE"/>
+    <circle cx="188" cy="186" r="2.8" fill="#FBF6EE"/><circle cx="200" cy="186" r="2.8" fill="#FBF6EE"/>
+  </g>
+  <!-- 控制台 -->
+  <rect x="50" y="228" width="180" height="60" rx="12" fill="#FF6A4D"/>
+  <circle cx="92" cy="258" r="15" fill="#FBF6EE"/><circle cx="92" cy="258" r="7" fill="#FFC24B"/>
+  <rect x="124" y="250" width="84" height="16" rx="8" fill="#FBF6EE"/>
+  <rect x="124" y="272" width="56" height="8" rx="4" fill="#FFD98A"/>
+</svg>
