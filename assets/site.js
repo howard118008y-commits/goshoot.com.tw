@@ -16,7 +16,7 @@ const GOSHOOT_LINKS = {
 =================================================================== */
 const GOSHOOT_ANALYTICS = {
   ga4:     "G-77W711JZPL",  // Google Analytics 4 評估 ID，格式 G-XXXXXXXXXX（GA4 後台→管理→資料串流取得）
-  clarity: ""   // Microsoft Clarity 專案 ID，10 碼小寫英數（clarity.microsoft.com 免費，建專案後取得）
+  clarity: "xejhlj6akt"   // Microsoft Clarity 專案 ID，10 碼小寫英數（clarity.microsoft.com 免費，建專案後取得）
 };
 /* =================================================================== */
 
