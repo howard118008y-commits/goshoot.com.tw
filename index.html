@@ -84,7 +84,7 @@ section{padding:64px 0}
 .slide .emb svg{width:clamp(140px,22vw,260px);height:auto}
 .s-coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
 .s-ink{background:linear-gradient(120deg,#2f2b33,#46414b)}
-.s-sky{background:linear-gradient(120deg,var(--sky-deep),var(--sky))}
+.s-sky{background:linear-gradient(120deg,rgba(16,26,44,.74),rgba(16,26,44,.32)),url('assets/photos/claw-blue.jpg') center/cover}
 .dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:3}
 .dots b{width:11px;height:11px;border-radius:50%;background:#ffffff8c;cursor:pointer}
 .dots b.on{background:#fff;width:26px;border-radius:6px}
@@ -100,13 +100,13 @@ section{padding:64px 0}
 .tile svg{width:46px;height:46px}
 .tile small{font-weight:500;opacity:.9;font-family:var(--body);font-size:12px}
 .t1{background:var(--coral)} .t2{background:var(--sky-deep)} .t3{background:var(--ink)}
-.t4{background:var(--coral-deep)} .t5{background:#7BBE9E} .t6{background:var(--gold);color:var(--ink)}
+.t4{background:linear-gradient(160deg,rgba(18,16,28,.48),rgba(18,16,28,.62)),url('assets/photos/claw-colorful.jpg') center/cover} .t5{background:#7BBE9E} .t6{background:var(--gold);color:var(--ink)}
 
 /* ===== product grid ===== */
 .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .prod{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.15s;position:relative}
 .prod:hover{transform:translateY(-4px)}
-.prod .ph{aspect-ratio:1;background:var(--cream);display:flex;align-items:center;justify-content:center}
+.prod .ph{aspect-ratio:1;background:linear-gradient(140deg,#FFD9C7,#FFE9C2);display:flex;align-items:center;justify-content:center}
 .prod .ph svg{width:70px;height:70px;opacity:.5}
 .prod .ph img{width:100%;height:100%;object-fit:cover}
 .prod .pb{position:absolute;top:12px;left:12px;font-family:var(--disp);font-weight:800;font-size:12px;
@@ -275,9 +275,9 @@ footer a:hover{color:var(--sky)}
   <h2 class="sec">現貨在蝦皮，限定來預購</h2>
   <p class="sec-lead" style="margin-bottom:26px">標準款現貨上架蝦皮，下單最快；日版／限定款走預購代購。</p>
   <div class="prods">
-    <a class="prod" href="#" data-shopee><span class="pb new">新品</span><div class="ph"><img src="assets/photos/product-1.jpg" alt="戰鬥陀螺現貨" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">戰鬥陀螺 X 本體</div><div class="meta">現貨・蝦皮下單 →</div></div></a>
-    <a class="prod" href="#" data-shopee><span class="pb hot">熱銷</span><div class="ph"><img src="assets/photos/product-2.jpg" alt="發射器組" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">發射器・競技盤</div><div class="meta">現貨・蝦皮下單 →</div></div></a>
-    <a class="prod" href="#" data-shopee><span class="pb ltd">限定</span><div class="ph"><img src="assets/photos/product-3.jpg" alt="日版限定款" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">日版限定款</div><div class="meta">預購代購 →</div></div></a>
+    <a class="prod" href="#" data-shopee><span class="pb new">新品</span><div class="ph"><img src="assets/photos/product-1.svg" alt="戰鬥陀螺現貨" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">戰鬥陀螺 X 本體</div><div class="meta">現貨・蝦皮下單 →</div></div></a>
+    <a class="prod" href="#" data-shopee><span class="pb hot">熱銷</span><div class="ph"><img src="assets/photos/product-2.svg" alt="發射器組" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">發射器・競技盤</div><div class="meta">現貨・蝦皮下單 →</div></div></a>
+    <a class="prod" href="#" data-shopee><span class="pb ltd">限定</span><div class="ph"><img src="assets/photos/product-3.svg" alt="日版限定款" loading="lazy" onerror="this.parentNode.innerHTML='<svg viewBox=\'0 0 64 64\'><circle cx=32 cy=32 r=22 fill=none stroke=%23262329 stroke-width=4/><circle cx=32 cy=32 r=7 fill=%23FF6A4D/></svg>'"></div><div class="pi"><div class="nm">日版限定款</div><div class="meta">預購代購 →</div></div></a>
     <a class="prod" href="#" data-shopee><span class="pb">精選</span><div class="ph"><svg viewBox="0 0 64 64"><circle cx="32" cy="26" r="12" fill="#FF6A4D"/><rect x="24" y="36" width="16" height="18" rx="4" fill="#262329"/></svg></div><div class="pi"><div class="nm">公仔・扭蛋・模型</div><div class="meta">定期到貨 →</div></div></a>
   </div>
   <div style="margin-top:24px"><a class="btn" href="#" data-shopee>上蝦皮看全部現貨 →</a></div>
