@@ -19,22 +19,22 @@
 <style>
 .shopbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 22px}
 .shopbar .meta{color:var(--muted);font-size:14px}
-.shopbar .meta b{color:var(--ink);font-family:var(--display)}
+.shopbar .meta b{color:var(--text);font-family:var(--display)}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
 .pcard{position:relative;background:var(--paper);border:1px solid var(--line);
   border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.18s}
 .pcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(38,35,41,.08)}
-.pcard .imgwrap{aspect-ratio:1;background:#efeae1;overflow:hidden}
+.pcard .imgwrap{aspect-ratio:1;background:#1E1E23;overflow:hidden}
 .pcard img{width:100%;height:100%;object-fit:cover;display:block}
-.pcard .rank{position:absolute;top:10px;left:10px;background:var(--ink);color:var(--cream);
+.pcard .rank{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.65);color:#fff;
   font-family:var(--display);font-weight:700;font-size:13px;padding:3px 10px;border-radius:999px}
 .pcard .rank.top{background:var(--coral)}
 .pcard .body{padding:12px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
-.pcard .name{font-size:14px;line-height:1.5;color:#2f2b27;display:-webkit-box;
+.pcard .name{font-size:14px;line-height:1.5;color:var(--text);display:-webkit-box;
   -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:42px}
 .pcard .price{font-family:var(--display);font-weight:600;font-size:18px;color:var(--coral-deep)}
-.pcard .buy{margin-top:auto;display:block;text-align:center;background:var(--coral);
-  color:var(--cream);font-family:var(--display);font-size:14px;padding:9px;border-radius:10px}
+.pcard .buy{margin-top:auto;display:block;text-align:center;background:var(--lime);
+  color:#0B0B0D;font-family:var(--display);font-size:14px;padding:9px;border-radius:10px}
 .pcard .buy:hover{filter:brightness(1.05)}
 .state{padding:50px 0;text-align:center;color:var(--muted)}
 .shopnote{margin-top:30px;background:var(--paper);border-left:4px solid var(--sky);
@@ -50,9 +50,9 @@
 <body>
 <div class="util"><div class="wrap"><span>🚚 線上預購到店取・免運　|　🕹️ 娃娃機 24H・戰鬥陀螺 16:00–24:00　|　🎯 <b>中和站旁</b></span><a href="#" data-line>加 LINE →</a></div></div>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#262329" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#262329" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF6A4D"/><circle cx="256" cy="256" r="18" fill="#262329"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF6A4D" stroke-width="26" stroke-linecap="round"/></svg> Go Shoot</a>
+  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#ECECEA" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#ECECEA" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF6A4D"/><circle cx="256" cy="256" r="18" fill="#ECECEA"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF6A4D" stroke-width="26" stroke-linecap="round"/></svg> Go Shoot</a>
   <div class="nav-links"><a href="guide.html">戰鬥陀螺</a><a href="shop.html">蝦皮精選</a><a href="events.html">賽事</a><a href="faq.html">常見問題</a><a class="btn btn-sm" href="#" data-line>加 LINE</a></div>
-  <button class="menu-btn" aria-label="選單" aria-expanded="false">☰</button>
+  <button class="menu-btn" aria-label="選單" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display:block"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></nav>
 
 <header class="hero" style="padding:54px 0 18px"><div class="wrap">
@@ -75,7 +75,7 @@
 </div></section>
 
 <footer><div class="wrap">
-  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#262329" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#262329" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF6A4D"/><circle cx="256" cy="256" r="18" fill="#262329"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF6A4D" stroke-width="26" stroke-linecap="round"/></svg> Go Shoot</a>
+  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#ECECEA" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#ECECEA" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF6A4D"/><circle cx="256" cy="256" r="18" fill="#ECECEA"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF6A4D" stroke-width="26" stroke-linecap="round"/></svg> Go Shoot</a>
   <div class="fnav"><a href="index.html">首頁</a><a href="guide.html">戰鬥陀螺</a><a href="events.html">賽事</a><a href="faq.html">常見問題</a></div>
   <div class="copy">© 2026 Go Shoot 戰鬥陀螺 ・ 新北市中和區景平路593號之1</div>
 </div></footer>
@@ -102,7 +102,7 @@
         +'<div class="imgwrap">'+img+'</div>'
         +'<div class="body">'
         +'<div class="name">'+esc(p.name||'商品')+'</div>'
-        +(p.blurb?'<div class="blurb" style="font-size:13px;color:#6b6660;line-height:1.5;margin:4px 0 8px">'+esc(p.blurb)+'</div>':'')
+        +(p.blurb?'<div class="blurb" style="font-size:13px;color:#9A9AA0;line-height:1.5;margin:4px 0 8px">'+esc(p.blurb)+'</div>':'')
         +'<div class="price">'+esc(p.price||'')+'</div>'
         +'<a class="buy" href="'+url+'" target="_blank" rel="noopener">在蝦皮購買</a>'
         +'</div></div>';

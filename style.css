@@ -7,7 +7,7 @@
   --ink:#0E0E12;        /* 最深表面：util／footer／band.ink／徽章 */
   /* 文字 */
   --text:#ECECEA;       /* 主要文字（近白）*/
-  --muted:#9A9AA0;      /* 次要文字（灰）*/
+  --muted:#B4B4BB;      /* 次要文字（灰）*/
   /* 重點色：螢光綠為主，珊瑚／金／天藍為輔 */
   --lime:#B6F500; --lime-deep:#9BD400;
   --coral:#FF6A4D; --coral2:#FF9F86; --coral-deep:#FF8366;
