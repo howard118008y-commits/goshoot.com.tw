@@ -23,6 +23,7 @@ body{margin:0;background:var(--cream);color:var(--text);font-family:var(--body);
   line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:var(--text);text-decoration:none}
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:4px}
 h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.2;letter-spacing:.2px;color:var(--text)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 ::selection{background:var(--lime);color:#0B0B0D}
@@ -81,6 +82,8 @@ section{padding:54px 0}
   background:rgba(182,245,0,.10);border:1px solid rgba(182,245,0,.35);
   padding:5px 12px;border-radius:20px}
 h2.sec{font-size:clamp(26px,5vw,38px);font-weight:800;margin:14px 0 8px;color:var(--text)}
+h2.sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;
+  margin-top:12px;background:var(--lime);box-shadow:0 0 14px rgba(182,245,0,.55)}
 .sec-lead{color:var(--muted);max-width:640px;margin:0 0 30px}
 
 /* cards */
