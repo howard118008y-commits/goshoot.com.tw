@@ -310,7 +310,8 @@ footer a:hover{color:var(--sky)}
     .news{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     .newscard{background:#fff;border:1px solid var(--cream);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.15s;display:flex;flex-direction:column;color:var(--ink)}
     .newscard:hover{transform:translateY(-4px)}
-    .news-top{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative}
+    .news-top{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .news-top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .nt-new{background:linear-gradient(135deg,var(--coral),var(--coral-deep))}
     .nt-ltd{background:linear-gradient(135deg,#2f2b33,#46414b)}
     .nt-sky{background:linear-gradient(135deg,var(--sky-deep),#3f8aa3)}
@@ -329,7 +330,7 @@ footer a:hover{color:var(--sky)}
   <p class="sec-lead" style="margin-bottom:26px">Beyblade X 最新新品、限定款與賽事情報，幫你跟上戰局。想入手日版／限定款？店內可代購。</p>
   <div class="news">
     <a class="newscard" href="https://universe.oneone.com.tw/posts/5977" target="_blank" rel="noopener">
-      <div class="news-top nt-new"><span class="news-tag">新品</span><span class="news-emoji">🆕</span></div>
+      <div class="news-top nt-new"><img src="assets/news/news-1.jpg" alt="UX-20 榮耀女武神 LF" loading="lazy"><span class="news-tag">新品</span></div>
       <div class="news-body">
         <div class="news-title">UX-20 榮耀女武神 LF・7/11 發售</div>
         <div class="news-meta">全新「彈跳反擊」機構＋白色金屬塗裝，攻擊型新作公開。</div>
@@ -337,7 +338,7 @@ footer a:hover{color:var(--sky)}
       </div>
     </a>
     <a class="newscard" href="https://www.nownews.com/news/6846589" target="_blank" rel="noopener">
-      <div class="news-top nt-ltd"><span class="news-tag">限定</span><span class="news-emoji">⚔️</span></div>
+      <div class="news-top nt-ltd"><img src="assets/news/news-2.jpg" alt="世界盃日本隊藍武士限定" loading="lazy"><span class="news-tag">限定</span></div>
       <div class="news-body">
         <div class="news-title">世界盃日本隊「藍武士」限定登場</div>
         <div class="news-meta">藍武士配色限定戰鬥陀螺，售價、外觀一次看。</div>
@@ -345,7 +346,7 @@ footer a:hover{color:var(--sky)}
       </div>
     </a>
     <a class="newscard" href="https://www.nownews.com/news/6846024" target="_blank" rel="noopener">
-      <div class="news-top nt-sky"><span class="news-tag">限定</span><span class="news-emoji">🐉</span></div>
+      <div class="news-top nt-sky"><img src="assets/news/news-3.jpg" alt="澀谷快閃限定黑龍" loading="lazy"><span class="news-tag">限定</span></div>
       <div class="news-body">
         <div class="news-title">澀谷快閃「限定黑龍」開賣</div>
         <div class="news-meta">Cobalt Dragoon 黑色金屬版，2,420 日圓每人限購 1 個。</div>
@@ -353,7 +354,7 @@ footer a:hover{color:var(--sky)}
       </div>
     </a>
     <a class="newscard" href="https://www.4gamers.com.tw/news/detail/75900/the-chinese-version-of-beyblade-x-xone-will-be-released-2026-february" target="_blank" rel="noopener">
-      <div class="news-top nt-game"><span class="news-tag">遊戲</span><span class="news-emoji">🎮</span></div>
+      <div class="news-top nt-game"><img src="assets/news/news-4.jpg" alt="戰鬥陀螺 X XONE 中文版" loading="lazy"><span class="news-tag">遊戲</span></div>
       <div class="news-body">
         <div class="news-title">《戰鬥陀螺 X XONE》中文版上市</div>
         <div class="news-meta">Switch 中文版推出，特典附遊戲限定戰鬥陀螺。</div>
