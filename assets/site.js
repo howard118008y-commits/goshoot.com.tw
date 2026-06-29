@@ -9,6 +9,15 @@ const GOSHOOT_LINKS = {
   form:   "",  // 預購表單連結（Tally / Google 表單）
   signup: ""   // 賽事報名連結
 };
+
+/* ===================================================================
+   流量偵測（填 ID 即全站自動啟用，留空白不會載入、不會壞）
+   ↓↓↓ 只要填這 2 個 ID，全站每一頁就開始記錄流量 ↓↓↓
+=================================================================== */
+const GOSHOOT_ANALYTICS = {
+  ga4:     "",  // Google Analytics 4 評估 ID，格式 G-XXXXXXXXXX（GA4 後台→管理→資料串流取得）
+  clarity: ""   // Microsoft Clarity 專案 ID，10 碼小寫英數（clarity.microsoft.com 免費，建專案後取得）
+};
 /* =================================================================== */
 
 (function () {
@@ -24,6 +33,28 @@ const GOSHOOT_LINKS = {
   apply("[data-shopee]", GOSHOOT_LINKS.shopee);
   apply("[data-form]",   GOSHOOT_LINKS.form);
   apply("[data-signup]", GOSHOOT_LINKS.signup);
+
+  // ── 流量偵測：Google Analytics 4 ──
+  if (GOSHOOT_ANALYTICS.ga4) {
+    var g = document.createElement("script");
+    g.async = true;
+    g.src = "https://www.googletagmanager.com/gtag/js?id=" + GOSHOOT_ANALYTICS.ga4;
+    document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GOSHOOT_ANALYTICS.ga4);
+  }
+
+  // ── 流量偵測：Microsoft Clarity（熱圖 / 操作錄影）──
+  if (GOSHOOT_ANALYTICS.clarity) {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r); t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", GOSHOOT_ANALYTICS.clarity);
+  }
 
   // 手機版漢堡選單開關
   var btn = document.querySelector(".menu-btn");
