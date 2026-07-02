@@ -1,4 +1,4 @@
-Go Shoot 官網 — 要索引的網頁清單（全站 33 頁）
+Go Shoot 官網 — 要索引的網頁清單（全站 37 頁）
 更新：2026-07-03
 用途：到 Google Search Console → 網址審查 → 貼上網址 → 「要求建立索引」
 （每日配額約 10 條，照下面順序由上往下送，額滿隔天接著送）
@@ -18,6 +18,10 @@ Go Shoot 官網 — 要索引的網頁清單（全站 33 頁）
 ★ https://goshoot.com.tw/ichiban-dandadan.html     ← 膽大黨
 
 【第三優先：其餘新頁（隔天送）】
+★ https://goshoot.com.tw/article-jujutsu-ichiban-latest.html   ← 今日新上線最新彈文（時效高）
+★ https://goshoot.com.tw/article-pokemon-ichiban-latest.html   ← 今日新上線最新彈文（時效高）
+★ https://goshoot.com.tw/article-kimetsu-ichiban-latest.html   ← 今日新上線最新彈文（時效高）
+★ https://goshoot.com.tw/article-chiikawa-ichiban-latest.html   ← 今日新上線最新彈文（時效高）
 https://goshoot.com.tw/ichiban-hololive.html
 https://goshoot.com.tw/ichiban-pikmin.html
 https://goshoot.com.tw/ichiban-onepiece.html
