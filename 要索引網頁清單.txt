@@ -1,31 +1,50 @@
-Go Shoot 官網 — 要索引的網頁清單（共 13 頁）
-更新：2026-06-22
+Go Shoot 官網 — 要索引的網頁清單（全站 33 頁）
+更新：2026-07-03
 用途：到 Google Search Console → 網址審查 → 貼上網址 → 「要求建立索引」
+（每日配額約 10 條，照下面順序由上往下送，額滿隔天接著送）
 
-【線上一番賞 SEO 主力（最優先要求索引）】
-★★ https://goshoot.com.tw/ichiban.html  ← 線上一番賞主力落地頁
-★  https://goshoot.com.tw/article-what-is-online-ichiban.html  ← 線上一番賞是什麼
-★  https://goshoot.com.tw/article-online-ichiban-fair.html  ← 會詐騙嗎/公平
-★  https://goshoot.com.tw/article-online-ichiban-odds.html  ← 中獎機率怎麼算
+【今日最優先（老欠款：6/25 配額用完沒送成的 3 篇）】
+★★ https://goshoot.com.tw/article-what-is-online-ichiban.html
+★★ https://goshoot.com.tw/article-online-ichiban-fair.html
+★★ https://goshoot.com.tw/article-online-ichiban-odds.html
 
-【首頁・主要頁】
+【第二優先：新上線主題賞頁（高搜尋量 IP 先送）】
+★ https://goshoot.com.tw/ichiban-kimetsu.html      ← 鬼滅之刃
+★ https://goshoot.com.tw/ichiban-pokemon.html      ← 寶可夢
+★ https://goshoot.com.tw/ichiban-jujutsu.html      ← 咒術迴戰
+★ https://goshoot.com.tw/ichiban-chiikawa.html     ← 吉伊卡哇
+★ https://goshoot.com.tw/ichiban-spyfamily.html    ← 間諜家家酒
+★ https://goshoot.com.tw/ichiban-chainsawman.html  ← 鏈鋸人
+★ https://goshoot.com.tw/ichiban-dandadan.html     ← 膽大黨
+
+【第三優先：其餘新頁（隔天送）】
+https://goshoot.com.tw/ichiban-hololive.html
+https://goshoot.com.tw/ichiban-pikmin.html
+https://goshoot.com.tw/ichiban-onepiece.html
+https://goshoot.com.tw/ichiban-naruto.html
+https://goshoot.com.tw/ichiban-beyblade.html
+https://goshoot.com.tw/article-how-to-play-online-ichiban.html
+https://goshoot.com.tw/article-choose-online-ichiban.html
+https://goshoot.com.tw/article-ichiban-prize-grades.html
+https://goshoot.com.tw/article-online-ichiban-claim.html
+
+【第四優先：攻略子頁（之前記錄待送的）】
+https://goshoot.com.tw/guide-terms.html
+https://goshoot.com.tw/guide-shoot.html
+https://goshoot.com.tw/guide-mods.html
+https://goshoot.com.tw/guide-daikou.html
+
+【已送出（不用再送）】
 https://goshoot.com.tw/
+https://goshoot.com.tw/ichiban.html
 https://goshoot.com.tw/shop.html
 https://goshoot.com.tw/events.html
 https://goshoot.com.tw/faq.html
-
-【攻略頁（SEO 重點）】
 https://goshoot.com.tw/guide.html
 https://goshoot.com.tw/guide-beginner.html
 https://goshoot.com.tw/guide-tierlist.html
 https://goshoot.com.tw/guide-whatisx.html
 https://goshoot.com.tw/guide-rules.html
-
-★ 以下 4 頁是記憶中尚待手動「要求建立索引」的，優先補送：
-https://goshoot.com.tw/guide-terms.html
-https://goshoot.com.tw/guide-shoot.html
-https://goshoot.com.tw/guide-mods.html
-https://goshoot.com.tw/guide-daikou.html
 
 ────────────────────────────────────────
 不要索引（已正確排除，不用送）：
@@ -34,6 +53,6 @@ https://goshoot.com.tw/guide-daikou.html
 - googleea8aada33a914342.html （Google 驗證檔）
 
 備註：
-- sitemap 已含全部 13 頁，Google 會自動陸續收錄；手動「要求建立索引」只是催它快點。
-- GSC 每日「要求建立索引」有配額上限，額滿隔天再補。
+- sitemap 已含全部 33 頁，Google 會自動陸續收錄；手動「要求建立索引」只是催它快點。
+- 送完一批就把該批移到【已送出】區。
 - sitemap 位置：https://goshoot.com.tw/sitemap.xml （已在 GSC 提交）
