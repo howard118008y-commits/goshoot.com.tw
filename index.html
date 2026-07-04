@@ -364,12 +364,31 @@ footer a:hover{color:var(--lime)}
     .news-title{font-weight:700;font-size:15px;line-height:1.45}
     .news-meta{color:var(--muted);font-size:13px;line-height:1.5;flex:1}
     .news-src{color:var(--coral-deep);font-size:12.5px;font-weight:700;font-family:var(--disp)}
+    .news-notice{display:flex;background:var(--paper);border:1px solid rgba(255,106,77,.38);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:22px;color:var(--text);transition:.15s}
+    .news-notice:hover{transform:translateY(-3px)}
+    .nn-cover{flex:0 0 38%;max-width:330px;overflow:hidden;background:#141018}
+    .nn-cover img{width:100%;height:100%;object-fit:cover;display:block}
+    .nn-body{padding:18px 22px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+    .nn-tag{align-self:flex-start;background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#0B0B0D;font-family:var(--disp);font-weight:800;font-size:12px;padding:4px 12px;border-radius:12px}
+    .nn-title{font-weight:900;font-size:20px;line-height:1.35}
+    .nn-text{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
+    .nn-src{color:var(--coral-deep);font-size:13px;font-weight:800;font-family:var(--disp)}
+    @media(max-width:680px){.news-notice{flex-direction:column}.nn-cover{flex:none;max-width:none;aspect-ratio:16/10}}
     @media(max-width:900px){.news{grid-template-columns:1fr 1fr}}
     @media(max-width:480px){.news{grid-template-columns:1fr}}
   </style>
   <span class="eyebrow">戰鬥陀螺情報</span>
   <h2 class="sec">最新戰況・新品快訊</h2>
   <p class="sec-lead" style="margin-bottom:26px">Beyblade X 最新新品、限定款與賽事情報，幫你跟上戰局。想入手日版／限定款？店內可代購。</p>
+  <a class="news-notice" href="ichiban-beyblade.html">
+    <div class="nn-cover"><img src="assets/news/genuine-first.svg" alt="Go Shoot 只賣正版 Beyblade X 戰鬥陀螺，拒絕盜版" loading="lazy"></div>
+    <div class="nn-body">
+      <span class="nn-tag">正版聲明</span>
+      <div class="nn-title">我們只賣正版・拒絕盜版陀螺</div>
+      <p class="nn-text">市面上（蝦皮、露天）充斥山寨陀螺，做工差、對戰易碎裂有安全疑慮，還會磨傷競技盤。Go Shoot 是戰鬥陀螺專門店，<strong>只賣正版 Beyblade X（TAKARA TOMY）</strong>、認明 ST 安全玩具標誌——抽賞、對戰、代購都安心。</p>
+      <span class="nn-src">看正版戰鬥陀螺一番賞 →</span>
+    </div>
+  </a>
   <div class="news">
     <a class="newscard" href="https://universe.oneone.com.tw/posts/5977" target="_blank" rel="noopener">
       <div class="news-top nt-new"><img src="assets/news/news-1.jpg" alt="UX-20 榮耀女武神 LF" loading="lazy"><span class="news-tag">新品</span></div>
