@@ -39,7 +39,7 @@ jobs:
         run: |
           git config user.name  "github-actions"
           git config user.email "actions@github.com"
-          git add index.html assets/news 2>/dev/null || true
+          git add index.html assets/news SOCIAL-DRAFTS.md 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "沒有變更（可能新聞沒更新或執行失敗），跳過 commit"
           else
