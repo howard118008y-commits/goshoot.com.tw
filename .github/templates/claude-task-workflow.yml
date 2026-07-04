@@ -1,0 +1,57 @@
+# ════════════════════════════════════════════════════════════════
+# 【範本 B】Claude「判斷型」排程
+# 用途：定時做「需要判斷/創意」的事（挑內容、寫文案、看圖、改檔），改完自動 commit 回 repo。
+# 特點：用 Claude 在雲端自主完成。需要一組 API 金鑰。適合純腳本做不來的事。
+#
+# 怎麼用：
+#   1. 複製這個檔到你 repo 的 .github/workflows/（改個檔名）
+#   2. repo → Settings → Secrets and variables → Actions → 加 ANTHROPIC_API_KEY
+#      （金鑰到 console.anthropic.com 產）
+#   3. 寫一個指令檔（例 .github/task-prompt.md）描述要 Claude 做什麼、以及「不要 commit（交給 workflow）」
+#   4. 改 name、cron（換 UTC）；push → Actions 按 Run workflow 測一次
+# ════════════════════════════════════════════════════════════════
+name: Scheduled Claude task
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'       # UTC！例：每週一 台灣 10:00 = 週一 02 UTC
+  workflow_dispatch: {}        # 也能手動觸發（測試用）
+
+permissions:
+  contents: write             # 讓它能 commit 回 repo
+
+jobs:
+  run-task:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安裝 Claude CLI（＋你任務需要的工具，例 imagemagick）
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          # sudo apt-get update && sudo apt-get install -y imagemagick   # 需要處理圖片才裝
+
+      - name: 執行任務（Claude）
+        timeout-minutes: 15
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude -p "$(cat .github/task-prompt.md)" \
+            --model claude-sonnet-5 \
+            --dangerously-skip-permissions
+
+      - name: Commit 變更
+        run: |
+          git config user.name  "github-actions"
+          git config user.email "actions@github.com"
+          git add -A                              # 建議改成只 add 你預期會變的檔案，較安全
+          if git diff --staged --quiet; then
+            echo "沒有變更，跳過 commit"
+          else
+            git commit -m "chore: scheduled task $(date +%F)"
+            git push
+          fi

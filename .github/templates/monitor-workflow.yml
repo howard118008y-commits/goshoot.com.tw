@@ -1,0 +1,34 @@
+# ════════════════════════════════════════════════════════════════
+# 【範本 A】純腳本「監測型」排程
+# 用途：定時檢查某件事；沒事安靜通過，有問題就讓 workflow 失敗 → GitHub 自動 email 通知你。
+# 特點：不需 secret、不改檔案、幾乎不花錢。適合「有明確規則」的檢查/監控。
+#
+# 怎麼用：
+#   1. 複製這個檔到你 repo 的 .github/workflows/（改個檔名，例 check.yml）
+#   2. 改 name、cron（記得換成 UTC）、以及要跑的檢查腳本
+#   3. 把你的檢查腳本放進 repo（例 .github/check.py），約定：沒事 exit 0、有問題 exit 1
+#   4. push → Actions 分頁按 Run workflow 測一次
+# ════════════════════════════════════════════════════════════════
+name: Scheduled monitor
+
+on:
+  schedule:
+    - cron: '0 4 * * *'       # UTC！台灣 -8。台灣中午 12:00 = 04；每日
+  workflow_dispatch: {}        # 也能手動觸發（測試用）
+
+permissions:
+  contents: read              # 只讀就好（不改 repo）
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 你的檢查腳本：沒問題 exit 0（安靜通過）；有問題 print 出來並 exit 1（→ 亮紅 email 通知）
+      - name: 執行檢查
+        run: python .github/check.py
