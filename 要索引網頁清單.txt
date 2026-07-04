@@ -1,4 +1,4 @@
-Go Shoot 官網 — 要索引的網頁清單（全站 41 頁）
+Go Shoot 官網 — 要索引的網頁清單（全站 42 頁）
 更新：2026-07-04
 用途：到 Google Search Console → 網址審查 → 貼上網址 → 「要求建立索引」
 （每日配額約 10 條，照下面順序由上往下送，額滿隔天接著送）
@@ -9,6 +9,7 @@ Go Shoot 官網 — 要索引的網頁清單（全站 41 頁）
 ★★ https://goshoot.com.tw/article-beyblade-ichiban-latest.html ← 戰鬥陀螺一番賞情報總整理（DMMくじ/限定）
 ★★ https://goshoot.com.tw/article-beyblade-limited.html        ← Beyblade X 限定配色陀螺哪裡買
 ★★ https://goshoot.com.tw/article-beyblade-ichiban-vs-buy.html ← 一番賞 vs 直接買
+★★ https://goshoot.com.tw/article-beyblade-boen.html       ← 博恩熱點文（時效高，優先送！）
 
 【今日最優先（老欠款：6/25 配額用完沒送成的 3 篇）】
 ★★ https://goshoot.com.tw/article-what-is-online-ichiban.html
