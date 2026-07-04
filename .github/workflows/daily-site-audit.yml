@@ -1,0 +1,25 @@
+name: Daily site audit
+
+# 每日 SEO 稽核：技術檢查（title/desc/canonical/og/twitter/h1/JSON-LD/alt、sitemap/robots/llms）
+# ＋線上健康（curl goshoot.com.tw 關鍵頁）。全綠靜默通過；有問題亮紅並 email 通知。
+# 純 Python、不需任何 secret、不自動改檔——修正交給手動 /daily-site-audit（有判斷、可審）。
+on:
+  schedule:
+    - cron: '0 4 * * *'       # 每日 04:00 UTC（台灣 12:00 中午）
+  workflow_dispatch: {}        # 也可在 Actions 頁面手動觸發
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 執行每日稽核
+        run: python .github/audit.py
