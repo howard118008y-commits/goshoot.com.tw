@@ -217,13 +217,22 @@ footer a:hover{color:var(--lime)}
 
 <!-- ===== HERO (cinematic) ===== -->
 <style>
-.gsh-hero{position:relative;height:90svh;min-height:540px;overflow:hidden;background:#08080A}
+.gsh-hero{position:relative;height:90svh;min-height:540px;overflow:hidden;background:#050507}
 .gsh-hero>canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+/* 液態玻璃封面：品牌色環境光暈（同 app 首頁）*/
+.gsh-bgfx{position:absolute;inset:0;z-index:0;pointer-events:none}
+.gsh-blob{position:absolute;border-radius:50%;filter:blur(110px);opacity:.4;animation:gshDrift 26s ease-in-out infinite alternate}
+.gsh-blob.b2{animation-duration:34s;animation-delay:-8s}
+.gsh-blob.b3{animation-duration:30s;animation-delay:-16s;opacity:.26}
+.gsh-blob.b4{animation-duration:22s;animation-delay:-4s;opacity:.3}
+@keyframes gshDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-50px) scale(1.18)}}
 .gsh-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .gsh-vig{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% 46%,transparent 42%,rgba(0,0,0,.62) 100%)}
 .gsh-top{position:absolute;top:clamp(64px,11vh,116px);left:0;right:0;z-index:3;text-align:center;padding:0 22px}
 .gsh-bot{position:absolute;bottom:clamp(60px,9vh,104px);left:0;right:0;z-index:3;text-align:center;padding:0 22px}
-.gsh-kick{display:inline-flex;align-items:center;gap:9px;font:700 12px/1 'Poppins',sans-serif;letter-spacing:.2em;color:#B6F500;margin-bottom:18px;opacity:0;transform:translateY(14px)}
+.gsh-kick{display:inline-flex;align-items:center;gap:9px;font:700 12px/1 'Poppins',sans-serif;letter-spacing:.2em;color:#B6F500;margin-bottom:18px;opacity:0;transform:translateY(14px);
+  background:rgba(255,255,255,.05);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
+  border:1px solid rgba(255,255,255,.12);padding:9px 16px;border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.10)}
 .gsh-kick i{width:7px;height:7px;border-radius:50%;background:#B6F500;box-shadow:0 0 12px #B6F500}
 .gsh-h1{font-family:'Poppins','Noto Sans TC',sans-serif;font-size:clamp(44px,11.5vw,150px);font-weight:800;line-height:.95;letter-spacing:-.02em;margin:0;color:#F3F0EA}
 .gsh-h1 .l{display:inline-block;opacity:0;transform:translateY(120%) rotate(6deg)}
@@ -232,9 +241,12 @@ footer a:hover{color:var(--lime)}
 .gsh-lead{max-width:560px;margin:0 auto 22px;font-size:clamp(14px,2vw,17px);line-height:1.7;color:#9A948D;opacity:0;transform:translateY(16px)}
 .gsh-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(16px)}
 .gsh-btn{display:inline-block;font-weight:800;font-size:15px;padding:15px 28px;border-radius:999px;border:0;text-decoration:none;transition:transform .12s,filter .2s,box-shadow .2s;color:#0B0B0D}
-.gsh-btn.solid{background:#B6F500;color:#0B0B0D}.gsh-btn.solid:hover{filter:brightness(1.08)}
-.gsh-btn.ghost{background:rgba(10,10,13,.4);color:#F3F0EA;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14)}
-.gsh-btn.ghost:hover{box-shadow:inset 0 0 0 1.5px #FF6A4D}
+.gsh-btn.solid{background:linear-gradient(100deg,#B6F500,#8FD400);color:#0B0B0D;
+  box-shadow:0 0 28px rgba(182,245,0,.35),0 8px 22px rgba(0,0,0,.4)}.gsh-btn.solid:hover{filter:brightness(1.08)}
+.gsh-btn.ghost{background:rgba(255,255,255,.06);color:#F3F0EA;
+  backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 1px 0 rgba(255,255,255,.12)}
+.gsh-btn.ghost:hover{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
 .gsh-cue{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:3;font:600 10px/1 'Poppins',sans-serif;letter-spacing:.2em;color:#5E5952;opacity:0;display:flex;flex-direction:column;align-items:center;gap:7px}
 .gsh-cue b{width:1px;height:28px;background:linear-gradient(#FF6A4D,transparent);animation:gshCue 1.8s ease-in-out infinite}
 @keyframes gshCue{0%,100%{transform:scaleY(.4);opacity:.4;transform-origin:top}50%{transform:scaleY(1);opacity:1}}
@@ -249,9 +261,15 @@ footer a:hover{color:var(--lime)}
 .gsh-hero.go .gsh-lead{opacity:1;transform:none;transition-delay:.44s}
 .gsh-hero.go .gsh-cta{opacity:1;transform:none;transition-delay:.54s}
 .gsh-hero.go .gsh-cue{opacity:.9;transform:none;transition-delay:.72s}
-@media(prefers-reduced-motion:reduce){.gsh-hero .gsh-kick,.gsh-hero .gsh-h1 .l,.gsh-hero .gsh-sub2,.gsh-hero .gsh-lead,.gsh-hero .gsh-cta{opacity:1!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){.gsh-hero .gsh-kick,.gsh-hero .gsh-h1 .l,.gsh-hero .gsh-sub2,.gsh-hero .gsh-lead,.gsh-hero .gsh-cta{opacity:1!important;transform:none!important}.gsh-blob{animation:none}}
 </style>
 <section class="gsh-hero" id="gshHero" aria-label="Go Shoot 首頁主視覺">
+  <div class="gsh-bgfx" aria-hidden="true">
+    <span class="gsh-blob" style="top:6%;left:-12%;width:440px;height:440px;background:#FF6A4D"></span>
+    <span class="gsh-blob b2" style="top:26%;right:-14%;width:480px;height:480px;background:#8B5CF6"></span>
+    <span class="gsh-blob b3" style="bottom:-14%;left:26%;width:430px;height:430px;background:#B6F500"></span>
+    <span class="gsh-blob b4" style="top:62%;right:20%;width:260px;height:260px;background:#FFC24B"></span>
+  </div>
   <canvas id="gshStage"></canvas>
   <div class="gsh-grain"></div><div class="gsh-vig"></div>
   <div class="gsh-top">
@@ -700,6 +718,7 @@ footer a:hover{color:var(--lime)}
 /* Hero 輪播 */
 (function(){
   var slides=document.querySelectorAll('.slide'), dots=document.getElementById('dots'), i=0;
+  if(!dots||!slides.length) return;
   slides.forEach(function(_,n){var b=document.createElement('b');if(n===0)b.className='on';
     b.onclick=function(){go(n)};dots.appendChild(b);});
   var dot=dots.children;
