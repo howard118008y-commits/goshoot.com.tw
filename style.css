@@ -55,13 +55,17 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.2;letter-spaci
 .nav-links a:hover{color:var(--lime)}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 
-/* buttons（膠囊・粗體；主 CTA＝螢光綠填，幽靈＝綠框）*/
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);
+/* buttons（膠囊・粗體；主 CTA＝青檸漸層發光，幽靈＝液態玻璃）*/
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(100deg,var(--lime),#8FD400);
   color:#0B0B0D;font-family:var(--display);font-weight:800;font-size:15px;
-  padding:12px 22px;border-radius:40px;border:0;cursor:pointer;transition:.15s}
-.btn:hover{background:var(--lime-deep);transform:translateY(-1px);box-shadow:0 6px 22px rgba(182,245,0,.3)}
-.btn-ghost{background:transparent;color:var(--lime);border:2px solid var(--lime)}
-.btn-ghost:hover{background:var(--lime);color:#0B0B0D}
+  padding:12px 22px;border-radius:40px;border:0;cursor:pointer;transition:.15s;
+  box-shadow:0 0 24px rgba(182,245,0,.28),0 6px 18px rgba(0,0,0,.35)}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.07);box-shadow:0 0 30px rgba(182,245,0,.4),0 8px 22px rgba(0,0,0,.4)}
+.btn-ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.btn-ghost:hover{background:rgba(255,255,255,.1);color:var(--lime);border-color:rgba(182,245,0,.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
 .btn-light{background:var(--paper2);color:var(--text);border:1px solid var(--line)}
 .btn-light:hover{border-color:var(--lime);color:var(--lime)}
 .btn-sm{padding:9px 16px;font-size:14px}
@@ -79,8 +83,10 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.2;letter-spaci
 section{padding:54px 0}
 .eyebrow{display:inline-block;font-family:var(--display);font-weight:800;font-size:12px;
   letter-spacing:2px;text-transform:uppercase;color:var(--lime);
-  background:rgba(182,245,0,.10);border:1px solid rgba(182,245,0,.35);
-  padding:5px 12px;border-radius:20px}
+  background:rgba(255,255,255,.05);border:1px solid rgba(182,245,0,.35);
+  backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+  padding:6px 13px;border-radius:20px}
 h2.sec{font-size:clamp(26px,5vw,38px);font-weight:800;margin:14px 0 8px;color:var(--text)}
 h2.sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;
   margin-top:12px;background:var(--lime);box-shadow:0 0 14px rgba(182,245,0,.55)}
@@ -90,9 +96,14 @@ h2.sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;
 .grid{display:grid;gap:18px}
 .grid-3{grid-template-columns:repeat(3,1fr)}
 .grid-2{grid-template-columns:repeat(2,1fr)}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--rlg);
-  padding:26px 24px;box-shadow:var(--shadow);transition:.18s}
-.card:hover{transform:translateY(-4px);border-color:rgba(182,245,0,.45)}
+.card{position:relative;overflow:hidden;background:rgba(255,255,255,.045);
+  backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);
+  border:1px solid rgba(255,255,255,.10);border-radius:var(--rlg);
+  padding:26px 24px;transition:transform .25s,border-color .25s;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),inset 0 -1px 0 rgba(255,255,255,.03),0 10px 40px rgba(0,0,0,.45)}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,.10) 0%,transparent 30%,transparent 62%,rgba(255,255,255,.04) 100%)}
+.card:hover{transform:translateY(-3px);border-color:rgba(182,245,0,.4)}
 .card .ring{width:42px;height:42px;margin-bottom:14px}
 .card h3{margin:0 0 8px;font-size:20px}
 .card p{margin:0;color:var(--muted);font-size:15px}
@@ -120,10 +131,19 @@ h2.sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;
 .formbox{background:var(--paper);border:1px dashed var(--lime);border-radius:var(--rlg);
   padding:30px;text-align:center}
 
-/* guide cards */
-.guide-card{display:block;background:var(--paper);border:1px solid var(--line);
-  border-radius:var(--rlg);padding:24px;box-shadow:var(--shadow);transition:.18s;height:100%}
-.guide-card:hover{transform:translateY(-4px);border-color:rgba(182,245,0,.45)}
+/* guide cards（液態玻璃）*/
+.guide-card{display:block;position:relative;overflow:hidden;background:rgba(255,255,255,.045);
+  backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:var(--rlg);padding:24px;transition:transform .25s,border-color .25s;height:100%;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),inset 0 -1px 0 rgba(255,255,255,.03),0 10px 40px rgba(0,0,0,.45)}
+.guide-card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,.10) 0%,transparent 30%,transparent 62%,rgba(255,255,255,.04) 100%)}
+.guide-card::after{content:"";position:absolute;top:-60%;left:-40%;width:60%;height:220%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.08),transparent);
+  transform:rotate(12deg) translateX(-140%);transition:transform .9s ease}
+.guide-card:hover{transform:translateY(-3px);border-color:rgba(182,245,0,.4)}
+.guide-card:hover::after{transform:rotate(12deg) translateX(340%)}
 .guide-card .kicker{font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:1.5px;
   text-transform:uppercase;color:var(--lime)}
 .guide-card h3{margin:8px 0 6px;font-size:19px}
@@ -190,3 +210,21 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
   border-radius:18px;padding:22px 18px}
 .gfig img{width:min(440px,100%);height:auto;display:inline-block}
 .gfig figcaption{margin-top:12px;font-size:13px;color:var(--muted)}
+
+/* ── 液態玻璃封面系統（glass liquid UI，同 app 首頁／官網首頁）── */
+.gs-cover{position:relative;overflow:hidden;background:#050507;
+  border-bottom:1px solid rgba(255,255,255,.08);padding:64px 0 58px}
+.gs-cover>.wrap{position:relative;z-index:1}
+.gs-bgfx{position:absolute;inset:0;z-index:0;pointer-events:none}
+.gs-blob{position:absolute;border-radius:50%;filter:blur(110px);opacity:.32;
+  animation:gsDrift 26s ease-in-out infinite alternate}
+.gs-blob.b2{animation-duration:34s;animation-delay:-8s}
+.gs-blob.b3{animation-duration:30s;animation-delay:-16s;opacity:.22}
+.gs-blob.b4{animation-duration:22s;animation-delay:-4s;opacity:.25}
+@keyframes gsDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-50px) scale(1.18)}}
+.gs-cover h1{font-size:clamp(32px,7vw,54px);margin:14px 0 12px;line-height:1.15}
+.gs-cover h1 .g{background:linear-gradient(100deg,#FFC24B,#FF6A4D 55%,#FF4D6D);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.gs-cover .lead{color:var(--muted);max-width:640px;margin:0 0 26px;font-size:clamp(15px,2vw,18px)}
+.gs-cover .cta-row,.gs-cover .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){.gs-blob{animation:none}}
