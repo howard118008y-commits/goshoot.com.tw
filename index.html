@@ -271,6 +271,7 @@ footer a:hover{color:var(--lime)}
     <span class="gsh-blob b4" style="top:62%;right:20%;width:260px;height:260px;background:#FFC24B"></span>
   </div>
   <canvas id="gshStage"></canvas>
+  <canvas id="gshStage3d" style="opacity:0;transition:opacity .9s ease" aria-hidden="true"></canvas>
   <div class="gsh-grain"></div><div class="gsh-vig"></div>
   <div class="gsh-top">
     <div class="gsh-kick"><i></i>中和捷運站旁・24H・只賣正版</div>
@@ -290,6 +291,8 @@ footer a:hover{color:var(--lime)}
 (function(){
   var hero=document.getElementById("gshHero"), cv=document.getElementById("gshStage");
   if(!cv||!hero) return;
+  var stopped=false;
+  window.gshStop2D=function(){ stopped=true; cv.style.display="none"; };
   var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
   var ctx=cv.getContext("2d"), W=0,H=0,DPR=Math.min(devicePixelRatio||1,2),cx=0,cy=0,R=0,baseCy=0,t=0,ang=0,spd=0,launched=false,sparks=[],shock=[];
   function rs(){ W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);cx=W*.5;R=Math.min(W*.26,H*.19);baseCy=H*.63;cy=baseCy; }
@@ -305,7 +308,7 @@ footer a:hover{color:var(--lime)}
     ctx.beginPath();ctx.arc(0,0,R*.2,0,7);ctx.fillStyle="#15151b";ctx.fill();var sx=Math.cos(rot)*R*.08,sy=Math.sin(rot)*R*.08;ctx.beginPath();ctx.arc(sx,sy,R*.07,0,7);ctx.fillStyle="rgba(255,255,255,.9)";ctx.fill();ctx.beginPath();ctx.arc(-R*.24,-R*.24,R*.05,0,7);ctx.fillStyle="rgba(255,255,255,.5)";ctx.fill();
     ctx.restore();
   }
-  function frame(){t++;ctx.clearRect(0,0,W,H);var bgg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H)*.7);bgg.addColorStop(0,"rgba(30,18,14,.85)");bgg.addColorStop(1,"rgba(8,8,10,0)");ctx.fillStyle=bgg;ctx.fillRect(0,0,W,H);
+  function frame(){if(stopped)return;t++;ctx.clearRect(0,0,W,H);var bgg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H)*.7);bgg.addColorStop(0,"rgba(30,18,14,.85)");bgg.addColorStop(1,"rgba(8,8,10,0)");ctx.fillStyle=bgg;ctx.fillRect(0,0,W,H);
     if(launched){spd+=(.42-spd)*.04;ang+=spd;}var wob=Math.sin(t*.03)*R*.03,ox=cx;cx=ox+wob;top(ang);cx=ox;
     if(launched&&t%150===0){burst(24,1.6);shock.push({r:R*.7,a:.5});}
     for(var i=shock.length-1;i>=0;i--){var s=shock[i];s.r+=6;s.a*=.94;ctx.beginPath();ctx.ellipse(cx,cy,s.r,s.r*.52,0,0,7);ctx.strokeStyle="rgba(255,106,77,"+s.a+")";ctx.lineWidth=2;ctx.stroke();if(s.a<.02)shock.splice(i,1);}
@@ -315,6 +318,20 @@ footer a:hover{color:var(--lime)}
   if(reduce){ launched=true;ang=.6;top(.6); hero.classList.add("go"); }
   else{ requestAnimationFrame(frame); requestAnimationFrame(function(){ setTimeout(function(){hero.classList.add("go");launched=true;},140); }); }
   addEventListener("scroll",function(){var y=scrollY;if(y<innerHeight){cy=baseCy-y*.12;}},{passive:true});
+})();
+</script>
+<!-- 真 3D 陀螺（漸進式增強：load 後才載 three.js，不影響 LCP；失敗/reduced-motion 留在 2D）-->
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}
+</script>
+<script>
+(function(){
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  addEventListener("load", function(){
+    import("./assets/gsh-hero3d.js")
+      .then(function(m){ return m.initGshHero3D(document.getElementById("gshStage3d")); })
+      .catch(function(){ /* 3D 失敗：2D 備援已在跑，不動作 */ });
+  });
 })();
 </script>
 
