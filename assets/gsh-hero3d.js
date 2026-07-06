@@ -23,13 +23,14 @@ function bladeGeometry() {
   for (let i = 0; i <= steps; i++) {
     const th = (i / steps) * Math.PI * 2;
     const u = ((th * N) / (Math.PI * 2)) % 1;
-    const prof = u < 0.55 ? Math.pow(u / 0.55, 0.55) : Math.pow(1 - (u - 0.55) / 0.45, 3.2);
-    const rad = 0.9 + 0.72 * prof;
+    const prof = u < 0.6 ? Math.pow(u / 0.6, 0.8) : Math.pow(1 - (u - 0.6) / 0.4, 1.8);
+    const rad = 0.88 + 0.6 * prof;
     pts.push(new THREE.Vector2(Math.cos(th) * rad, Math.sin(th) * rad));
   }
   const shape = new THREE.Shape(pts);
+  // 糖果感：厚身＋枕頭圓倒角（大 bevel 多段）
   const geo = new THREE.ExtrudeGeometry(shape, {
-    depth: 0.14, bevelEnabled: true, bevelThickness: 0.045, bevelSize: 0.04, bevelSegments: 3, curveSegments: 4,
+    depth: 0.22, bevelEnabled: true, bevelThickness: 0.12, bevelSize: 0.1, bevelSegments: 6, curveSegments: 5,
   });
   geo.rotateX(-Math.PI / 2);
   geo.translate(0, -0.1, 0);
@@ -50,14 +51,14 @@ export async function initGshHero3D(canvas) {
   const scene = new THREE.Scene();
   const pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-  scene.environmentIntensity = 0.55;   // 環境反射壓低：留金屬感、不洗白品牌色
+  scene.environmentIntensity = 0.8;    // candy gloss：柔光反射給質感，但別把焦糖色洗白
 
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 60);
 
   // ── 燈光：白主光＋珊瑚/青檸兩側色光（品牌雙色打在金屬上）──
-  const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(3, 5, 4); scene.add(key);
-  const coralL = new THREE.PointLight(CORAL, 60, 0, 2); coralL.position.set(2.6, 0.9, 2.4); scene.add(coralL);
-  const limeL = new THREE.PointLight(LIME, 36, 0, 2); limeL.position.set(-3, 1.6, -2); scene.add(limeL);
+  const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(3, 5, 4); scene.add(key);
+  const coralL = new THREE.PointLight(CORAL, 24, 0, 2); coralL.position.set(2.6, 0.9, 2.4); scene.add(coralL);
+  const limeL = new THREE.PointLight(LIME, 16, 0, 2); limeL.position.set(-3, 1.6, -2); scene.add(limeL);
 
   // ── 陀螺本體 ──
   const top = new THREE.Group();       // 位置/傾角（進場、歲差搖擺）
@@ -65,10 +66,14 @@ export async function initGshHero3D(canvas) {
   top.add(spinner); scene.add(top);
   top.scale.setScalar(0.72);           // 構圖：陀螺讓位給標題與 CTA
 
-  const mBlade = new THREE.MeshStandardMaterial({ color: 0xE84A28, metalness: 0.9, roughness: 0.3 });
-  const mBlade2 = new THREE.MeshStandardMaterial({ color: 0xD99A2E, metalness: 0.94, roughness: 0.24 });
-  const mDark = new THREE.MeshStandardMaterial({ color: 0x2b2b33, metalness: 0.88, roughness: 0.38 });
-  const mSteel = new THREE.MeshStandardMaterial({ color: 0x9a9aa4, metalness: 0.96, roughness: 0.3 });
+  // candy gloss：非金屬＋清漆亮面（參考 Signal Candy 那種焦糖軟膠質感）
+  const candy = (color, rough = 0.22) => new THREE.MeshPhysicalMaterial({
+    color, metalness: 0, roughness: rough, clearcoat: 1, clearcoatRoughness: 0.06, specularIntensity: 1,
+  });
+  const mBlade = candy(0xDE4F06, 0.18);    // 深焦糖橘（高光下仍飽和）
+  const mBlade2 = candy(0xCE8812, 0.2);    // 楓糖金
+  const mDark = candy(0x33282E, 0.28);     // 黑巧克力
+  const mSteel = candy(0xF3E7D3, 0.16);    // 鮮奶油白（軸尖）
 
   const blade = new THREE.Mesh(bladeGeometry(), mBlade); spinner.add(blade);
   const blade2 = new THREE.Mesh(bladeGeometry(), mBlade2);
@@ -82,13 +87,13 @@ export async function initGshHero3D(canvas) {
 
   const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.58, 0.2, 48), mDark); cap.position.y = 0.2; spinner.add(cap);
   const ringLime = new THREE.Mesh(
-    new THREE.TorusGeometry(0.55, 0.03, 12, 64),
-    new THREE.MeshStandardMaterial({ color: 0x111111, emissive: LIME, emissiveIntensity: 2.6, metalness: 0.3, roughness: 0.5 })
+    new THREE.TorusGeometry(0.55, 0.045, 16, 64),
+    new THREE.MeshPhysicalMaterial({ color: LIME, emissive: LIME, emissiveIntensity: 0.7, metalness: 0, roughness: 0.2, clearcoat: 1, clearcoatRoughness: 0.06 })
   );
   ringLime.rotation.x = Math.PI / 2; ringLime.position.y = 0.3; spinner.add(ringLime);
   const jewel = new THREE.Mesh(
-    new THREE.SphereGeometry(0.2, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2),
-    new THREE.MeshStandardMaterial({ color: CORAL, emissive: CORAL, emissiveIntensity: 0.7, metalness: 0.6, roughness: 0.25 })
+    new THREE.SphereGeometry(0.24, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2),
+    candy(0xF04C28, 0.14)
   );
   jewel.position.y = 0.3; spinner.add(jewel);
   const tipShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.07, 0.46, 32), mSteel); tipShaft.position.y = -0.5; spinner.add(tipShaft);
@@ -179,9 +184,9 @@ export async function initGshHero3D(canvas) {
     // 進場：從上方砸落（發射感），落地觸發爆花＋衝擊波
     if (t < 0.95) {
       const k = easeOutBack(t / 0.95);
-      top.position.y = 2.3 * (1 - k) - 0.02;
+      top.position.y = 2.3 * (1 - k) - 0.16;
     } else if (!launched) {
-      launched = true; top.position.y = -0.02; spd = 0.9; spawnShock();
+      launched = true; top.position.y = -0.16; spd = 0.9; spawnShock();
       for (let i = 0; i < 90; i++) respawn(i, 2.2);
     }
     spd += ((launched ? 15 : 3) - spd) * 0.03;
