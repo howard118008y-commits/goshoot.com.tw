@@ -31,4 +31,16 @@
      - **禁**：暗示名人代言、用其肖像、賭博字眼（賭／穩賺／保證中大獎）。可參考檔內既有的博恩那段當格式範例。
    - **沒熱點** → 在 `SOCIAL-DRAFTS.md` 最上方插入一行：`## YYYY-MM-DD ・本週無特別熱點（維持常規新聞）`。
    - 只改 `SOCIAL-DRAFTS.md`，別動其他檔。
-6. 完成後自我檢查：`index.html` 仍有正好 4 個 `class="newscard"` 與 1 個 `class="news-notice"`；4 張 news 圖片內容不重複。不要 commit，改完檔案即可結束。
+6. **更新「新品發售追蹤」區（`id="releases"`）**：這區追蹤三個品類的官方發售消息＋購買連結，每列是一個 `.rel`。
+   - WebSearch 查證三類最新發售情報：
+     a. **戰鬥陀螺**官方新品（查 `Beyblade X 新品 發售` / oneone宇宙／官方）
+     b. **寶可夢一番賞**新彈（查 `寶可夢 一番賞 新彈 發售`）
+     c. **皮克敏**一番賞／新品（查 `皮克敏 一番賞 新品`）
+   - 維持 **5～7 列 `.rel`**，照發售日近→遠排序（已開賣的現行彈放「抽賞中」）。每列更新：
+     - `.rel-date`：`<b>月/日或月份</b><span>年份或狀態</span>`
+     - `.rel-tag` 品類 class：`rt-bey` 陀螺／`rt-pok` 寶可夢／`rt-pik` 皮克敏
+     - `.rel-name` 品名、`.rel-sub` 一句重點（站內有對應情報頁就內連）
+     - `.rel-st` 狀態 chip：`st-pre` 預購中／`st-soon` 即將發售／`st-hot` 熱抽中
+     - `.rel-cta` **購買連結一律連站內**：陀螺新品→`#preorder`（預購/代購）；寶可夢→`ichiban-pokemon.html`；皮克敏→`ichiban-pikmin.html`；陀螺賞→`ichiban-beyblade.html`；現貨→`shop.html`。**絕不外連購物網站。**
+   - 過期處理：發售日已過的列，改狀態為「已開賣→熱抽中/現貨」或移除換新情報。日期不確定就寫月份並標「情報公開」，**嚴禁捏造確切日期**。
+7. 完成後自我檢查：`index.html` 仍有正好 4 個 `class="newscard"`、1 個 `class="news-notice"`、5–7 個 `class="rel"`（含 `id="releases"` 區塊完整）；4 張 news 圖片內容不重複。不要 commit，改完檔案即可結束。
