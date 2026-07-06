@@ -1,4 +1,5 @@
 // Go Shoot 官網首頁 Hero：真 3D 戰鬥陀螺（three.js，經 importmap 載入）
+// 造型對標 Beyblade X 實品三層結構：銀色機甲戰刃 + 半透明琥珀齒輪環(Ratchet) + 半透明黃軸座(Bit)
 // 漸進式增強：由 index.html 在 load 後動態 import；成功後淡入並停掉 2D 備援。
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
@@ -16,24 +17,48 @@ function radialTexture(inner, outer, size = 256) {
   return tex;
 }
 
-// 六刃攻擊型戰刃輪廓：快起慢收的鋸旋剖面 → 有「揮砍感」的刀刃
+// 中央徽章盤：Go Shoot 品牌標靶（對應實品的獸紋晶片）
+function emblemTexture() {
+  const S = 512, c = document.createElement('canvas'); c.width = c.height = S;
+  const g = c.getContext('2d'), cx = S / 2;
+  g.fillStyle = '#0F1116'; g.beginPath(); g.arc(cx, cx, 250, 0, 7); g.fill();
+  // 外圈刻度環（實品盤面的機能感）
+  g.strokeStyle = 'rgba(236,236,234,.85)'; g.lineWidth = 10;
+  for (let i = 0; i < 24; i++) {
+    const a = (i / 24) * Math.PI * 2;
+    g.beginPath();
+    g.moveTo(cx + Math.cos(a) * 206, cx + Math.sin(a) * 206);
+    g.lineTo(cx + Math.cos(a) * 232, cx + Math.sin(a) * 232);
+    g.stroke();
+  }
+  // 品牌標靶 logo
+  g.strokeStyle = '#ECECEA'; g.lineWidth = 22;
+  g.beginPath(); g.arc(cx, cx, 150, 0, 7); g.stroke();
+  g.strokeStyle = 'rgba(236,236,234,.35)'; g.lineWidth = 12;
+  g.beginPath(); g.arc(cx, cx, 104, 0, 7); g.stroke();
+  g.fillStyle = '#FF6A4D'; g.beginPath(); g.arc(cx, cx, 62, 0, 7); g.fill();
+  g.fillStyle = '#ECECEA'; g.beginPath(); g.arc(cx, cx, 24, 0, 7); g.fill();
+  g.strokeStyle = '#FF6A4D'; g.lineWidth = 26; g.lineCap = 'round';
+  g.beginPath(); g.arc(cx, cx, 186, -Math.PI / 2, 0); g.stroke();
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 4;
+  return tex;
+}
+
+// 三迴對稱機甲戰刃輪廓：直線斷面＋外突翼板＋內凹缺口（角刃，不是花瓣）
 function bladeGeometry() {
+  const seq = [[0, 1.42], [26, 1.42], [33, 1.1], [50, 1.25], [58, 1.48], [66, 1.36], [84, 1.36], [92, 1.05], [106, 1.22], [118, 1.42]];
   const pts = [];
-  const N = 6, steps = 360;
-  for (let i = 0; i <= steps; i++) {
-    const th = (i / steps) * Math.PI * 2;
-    const u = ((th * N) / (Math.PI * 2)) % 1;
-    const prof = u < 0.6 ? Math.pow(u / 0.6, 0.8) : Math.pow(1 - (u - 0.6) / 0.4, 1.8);
-    const rad = 0.88 + 0.6 * prof;
-    pts.push(new THREE.Vector2(Math.cos(th) * rad, Math.sin(th) * rad));
+  for (let s = 0; s < 3; s++) for (const [a, r] of seq) {
+    const th = ((s * 120 + a) * Math.PI) / 180;
+    pts.push(new THREE.Vector2(Math.cos(th) * r, Math.sin(th) * r));
   }
   const shape = new THREE.Shape(pts);
-  // 糖果感：厚身＋枕頭圓倒角（大 bevel 多段）
   const geo = new THREE.ExtrudeGeometry(shape, {
-    depth: 0.22, bevelEnabled: true, bevelThickness: 0.12, bevelSize: 0.1, bevelSegments: 6, curveSegments: 5,
+    depth: 0.18, bevelEnabled: true, bevelThickness: 0.035, bevelSize: 0.03, bevelSegments: 2, curveSegments: 1,
   });
   geo.rotateX(-Math.PI / 2);
-  geo.translate(0, -0.1, 0);
   return geo;
 }
 
@@ -51,53 +76,83 @@ export async function initGshHero3D(canvas) {
   const scene = new THREE.Scene();
   const pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-  scene.environmentIntensity = 0.8;    // candy gloss：柔光反射給質感，但別把焦糖色洗白
+  scene.environmentIntensity = 0.75;   // 銀色金屬要吃環境反射，但壓一點保留暗部對比
 
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 60);
 
-  // ── 燈光：白主光＋珊瑚/青檸兩側色光（品牌雙色打在金屬上）──
-  const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(3, 5, 4); scene.add(key);
+  const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(3, 5, 4); scene.add(key);
   const coralL = new THREE.PointLight(CORAL, 24, 0, 2); coralL.position.set(2.6, 0.9, 2.4); scene.add(coralL);
   const limeL = new THREE.PointLight(LIME, 16, 0, 2); limeL.position.set(-3, 1.6, -2); scene.add(limeL);
 
-  // ── 陀螺本體 ──
-  const top = new THREE.Group();       // 位置/傾角（進場、歲差搖擺）
-  const spinner = new THREE.Group();   // 高速自轉層
+  // ── 陀螺本體（三層：戰刃/齒輪環/軸座）──
+  const top = new THREE.Group();
+  const spinner = new THREE.Group();
   top.add(spinner); scene.add(top);
-  top.scale.setScalar(0.72);           // 構圖：陀螺讓位給標題與 CTA
+  top.scale.setScalar(0.72);
 
-  // candy gloss：非金屬＋清漆亮面（參考 Signal Candy 那種焦糖軟膠質感）
-  const candy = (color, rough = 0.22) => new THREE.MeshPhysicalMaterial({
-    color, metalness: 0, roughness: rough, clearcoat: 1, clearcoatRoughness: 0.06, specularIntensity: 1,
+  const mSilver = new THREE.MeshStandardMaterial({ color: 0xA9ABB4, metalness: 0.95, roughness: 0.3 });
+  const mSilver2 = new THREE.MeshStandardMaterial({ color: 0x83858E, metalness: 0.95, roughness: 0.34 });
+  const mGun = new THREE.MeshStandardMaterial({ color: 0x4A4C54, metalness: 0.9, roughness: 0.42 });
+  const mAmber = new THREE.MeshPhysicalMaterial({   // 半透明琥珀齒輪環（暗景用亮色＋微自發光撐住透明感）
+    color: 0xF0A21E, transmission: 0.5, thickness: 0.6, roughness: 0.12, ior: 1.45,
+    transparent: true, opacity: 0.92, clearcoat: 0.7, emissive: 0x7A4C00, emissiveIntensity: 0.3,
   });
-  const mBlade = candy(0xDE4F06, 0.18);    // 深焦糖橘（高光下仍飽和）
-  const mBlade2 = candy(0xCE8812, 0.2);    // 楓糖金
-  const mDark = candy(0x33282E, 0.28);     // 黑巧克力
-  const mSteel = candy(0xF3E7D3, 0.16);    // 鮮奶油白（軸尖）
+  const mYellow = new THREE.MeshPhysicalMaterial({  // 半透明黃軸座
+    color: 0xEDF07A, transmission: 0.45, thickness: 0.5, roughness: 0.18, ior: 1.4,
+    transparent: true, opacity: 0.95, clearcoat: 0.6, emissive: 0x8A9224, emissiveIntensity: 0.22,
+  });
 
-  const blade = new THREE.Mesh(bladeGeometry(), mBlade); spinner.add(blade);
-  const blade2 = new THREE.Mesh(bladeGeometry(), mBlade2);
-  blade2.scale.set(0.78, 0.7, 0.78); blade2.position.y = -0.06; blade2.rotation.y = Math.PI / 6;
-  spinner.add(blade2);
-
-  const ratchet = new THREE.Mesh(new THREE.CylinderGeometry(0.86, 0.95, 0.17, 12, 1), mDark);
-  ratchet.geometry = ratchet.geometry.toNonIndexed(); ratchet.geometry.computeVertexNormals();
-  ratchet.material = mDark.clone(); ratchet.material.flatShading = true;
-  ratchet.position.y = -0.22; spinner.add(ratchet);
-
-  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.58, 0.2, 48), mDark); cap.position.y = 0.2; spinner.add(cap);
+  // 戰刃層：底盤 + 銀角刃 + 機甲細節
+  const bladeBase = new THREE.Mesh(new THREE.CylinderGeometry(0.98, 1.02, 0.1, 48), mGun); spinner.add(bladeBase);
+  const blade = new THREE.Mesh(bladeGeometry(), mSilver); blade.position.y = 0.02; spinner.add(blade);
+  const blade2 = new THREE.Mesh(bladeGeometry(), mGun);          // 上層錯位刃：深槍鐵色，做出實品雙色斷差
+  blade2.scale.set(0.8, 0.62, 0.8); blade2.rotation.y = Math.PI / 3; blade2.position.y = 0.2; spinner.add(blade2);
+  const shoulder = new THREE.Mesh(new THREE.CylinderGeometry(0.58, 1.16, 0.13, 48), mSilver);    // 肩部斜坡
+  shoulder.position.y = 0.3; spinner.add(shoulder);
+  for (let i = 0; i < 3; i++) {                                   // 外突裝甲翼板（斜坡上）
+    const tab = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.08, 0.22), mSilver);
+    const a = (i / 3) * Math.PI * 2 + 0.55;
+    tab.position.set(Math.cos(a) * 0.78, 0.36, Math.sin(a) * 0.78);
+    tab.rotation.y = -a; spinner.add(tab);
+  }
+  for (let i = 0; i < 6; i++) {                                   // 斜坡散熱刻線
+    const slit = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.03, 0.05), mGun);
+    const a = (i / 6) * Math.PI * 2 + 0.3;
+    slit.position.set(Math.cos(a) * 0.72, 0.35, Math.sin(a) * 0.72);
+    slit.rotation.y = -a + Math.PI / 2; spinner.add(slit);
+  }
+  // 中央徽章：青檸環 + 盤面
   const ringLime = new THREE.Mesh(
-    new THREE.TorusGeometry(0.55, 0.045, 16, 64),
-    new THREE.MeshPhysicalMaterial({ color: LIME, emissive: LIME, emissiveIntensity: 0.7, metalness: 0, roughness: 0.2, clearcoat: 1, clearcoatRoughness: 0.06 })
+    new THREE.CylinderGeometry(0.5, 0.54, 0.1, 48),
+    new THREE.MeshPhysicalMaterial({ color: 0xC7D63F, emissive: LIME, emissiveIntensity: 0.25, roughness: 0.3, clearcoat: 0.8 })
   );
-  ringLime.rotation.x = Math.PI / 2; ringLime.position.y = 0.3; spinner.add(ringLime);
-  const jewel = new THREE.Mesh(
-    new THREE.SphereGeometry(0.24, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2),
-    candy(0xF04C28, 0.14)
+  ringLime.position.y = 0.38; spinner.add(ringLime);
+  const emblem = new THREE.Mesh(
+    new THREE.CircleGeometry(0.43, 48),
+    new THREE.MeshStandardMaterial({ map: emblemTexture(), roughness: 0.35, metalness: 0.15 })
   );
-  jewel.position.y = 0.3; spinner.add(jewel);
-  const tipShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.07, 0.46, 32), mSteel); tipShaft.position.y = -0.5; spinner.add(tipShaft);
-  const tip = new THREE.Mesh(new THREE.SphereGeometry(0.07, 16, 12), mSteel); tip.position.y = -0.74; spinner.add(tip);
+  emblem.rotation.x = -Math.PI / 2; emblem.position.y = 0.432; spinner.add(emblem);
+
+  // 齒輪環（Ratchet）：半透明琥珀 + 方齒
+  const ratBase = new THREE.Mesh(new THREE.CylinderGeometry(0.84, 0.76, 0.18, 48), mAmber); ratBase.position.y = -0.14; spinner.add(ratBase);
+  for (let i = 0; i < 10; i++) {
+    const tooth = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.16, 0.24), mAmber);
+    const a = (i / 10) * Math.PI * 2;
+    tooth.position.set(Math.cos(a) * 0.9, -0.14, Math.sin(a) * 0.9);
+    tooth.rotation.y = -a; spinner.add(tooth);
+  }
+  const ratCone = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.4, 0.16, 48), mAmber); ratCone.position.y = -0.3; spinner.add(ratCone);
+
+  // 軸座（Bit）：半透明黃——寬緣 + 直紋軸身 + 圓頭尖
+  const flange = new THREE.Mesh(new THREE.CylinderGeometry(0.46, 0.44, 0.07, 48), mYellow); flange.position.y = -0.4; spinner.add(flange);
+  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.24, 0.22, 32), mYellow); shaft.position.y = -0.54; spinner.add(shaft);
+  for (let i = 0; i < 10; i++) {                                  // 軸身直紋肋條
+    const rib = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.2, 0.05), mYellow);
+    const a = (i / 10) * Math.PI * 2;
+    rib.position.set(Math.cos(a) * 0.26, -0.54, Math.sin(a) * 0.26); spinner.add(rib);
+  }
+  const tipCone = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.08, 0.12, 32), mYellow); tipCone.position.y = -0.7; spinner.add(tipCone);
+  const tipBall = new THREE.Mesh(new THREE.SphereGeometry(0.085, 16, 12), mYellow); tipBall.position.y = -0.77; spinner.add(tipBall);
 
   // ── 地面光暈與能量環 ──
   const GROUND = -0.86;
@@ -150,7 +205,7 @@ export async function initGshHero3D(canvas) {
   pGeo.setAttribute('color', new THREE.BufferAttribute(col, 3));
   const points = new THREE.Points(pGeo, new THREE.PointsMaterial({
     size: 0.09, vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false,
-    map: radialTexture('rgba(255,255,255,1)', 'rgba(255,255,255,0)', 64),   // 圓形光點，不是方塊
+    map: radialTexture('rgba(255,255,255,1)', 'rgba(255,255,255,0)', 64),
   }));
   scene.add(points);
 
@@ -160,7 +215,7 @@ export async function initGshHero3D(canvas) {
     const h = canvas.clientHeight || canvas.parentElement.clientHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    camera.position.set(0, 1.12, camera.aspect < 0.8 ? 6.8 : 5.6);
+    camera.position.set(0, 0.8, camera.aspect < 0.8 ? 6.8 : 5.6);
     camera.updateProjectionMatrix();
   }
   resize(); addEventListener('resize', resize);
@@ -181,7 +236,6 @@ export async function initGshHero3D(canvas) {
     const dt = Math.min(clock.getDelta(), 0.05);
     t += dt;
 
-    // 進場：從上方砸落（發射感），落地觸發爆花＋衝擊波
     if (t < 0.95) {
       const k = easeOutBack(t / 0.95);
       top.position.y = 2.3 * (1 - k) - 0.16;
@@ -192,15 +246,15 @@ export async function initGshHero3D(canvas) {
     spd += ((launched ? 15 : 3) - spd) * 0.03;
     spinner.rotation.y += spd * dt;
 
-    // 歲差搖擺＋輕微漂移＝「活著」的陀螺
-    top.rotation.x = 0.16 + Math.sin(t * 0.9) * 0.045;
-    top.rotation.z = Math.cos(t * 0.7) * 0.05;
+    // 歲差搖擺（實品打斜旋轉的姿態）＋輕微漂移
+    top.rotation.x = 0.3 + Math.sin(t * 0.7) * 0.12;   // 大歲差：搖擺時輪流露出徽章面與下層齒環/軸座
+    top.rotation.z = Math.cos(t * 0.55) * 0.09;
     top.position.x = Math.sin(t * 0.55) * 0.09;
 
     ringA.rotation.z += dt * 0.25; ringB.rotation.z -= dt * 0.18;
     ringA.material.opacity = 0.24 + 0.1 * Math.sin(t * 1.6);
     ringB.material.opacity = 0.14 + 0.07 * Math.sin(t * 1.2 + 1);
-    ringLime.material.emissiveIntensity = 2.2 + Math.sin(t * 3) * 0.7;
+    ringLime.material.emissiveIntensity = 0.2 + Math.max(0, Math.sin(t * 3)) * 0.25;
 
     if (launched && t % 3.4 < dt) spawnShock();
     for (let i = shocks.length - 1; i >= 0; i--) {
@@ -221,8 +275,8 @@ export async function initGshHero3D(canvas) {
     pGeo.attributes.position.needsUpdate = true; pGeo.attributes.color.needsUpdate = true;
 
     camera.position.x = Math.sin(t * 0.12) * 0.5;
-    camera.position.y = 1.12 - scrollOff;
-    camera.lookAt(0, -0.12, 0);
+    camera.position.y = 0.8 - scrollOff;
+    camera.lookAt(0, -0.1, 0);
     renderer.render(scene, camera);
 
     if (!faded) { faded = true; canvas.style.opacity = '1'; if (window.gshStop2D) setTimeout(window.gshStop2D, 950); }
