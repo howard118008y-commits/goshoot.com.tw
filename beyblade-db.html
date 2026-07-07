@@ -42,6 +42,9 @@ h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;margin:36px 0 10px}
 .fbtn:hover{color:var(--text)}
 .fbtn.on{background:var(--lime);border-color:var(--lime);color:#0B0B0D}
 .fbtn.s.on{background:var(--coral);border-color:var(--coral);color:#fff}
+.db-search{flex:1 1 100%;box-sizing:border-box;background:var(--paper);border:1px solid var(--line);color:var(--text);font:600 15px 'Noto Sans TC';padding:11px 16px;border-radius:12px;height:44px;margin-bottom:6px}
+.db-search:focus{outline:none;border-color:var(--lime)}
+.db-search::placeholder{color:var(--sec)}
 .count{font-size:13px;color:var(--sec);margin:4px 0 12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:10px 0 30px}
 .mc{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;transition:transform .15s,border-color .15s}
@@ -86,6 +89,7 @@ footer a{color:var(--lime)}
   <img src="assets/news/db-hero.jpg" alt="戰鬥陀螺三世代機體並列的能量抽象示意圖" style="width:100%;border-radius:16px;margin:6px 0 6px;border:1px solid var(--line)" loading="lazy">
 
   <div class="filters" id="filters">
+    <input type="search" id="search" class="db-search" placeholder="搜尋機體編號或名稱…" aria-label="搜尋機體編號或名稱">
     <button class="fbtn s on" data-f="s:all">全部系列</button>
     <button class="fbtn s" data-f="s:BX">BX（24）</button>
     <button class="fbtn s" data-f="s:UX">UX（19）</button>
@@ -434,10 +438,12 @@ footer a{color:var(--lime)}
 (function(){
   var fs={s:"all",t:"all"};
   var btns=document.querySelectorAll(".fbtn"),cards=document.querySelectorAll(".mc"),cnt=document.getElementById("count");
+  var search=document.getElementById("search"),q="";
   function apply(){
     var n=0;
     cards.forEach(function(c){
-      var ok=(fs.s==="all"||c.dataset.s===fs.s)&&(fs.t==="all"||c.dataset.t===fs.t);
+      var txt=((c.querySelector(".mc-code")?c.querySelector(".mc-code").textContent:"")+" "+(c.querySelector(".mc-name")?c.querySelector(".mc-name").textContent:"")).toLowerCase();
+      var ok=(fs.s==="all"||c.dataset.s===fs.s)&&(fs.t==="all"||c.dataset.t===fs.t)&&(q===""||txt.indexOf(q)>-1);
       c.classList.toggle("hide",!ok); if(ok)n++;
     });
     cnt.textContent="顯示 "+n+" / "+cards.length+" 台";
@@ -450,6 +456,7 @@ footer a{color:var(--lime)}
       apply();
     });
   });
+  if(search){ search.addEventListener("input",function(){ q=search.value.trim().toLowerCase(); apply(); }); }
 })();
 </script>
 </body>
