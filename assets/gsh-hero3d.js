@@ -63,13 +63,19 @@ function bladeGeometry() {
 }
 
 export async function initGshHero3D(canvas) {
+  const isMobile = matchMedia('(max-width: 760px)').matches || (navigator.maxTouchPoints || 0) > 1;
   let renderer;
   try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: true, powerPreference: 'high-performance' });
   } catch (e) { return false; }
   if (!renderer.getContext()) return false;
 
-  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, isMobile ? 1.5 : 2));
+  canvas.addEventListener('webglcontextlost', (e) => {   // iOS 記憶體壓力會丟 context → 還原 2D 備援
+    e.preventDefault();
+    canvas.style.opacity = '0';
+    if (window.gshRestore2D) window.gshRestore2D();
+  });
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.0;
 
@@ -186,7 +192,7 @@ export async function initGshHero3D(canvas) {
   }
 
   // ── 火花粒子 ──
-  const SPARKS = 240;
+  const SPARKS = isMobile ? 140 : 240;
   const pGeo = new THREE.BufferGeometry();
   const pos = new Float32Array(SPARKS * 3), col = new Float32Array(SPARKS * 3);
   const vel = new Float32Array(SPARKS * 3), life = new Float32Array(SPARKS), baseC = new Float32Array(SPARKS * 3);
@@ -219,6 +225,21 @@ export async function initGshHero3D(canvas) {
     camera.updateProjectionMatrix();
   }
   resize(); addEventListener('resize', resize);
+
+  // 校樣渲染：畫得出來才接管（iOS 上 WebGL 可能「建立成功但畫不出來」，此時要把 2D 留在場上）
+  top.position.y = -0.16;
+  renderer.render(scene, camera);
+  try {
+    const gl = renderer.getContext();
+    const bw = gl.drawingBufferWidth, bh = gl.drawingBufferHeight;
+    const px = new Uint8Array(4);
+    let sum = 0;
+    for (const fy of [0.5, 0.42, 0.62]) {
+      gl.readPixels(bw >> 1, (bh * fy) | 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+      sum += px[0] + px[1] + px[2] + px[3];
+    }
+    if (sum === 0) { renderer.dispose(); return false; }
+  } catch (e) { renderer.dispose(); return false; }
 
   // ── 動畫 ──
   const clock = new THREE.Clock();

@@ -293,6 +293,7 @@ footer a:hover{color:var(--lime)}
   if(!cv||!hero) return;
   var stopped=false;
   window.gshStop2D=function(){ stopped=true; cv.style.display="none"; };
+  window.gshRestore2D=function(){ if(!stopped) return; stopped=false; cv.style.display=""; requestAnimationFrame(frame); };
   var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
   var ctx=cv.getContext("2d"), W=0,H=0,DPR=Math.min(devicePixelRatio||1,2),cx=0,cy=0,R=0,baseCy=0,t=0,ang=0,spd=0,launched=false,sparks=[],shock=[];
   function rs(){ W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);cx=W*.5;R=Math.min(W*.26,H*.19);baseCy=H*.63;cy=baseCy; }
