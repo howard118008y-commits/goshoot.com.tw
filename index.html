@@ -316,18 +316,22 @@ footer a:hover{color:var(--lime)}
     for(var j=sparks.length-1;j>=0;j--){var p=sparks[j];p.vy+=.12;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.life-=.02;ctx.globalAlpha=Math.max(p.life,0);ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,2.1,0,7);ctx.fill();ctx.globalAlpha=1;if(p.life<=0)sparks.splice(j,1);}
     requestAnimationFrame(frame);
   }
-  if(reduce){ launched=true;ang=.6;top(.6); hero.classList.add("go"); }
-  else{ requestAnimationFrame(frame); requestAnimationFrame(function(){ setTimeout(function(){hero.classList.add("go");launched=true;},140); }); }
+  /* 陀螺動畫＝內容本身，reduce-motion 不再整段關閉（開了減少動態的手機以前只看到靜態圖）*/
+  requestAnimationFrame(frame); requestAnimationFrame(function(){ setTimeout(function(){hero.classList.add("go");launched=true;},140); });
   addEventListener("scroll",function(){var y=scrollY;if(y<innerHeight){cy=baseCy-y*.12;}},{passive:true});
 })();
 </script>
-<!-- 真 3D 陀螺（漸進式增強：load 後才載 three.js，不影響 LCP；失敗/reduced-motion 留在 2D）-->
+<!-- 真 3D 陀螺（漸進式增強：load 後才載 three.js，不影響 LCP；失敗留在 2D）-->
 <script type="importmap">
 {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}
 </script>
 <script>
 (function(){
-  if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  /* 重新整理後瀏覽器會還原捲動位置→hero 不在視野。reload 一律回到頁首（返回鍵導航不受影響）*/
+  try{
+    var nav=performance.getEntriesByType("navigation")[0];
+    if(nav&&nav.type==="reload"){ history.scrollRestoration="manual"; scrollTo(0,0); addEventListener("pageshow",function(){scrollTo(0,0);},{once:true}); }
+  }catch(e){}
   addEventListener("load", function(){
     import("./assets/gsh-hero3d.js")
       .then(function(m){ return m.initGshHero3D(document.getElementById("gshStage3d")); })
