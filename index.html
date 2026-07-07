@@ -250,6 +250,7 @@ footer a:hover{color:var(--lime)}
 .gsh-cue{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:3;font:600 10px/1 'Poppins',sans-serif;letter-spacing:.2em;color:#5E5952;opacity:0;display:flex;flex-direction:column;align-items:center;gap:7px}
 .gsh-cue b{width:1px;height:28px;background:linear-gradient(#FF6A4D,transparent);animation:gshCue 1.8s ease-in-out infinite}
 @keyframes gshCue{0%,100%{transform:scaleY(.4);opacity:.4;transform-origin:top}50%{transform:scaleY(1);opacity:1}}
+.gsh-heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none}
 .gsh-hero .gsh-kick,.gsh-hero .gsh-sub2,.gsh-hero .gsh-lead,.gsh-hero .gsh-cta,.gsh-hero .gsh-cue{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
 .gsh-h1 .l{transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
 .gsh-hero.go .gsh-kick{opacity:1;transform:none}
@@ -270,8 +271,33 @@ footer a:hover{color:var(--lime)}
     <span class="gsh-blob b3" style="bottom:-14%;left:26%;width:430px;height:430px;background:#B6F500"></span>
     <span class="gsh-blob b4" style="top:62%;right:20%;width:260px;height:260px;background:#FFC24B"></span>
   </div>
-  <canvas id="gshStage"></canvas>
-  <canvas id="gshStage3d" style="opacity:0;transition:opacity .9s ease" aria-hidden="true"></canvas>
+  <svg class="gsh-heroimg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <radialGradient id="gsBg" cx="50%" cy="42%" r="78%"><stop offset="0%" stop-color="#1d1430"/><stop offset="62%" stop-color="#0A0812"/><stop offset="100%" stop-color="#050308"/></radialGradient>
+      <radialGradient id="gsGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FF6A4D" stop-opacity="0.5"/><stop offset="45%" stop-color="#FF6A4D" stop-opacity="0.11"/><stop offset="100%" stop-color="#FF6A4D" stop-opacity="0"/></radialGradient>
+      <radialGradient id="gsCore" cx="40%" cy="36%" r="72%"><stop offset="0%" stop-color="#3c3c46"/><stop offset="55%" stop-color="#20202a"/><stop offset="88%" stop-color="#0e0e14"/><stop offset="100%" stop-color="#000000"/></radialGradient>
+      <linearGradient id="gsBlade" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#9a9ca6"/><stop offset="58%" stop-color="#4a4c54"/><stop offset="100%" stop-color="#FF6A4D"/></linearGradient>
+      <filter id="gsSoft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="30"/></filter>
+      <filter id="gsSoft2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="70"/></filter>
+    </defs>
+    <rect width="1600" height="1000" fill="url(#gsBg)"/>
+    <g filter="url(#gsSoft2)" opacity="0.5"><circle cx="220" cy="230" r="200" fill="#FF6A4D"/><circle cx="1390" cy="300" r="220" fill="#8B5CF6"/><circle cx="500" cy="910" r="200" fill="#B6F500"/><circle cx="1250" cy="770" r="150" fill="#FFC24B"/></g>
+    <ellipse cx="800" cy="560" rx="540" ry="430" fill="url(#gsGlow)"/>
+    <g transform="translate(800 726)" opacity="0.85"><ellipse rx="360" ry="90" fill="none" stroke="#FF6A4D" stroke-opacity="0.34" stroke-width="2"/><ellipse rx="470" ry="120" fill="none" stroke="#B6F500" stroke-opacity="0.2" stroke-width="2"/></g>
+    <g transform="translate(800 540)">
+      <g fill="url(#gsBlade)">
+        <polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(0)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(45)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(90)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(135)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(180)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(225)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(270)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(315)"/>
+      </g>
+      <circle r="222" fill="none" stroke="#FF6A4D" stroke-opacity="0.5" stroke-width="3"/>
+      <circle r="252" fill="none" stroke="#B6F500" stroke-opacity="0.28" stroke-width="2" stroke-dasharray="6 12"/>
+      <circle r="172" fill="url(#gsCore)"/>
+      <circle r="172" fill="none" stroke="#FF6A4D" stroke-opacity="0.7" stroke-width="4"/>
+      <circle r="150" fill="none" stroke="#B6F500" stroke-opacity="0.45" stroke-width="2"/>
+      <g stroke="#ECECEA" stroke-opacity="0.5" stroke-width="4"><line y1="-140" y2="-122" transform="rotate(0)"/><line y1="-140" y2="-122" transform="rotate(30)"/><line y1="-140" y2="-122" transform="rotate(60)"/><line y1="-140" y2="-122" transform="rotate(90)"/><line y1="-140" y2="-122" transform="rotate(120)"/><line y1="-140" y2="-122" transform="rotate(150)"/><line y1="-140" y2="-122" transform="rotate(180)"/><line y1="-140" y2="-122" transform="rotate(210)"/><line y1="-140" y2="-122" transform="rotate(240)"/><line y1="-140" y2="-122" transform="rotate(270)"/><line y1="-140" y2="-122" transform="rotate(300)"/><line y1="-140" y2="-122" transform="rotate(330)"/></g>
+      <circle r="62" fill="#FF6A4D"/><circle r="42" fill="none" stroke="#ECECEA" stroke-opacity="0.85" stroke-width="6"/><circle r="24" fill="#ECECEA"/><circle r="10" fill="#0F1116"/>
+      <circle cx="-58" cy="-58" r="30" fill="#ffffff" opacity="0.35" filter="url(#gsSoft)"/>
+    </g>
+  </svg>
   <div class="gsh-grain"></div><div class="gsh-vig"></div>
   <div class="gsh-top">
     <div class="gsh-kick"><i></i>中和捷運站旁・24H・只賣正版</div>
@@ -289,54 +315,10 @@ footer a:hover{color:var(--lime)}
 </section>
 <script>
 (function(){
-  var hero=document.getElementById("gshHero"), cv=document.getElementById("gshStage");
-  if(!cv||!hero) return;
-  var stopped=false;
-  window.gshStop2D=function(){ stopped=true; cv.style.display="none"; };
-  window.gshRestore2D=function(){ if(!stopped) return; stopped=false; cv.style.display=""; requestAnimationFrame(frame); };
-  var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
-  var ctx=cv.getContext("2d"), W=0,H=0,DPR=Math.min(devicePixelRatio||1,2),cx=0,cy=0,R=0,baseCy=0,t=0,ang=0,spd=0,launched=false,sparks=[],shock=[];
-  function rs(){ W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);cx=W*.5;R=Math.min(W*.26,H*.19);baseCy=H*.63;cy=baseCy; }
-  rs(); addEventListener("resize",rs);
-  function burst(n,p){for(var i=0;i<n;i++){var a=Math.random()*6.28,s=(1+Math.random()*3)*p;sparks.push({x:cx+Math.cos(a)*R*.7,y:cy+Math.sin(a)*R*.28,vx:Math.cos(a)*s,vy:Math.sin(a)*s-1.2,life:1,c:Math.random()<.5?"#FF6A4D":"#B6F500"});}}
-  function top(rot){
-    ctx.save();ctx.translate(cx,cy);ctx.scale(1,.52);
-    var fg=ctx.createRadialGradient(0,R*1.15,0,0,R*1.15,R*2.2);fg.addColorStop(0,"rgba(255,106,77,.22)");fg.addColorStop(1,"transparent");ctx.fillStyle=fg;ctx.beginPath();ctx.ellipse(0,R*1.1,R*2.1,R*1.2,0,0,7);ctx.fill();
-    for(var r=0;r<3;r++){ctx.save();ctx.rotate(rot*(r%2?-1:1)*.6+r);ctx.beginPath();var rr=R*(1.35+r*.28);for(var a=0;a<6.28;a+=.35){var x=Math.cos(a)*rr,y=Math.sin(a)*rr;a===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}ctx.closePath();ctx.strokeStyle=r%2?"rgba(182,245,0,"+(.1-r*.02)+")":"rgba(255,106,77,"+(.13-r*.02)+")";ctx.lineWidth=2;ctx.stroke();ctx.restore();}
-    for(var g=6;g>=0;g--){var ga=rot-g*.1,al=g===0?1:(.12*(1-g/7));ctx.save();ctx.rotate(ga);for(var b=0;b<6;b++){ctx.rotate(1.047);ctx.beginPath();ctx.moveTo(R*.28,0);ctx.lineTo(R*.98,-R*.14);ctx.lineTo(R*1.02,0);ctx.lineTo(R*.98,R*.14);ctx.closePath();var bg=ctx.createLinearGradient(R*.3,0,R*1.02,0);bg.addColorStop(0,"rgba(120,120,130,"+al+")");bg.addColorStop(.7,"rgba(60,60,70,"+al+")");bg.addColorStop(1,"rgba(255,106,77,"+al+")");ctx.fillStyle=bg;ctx.fill();}ctx.restore();}
-    var mg=ctx.createRadialGradient(-R*.3,-R*.3,R*.1,0,0,R*.72);mg.addColorStop(0,"#3a3a44");mg.addColorStop(.5,"#202028");mg.addColorStop(.86,"#0e0e13");mg.addColorStop(1,"#000");ctx.beginPath();ctx.arc(0,0,R*.72,0,7);ctx.fillStyle=mg;ctx.fill();
-    ctx.beginPath();ctx.arc(0,0,R*.72,0,7);ctx.lineWidth=3;ctx.strokeStyle="rgba(255,106,77,.7)";ctx.stroke();ctx.beginPath();ctx.arc(0,0,R*.62,3.46,5.34);ctx.lineWidth=2;ctx.strokeStyle="rgba(182,245,0,.6)";ctx.stroke();
-    ctx.beginPath();ctx.arc(0,0,R*.2,0,7);ctx.fillStyle="#15151b";ctx.fill();var sx=Math.cos(rot)*R*.08,sy=Math.sin(rot)*R*.08;ctx.beginPath();ctx.arc(sx,sy,R*.07,0,7);ctx.fillStyle="rgba(255,255,255,.9)";ctx.fill();ctx.beginPath();ctx.arc(-R*.24,-R*.24,R*.05,0,7);ctx.fillStyle="rgba(255,255,255,.5)";ctx.fill();
-    ctx.restore();
-  }
-  function frame(){if(stopped)return;t++;ctx.clearRect(0,0,W,H);var bgg=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.max(W,H)*.7);bgg.addColorStop(0,"rgba(30,18,14,.85)");bgg.addColorStop(1,"rgba(8,8,10,0)");ctx.fillStyle=bgg;ctx.fillRect(0,0,W,H);
-    if(launched){spd+=(.42-spd)*.04;ang+=spd;}var wob=Math.sin(t*.03)*R*.03,ox=cx;cx=ox+wob;top(ang);cx=ox;
-    if(launched&&t%150===0){burst(24,1.6);shock.push({r:R*.7,a:.5});}
-    for(var i=shock.length-1;i>=0;i--){var s=shock[i];s.r+=6;s.a*=.94;ctx.beginPath();ctx.ellipse(cx,cy,s.r,s.r*.52,0,0,7);ctx.strokeStyle="rgba(255,106,77,"+s.a+")";ctx.lineWidth=2;ctx.stroke();if(s.a<.02)shock.splice(i,1);}
-    for(var j=sparks.length-1;j>=0;j--){var p=sparks[j];p.vy+=.12;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.life-=.02;ctx.globalAlpha=Math.max(p.life,0);ctx.fillStyle=p.c;ctx.beginPath();ctx.arc(p.x,p.y,2.1,0,7);ctx.fill();ctx.globalAlpha=1;if(p.life<=0)sparks.splice(j,1);}
-    requestAnimationFrame(frame);
-  }
-  /* 陀螺動畫＝內容本身，reduce-motion 不再整段關閉（開了減少動態的手機以前只看到靜態圖）*/
-  requestAnimationFrame(frame); requestAnimationFrame(function(){ setTimeout(function(){hero.classList.add("go");launched=true;},140); });
-  addEventListener("scroll",function(){var y=scrollY;if(y<innerHeight){cy=baseCy-y*.12;}},{passive:true});
-})();
-</script>
-<!-- 真 3D 陀螺（漸進式增強：load 後才載 three.js，不影響 LCP；失敗留在 2D）-->
-<script type="importmap">
-{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}
-</script>
-<script>
-(function(){
-  /* 重新整理後瀏覽器會還原捲動位置→hero 不在視野。reload 一律回到頁首（返回鍵導航不受影響）*/
-  try{
-    var nav=performance.getEntriesByType("navigation")[0];
-    if(nav&&nav.type==="reload"){ history.scrollRestoration="manual"; scrollTo(0,0); addEventListener("pageshow",function(){scrollTo(0,0);},{once:true}); }
-  }catch(e){}
-  addEventListener("load", function(){
-    import("./assets/gsh-hero3d.js")
-      .then(function(m){ return m.initGshHero3D(document.getElementById("gshStage3d")); })
-      .catch(function(){ /* 3D 失敗：2D 備援已在跑，不動作 */ });
-  });
+  var hero=document.getElementById("gshHero");
+  try{ var nav=performance.getEntriesByType("navigation")[0];
+    if(nav&&nav.type==="reload"){ history.scrollRestoration="manual"; scrollTo(0,0); addEventListener("pageshow",function(){scrollTo(0,0);},{once:true}); } }catch(e){}
+  requestAnimationFrame(function(){ setTimeout(function(){ hero&&hero.classList.add("go"); },140); });
 })();
 </script>
 
