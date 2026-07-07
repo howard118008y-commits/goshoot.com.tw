@@ -48,6 +48,8 @@ h1,h2,h3,.disp{font-family:var(--disp)}
 .btn-ghost:hover{background:var(--lime);color:#0B0B0D}
 .btn-light{background:var(--paper2);color:var(--text);border:1px solid var(--line,rgba(255,255,255,.1))}
 .btn-light:hover{border-color:var(--lime);color:var(--lime)}
+.btn.btn-race{background:linear-gradient(100deg,#E4002B,#B0021F);color:#fff;box-shadow:0 0 26px rgba(228,0,43,.32),0 6px 18px rgba(0,0,0,.4)}
+.btn.btn-race:hover{background:linear-gradient(100deg,#E4002B,#B0021F);filter:brightness(1.08);box-shadow:0 0 34px rgba(228,0,43,.55),0 8px 22px rgba(0,0,0,.45)}
 .btn-sm{padding:9px 16px;font-size:14px}
 .eyebrow{display:inline-block;font-family:var(--disp);font-weight:800;letter-spacing:2px;
   text-transform:uppercase;font-size:12px;color:var(--lime);
@@ -213,7 +215,7 @@ footer a:hover{color:var(--lime)}
     <a href="#preorder">代購預購</a>
     <a href="#visit">來店</a>
     <a href="faq.html">常見問題</a>
-    <a class="btn btn-sm" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽一番賞</a>
+    <a class="btn btn-sm btn-race" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽一番賞</a>
   </div>
   <form class="search" onsubmit="location.href='shop.html';return false;">
     <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋">
@@ -247,8 +249,8 @@ footer a:hover{color:var(--lime)}
 .gsh-lead{max-width:560px;margin:0 auto 22px;font-size:clamp(14px,2vw,17px);line-height:1.7;color:#9A948D;opacity:0;transform:translateY(16px)}
 .gsh-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(16px)}
 .gsh-btn{display:inline-block;font-weight:800;font-size:15px;padding:15px 28px;border-radius:999px;border:0;text-decoration:none;transition:transform .12s,filter .2s,box-shadow .2s;color:#0B0B0D}
-.gsh-btn.solid{background:linear-gradient(100deg,#B6F500,#8FD400);color:#0B0B0D;
-  box-shadow:0 0 28px rgba(182,245,0,.35),0 8px 22px rgba(0,0,0,.4)}.gsh-btn.solid:hover{filter:brightness(1.08)}
+.gsh-btn.solid{background:linear-gradient(100deg,#E4002B,#B0021F);color:#fff;
+  box-shadow:0 0 28px rgba(228,0,43,.4),0 8px 22px rgba(0,0,0,.45)}.gsh-btn.solid:hover{filter:brightness(1.08)}
 .gsh-btn.ghost{background:rgba(255,255,255,.06);color:#F3F0EA;
   backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 1px 0 rgba(255,255,255,.12)}
@@ -624,7 +626,7 @@ footer a:hover{color:var(--lime)}
       <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.16);border-color:transparent">線上開抽</span>
       <h2>Go Shoot 線上一番賞</h2>
       <p>不必到店、隨時開抽。每一抽都有獎，A 賞、最後賞通通有機會帶回家。透明公正、即時開獎，用 Google 帳號登入就能玩。中獎可選宅配到府、到店取貨，或折抵店內消費。</p>
-      <a class="btn btn-light" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
+      <a class="btn btn-race" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
     </div>
   </div>
 </div></section>
