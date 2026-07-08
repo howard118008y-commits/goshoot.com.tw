@@ -41,7 +41,10 @@
   }
 
   var css = ".gsa{position:fixed;right:18px;bottom:18px;z-index:2000;font-family:inherit}" +
-    ".gsa-fab{width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:linear-gradient(135deg,#B6F500,#9BD400);color:#0B0B0D;font-size:22px;cursor:pointer;box-shadow:0 8px 30px rgba(182,245,0,.35),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s ease}" +
+    ".gsa-fab{width:56px;height:56px;padding:0;overflow:hidden;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:#FF6A4D;color:#FBF6EE;font-size:20px;cursor:pointer;box-shadow:0 8px 30px rgba(255,106,77,.4),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .15s ease}" +
+    ".gsa-fab img{width:100%;height:100%;display:block}" +
+    ".gsa-fab.is-open{background:rgba(30,30,35,.95)}" +
+    ".gsa-ava{width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.2)}" +
     ".gsa-fab:hover{transform:scale(1.06)}" +
     ".gsa-panel{position:absolute;right:0;bottom:70px;width:min(360px,calc(100vw - 36px));height:min(520px,calc(100vh - 130px));display:none;flex-direction:column;overflow:hidden;border-radius:20px;background:rgba(18,18,21,.9);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 18px 60px rgba(0,0,0,.6)}" +
     ".gsa.open .gsa-panel{display:flex}" +
@@ -73,13 +76,13 @@
     root.className = "gsa";
     root.innerHTML =
       '<div class="gsa-panel" role="dialog" aria-label="小Go AI 客服">' +
-      '<div class="gsa-head"><span class="gsa-dot"></span><b>小Go</b><span class="gsa-sub">AI 客服・24H</span>' +
+      '<div class="gsa-head"><img class="gsa-ava" src="assets/xiaogo.svg" alt=""><b>小Go</b><span class="gsa-dot"></span><span class="gsa-sub">AI 客服・24H</span>' +
       '<button class="gsa-x" aria-label="關閉">✕</button></div>' +
       '<div class="gsa-body"></div>' +
       '<div class="gsa-quick"></div>' +
       '<div class="gsa-input"><input placeholder="問我賞況、儲值、退款…"><button>送出</button></div>' +
       "</div>" +
-      '<button class="gsa-fab" aria-label="開啟小Go客服">💬</button>';
+      '<button class="gsa-fab" aria-label="開啟小Go客服"><img src="assets/xiaogo.svg" alt="小Go"></button>';
     document.body.appendChild(root);
 
     var body = root.querySelector(".gsa-body");
@@ -128,8 +131,10 @@
 
     fab.onclick = function () {
       root.classList.toggle("open");
-      fab.textContent = root.classList.contains("open") ? "✕" : "💬";
-      if (root.classList.contains("open") && !body.childElementCount) addMsg("assistant", HELLO);
+      var isOpen = root.classList.contains("open");
+      fab.classList.toggle("is-open", isOpen);
+      fab.innerHTML = isOpen ? "✕" : '<img src="assets/xiaogo.svg" alt="小Go">';
+      if (isOpen && !body.childElementCount) addMsg("assistant", HELLO);
     };
     root.querySelector(".gsa-x").onclick = function () { fab.onclick(); };
     root.querySelector(".gsa-input button").onclick = function () { send(); };
