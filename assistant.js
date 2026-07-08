@@ -102,6 +102,7 @@
       var q = (text || input.value).trim();
       if (!q || busy) return;
       input.value = "";
+      input.focus();
       addMsg("user", q);
       msgs.push({ role: "user", content: q });
       busy = true;
@@ -111,6 +112,7 @@
         addMsg("assistant", reply, true);
         msgs.push({ role: "assistant", content: reply });
         busy = false;
+        input.focus();
       };
       fetch(API, {
         method: "POST",
@@ -138,7 +140,7 @@
     };
     root.querySelector(".gsa-x").onclick = function () { fab.onclick(); };
     root.querySelector(".gsa-input button").onclick = function () { send(); };
-    input.addEventListener("keydown", function (e) { if (e.key === "Enter") send(); });
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.isComposing) send(); });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", build);
