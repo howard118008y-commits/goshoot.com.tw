@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B0B0D">
+<title>戰鬥陀螺X 改裝計算器｜最強組合模擬器（上蓋×固鎖×軸心） - Go Shoot</title>
+<meta name="description" content="Beyblade X 戰鬥陀螺改裝計算器：上蓋（Blade）×固鎖（Ratchet）×軸心（Bit）自由配裝，即時算出攻擊/防禦/持久/衝刺/爆裂耐性雷達圖與總重量，附社群公認最強組合一鍵套用、左旋發射器提示、零件出處對照。找最強配置、練改造，新手老手都好用｜Go Shoot 中和戰鬥陀螺專門店。">
+<meta name="keywords" content="戰鬥陀螺 最強組合,戰鬥陀螺X 改造,Beyblade X 配置,戰鬥陀螺 改裝,組合模擬器,上蓋 固鎖 軸心,魔導神杖 配置,強度排行">
+<link rel="canonical" href="https://goshoot.com.tw/beyblade-calculator.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Go Shoot">
+<meta property="og:title" content="戰鬥陀螺X 改裝計算器｜最強組合模擬器">
+<meta property="og:description" content="上蓋×固鎖×軸心自由配裝，即時雷達圖＋總重量＋最強組合一鍵套用。">
+<meta property="og:url" content="https://goshoot.com.tw/beyblade-calculator.html">
+<meta property="og:image" content="https://goshoot.com.tw/assets/news/db-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#0B0B0D;--paper:#161619;--text:#ECECEA;--coral:#FF6A4D;--coral-deep:#FF8366;--lime:#B6F500;--sky:#5BB3CE;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.8}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+h1{font-size:clamp(26px,5vw,40px);font-weight:900;line-height:1.25;margin:6px 0 14px}
+h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;margin:36px 0 10px}
+.nav{background:rgba(11,11,13,.86);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav .wrap{display:flex;align-items:center;gap:14px;padding:12px 20px}
+.brand{display:flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:800;font-size:20px}
+.brand svg{width:32px;height:32px}
+.nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
+.util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.util b{color:var(--gold,#E8C15A)}
+.util a{color:var(--lime);font-weight:700}
+.menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
+.nav-links .btn.btn-race{background:linear-gradient(100deg,#E4002B,#B00021);color:#fff;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(228,0,43,.34);margin:0}
+@media(max-width:720px){
+  .nav .wrap{position:relative}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0B0B0D;padding:6px 0 12px;border-bottom:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+  .nav-links a{padding:13px 22px;font-size:16px}
+  .nav-links .btn{margin:8px 22px 0;justify-content:center;text-align:center}
+  .menu-btn{display:block}
+  .nav-links.open{display:flex}
+}
+.crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
+.crumb a{color:var(--lime)}
+.lead{font-size:17px;background:var(--paper);border-left:4px solid var(--lime);padding:14px 18px;border-radius:8px;margin:18px 0;font-weight:500}
+.note{font-size:13px;color:var(--sec)}
+.tag{font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;color:#0B0B0D}
+.t-atk{background:#FF6A4D;color:#fff}.t-def{background:#5BB3CE}.t-sta{background:#B6F500}.t-bal{background:#FFC24B}
+.callout{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:22px 0}
+.btn{display:inline-block;background:var(--lime);color:#0B0B0D;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
+summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+details p{color:var(--sec)}
+.related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
+.related b{display:block;margin-bottom:6px}
+.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
+footer a{color:var(--lime)}
+
+/* ===== 計算器（液態玻璃） ===== */
+.meta-strip{display:flex;gap:9px;overflow-x:auto;padding:4px 2px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.meta-chip{flex:0 0 auto;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:9px 14px;cursor:pointer;font:inherit;color:var(--text);text-align:left;transition:.15s;min-width:150px}
+.meta-chip:hover{border-color:rgba(182,245,0,.55);transform:translateY(-2px)}
+.meta-chip .mt{font-size:11px;font-weight:900;letter-spacing:.4px;color:#0B0B0D;background:var(--gold);border-radius:999px;padding:1px 8px;display:inline-block}
+.meta-chip .mt.t0{background:#FF6A4D;color:#fff}
+.meta-chip .mn{display:block;font-weight:800;font-size:14px;margin-top:5px;line-height:1.4}
+.meta-chip .mc2{display:block;font-family:'Poppins',monospace;font-size:11.5px;color:var(--sec)}
+.calc{background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:20px;margin:14px 0 26px;backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);box-shadow:0 18px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:760px){.calc-grid{grid-template-columns:1fr}}
+.slot{margin-bottom:13px}
+.slot label{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;font-weight:800;margin-bottom:5px}
+.slot label .en{color:var(--sec);font-weight:600;font-size:12px;font-family:'Poppins'}
+.slot select{width:100%;background:#101013;border:1px solid var(--line);color:var(--text);font:600 15px 'Noto Sans TC';padding:11px 12px;border-radius:12px;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23B4B4BB' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+.slot select:focus{outline:none;border-color:var(--lime)}
+.part-src{font-size:12px;color:var(--sec);margin-top:3px;line-height:1.55}
+.part-src a{color:var(--coral-deep);font-weight:700}
+.radar-box{display:flex;flex-direction:column;align-items:center;gap:4px}
+.radar-box svg{width:min(100%,320px);height:auto}
+.sumline{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;font-size:13px;color:var(--sec)}
+.sumline b{color:var(--text)}
+.result-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-top:1px dashed var(--line);margin-top:16px;padding-top:14px}
+.weight-big{font-family:'Poppins';font-weight:800;font-size:30px;line-height:1}
+.weight-big small{font-size:14px;color:var(--sec);font-weight:600}
+.advice{flex:1 1 240px;font-size:14px;color:var(--sec)}
+.advice b{color:var(--text)}
+.spin-warn{display:none;background:rgba(255,194,75,.12);border:1px solid rgba(255,194,75,.4);color:var(--gold);font-size:13px;font-weight:700;border-radius:10px;padding:8px 12px;margin-top:10px}
+.spin-warn.show{display:block}
+.stat-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:14px}
+.stat-table th,.stat-table td{padding:7px 8px;text-align:right;border-bottom:1px solid var(--line)}
+.stat-table th:first-child,.stat-table td:first-child{text-align:left}
+.stat-table th{color:var(--sec);font-weight:700;font-size:12px}
+.stat-table tr.total td{font-weight:900;color:var(--lime);border-bottom:0}
+.share-row{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.share-btn{background:var(--paper);border:1px solid var(--line);color:var(--text);font:700 13.5px 'Noto Sans TC';padding:9px 18px;border-radius:999px;cursor:pointer;transition:.15s}
+.share-btn:hover{border-color:var(--lime);color:var(--lime)}
+.buy-cta{background:linear-gradient(100deg,#E4002B,#B00021);color:#fff;border-radius:999px;padding:10px 20px;font-size:14px;font-weight:800;box-shadow:0 0 26px rgba(228,0,43,.3)}
+.bitref{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:12px 0}
+.bitref .bcell{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:13.5px}
+.bitref .bcell b{color:var(--lime)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"戰鬥陀螺X 改裝計算器（最強組合模擬器）","url":"https://goshoot.com.tw/beyblade-calculator.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"description":"Beyblade X 上蓋×固鎖×軸心自由配裝，即時計算攻擊/防禦/持久/衝刺/爆裂耐性雷達圖與總重量，內建社群公認最強組合。","inLanguage":"zh-Hant","publisher":{"@type":"Organization","name":"Go Shoot","logo":{"@type":"ImageObject","url":"https://goshoot.com.tw/assets/favicon.svg"}}},{"@type":"Article","headline":"戰鬥陀螺X 改裝計算器｜最強組合模擬器（上蓋×固鎖×軸心）","description":"Beyblade X 改裝配置模擬：選上蓋、固鎖、軸心即時看雷達數值與總重量，附最強組合一鍵套用與零件出處對照。","datePublished":"2026-07-09","dateModified":"2026-07-09","author":{"@type":"Organization","name":"Go Shoot"},"publisher":{"@type":"Organization","name":"Go Shoot","logo":{"@type":"ImageObject","url":"https://goshoot.com.tw/assets/favicon.svg"}},"mainEntityOfPage":"https://goshoot.com.tw/beyblade-calculator.html","inLanguage":"zh-Hant","image":"https://goshoot.com.tw/assets/news/db-hero.jpg"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://goshoot.com.tw/"},{"@type":"ListItem","position":2,"name":"攻略","item":"https://goshoot.com.tw/guide.html"},{"@type":"ListItem","position":3,"name":"改裝計算器","item":"https://goshoot.com.tw/beyblade-calculator.html"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"戰鬥陀螺X 的改裝是什麼？","acceptedAnswer":{"@type":"Answer","text":"Beyblade X 每台機體由上蓋（Blade）、固鎖（Ratchet）、軸心（Bit）三個零件組成，三世代（BX/UX/CX）零件可自由混搭。改裝就是重新搭配這三件，調出攻擊、防禦、持久或平衡取向的專屬配置。"}},{"@type":"Question","name":"現在公認最強的組合是什麼？","acceptedAnswer":{"@type":"Answer","text":"社群公認的代表組合包括：魔導神杖 9-60B（持久天花板，部分賽制已禁用）、鳳凰飛翼 9-60R（攻擊代表）、鮫鯊狂鱗系（T0）等。版本會變動，本頁的「最強組合」區與天梯 Tier List 會持續更新。"}},{"@type":"Question","name":"雷達圖的數值哪裡來的？","acceptedAnswer":{"@type":"Answer","text":"以 TAKARA TOMY 官方為每個零件公布的雷達數值為基礎（上蓋/固鎖：攻擊、防禦、持久；軸心另有衝刺與爆裂耐性），三件加總後正規化呈現；總重量為各零件實測克數加總，僅供參考。"}},{"@type":"Question","name":"左旋（L）上蓋要注意什麼？","acceptedAnswer":{"@type":"Answer","text":"左旋上蓋（如蒼穹龍騎士、隕星龍騎士）必須使用左旋或左右兩用發射器才能發射，一般右旋發射器無法使用。本計算器選到左旋上蓋時會自動提示。"}}]}]}
+</script>
+</head>
+<body>
+<div class="util"><div class="wrap"><span>🕹️ 娃娃機 24H・🌀 戰鬥陀螺 16:00–24:00　|　🎯 <b>中和捷運站旁</b></span><a href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">🎁 線上一番賞・馬上抽 →</a></div></div>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#ECECEA" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#ECECEA" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF6A4D"/><circle cx="256" cy="256" r="18" fill="#ECECEA"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF6A4D" stroke-width="26" stroke-linecap="round"/></svg>Go Shoot</a>
+  <div class="nav-links">
+    <a href="index.html#products">商品</a>
+    <a href="index.html#preorder">代購預購</a>
+    <a href="ichiban.html">線上一番賞</a>
+    <a href="events.html">賽事</a>
+    <a href="guide.html">攻略</a>
+    <a href="faq.html">常見問題</a>
+    <a class="btn btn-sm btn-race" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽一番賞</a>
+  </div>
+  <button class="menu-btn" aria-label="選單" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display:block"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></nav>
+
+<article class="wrap">
+  <nav class="crumb"><a href="index.html">首頁</a> ／ <a href="guide.html">攻略</a> ／ 改裝計算器</nav>
+  <h1>戰鬥陀螺X 改裝計算器<br><span style="font-size:.62em;color:var(--sec);font-weight:700">最強組合模擬器｜上蓋 × 固鎖 × 軸心 自由配裝</span></h1>
+  <p class="lead">選好 <b>上蓋（Blade）＋固鎖（Ratchet）＋軸心（Bit）</b>，立刻看到合計雷達圖、總重量與打法建議；也可以一鍵套用社群公認的最強組合再自己微調。改造前先在這裡模擬，省下走冤枉路的錢。<span class="note">（數值基於 TAKARA TOMY 官方雷達值整理，更新：2026-07-09）</span></p>
+
+  <h2 style="margin-top:20px">🔥 社群公認最強組合（點一下套用）</h2>
+  <div class="meta-strip" id="metaStrip"></div>
+
+  <div class="calc" id="calc">
+    <div class="calc-grid">
+      <div>
+        <div class="slot">
+          <label>上蓋 <span class="en">Blade（刀刃）</span></label>
+          <select id="selBlade" aria-label="選擇上蓋"></select>
+          <div class="part-src" id="srcBlade"></div>
+        </div>
+        <div class="slot">
+          <label>固鎖 <span class="en">Ratchet（軌道環）</span></label>
+          <select id="selRatchet" aria-label="選擇固鎖"></select>
+          <div class="part-src" id="srcRatchet"></div>
+        </div>
+        <div class="slot">
+          <label>軸心 <span class="en">Bit（軸尖）</span></label>
+          <select id="selBit" aria-label="選擇軸心"></select>
+          <div class="part-src" id="srcBit"></div>
+        </div>
+        <div class="spin-warn" id="spinWarn">⚠️ 這顆上蓋是<b>左旋（L）</b>——需要左旋或左右兩用發射器才能發射。</div>
+      </div>
+      <div class="radar-box">
+        <svg id="radar" viewBox="0 0 320 300" role="img" aria-label="組合數值雷達圖"></svg>
+        <div class="sumline" id="sumline"></div>
+      </div>
+    </div>
+    <div class="result-bar">
+      <div class="weight-big"><span id="wSum">--</span><small> g 總重量</small></div>
+      <span class="tag" id="typeTag" style="align-self:center">--</span>
+      <div class="advice" id="advice"></div>
+    </div>
+    <table class="stat-table" id="statTable"></table>
+    <div class="share-row">
+      <button class="share-btn" id="shareBtn">🔗 複製組合分享連結</button>
+      <a class="buy-cta" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">缺零件？抽一番賞收機體 →</a>
+    </div>
+  </div>
+
+  <h2>軸心（Bit）取向速查</h2>
+  <div class="bitref">
+    <div class="bcell"><b>持久流</b>：B（球軸）、FB、UN、LO——摩擦最小、轉最久。</div>
+    <div class="bcell"><b>攻擊流</b>：R、LR、LF、F（平軸系）——貼地暴衝、撞擊力最大。</div>
+    <div class="bcell"><b>平衡／技巧</b>：H、P、T、K、E、N——攻守兼備或特化走位。</div>
+    <div class="bcell"><b>看不懂代碼？</b>去〈<a href="guide-terms.html" style="color:var(--lime);font-weight:700">術語表</a>〉10 分鐘搞懂全部縮寫。</div>
+  </div>
+
+  <h2>改裝三件怎麼配？</h2>
+  <p><b>上蓋（Blade）</b>決定攻擊個性與大部分重量；<b>固鎖（Ratchet）</b>的齒數影響爆裂耐受、高度影響攻防相性（60 低重心穩、80 高視野打上盤）；<b>軸心（Bit）</b>決定走位——平軸暴衝、球軸持久、針軸defensive。CX 世代的上蓋還能再拆主刃＋輔刃＋鎖圈，自訂度更高。入門觀念看〈<a href="guide-mods.html" style="color:var(--lime)">改裝攻略</a>〉，環境強度看〈<a href="guide-tierlist.html" style="color:var(--lime)">天梯 Tier List</a>〉。</p>
+
+  <div class="callout">🎯 <b>模擬完想實際組出來？</b>Go Shoot 線上一番賞每抽必中、親民單價收正版機體；圖鑑 59 台看〈<a href="beyblade-db.html" style="color:var(--lime)">機體圖鑑</a>〉。中和門市可現場試打。
+    <div><a class="btn" href="ichiban-beyblade.html">看戰鬥陀螺一番賞 →</a></div></div>
+
+  <h2>常見問題</h2>
+  <details open><summary>數值是官方的嗎？</summary><p>以 TAKARA TOMY 為每個零件公布的官方雷達值為基礎整理（上蓋/固鎖有攻擊、防禦、持久三維；軸心多衝刺與爆裂耐性兩維），加總後正規化畫成雷達圖；重量為公開實測克數，個體會有 ±1g 內誤差。</p></details>
+  <details><summary>為什麼有些組合顯示「部分賽制禁用」？</summary><p>官方與店家賽會滾動調整禁限卡表（例：魔導神杖 9-60B 曾因持久過強在部分賽制禁用）。實際參賽前請以當次賽事規則為準，賽事資訊看〈<a href="events.html" style="color:var(--lime)">賽事頁</a>〉。</p></details>
+  <details><summary>總重量越重越好嗎？</summary><p>不一定。重量大確實撞擊動能與抗彈性佔優（頂級改裝常見 38g 以上），但過重會吃發射初速、持久也可能下降——攻擊流追重量、持久流追低摩擦，方向不同。</p></details>
+  <details><summary>CX 世代的五件式怎麼算？</summary><p>CX 上蓋＝鎖圈（Lock Chip）＋主刃（Main Blade）＋輔刃（Assist Blade）三件合體。本計算器目前以 CX 上蓋整組數值計算，五件逐件自訂功能規劃中。</p></details>
+
+  <div class="related"><b>延伸閱讀</b>
+    <a href="beyblade-db.html">→ Beyblade X 全機體圖鑑（59 台）</a>
+    <a href="guide-tierlist.html">→ 本月天梯 Tier List</a>
+    <a href="guide-mods.html">→ 改裝攻略：配件怎麼搭</a>
+    <a href="guide-terms.html">→ 術語表：代碼縮寫一次看懂</a>
+    <a href="article-beyblade-ux10-customize.html">→ UX-10 騎士圓甲改裝實戰</a>
+  </div>
+  <p class="note">零件數值整理自 TAKARA TOMY 官方公開雷達值與社群資料庫（Beyblade X Stats、BeyBxDB 等）；譯名以台灣通行為主。本頁與 TAKARA TOMY 無關聯，僅供玩家參考。Go Shoot 只賣正版、拒絕盜版。</p>
+</article>
+
+<footer><div class="wrap">© 2026 Go Shoot ・ <a href="ichiban.html">線上一番賞</a> ・ <a href="index.html">回首頁</a> ・ <a href="terms.html">服務條款</a> ・ <a href="privacy.html">隱私權</a> ・ <a href="refund.html">退款政策</a></div></footer>
+<a href="guide.html" aria-label="回攻略" style="position:fixed;right:14px;bottom:14px;z-index:99;background:#262329;color:#FBF6EE;font:600 14px 'Noto Sans TC';padding:11px 16px;border-radius:24px;box-shadow:0 3px 12px rgba(0,0,0,.25)">← 攻略</a>
+
+<script src="assets/beyx-parts.js"></script>
+<script>
+(function(){
+  var D = window.BEYX_DATA;
+  if(!D){ return; }
+  var selB=document.getElementById('selBlade'), selR=document.getElementById('selRatchet'), selT=document.getElementById('selBit');
+
+  /* ---- 機體圖鑑對照（零件出處＝一番賞導流） ---- */
+  var MACHINES = [{"code":"BX-01","zh":"蒼龍神劍","spec":"3-60F","t":"atk"},{"code":"BX-02","zh":"惡魔紅鐮","spec":"4-60T","t":"bal"},{"code":"BX-03","zh":"魔導幻箭","spec":"4-80B","t":"sta"},{"code":"BX-04","zh":"騎士重盾","spec":"3-80N","t":"def"},{"code":"BX-13","zh":"騎士長槍","spec":"4-80HN","t":"def"},{"code":"BX-14","zh":"鮫鯊鋒鰭","spec":"3-60LF","t":"atk"},{"code":"BX-15","zh":"雄獅獵爪","spec":"5-60P","t":"bal"},{"code":"BX-16","zh":"王蛇鞭尾","spec":"5-80O","t":"sta"},{"code":"BX-19","zh":"戰犀號角","spec":"3-80S","t":"def"},{"code":"BX-20","zh":"蒼龍利刃","spec":"4-60R","t":"atk"},{"code":"BX-23","zh":"鳳凰飛翼","spec":"9-60GF","t":"atk"},{"code":"BX-26","zh":"獨角刺心","spec":"5-60GP","t":"bal"},{"code":"BX-27","zh":"幻神護甲","spec":"9-80GN","t":"def"},{"code":"BX-31","zh":"暴龍霸擊","spec":"4-70Q","t":"atk"},{"code":"BX-33","zh":"皓戰猛虎","spec":"3-60U","t":"bal"},{"code":"BX-34","zh":"蒼穹龍騎士","spec":"2-60C","t":"atk"},{"code":"BX-35","zh":"玄冥戰甲","spec":"4-60D","t":"def"},{"code":"BX-36","zh":"巨鯨怒濤","spec":"5-80E","t":"bal"},{"code":"BX-38","zh":"赫燃天鳳","spec":"4-70TP","t":"bal"},{"code":"BX-39","zh":"護城龍神","spec":"7-80GP","t":"bal"},{"code":"BX-44","zh":"三角強襲","spec":"M-85BS","t":"def"},{"code":"BX-45","zh":"武士魂斬","spec":"6-70M","t":"bal"},{"code":"BX-49","zh":"翔龍突擊","spec":"4-50FF","t":"atk"},{"code":"BX-50","zh":"聖殿光環","spec":"0-80DS","t":"def"},{"code":"UX-01","zh":"蒼龍爆刃","spec":"1-60A","t":"atk"},{"code":"UX-02","zh":"惡魔戰槌","spec":"3-70H","t":"bal"},{"code":"UX-03","zh":"魔導神杖","spec":"5-70DB","t":"sta"},{"code":"UX-05","zh":"忍者闇影","spec":"1-80MN","t":"def"},{"code":"UX-06","zh":"雄獅巔峰","spec":"7-60GN","t":"def"},{"code":"UX-07","zh":"鳳凰尾翼","spec":"9-70G","t":"sta"},{"code":"UX-08","zh":"霜輝銀狼","spec":"3-80FB","t":"sta"},{"code":"UX-09","zh":"武士星劍","spec":"2-70L","t":"atk"},{"code":"UX-10","zh":"騎士圓甲","spec":"3-85BS","t":"def"},{"code":"UX-11","zh":"衝擊龍神","spec":"9-60LR","t":"atk"},{"code":"UX-12","zh":"幽靈元魂","spec":"0-80GB","t":"sta"},{"code":"UX-13","zh":"魔像奇岩","spec":"1-60UN","t":"def"},{"code":"UX-14","zh":"天蠍長矛","spec":"0-70Z","t":"bal"},{"code":"UX-15","zh":"鮫鯊狂鱗","spec":"4-50UF","t":"atk"},{"code":"UX-16","zh":"時鐘幻象","spec":"9-65B","t":"sta"},{"code":"UX-17","zh":"隕星龍騎士","spec":"3-70J","t":"atk"},{"code":"UX-18","zh":"木乃伊詛咒","spec":"7-55W","t":"def"},{"code":"UX-19","zh":"子彈獅鷲","spec":"H","t":"bal"},{"code":"UX-20","zh":"榮耀女武神（榮耀戰神）","spec":"LF","t":"atk"},{"code":"CX-01","zh":"蒼龍勇氣","spec":"6-60V","t":"atk"},{"code":"CX-02","zh":"魔導至尊","spec":"4-55LO","t":"sta"},{"code":"CX-03","zh":"英仙幽冥","spec":"6-80W","t":"def"},{"code":"CX-05","zh":"惡魔獵魂","spec":"4-70K","t":"bal"},{"code":"CX-06","zh":"極狐九尾","spec":"9-70GR","t":"atk"},{"code":"CX-07","zh":"天馬爆擊","spec":"Tr","t":"atk"},{"code":"CX-08","zh":"魔犬烈焰","spec":"5-80WB","t":"sta"},{"code":"CX-09","zh":"焰神滅世","spec":"5-70TK","t":"bal"},{"code":"CX-10","zh":"銀狼狩獵","spec":"0-60DB","t":"sta"},{"code":"CX-11","zh":"帝王威能","spec":"Op","t":"bal"},{"code":"CX-12","zh":"鳳凰炎光","spec":"9-80WW","t":"def"},{"code":"CX-13","zh":"龍王閃擊","spec":"1-50I","t":"atk"},{"code":"CX-14","zh":"騎士堡壘","spec":"8-70UN","t":"def"},{"code":"CX-15","zh":"邪神狂怒","spec":"4-55Y","t":"sta"},{"code":"CX-17","zh":"獨角三角","spec":"3-60GU","t":"bal"},{"code":"CX-18","zh":"腕龍古鞭","spec":"5-70Nr","t":"sta"}];
+
+  /* ---- 社群公認 Meta 組合（版本會變，隨天梯頁更新） ---- */
+  var METAS = [
+    {b:'wizard-rod',   r:'9-60', t:'B',  tier:'T0', t0:true,  name:'魔導神杖 9-60B',  note:'持久天花板・部分賽制禁用'},
+    {b:'wizard-rod',   r:'5-70', t:'DB', tier:'S',  t0:false, name:'魔導神杖 5-70DB', note:'2026 持久主流'},
+    {b:'phoenix-wing', r:'9-60', t:'R',  tier:'S',  t0:false, name:'鳳凰飛翼 9-60R',  note:'攻擊代表'},
+    {b:'whale-wave',   r:'5-60', t:'F',  tier:'A',  t0:false, name:'巨鯨怒濤 5-60F',  note:'重量壓制'},
+    {b:'silver-wolf',  r:'3-80', t:'FB', tier:'A',  t0:false, name:'霜輝銀狼 3-80FB', note:'持久經典'},
+    {b:'dran-buster',  r:'1-60', t:'A',  tier:'新手', t0:false, name:'蒼龍爆刃 1-60A', note:'攻擊起手最好上手'}
+  ];
+
+  function bladeById(id){ return D.blades.find(function(b){return b.id===id}); }
+  function ratchetByCode(c){ return D.ratchets.find(function(r){return r.code===c}); }
+  function bitByCode(c){ return D.bits.find(function(b){return b.code===c}); }
+
+  /* ---- 下拉選單 ---- */
+  function noStats(p){ return p.atk==null&&p.def==null&&p.sta==null; }
+  function bladeLabel(b){
+    var n=b.zh?b.zh:(b.en||b.id);
+    return n+(b.spin==='L'?'（左旋）':'')+(b.zh&&b.en?'・'+b.en:'')+(noStats(b)?'（數值未公開）':'');
+  }
+  function fillSelects(){
+    [['BX','BX 系列'],['UX','UX 系列'],['CX','CX 系列'],[null,'聯名・復刻']].forEach(function(g){
+      var og=document.createElement('optgroup'); og.label=g[1];
+      D.blades.filter(function(b){return g[0]?b.series===g[0]:!b.series}).forEach(function(b){
+        var o=document.createElement('option'); o.value=b.id;
+        o.textContent=bladeLabel(b);
+        og.appendChild(o);
+      });
+      if(og.children.length) selB.appendChild(og);
+    });
+    D.ratchets.forEach(function(r){
+      var o=document.createElement('option'); o.value=r.code; o.textContent=r.code+(noStats(r)?'（數值未公開）':''); selR.appendChild(o);
+    });
+    D.bits.forEach(function(b){
+      var o=document.createElement('option'); o.value=b.code; o.textContent=b.code+(b.en?'・'+b.en:'')+(noStats(b)?'（數值未公開）':''); selT.appendChild(o);
+    });
+  }
+
+  /* ---- 正規化上限（資料驅動：各欄位最大可能合計） ---- */
+  function maxOf(arr,k){ return Math.max.apply(null,arr.map(function(x){return x[k]||0})); }
+  var AXMAX={
+    atk:maxOf(D.blades,'atk')+maxOf(D.ratchets,'atk')+maxOf(D.bits,'atk'),
+    def:maxOf(D.blades,'def')+maxOf(D.ratchets,'def')+maxOf(D.bits,'def'),
+    sta:maxOf(D.blades,'sta')+maxOf(D.ratchets,'sta')+maxOf(D.bits,'sta'),
+    dash:maxOf(D.bits,'dash'),
+    burst:maxOf(D.bits,'burst')
+  };
+
+  /* ---- 雷達圖 ---- */
+  var AXES=[{k:'atk',n:'攻擊'},{k:'def',n:'防禦'},{k:'sta',n:'持久'},{k:'dash',n:'衝刺'},{k:'burst',n:'爆裂耐性'}];
+  var CX=160, CY=152, RMAX=112;
+  function pt(i,ratio){
+    var a=-Math.PI/2 + i*2*Math.PI/AXES.length;
+    return [(CX+Math.cos(a)*RMAX*ratio).toFixed(1),(CY+Math.sin(a)*RMAX*ratio).toFixed(1)];
+  }
+  function radarSkeleton(){
+    var svg=document.getElementById('radar'), s='';
+    [0.25,0.5,0.75,1].forEach(function(r){
+      var ps=AXES.map(function(_,i){return pt(i,r).join(',')}).join(' ');
+      s+='<polygon points="'+ps+'" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="1"/>';
+    });
+    AXES.forEach(function(ax,i){
+      var p=pt(i,1); s+='<line x1="'+CX+'" y1="'+CY+'" x2="'+p[0]+'" y2="'+p[1]+'" stroke="rgba(255,255,255,.09)"/>';
+      var lp=pt(i,1.17);
+      s+='<text x="'+lp[0]+'" y="'+lp[1]+'" fill="#B4B4BB" font-size="12.5" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Noto Sans TC">'+ax.n+'</text>';
+    });
+    s+='<polygon id="radarPoly" points="" fill="rgba(182,245,0,.22)" stroke="#B6F500" stroke-width="2" stroke-linejoin="round"/>';
+    AXES.forEach(function(_,i){ s+='<circle id="rp'+i+'" r="3.5" fill="#B6F500"/>'; });
+    svg.innerHTML=s;
+  }
+
+  /* ---- 零件出處（哪台機體有這零件→導流） ---- */
+  function srcHTML(list,partLabel){
+    if(!list.length) return '<span>出處：擴充包／隨機強化組</span>';
+    var m=list[0];
+    var more=list.length>1?'（等 '+list.length+' 台）':'';
+    return '出處：<b>'+m.code+' '+m.zh+'</b>'+more+'　<a href="ichiban-beyblade.html">抽一番賞收這台 →</a>';
+  }
+  function machinesWithBlade(b){ return MACHINES.filter(function(m){return m.zh===b.zh}); }
+  function machinesWithRatchet(code){ return MACHINES.filter(function(m){return m.spec.indexOf(code)===0}); }
+  function machinesWithBit(code){
+    return MACHINES.filter(function(m){
+      var mm=m.spec.match(/^[0-9M]+-[0-9]+(.+)$/); return mm&&mm[1]===code;
+    });
+  }
+
+  /* ---- 類型判定＋建議 ---- */
+  var ADVICE={
+    atk:'<b>攻擊型</b>：貼地暴衝換一擊必殺——發射時壓低角度全力射，先手撞爆對手。',
+    def:'<b>防禦型</b>：中央蹲穩扛住衝擊——低重心＋高爆裂耐受，等攻擊型自己失速。',
+    sta:'<b>持久型</b>：轉到最後就是贏——減少接觸、守外圈，比誰氣長。',
+    bal:'<b>平衡型</b>：全能取向不吃虧——看對手陣容臨場換打法，新手最穩的起手。'
+  };
+  var TAGNAME={atk:'攻擊型',def:'防禦型',sta:'持久型',bal:'平衡型'};
+
+  function currentParts(){
+    return { b:bladeById(selB.value), r:ratchetByCode(selR.value), t:bitByCode(selT.value) };
+  }
+
+  function update(){
+    var p=currentParts(); if(!p.b||!p.r||!p.t) return;
+    var sum={
+      atk:(p.b.atk||0)+(p.r.atk||0)+(p.t.atk||0),
+      def:(p.b.def||0)+(p.r.def||0)+(p.t.def||0),
+      sta:(p.b.sta||0)+(p.r.sta||0)+(p.t.sta||0),
+      dash:p.t.dash||0, burst:p.t.burst||0
+    };
+    /* 雷達 */
+    var pts=AXES.map(function(ax,i){
+      var ratio=Math.min(1,(sum[ax.k]||0)/(AXMAX[ax.k]||1));
+      var xy=pt(i,Math.max(ratio,.03));
+      var dot=document.getElementById('rp'+i); dot.setAttribute('cx',xy[0]); dot.setAttribute('cy',xy[1]);
+      return xy.join(',');
+    }).join(' ');
+    document.getElementById('radarPoly').setAttribute('points',pts);
+    var anyMissing=noStats(p.b)||noStats(p.r)||noStats(p.t);
+    document.getElementById('sumline').innerHTML=AXES.map(function(ax){return ax.n+' <b>'+(sum[ax.k]||0)+'</b>'}).join('　')+(anyMissing?'<span style="flex-basis:100%;text-align:center;color:var(--gold)">⚠ 部分零件官方雷達值未公開，合計僅含已知零件</span>':'');
+    /* 重量 */
+    var w=(p.b.weight||0)+(p.r.weight||0)+(p.t.weight||0);
+    var wMissing=p.b.weight==null||p.r.weight==null||p.t.weight==null;
+    document.getElementById('wSum').textContent=w?(wMissing?'≥':'')+w.toFixed(1):'--';
+    /* 類型：攻/防/持 正規化取向＋平衡判定 */
+    var n={atk:sum.atk/AXMAX.atk,def:sum.def/AXMAX.def,sta:sum.sta/AXMAX.sta};
+    var ks=Object.keys(n).sort(function(a,b){return n[b]-n[a]});
+    var ty=(n[ks[0]]-n[ks[1]]<0.07)?'bal':ks[0];
+    var tag=document.getElementById('typeTag');
+    tag.textContent=TAGNAME[ty]; tag.className='tag t-'+ty;
+    document.getElementById('advice').innerHTML=ADVICE[ty];
+    /* 左旋提示 */
+    document.getElementById('spinWarn').classList.toggle('show',p.b.spin==='L');
+    /* 貢獻表 */
+    var rows=[['上蓋 '+p.b.zh,p.b.atk,p.b.def,p.b.sta,'-','-',p.b.weight],
+              ['固鎖 '+p.r.code,p.r.atk,p.r.def,p.r.sta,'-','-',p.r.weight],
+              ['軸心 '+p.t.code,p.t.atk,p.t.def,p.t.sta,p.t.dash,p.t.burst,p.t.weight]];
+    var h='<tr><th>零件</th><th>攻擊</th><th>防禦</th><th>持久</th><th>衝刺</th><th>爆裂</th><th>重量g</th></tr>';
+    rows.forEach(function(r){
+      h+='<tr><td>'+r[0]+'</td>'+r.slice(1).map(function(v){return '<td>'+(v==null?'?':v)+'</td>'}).join('')+'</tr>';
+    });
+    h+='<tr class="total"><td>合計</td><td>'+sum.atk+'</td><td>'+sum.def+'</td><td>'+sum.sta+'</td><td>'+sum.dash+'</td><td>'+sum.burst+'</td><td>'+(w?w.toFixed(1):'?')+'</td></tr>';
+    document.getElementById('statTable').innerHTML=h;
+    /* 出處導流 */
+    document.getElementById('srcBlade').innerHTML=srcHTML(machinesWithBlade(p.b));
+    document.getElementById('srcRatchet').innerHTML=srcHTML(machinesWithRatchet(p.r.code));
+    document.getElementById('srcBit').innerHTML=srcHTML(machinesWithBit(p.t.code));
+    /* 分享連結 */
+    var q='?b='+encodeURIComponent(p.b.id)+'&r='+encodeURIComponent(p.r.code)+'&t='+encodeURIComponent(p.t.code);
+    history.replaceState(null,'',q);
+  }
+  function track(name,params){ if(window.gtag) try{ gtag('event',name,params||{}); }catch(e){} }
+
+  /* ---- Meta 組合 ---- */
+  function fillMetas(){
+    var strip=document.getElementById('metaStrip');
+    METAS.forEach(function(m,idx){
+      if(!bladeById(m.b)||!ratchetByCode(m.r)||!bitByCode(m.t)) return;
+      var el=document.createElement('button'); el.className='meta-chip'; el.type='button';
+      el.innerHTML='<span class="mt'+(m.t0?' t0':'')+'">'+(m.tier||'META')+'</span><span class="mn">'+m.name+'</span><span class="mc2">'+m.r+m.t+(m.note?'・'+m.note:'')+'</span>';
+      el.addEventListener('click',function(){
+        selB.value=m.b; selR.value=m.r; selT.value=m.t; update();
+        track('calc_meta_apply',{combo:m.name});
+        document.getElementById('calc').scrollIntoView({behavior:'smooth',block:'start'});
+      });
+      strip.appendChild(el);
+    });
+  }
+
+  /* ---- 分享 ---- */
+  document.getElementById('shareBtn').addEventListener('click',function(){
+    var btn=this;
+    track('calc_share',{combo:location.search});
+    (navigator.clipboard?navigator.clipboard.writeText(location.href):Promise.reject()).then(function(){
+      btn.textContent='✅ 已複製，貼給朋友吧';
+      setTimeout(function(){btn.textContent='🔗 複製組合分享連結'},2200);
+    }).catch(function(){ prompt('複製這個連結：',location.href); });
+  });
+
+  fillSelects(); radarSkeleton(); fillMetas();
+  /* URL 帶入 or 預設第一組 meta */
+  var q=new URLSearchParams(location.search);
+  if(q.get('b')&&bladeById(q.get('b'))){ selB.value=q.get('b'); }
+  if(q.get('r')&&ratchetByCode(q.get('r'))){ selR.value=q.get('r'); }
+  if(q.get('t')&&bitByCode(q.get('t'))){ selT.value=q.get('t'); }
+  if(!q.get('b')&&METAS.length&&bladeById(METAS[0].b)){ selB.value=METAS[0].b; selR.value=METAS[0].r; selT.value=METAS[0].t; }
+  [selB,selR,selT].forEach(function(s){ s.addEventListener('change',update); });
+  update();
+})();
+</script>
+<script src="assets/site.js" defer></script>
+</body></html>

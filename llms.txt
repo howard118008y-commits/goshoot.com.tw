@@ -32,6 +32,7 @@
   - [戰鬥陀螺完整歷史](https://goshoot.com.tw/beyblade-history.html)：從爆転到 Beyblade X 四大世代、日本與台灣各年代風氣，新手認識戰鬥陀螺。
 
 - [戰鬥陀螺機體圖鑑](https://goshoot.com.tw/beyblade-db.html)：Beyblade X 全機體一覽，BX/UX/CX 三世代 59 台的型號、配置代碼與類型，可篩選。
+- [改裝計算器（最強組合模擬器）](https://goshoot.com.tw/beyblade-calculator.html)：上蓋×固鎖×軸心自由配裝，即時算攻/防/持久/衝刺/爆裂雷達圖與總重量，內建社群公認最強組合與零件出處對照。
 
 ## 戰鬥陀螺新品・賽事情報
 
