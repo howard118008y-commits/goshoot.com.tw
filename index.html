@@ -216,8 +216,8 @@ footer a:hover{color:var(--lime)}
     <a href="faq.html">常見問題</a>
     <a class="btn btn-sm btn-race" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽一番賞</a>
   </div>
-  <form class="search" onsubmit="location.href='shop.html';return false;">
-    <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋">
+  <form class="search" onsubmit="var q=this.querySelector('input').value.trim();location.href=q?('https://www.google.com/search?q='+encodeURIComponent('site:goshoot.com.tw '+q)):'shop.html';return false;">
+    <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋全站">
   </form>
   <button class="menu-btn" aria-label="選單"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display:block"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></nav>
@@ -319,14 +319,14 @@ footer a:hover{color:var(--lime)}
       <span class="go">看情報 →</span>
     </a>
     <a class="pillar p-claw" href="#claw">
-      <img class="pdeco" src="assets/claw-illus.svg" alt="" aria-hidden="true">
+      <img class="pdeco" src="assets/claw-illus.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <svg viewBox="0 0 64 64"><rect x="16" y="14" width="32" height="36" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M26 30 l6 6 6-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
       <h3>娃娃機</h3>
       <p>店內主力・24H 營業・景品定期更新・不定期保夾</p>
       <span class="go">看專區 →</span>
     </a>
     <a class="pillar p-ichi" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">
-      <img class="pdeco" src="assets/ichiban-card.png" alt="" aria-hidden="true">
+      <img class="pdeco" src="assets/ichiban-card.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <svg viewBox="0 0 64 64"><path d="M14 26 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M14 26 l18-14 18 14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="38" r="5" fill="#fff"/></svg>
       <h3>線上一番賞</h3>
       <p>24H 隨時抽・每抽必中・公開亂數可驗證公平</p>
@@ -555,9 +555,9 @@ footer a:hover{color:var(--lime)}
   <h2 class="sec">整間，都是娃娃機 🕹️</h2>
   <p class="sec-lead" style="margin-bottom:24px">中和捷運站旁・<b>24 小時營業</b>。場內滿滿娃娃機台，景品定期更新、不定期保夾活動——從人氣公仔、玩偶到限定景品都有。逛玩具、開戰之餘，順手夾一發帶回家。</p>
   <div class="claw-row" role="img" aria-label="Go Shoot 店內整排娃娃機台">
-    <img src="assets/claw-illus.svg" alt="">
-    <img src="assets/claw-illus.svg" alt="" class="mid">
-    <img src="assets/claw-illus.svg" alt="">
+    <img src="assets/claw-illus.svg" alt="" loading="lazy" decoding="async">
+    <img src="assets/claw-illus.svg" alt="" class="mid" loading="lazy" decoding="async">
+    <img src="assets/claw-illus.svg" alt="" loading="lazy" decoding="async">
   </div>
   <div class="claw-feats">
     <div class="claw-feat"><b>24H</b><span>全天候營業，隨時來夾</span></div>

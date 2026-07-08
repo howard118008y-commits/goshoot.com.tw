@@ -63,7 +63,7 @@ body{background:var(--ink);color:var(--cream);font-family:var(--body);overflow:h
 <body>
 <div class="kiosk">
   <div class="khead">
-    <a class="kbrand" href="index.html" title="回首頁" style="text-decoration:none;color:inherit"><img src="assets/logo-coral.png" alt="Go Shoot"> Go Shoot</a>
+    <a class="kbrand" href="index.html" title="回首頁" style="text-decoration:none;color:inherit"><img src="assets/logo-coral.png" alt="Go Shoot" loading="lazy" decoding="async"> Go Shoot</a>
     <div class="ktitle">本月熱門 <b>TOP <span id="total">100</span></b></div>
     <div class="kupd">更新 <b id="updated">—</b></div>
   </div>
@@ -93,7 +93,7 @@ body{background:var(--ink);color:var(--cream);font-family:var(--body);overflow:h
   function cardHTML(p,rank){
     var top = rank<=3 ? ' top':'';
     var img = p.image
-      ? '<img src="'+esc(p.image)+'" alt="" onerror="this.parentNode.innerHTML=\'<span class=&quot;ph&quot;>Go Shoot</span>\'">'
+      ? '<img src="'+esc(p.image)+'" alt="" onerror="this.parentNode.innerHTML=\'<span class=&quot;ph&quot; loading="lazy" decoding="async">Go Shoot</span>\'">'
       : '<span class="ph">Go Shoot</span>';
     return '<div class="pcard"><span class="rk'+top+'">#'+esc(rank)+'</span>'
       +'<div class="imgwrap">'+img+'</div>'
