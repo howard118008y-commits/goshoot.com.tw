@@ -227,30 +227,21 @@ footer a:hover{color:var(--lime)}
 <style>
 .gsh-hero{position:relative;height:90svh;min-height:540px;overflow:hidden;background:#050507}
 .gsh-hero>canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
-/* 液態玻璃封面：品牌色環境光暈（同 app 首頁）*/
-.gsh-bgfx{position:absolute;inset:0;z-index:0;pointer-events:none}
-.gsh-blob{position:absolute;border-radius:50%;filter:blur(110px);opacity:.4;animation:gshDrift 26s ease-in-out infinite alternate}
-.gsh-blob.b2{animation-duration:34s;animation-delay:-8s}
-.gsh-blob.b3{animation-duration:30s;animation-delay:-16s;opacity:.26}
-.gsh-blob.b4{animation-duration:22s;animation-delay:-4s;opacity:.3}
-@keyframes gshDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-50px) scale(1.18)}}
 .gsh-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.gsh-vig{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% 46%,transparent 42%,rgba(0,0,0,.62) 100%)}
-.gsh-top{position:absolute;top:clamp(64px,11vh,116px);left:0;right:0;text-align:center;padding:0 22px}
-.gsh-bot{position:absolute;bottom:clamp(60px,9vh,104px);left:0;right:0;z-index:6;text-align:center;padding:0 22px}
-.gsh-logo{position:absolute;top:clamp(22px,4.5vh,44px);left:clamp(18px,4vw,56px);width:clamp(52px,6vw,78px);height:auto;z-index:6;opacity:0;transform:translateY(10px);transition:opacity .8s ease .1s,transform .8s cubic-bezier(.2,.8,.2,1) .1s}
+.gsh-top{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 22px clamp(64px,10vh,96px);gap:clamp(18px,3.2vh,30px)}
+.gsh-deco{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:190px 190px;background-position:center top}
+.gsh-deco i{position:absolute;border:1px solid rgba(255,255,255,.055);border-radius:230px}
+.gsh-deco i:first-child{top:9%;left:11%;width:42%;height:54%}
+.gsh-deco i:last-child{top:32%;right:7%;width:36%;height:48%}
+.gsh-logo{width:clamp(88px,11vw,128px);height:auto;opacity:0;transform:translateY(14px);transition:opacity .8s ease .05s,transform .8s cubic-bezier(.2,.8,.2,1) .05s}
 .gsh-hero.go .gsh-logo{opacity:1;transform:none}
-.gsh-h1img{position:relative;z-index:2;display:block;width:min(94vw,1220px,129svh);height:auto;margin:clamp(8px,3vh,30px) auto 0;mix-blend-mode:screen;opacity:0;transform:translateY(26px) scale(.97);transition:opacity 1s ease .12s,transform 1s cubic-bezier(.2,.8,.2,1) .12s}
+.gsh-h1{margin:0}
+.gsh-h1img{position:relative;z-index:2;display:block;width:min(90vw,900px,110svh);height:auto;margin:0 auto;mix-blend-mode:screen;opacity:0;transform:translateY(26px) scale(.97);transition:opacity 1s ease .18s,transform 1s cubic-bezier(.2,.8,.2,1) .18s}
 .gsh-hero.go .gsh-h1img{opacity:1;transform:none}
-.gsh-kick{position:relative;z-index:6;display:inline-flex;align-items:center;gap:9px;font:700 12px/1 'Poppins',sans-serif;letter-spacing:.2em;color:#B6F500;margin-bottom:18px;opacity:0;transform:translateY(14px);
-  background:rgba(255,255,255,.05);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
-  border:1px solid rgba(255,255,255,.12);padding:9px 16px;border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.10)}
-.gsh-kick i{width:7px;height:7px;border-radius:50%;background:#B6F500;box-shadow:0 0 12px #B6F500}
-.gsh-h1{font-family:'Poppins','Noto Sans TC',sans-serif;font-size:clamp(50px,13vw,180px);font-weight:800;line-height:.95;letter-spacing:-.02em;margin:0;color:#F3F0EA}
-.gsh-h1 .l{position:relative;z-index:2;display:inline-block;opacity:0;transform:translateY(120%) rotate(6deg)}
-.gsh-h1 .g{background:linear-gradient(100deg,#FFC24B,#FF6A4D 55%,#FF4D6D);-webkit-background-clip:text;background-clip:text;color:transparent}
-.gsh-sub2{position:relative;z-index:6;display:table;margin:18px auto 0;font:700 clamp(13px,2.3vw,16px)/1.4 'Noto Sans TC',sans-serif;letter-spacing:.06em;color:#FFD9C4;padding:9px 20px;border-radius:999px;background:rgba(8,6,12,.52);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);opacity:0;transform:translateY(12px)}
-.gsh-lead{max-width:560px;margin:0 auto 22px;font-size:clamp(14px,2vw,17px);line-height:1.7;color:#C9C2BA;text-shadow:0 1px 2px rgba(5,3,8,.85),0 2px 16px rgba(5,3,8,.6);opacity:0;transform:translateY(16px)}
+.gsh-marquee{position:absolute;left:0;right:0;bottom:0;z-index:5;background:#FBF6EE;overflow:hidden;padding:clamp(12px,1.8vh,18px) 0}
+.gsh-mq{display:flex;width:max-content;white-space:nowrap;animation:gshMq 26s linear infinite;font:800 clamp(17px,2.4vw,28px)/1 'Poppins','Noto Sans TC',sans-serif;color:#0B0B0D;letter-spacing:.02em}
+.gsh-mq b{font-weight:800;padding-right:.5em}
+@keyframes gshMq{to{transform:translateX(-50%)}}
 .gsh-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(16px)}
 .gsh-btn{display:inline-block;font-weight:800;font-size:15px;padding:15px 28px;border-radius:999px;border:0;text-decoration:none;transition:transform .12s,filter .2s,box-shadow .2s;color:#0B0B0D}
 .gsh-btn.solid{background:linear-gradient(100deg,#E4002B,#B0021F);color:#fff;
@@ -259,40 +250,30 @@ footer a:hover{color:var(--lime)}
   backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 1px 0 rgba(255,255,255,.12)}
 .gsh-btn.ghost:hover{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
-.gsh-cue{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:3;font:600 10px/1 'Poppins',sans-serif;letter-spacing:.2em;color:#5E5952;opacity:0;display:flex;flex-direction:column;align-items:center;gap:7px}
-.gsh-cue b{width:1px;height:28px;background:linear-gradient(#FF6A4D,transparent);animation:gshCue 1.8s ease-in-out infinite}
-@keyframes gshCue{0%,100%{transform:scaleY(.4);opacity:.4;transform-origin:top}50%{transform:scaleY(1);opacity:1}}
-.gsh-heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none}
-.gsh-hero .gsh-kick,.gsh-hero .gsh-sub2,.gsh-hero .gsh-lead,.gsh-hero .gsh-cta,.gsh-hero .gsh-cue{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
-.gsh-hero.go .gsh-kick{opacity:1;transform:none}
-.gsh-hero.go .gsh-sub2{opacity:1;transform:none;transition-delay:.34s}
-.gsh-hero.go .gsh-lead{opacity:1;transform:none;transition-delay:.44s}
-.gsh-hero.go .gsh-cta{opacity:1;transform:none;transition-delay:.54s}
-.gsh-hero.go .gsh-cue{opacity:.9;transform:none;transition-delay:.72s}
-@media(prefers-reduced-motion:reduce){.gsh-hero .gsh-kick,.gsh-hero .gsh-h1img,.gsh-hero .gsh-logo,.gsh-hero .gsh-sub2,.gsh-hero .gsh-lead,.gsh-hero .gsh-cta{opacity:1!important;transform:none!important}.gsh-blob{animation:none}}
+.gsh-hero .gsh-cta{transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.gsh-hero.go .gsh-cta{opacity:1;transform:none;transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){.gsh-hero .gsh-h1img,.gsh-hero .gsh-logo,.gsh-hero .gsh-cta{opacity:1!important;transform:none!important}.gsh-mq{animation:none}}
 </style>
 <section class="gsh-hero" id="gshHero" aria-label="Go Shoot 首頁主視覺">
   <div class="gsh-grain"></div>
-  <svg class="gsh-logo" viewBox="0 0 1080 1080" aria-hidden="true">
-    <rect width="1080" height="1080" rx="240" fill="#FF6A4D"/>
-    <circle cx="540" cy="540" r="300" fill="none" stroke="#FBF6EE" stroke-width="42"/>
-    <circle cx="540" cy="540" r="205" fill="none" stroke="#FBF6EE" stroke-width="22" stroke-opacity="0.45"/>
-    <circle cx="540" cy="540" r="92" fill="#FBF6EE"/>
-    <circle cx="540" cy="540" r="34" fill="#993C1D"/>
-    <path d="M540 196 A344 344 0 0 1 884 540" fill="none" stroke="#FBF6EE" stroke-width="46" stroke-linecap="round"/>
-  </svg>
+  <div class="gsh-deco" aria-hidden="true"><i></i><i></i></div>
   <div class="gsh-top">
-    <div class="gsh-kick"><i></i>中和捷運站旁・24H・只賣正版</div>
-    <h1 class="gsh-h1"><img class="gsh-h1img" src="assets/hero-balloon.jpg" alt="Go Shoot" fetchpriority="high"><span class="gsh-sub2">中和戰鬥陀螺專門店 × 線上一番賞 × 24H 娃娃機</span></h1>
-  </div>
-  <div class="gsh-bot">
-    <p class="gsh-lead">從第一顆戰鬥陀螺到全國賽場——用最舒服的方式帶你入坑。線上一番賞每抽必中，抽正版 Beyblade X。</p>
+    <svg class="gsh-logo" viewBox="0 0 1080 1080" aria-hidden="true">
+      <circle cx="540" cy="540" r="540" fill="#FF6A4D"/>
+      <circle cx="540" cy="540" r="519" fill="none" stroke="#FBF6EE" stroke-width="30"/>
+      <circle cx="540" cy="540" r="300" fill="none" stroke="#FBF6EE" stroke-width="42"/>
+      <circle cx="540" cy="540" r="205" fill="none" stroke="#FBF6EE" stroke-width="22" stroke-opacity="0.45"/>
+      <circle cx="540" cy="540" r="92" fill="#FBF6EE"/>
+      <circle cx="540" cy="540" r="34" fill="#993C1D"/>
+      <path d="M540 196 A344 344 0 0 1 884 540" fill="none" stroke="#FBF6EE" stroke-width="46" stroke-linecap="round"/>
+    </svg>
+    <h1 class="gsh-h1"><img class="gsh-h1img" src="assets/hero-balloon.jpg" alt="Go Shoot｜中和戰鬥陀螺專門店・線上一番賞・24H 娃娃機" fetchpriority="high"></h1>
     <div class="gsh-cta">
       <a class="gsh-btn solid" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽線上一番賞 →</a>
       <a class="gsh-btn ghost" href="#products">逛戰鬥陀螺</a>
     </div>
   </div>
-  <div class="gsh-cue"><span>SCROLL</span><b></b></div>
+  <div class="gsh-marquee" aria-hidden="true"><div class="gsh-mq"><b>中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ 中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ </b><b>中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ 中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ </b></div></div>
 </section>
 <script>
 (function(){
