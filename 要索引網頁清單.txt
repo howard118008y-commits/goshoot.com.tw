@@ -3,6 +3,13 @@ Go Shoot 官網 — 要索引的網頁清單（全站 43 頁）
 用途：到 Google Search Console → 網址審查 → 貼上網址 → 「要求建立索引」
 （每日配額約 10 條，照下面順序由上往下送，額滿隔天接著送）
 
+【2026-07-09 內容攻勢五頁（最優先）】
+★★ https://goshoot.com.tw/beyblade-release-calendar.html       ← 戰鬥陀螺發售月曆（新頁）
+★★ https://goshoot.com.tw/article-beyblade-711-heavens-ring.html ← 7-11 天堂日輪盲盒開搶（新頁・時效高）
+★★ https://goshoot.com.tw/article-beyblade-where-to-buy.html    ← 戰鬥陀螺哪裡買（新頁）
+★★ https://goshoot.com.tw/about.html                            ← 關於 Go Shoot（新頁）
+★★ https://goshoot.com.tw/ichiban-beyblade.html                 ← 戰鬥陀螺一番賞（內容升級・重送）
+
 【★★最優先：戰鬥陀螺一番賞（主打關鍵字，2026-07-04 新上線）】
 ★★ https://goshoot.com.tw/ichiban-beyblade.html               ← 戰鬥陀螺一番賞（主題頁）
 ★★ https://goshoot.com.tw/article-beyblade-ichiban-guide.html  ← 戰鬥陀螺一番賞怎麼抽（教學）
