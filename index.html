@@ -238,7 +238,7 @@ footer a:hover{color:var(--lime)}
 .gsh-vig{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% 46%,transparent 42%,rgba(0,0,0,.62) 100%)}
 .gsh-top{position:absolute;top:clamp(64px,11vh,116px);left:0;right:0;text-align:center;padding:0 22px}
 .gsh-bot{position:absolute;bottom:clamp(60px,9vh,104px);left:0;right:0;z-index:6;text-align:center;padding:0 22px}
-.gsh-h1img{position:relative;z-index:2;display:block;width:min(88vw,940px);height:auto;margin:6px auto 0;mix-blend-mode:screen;opacity:0;transform:translateY(26px) scale(.97);transition:opacity 1s ease .12s,transform 1s cubic-bezier(.2,.8,.2,1) .12s}
+.gsh-h1img{position:relative;z-index:2;display:block;width:min(94vw,1220px,129svh);height:auto;margin:clamp(8px,3vh,30px) auto 0;mix-blend-mode:screen;opacity:0;transform:translateY(26px) scale(.97);transition:opacity 1s ease .12s,transform 1s cubic-bezier(.2,.8,.2,1) .12s}
 .gsh-hero.go .gsh-h1img{opacity:1;transform:none}
 .gsh-kick{position:relative;z-index:6;display:inline-flex;align-items:center;gap:9px;font:700 12px/1 'Poppins',sans-serif;letter-spacing:.2em;color:#B6F500;margin-bottom:18px;opacity:0;transform:translateY(14px);
   background:rgba(255,255,255,.05);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
@@ -270,25 +270,7 @@ footer a:hover{color:var(--lime)}
 @media(prefers-reduced-motion:reduce){.gsh-hero .gsh-kick,.gsh-hero .gsh-h1img,.gsh-hero .gsh-sub2,.gsh-hero .gsh-lead,.gsh-hero .gsh-cta{opacity:1!important;transform:none!important}.gsh-blob{animation:none}}
 </style>
 <section class="gsh-hero" id="gshHero" aria-label="Go Shoot 首頁主視覺">
-  <div class="gsh-bgfx" aria-hidden="true">
-    <span class="gsh-blob" style="top:6%;left:-12%;width:440px;height:440px;background:#FF6A4D"></span>
-    <span class="gsh-blob b2" style="top:26%;right:-14%;width:480px;height:480px;background:#8B5CF6"></span>
-    <span class="gsh-blob b3" style="bottom:-14%;left:26%;width:430px;height:430px;background:#B6F500"></span>
-    <span class="gsh-blob b4" style="top:62%;right:20%;width:260px;height:260px;background:#FFC24B"></span>
-  </div>
-  <svg class="gsh-heroimg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs>
-      <radialGradient id="gsBg" cx="50%" cy="42%" r="78%"><stop offset="0%" stop-color="#1d1430"/><stop offset="62%" stop-color="#0A0812"/><stop offset="100%" stop-color="#050308"/></radialGradient>
-      <radialGradient id="gsGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FF6A4D" stop-opacity="0.5"/><stop offset="45%" stop-color="#FF6A4D" stop-opacity="0.11"/><stop offset="100%" stop-color="#FF6A4D" stop-opacity="0"/></radialGradient>
-      <filter id="gsSoft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="30"/></filter>
-      <filter id="gsSoft2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="70"/></filter>
-    </defs>
-    <rect width="1600" height="1000" fill="url(#gsBg)"/>
-    <g filter="url(#gsSoft2)" opacity="0.5"><circle cx="220" cy="230" r="200" fill="#FF6A4D"/><circle cx="1390" cy="300" r="220" fill="#8B5CF6"/><circle cx="500" cy="910" r="200" fill="#B6F500"/><circle cx="1250" cy="770" r="150" fill="#FFC24B"/></g>
-    <ellipse cx="800" cy="560" rx="540" ry="430" fill="url(#gsGlow)"/>
-    <g transform="translate(800 726)" opacity="0.85"><ellipse rx="360" ry="90" fill="none" stroke="#FF6A4D" stroke-opacity="0.34" stroke-width="2"/><ellipse rx="470" ry="120" fill="none" stroke="#B6F500" stroke-opacity="0.2" stroke-width="2"/></g>
-  </svg>
-  <div class="gsh-grain"></div><div class="gsh-vig"></div>
+  <div class="gsh-grain"></div>
   <div class="gsh-top">
     <div class="gsh-kick"><i></i>中和捷運站旁・24H・只賣正版</div>
     <h1 class="gsh-h1"><img class="gsh-h1img" src="assets/hero-balloon.jpg" alt="Go Shoot" fetchpriority="high"><span class="gsh-sub2">中和戰鬥陀螺專門店 × 線上一番賞 × 24H 娃娃機</span></h1>
