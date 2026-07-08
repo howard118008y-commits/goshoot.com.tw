@@ -245,8 +245,8 @@ footer a:hover{color:var(--lime)}
 .gsh-h1{font-family:'Poppins','Noto Sans TC',sans-serif;font-size:clamp(44px,11.5vw,150px);font-weight:800;line-height:.95;letter-spacing:-.02em;margin:0;color:#F3F0EA}
 .gsh-h1 .l{display:inline-block;opacity:0;transform:translateY(120%) rotate(6deg)}
 .gsh-h1 .g{background:linear-gradient(100deg,#FFC24B,#FF6A4D 55%,#FF4D6D);-webkit-background-clip:text;background-clip:text;color:transparent}
-.gsh-sub2{display:block;font:700 clamp(13px,2.3vw,16px)/1.4 'Noto Sans TC',sans-serif;letter-spacing:.06em;color:#FF8A5C;margin-top:16px;opacity:0;transform:translateY(12px)}
-.gsh-lead{max-width:560px;margin:0 auto 22px;font-size:clamp(14px,2vw,17px);line-height:1.7;color:#9A948D;opacity:0;transform:translateY(16px)}
+.gsh-sub2{display:table;margin:16px auto 0;font:700 clamp(13px,2.3vw,16px)/1.4 'Noto Sans TC',sans-serif;letter-spacing:.06em;color:#FFD9C4;padding:9px 20px;border-radius:999px;background:rgba(8,6,12,.52);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);opacity:0;transform:translateY(12px)}
+.gsh-lead{max-width:560px;margin:0 auto 22px;font-size:clamp(14px,2vw,17px);line-height:1.7;color:#C9C2BA;text-shadow:0 1px 2px rgba(5,3,8,.85),0 2px 16px rgba(5,3,8,.6);opacity:0;transform:translateY(16px)}
 .gsh-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(16px)}
 .gsh-btn{display:inline-block;font-weight:800;font-size:15px;padding:15px 28px;border-radius:999px;border:0;text-decoration:none;transition:transform .12s,filter .2s,box-shadow .2s;color:#0B0B0D}
 .gsh-btn.solid{background:linear-gradient(100deg,#E4002B,#B0021F);color:#fff;
@@ -283,28 +283,40 @@ footer a:hover{color:var(--lime)}
     <defs>
       <radialGradient id="gsBg" cx="50%" cy="42%" r="78%"><stop offset="0%" stop-color="#1d1430"/><stop offset="62%" stop-color="#0A0812"/><stop offset="100%" stop-color="#050308"/></radialGradient>
       <radialGradient id="gsGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FF6A4D" stop-opacity="0.5"/><stop offset="45%" stop-color="#FF6A4D" stop-opacity="0.11"/><stop offset="100%" stop-color="#FF6A4D" stop-opacity="0"/></radialGradient>
-      <radialGradient id="gsCore" cx="40%" cy="36%" r="72%"><stop offset="0%" stop-color="#3c3c46"/><stop offset="55%" stop-color="#20202a"/><stop offset="88%" stop-color="#0e0e14"/><stop offset="100%" stop-color="#000000"/></radialGradient>
-      <linearGradient id="gsBlade" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#9a9ca6"/><stop offset="58%" stop-color="#4a4c54"/><stop offset="100%" stop-color="#FF6A4D"/></linearGradient>
+      <radialGradient id="gsFace" cx="38%" cy="32%" r="78%"><stop offset="0%" stop-color="#FF9271"/><stop offset="42%" stop-color="#FF6A4D"/><stop offset="72%" stop-color="#F2583A"/><stop offset="100%" stop-color="#C03A1E"/></radialGradient>
+      <linearGradient id="gsCream" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0%" stop-color="#FFFBEF"/><stop offset="55%" stop-color="#F4EAD2"/><stop offset="100%" stop-color="#D9C5A2"/></linearGradient>
+      <linearGradient id="gsPink" x1="0" y1="0" x2="0.2" y2="1"><stop offset="0%" stop-color="#FFC0A8"/><stop offset="60%" stop-color="#FF9E80"/><stop offset="100%" stop-color="#E9836B"/></linearGradient>
+      <radialGradient id="gsDome" cx="36%" cy="30%" r="75%"><stop offset="0%" stop-color="#FFFEF9"/><stop offset="55%" stop-color="#F6EDDA"/><stop offset="100%" stop-color="#D8C5A2"/></radialGradient>
+      <radialGradient id="gsDot" cx="38%" cy="32%" r="80%"><stop offset="0%" stop-color="#C05630"/><stop offset="55%" stop-color="#93391C"/><stop offset="100%" stop-color="#6E2510"/></radialGradient>
       <filter id="gsSoft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="30"/></filter>
       <filter id="gsSoft2" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="70"/></filter>
+      <filter id="gsBlur8" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="8"/></filter>
+      <filter id="gsBlur16" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="16"/></filter>
     </defs>
     <rect width="1600" height="1000" fill="url(#gsBg)"/>
     <g filter="url(#gsSoft2)" opacity="0.5"><circle cx="220" cy="230" r="200" fill="#FF6A4D"/><circle cx="1390" cy="300" r="220" fill="#8B5CF6"/><circle cx="500" cy="910" r="200" fill="#B6F500"/><circle cx="1250" cy="770" r="150" fill="#FFC24B"/></g>
     <ellipse cx="800" cy="560" rx="540" ry="430" fill="url(#gsGlow)"/>
     <g transform="translate(800 726)" opacity="0.85"><ellipse rx="360" ry="90" fill="none" stroke="#FF6A4D" stroke-opacity="0.34" stroke-width="2"/><ellipse rx="470" ry="120" fill="none" stroke="#B6F500" stroke-opacity="0.2" stroke-width="2"/></g>
-    <g transform="translate(800 540)">
-      <g fill="url(#gsBlade)">
-        <polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(0)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(45)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(90)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(135)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(180)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(225)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(270)"/><polygon points="176,-30 320,-18 336,0 320,18 176,30" transform="rotate(315)"/>
-      </g>
-      <circle r="222" fill="none" stroke="#FF6A4D" stroke-opacity="0.5" stroke-width="3"/>
-      <circle r="252" fill="none" stroke="#B6F500" stroke-opacity="0.28" stroke-width="2" stroke-dasharray="6 12"/>
-      <circle r="172" fill="url(#gsCore)"/>
-      <circle r="172" fill="none" stroke="#FF6A4D" stroke-opacity="0.7" stroke-width="4"/>
-      <circle r="150" fill="none" stroke="#B6F500" stroke-opacity="0.45" stroke-width="2"/>
-      <g stroke="#ECECEA" stroke-opacity="0.5" stroke-width="4"><line y1="-140" y2="-122" transform="rotate(0)"/><line y1="-140" y2="-122" transform="rotate(30)"/><line y1="-140" y2="-122" transform="rotate(60)"/><line y1="-140" y2="-122" transform="rotate(90)"/><line y1="-140" y2="-122" transform="rotate(120)"/><line y1="-140" y2="-122" transform="rotate(150)"/><line y1="-140" y2="-122" transform="rotate(180)"/><line y1="-140" y2="-122" transform="rotate(210)"/><line y1="-140" y2="-122" transform="rotate(240)"/><line y1="-140" y2="-122" transform="rotate(270)"/><line y1="-140" y2="-122" transform="rotate(300)"/><line y1="-140" y2="-122" transform="rotate(330)"/></g>
-      <circle r="62" fill="#FF6A4D"/><circle r="42" fill="none" stroke="#ECECEA" stroke-opacity="0.85" stroke-width="6"/><circle r="24" fill="#ECECEA"/><circle r="10" fill="#0F1116"/>
-      <circle cx="-58" cy="-58" r="30" fill="#ffffff" opacity="0.35" filter="url(#gsSoft)"/>
+    <g transform="translate(800 570) scale(0.85)">
+      <ellipse cx="0" cy="368" rx="240" ry="40" fill="#000000" opacity="0.5" filter="url(#gsSoft)"/>
+      <circle r="306" cy="12" fill="#1a0b06" opacity="0.55" filter="url(#gsBlur16)"/>
+      <circle r="300" fill="url(#gsFace)"/>
+      <circle r="300" fill="none" stroke="#FFBFA6" stroke-opacity="0.35" stroke-width="2.5"/>
+      <ellipse cx="-118" cy="-152" rx="200" ry="112" transform="rotate(-30 -118 -152)" fill="#ffffff" opacity="0.16" filter="url(#gsSoft)"/>
+      <ellipse cx="-86" cy="-196" rx="96" ry="42" transform="rotate(-26 -86 -196)" fill="#ffffff" opacity="0.26" filter="url(#gsBlur8)"/>
+      <circle r="195" cx="5" cy="9" fill="none" stroke="#7E2F16" stroke-opacity="0.22" stroke-width="16" filter="url(#gsBlur8)"/>
+      <circle r="195" fill="none" stroke="url(#gsPink)" stroke-width="14"/>
+      <circle r="195" cx="-3" cy="-4" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="4"/>
+      <path d="M112.9 -310.1 A330 330 0 1 1 -112.9 -310.1" fill="none" stroke="#3a1207" stroke-opacity="0.4" stroke-width="50" stroke-linecap="round" transform="translate(10 16)" filter="url(#gsBlur16)"/>
+      <path d="M112.9 -310.1 A330 330 0 1 1 -112.9 -310.1" fill="none" stroke="url(#gsCream)" stroke-width="46" stroke-linecap="round"/>
+      <path d="M-310.1 112.9 A330 330 0 0 1 -57.3 -325" fill="none" stroke="#ffffff" stroke-opacity="0.5" stroke-width="9" stroke-linecap="round" transform="translate(-5 -7)" filter="url(#gsBlur8)"/>
+      <circle r="92" cx="8" cy="14" fill="#5e2410" opacity="0.4" filter="url(#gsBlur16)"/>
+      <circle r="92" fill="url(#gsDome)"/>
+      <ellipse cx="-28" cy="-42" rx="42" ry="22" transform="rotate(-28 -28 -42)" fill="#ffffff" opacity="0.4" filter="url(#gsBlur8)"/>
+      <circle r="34" cy="-2" fill="url(#gsDot)"/>
+      <ellipse cx="-12" cy="-16" rx="12" ry="7" transform="rotate(-30 -12 -16)" fill="#ffffff" opacity="0.55"/>
     </g>
+    <ellipse cx="800" cy="705" rx="620" ry="150" fill="#07040c" opacity="0.65" filter="url(#gsSoft2)"/>
   </svg>
   <div class="gsh-grain"></div><div class="gsh-vig"></div>
   <div class="gsh-top">
