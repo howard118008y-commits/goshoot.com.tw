@@ -22,11 +22,15 @@ const GOSHOOT_ANALYTICS = {
 
 (function () {
   function apply(selector, url) {
-    if (!url) return;                       // 沒填就維持原樣
     document.querySelectorAll(selector).forEach(function (a) {
-      a.setAttribute("href", url);
-      a.setAttribute("target", "_blank");
-      a.setAttribute("rel", "noopener");
+      if (url) {
+        a.setAttribute("href", url);
+        a.setAttribute("target", "_blank");
+        a.setAttribute("rel", "noopener");
+        a.style.display = "";               // 有填就顯示
+      } else {
+        a.style.display = "none";           // 沒帳號就隱藏，避免死鈕（footer 有 email/tel 兜底）
+      }
     });
   }
   apply("[data-line]",   GOSHOOT_LINKS.line);
