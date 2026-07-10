@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0B0B0D">
+<meta name="theme-color" content="#1A1A1A">
 <title>戰鬥陀螺X 改裝計算器｜最強組合模擬器（上蓋×固鎖×軸心） - Go Shoot</title>
 <meta name="description" content="Beyblade X 戰鬥陀螺改裝計算器：上蓋（Blade）×固鎖（Ratchet）×軸心（Bit）自由配裝，即時算出攻擊/防禦/持久/衝刺/爆裂耐性雷達圖與總重量，附社群公認最強組合一鍵套用、左旋發射器提示、零件出處對照。找最強配置、練改造，新手老手都好用｜Go Shoot 中和戰鬥陀螺專門店。">
 <meta name="keywords" content="戰鬥陀螺 最強組合,戰鬥陀螺X 改造,Beyblade X 配置,戰鬥陀螺 改裝,組合模擬器,上蓋 固鎖 軸心,魔導神杖 配置,強度排行">
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#0B0B0D;--paper:#161619;--text:#ECECEA;--coral:#FF6A4D;--coral-deep:#FF8366;--lime:#B6F500;--sky:#5BB3CE;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E24A2C;--lime:#FF5A2D;--sky:#5BB3CE;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.8}
 a{color:inherit;text-decoration:none}
@@ -37,10 +37,10 @@ h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;margin:36px 0 10px}
 .util b{color:var(--gold,#E8C15A)}
 .util a{color:var(--lime);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
-.nav-links .btn.btn-race{background:linear-gradient(100deg,#E4002B,#B00021);color:#fff;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(228,0,43,.34);margin:0}
+.nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E24A2C);color:#fff;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
   .nav .wrap{position:relative}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#0B0B0D;padding:6px 0 12px;border-bottom:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#1A1A1A;padding:6px 0 12px;border-bottom:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.5)}
   .nav-links a{padding:13px 22px;font-size:16px}
   .nav-links .btn{margin:8px 22px 0;justify-content:center;text-align:center}
   .menu-btn{display:block}
@@ -50,10 +50,10 @@ h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;margin:36px 0 10px}
 .crumb a{color:var(--lime)}
 .lead{font-size:17px;background:var(--paper);border-left:4px solid var(--lime);padding:14px 18px;border-radius:8px;margin:18px 0;font-weight:500}
 .note{font-size:13px;color:var(--sec)}
-.tag{font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;color:#0B0B0D}
-.t-atk{background:#FF6A4D;color:#fff}.t-def{background:#5BB3CE}.t-sta{background:#B6F500}.t-bal{background:#FFC24B}
+.tag{font-size:11.5px;font-weight:800;padding:3px 10px;border-radius:999px;color:#1A1A1A}
+.t-atk{background:#FF5A2D;color:#fff}.t-def{background:#5BB3CE}.t-sta{background:#3FC8C8}.t-bal{background:#FFC24B}
 .callout{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:22px 0}
-.btn{display:inline-block;background:var(--lime);color:#0B0B0D;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
 summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
@@ -67,9 +67,9 @@ footer a{color:var(--lime)}
 /* ===== 計算器（液態玻璃） ===== */
 .meta-strip{display:flex;gap:9px;overflow-x:auto;padding:4px 2px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
 .meta-chip{flex:0 0 auto;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:9px 14px;cursor:pointer;font:inherit;color:var(--text);text-align:left;transition:.15s;min-width:150px}
-.meta-chip:hover{border-color:rgba(182,245,0,.55);transform:translateY(-2px)}
-.meta-chip .mt{font-size:11px;font-weight:900;letter-spacing:.4px;color:#0B0B0D;background:var(--gold);border-radius:999px;padding:1px 8px;display:inline-block}
-.meta-chip .mt.t0{background:#FF6A4D;color:#fff}
+.meta-chip:hover{border-color:rgba(255,90,45,.55);transform:translateY(-2px)}
+.meta-chip .mt{font-size:11px;font-weight:900;letter-spacing:.4px;color:#1A1A1A;background:var(--gold);border-radius:999px;padding:1px 8px;display:inline-block}
+.meta-chip .mt.t0{background:#FF5A2D;color:#fff}
 .meta-chip .mn{display:block;font-weight:800;font-size:14px;margin-top:5px;line-height:1.4}
 .meta-chip .mc2{display:block;font-family:'Poppins',monospace;font-size:11.5px;color:var(--sec)}
 .calc{background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:20px;margin:14px 0 26px;backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);box-shadow:0 18px 60px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08)}
@@ -101,7 +101,7 @@ footer a{color:var(--lime)}
 .share-row{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
 .share-btn{background:var(--paper);border:1px solid var(--line);color:var(--text);font:700 13.5px 'Noto Sans TC';padding:9px 18px;border-radius:999px;cursor:pointer;transition:.15s}
 .share-btn:hover{border-color:var(--lime);color:var(--lime)}
-.buy-cta{background:linear-gradient(100deg,#E4002B,#B00021);color:#fff;border-radius:999px;padding:10px 20px;font-size:14px;font-weight:800;box-shadow:0 0 26px rgba(228,0,43,.3)}
+.buy-cta{background:linear-gradient(100deg,#FF5A2D,#E24A2C);color:#fff;border-radius:999px;padding:10px 20px;font-size:14px;font-weight:800;box-shadow:0 0 26px rgba(255,90,45,.3)}
 .bitref{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:12px 0}
 .bitref .bcell{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:13.5px}
 .bitref .bcell b{color:var(--lime)}
@@ -113,7 +113,7 @@ footer a{color:var(--lime)}
 <body>
 <div class="util"><div class="wrap"><span>🕹️ 娃娃機 24H・🌀 戰鬥陀螺 16:00–24:00　|　🎯 <b>中和捷運站旁</b></span><a href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">🎁 線上一番賞・馬上抽 →</a></div></div>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#ECECEA" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#ECECEA" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF6A4D"/><circle cx="256" cy="256" r="18" fill="#ECECEA"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF6A4D" stroke-width="26" stroke-linecap="round"/></svg>Go Shoot</a>
+  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#ECECEA" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#ECECEA" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF5A2D"/><circle cx="256" cy="256" r="18" fill="#ECECEA"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF5A2D" stroke-width="26" stroke-linecap="round"/></svg>Go Shoot</a>
   <div class="nav-links">
     <a href="index.html#products">商品</a>
     <a href="index.html#preorder">代購預購</a>
@@ -281,8 +281,8 @@ footer a{color:var(--lime)}
       var lp=pt(i,1.17);
       s+='<text x="'+lp[0]+'" y="'+lp[1]+'" fill="#B4B4BB" font-size="12.5" font-weight="700" text-anchor="middle" dominant-baseline="middle" font-family="Noto Sans TC">'+ax.n+'</text>';
     });
-    s+='<polygon id="radarPoly" points="" fill="rgba(182,245,0,.22)" stroke="#B6F500" stroke-width="2" stroke-linejoin="round"/>';
-    AXES.forEach(function(_,i){ s+='<circle id="rp'+i+'" r="3.5" fill="#B6F500"/>'; });
+    s+='<polygon id="radarPoly" points="" fill="rgba(255,90,45,.22)" stroke="#FF5A2D" stroke-width="2" stroke-linejoin="round"/>';
+    AXES.forEach(function(_,i){ s+='<circle id="rp'+i+'" r="3.5" fill="#FF5A2D"/>'; });
     svg.innerHTML=s;
   }
 
