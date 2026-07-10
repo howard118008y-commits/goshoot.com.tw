@@ -76,3 +76,4 @@ https://goshoot.com.tw/guide-rules.html
 - sitemap 已含全部 33 頁，Google 會自動陸續收錄；手動「要求建立索引」只是催它快點。
 - 送完一批就把該批移到【已送出】區。
 - sitemap 位置：https://goshoot.com.tw/sitemap.xml （已在 GSC 提交）
+https://goshoot.com.tw/store.html
