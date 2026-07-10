@@ -59,6 +59,12 @@ h1,h2,h3,.disp{font-family:var(--disp)}
 .sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;margin-top:12px;background:var(--gs-orange);box-shadow:0 0 14px rgba(255,90,45,.55)}
 .sec-lead{color:var(--muted);max-width:680px}
 section{padding:64px 0}
+/* 品牌圖卡（沿用 paper/line/shadow 玻璃卡語言） */
+.brandfig{margin:28px auto 0;max-width:880px;background:var(--paper);border:1px solid rgba(255,255,255,.10);
+  border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.brandfig.sq{max-width:620px}
+.brandfig img{display:block;width:100%;height:auto}
+.brandfig figcaption{padding:12px 18px;font-size:13px;color:var(--muted);border-top:1px solid rgba(255,255,255,.08)}
 
 /* ===== utility bar ===== */
 .util{background:#000;color:var(--muted);font-size:13px;border-bottom:1px solid rgba(255,255,255,.10)}
@@ -361,6 +367,10 @@ footer a:hover{color:var(--gs-orange)}
     <a class="subcat" href="#preorder">🎌 日本代購</a>
     <a class="subcat" href="events.html">🏆 賽事排行</a>
   </div>
+  <figure class="brandfig">
+    <img src="assets/brand/hero-3in1.jpg" alt="Go Shoot 三大主打品牌主視覺：戰鬥陀螺 Beyblade X、娃娃機、線上一番賞實拍合成" loading="lazy" decoding="async" width="1200" height="1200">
+    <figcaption>戰鬥陀螺 × 娃娃機 × 線上一番賞——Go Shoot 一次到齊</figcaption>
+  </figure>
 </div></section>
 
 <!-- ===== 戰鬥陀螺從 0 開始 ===== -->
@@ -594,6 +604,10 @@ footer a:hover{color:var(--gs-orange)}
     <div class="claw-feat"><b>常更新</b><span>景品定期換・不定期保夾</span></div>
     <div class="claw-feat"><b>站旁</b><span>中和捷運站旁，好到好停</span></div>
   </div>
+  <figure class="brandfig sq">
+    <img src="assets/brand/promo-24h.jpg" alt="Go Shoot 中和娃娃機店 24 小時營業主打視覺" loading="lazy" decoding="async" width="900" height="900">
+    <figcaption>24 小時營業——半夜想夾就來夾</figcaption>
+  </figure>
   <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
     <a class="btn" href="#visit">來店看看 →</a>
     <a class="btn btn-ghost" href="#" data-line>加 LINE 看新景品</a>
@@ -685,6 +699,10 @@ footer a:hover{color:var(--gs-orange)}
       <div style="margin-top:20px"><a class="btn" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20預購・賽事報名詢問">✉ Email 預購・報名 →</a></div>
     </div>
   </div>
+  <figure class="brandfig">
+    <img src="assets/brand/services-grid.jpg" alt="Go Shoot 門市服務一覽：戰鬥陀螺、娃娃機、線上一番賞、24H 營業、賽事資訊、加入我們" loading="lazy" decoding="async" width="1200" height="800">
+    <figcaption>來店能玩什麼？六大服務一張看懂</figcaption>
+  </figure>
 </div></section>
 
 <!-- ===== FOOTER ===== -->
@@ -774,7 +792,7 @@ document.addEventListener("DOMContentLoaded",function(){
     rev(".newscard",".news");
     rev(".rel",".rel-list",{y:24,stagger:.07});
     rev(".claw-feat",".claw-feats",{y:24});
-    gsap.utils.toArray(".band,.half,.grid-2 .guide-card").forEach(function(el){
+    gsap.utils.toArray(".band,.half,.grid-2 .guide-card,.brandfig").forEach(function(el){
       rev(el,el,{y:32,stagger:0});
     });
 
