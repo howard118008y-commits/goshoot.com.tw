@@ -56,15 +56,34 @@ h1,h2,h3,.disp{font-family:var(--disp)}
   background:rgba(255,90,45,.10);border:1px solid rgba(255,90,45,.35);
   padding:5px 12px;border-radius:20px}
 .sec{font-size:clamp(24px,3.4vw,38px);font-weight:800;margin:14px 0 6px;color:var(--text)}
-.sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;margin-top:12px;background:var(--gs-orange);box-shadow:0 0 14px rgba(255,90,45,.55)}
+.sec::after{content:"✦";display:block;width:max-content;margin-top:10px;padding-left:66px;
+  font-size:15px;line-height:1;color:var(--gs-orange);text-shadow:0 0 12px rgba(255,90,45,.85);
+  background:linear-gradient(90deg,var(--gs-orange),rgba(255,90,45,.22)) left center/52px 4px no-repeat;border-radius:2px}
 .sec-lead{color:var(--muted);max-width:680px}
 section{padding:64px 0}
-/* 品牌圖卡（沿用 paper/line/shadow 玻璃卡語言） */
-.brandfig{margin:28px auto 0;max-width:880px;background:var(--paper);border:1px solid rgba(255,255,255,.10);
-  border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
-.brandfig.sq{max-width:620px}
-.brandfig img{display:block;width:100%;height:auto}
-.brandfig figcaption{padding:12px 18px;font-size:13px;color:var(--muted);border-top:1px solid rgba(255,255,255,.08)}
+
+/* ===== 全頁氛圍層：黑橘漫畫能量宇宙（設計系統 §6 延伸） ===== */
+.gs-atmos{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.util,footer,body>section{position:relative;z-index:1}
+body>section:not(.gsh-hero)::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,90,45,.34) 50%,transparent);pointer-events:none}
+.gs-atmos-dots{position:absolute;inset:0;opacity:.5;
+  background-image:radial-gradient(rgba(255,90,45,.55) 1.3px,transparent 1.5px);background-size:22px 22px;
+  -webkit-mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.26) 30%,rgba(0,0,0,.26) 70%,#000);
+          mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.26) 30%,rgba(0,0,0,.26) 70%,#000)}
+.gs-glow{position:absolute;border-radius:50%;will-change:transform,opacity;animation:gsBreath 10s ease-in-out infinite}
+.gs-glow.g1{top:-12%;left:-12%;width:52vw;height:52vw;background:radial-gradient(circle,rgba(255,90,45,.15),transparent 68%)}
+.gs-glow.g2{top:30%;right:-16%;width:56vw;height:56vw;background:radial-gradient(circle,rgba(255,90,45,.12),transparent 68%);animation-delay:-3.4s}
+.gs-glow.g3{bottom:-14%;left:-10%;width:48vw;height:48vw;background:radial-gradient(circle,rgba(226,74,44,.13),transparent 68%);animation-delay:-6.8s}
+@keyframes gsBreath{0%,100%{transform:scale(1);opacity:.72}50%{transform:scale(1.1);opacity:1}}
+.gs-atmos .gsx-speed{height:2px}
+.gs-atmos .gsx-star.o{fill:var(--gs-orange)}
+@media(prefers-reduced-motion:reduce){.gs-glow{animation:none;opacity:.6}}
+@media(max-width:768px){
+  .gs-atmos .d{display:none}
+  .gs-atmos-dots{opacity:.28}
+  .gs-glow{animation:none;opacity:.5}
+}
 
 /* ===== utility bar ===== */
 .util{background:#000;color:var(--muted);font-size:13px;border-bottom:1px solid rgba(255,255,255,.10)}
@@ -146,7 +165,7 @@ section{padding:64px 0}
 
 /* ===== bands ===== */
 .band{border-radius:24px;padding:40px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;color:#fff;border:1px solid rgba(255,255,255,.08)}
-.band.ink{background:#08080a} .band.coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
+.band.ink{background:rgba(8,8,10,.82)} .band.coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
 .band .emblem svg{width:120px;height:120px}
 .band h2{font-size:clamp(24px,3vw,34px);font-weight:800;margin-bottom:8px}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -202,6 +221,28 @@ footer a:hover{color:var(--gs-orange)}
 </head>
 <body>
 
+<!-- ===== 全頁氛圍層（黑橘漫畫能量宇宙：網點×光暈×速度線×星芒） ===== -->
+<div class="gs-atmos" aria-hidden="true">
+  <div class="gs-atmos-dots"></div>
+  <span class="gs-glow g1"></span>
+  <span class="gs-glow g2 d"></span>
+  <span class="gs-glow g3"></span>
+  <i class="gsx-speed" style="top:13%;left:-12%;width:32%;rotate:-7deg"></i>
+  <i class="gsx-speed cream d" style="top:24%;left:-10%;width:20%;rotate:-5deg"></i>
+  <i class="gsx-speed d" style="top:42%;right:-12%;width:27%;rotate:6deg"></i>
+  <i class="gsx-speed cream" style="top:60%;right:-10%;width:21%;rotate:5deg"></i>
+  <i class="gsx-speed" style="top:77%;left:-12%;width:29%;rotate:-6deg"></i>
+  <i class="gsx-speed cream d" style="top:90%;right:-12%;width:18%;rotate:4deg"></i>
+  <svg class="gsx-star" style="top:12%;left:3%;width:24px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star o" style="top:21%;right:4%;width:30px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star d" style="top:37%;left:5%;width:18px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star o d" style="top:52%;right:3%;width:22px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star" style="top:66%;left:4%;width:28px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star o d" style="top:74%;left:8%;width:16px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star" style="top:84%;right:5%;width:24px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star o" style="top:94%;left:3%;width:20px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+</div>
+
 <!-- ===== UTILITY BAR ===== -->
 <div class="util"><div class="wrap">
   <span>🕹️ 娃娃機 24H・🌀 戰鬥陀螺 16:00–24:00　|　🎯 <b>中和捷運站旁</b></span>
@@ -230,19 +271,20 @@ footer a:hover{color:var(--gs-orange)}
 
 <!-- ===== HERO (cinematic) ===== -->
 <style>
-.gsh-hero{position:relative;height:90svh;min-height:540px;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#26150e 0%,#1A1A1A 60%)}
+.gsh-hero{position:relative;height:90svh;min-height:540px;overflow:hidden;
+  /* 中央不透明（logo JPG 黑底靠 screen blend 隱形，需要實心深底）、左右外緣漸透讓 .gs-atmos 透出 */
+  background:radial-gradient(ellipse 62% 105% at 50% 38%,#221410 0%,#1A1A1A 58%,rgba(26,26,26,.35) 82%,rgba(26,26,26,0) 100%)}
+@media(max-width:768px){
+  /* 窄幅下橢圓墊底蓋不住 logo 寬度、黑底會露邊——改回整面不透明深底 */
+  .gsh-hero{background:radial-gradient(140% 90% at 50% 30%,#221410 0%,#1A1A1A 62%)}
+}
 .gsh-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .gsh-top{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 22px clamp(64px,10vh,96px);gap:clamp(16px,2.8vh,26px)}
 .gsh-deco{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:190px 190px;background-position:center top}
 .gsh-deco i{position:absolute;border:1px solid rgba(255,255,255,.055);border-radius:230px}
 .gsh-deco i:first-child{top:9%;left:11%;width:42%;height:54%}
 .gsh-deco i:last-child{top:32%;right:7%;width:36%;height:48%}
-/* 能量層：網點＋速度線＋星芒（設計系統 §6） */
-.gsx-fx{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
-.gsx-dots{position:absolute;inset:-10%;opacity:.5;
-  background-image:radial-gradient(rgba(255,90,45,.28) 1.4px,transparent 1.5px);background-size:22px 22px;
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000,transparent 75%);
-          mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000,transparent 75%)}
+/* 能量元素：速度線＋星芒（由全頁 .gs-atmos 氛圍層統一承載，設計系統 §6） */
 .gsx-speed{position:absolute;display:block;height:3px;border-radius:3px;transform-origin:left center;will-change:transform,opacity;
   background:linear-gradient(90deg,transparent,#FF5A2D,transparent)}
 .gsx-speed.cream{background:linear-gradient(90deg,transparent,rgba(251,246,238,.85),transparent)}
@@ -273,16 +315,6 @@ footer a:hover{color:var(--gs-orange)}
 <section class="gsh-hero" id="gshHero" aria-label="Go Shoot 首頁主視覺">
   <div class="gsh-grain"></div>
   <div class="gsh-deco" aria-hidden="true"><i></i><i></i></div>
-  <div class="gsx-fx" aria-hidden="true">
-    <div class="gsx-dots"></div>
-    <i class="gsx-speed" style="top:24%;left:-10%;width:38%"></i>
-    <i class="gsx-speed cream" style="top:35%;left:-10%;width:24%"></i>
-    <i class="gsx-speed" style="top:76%;left:-10%;width:32%"></i>
-    <svg class="gsx-star" style="top:17%;left:13%;width:26px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
-    <svg class="gsx-star" style="top:24%;right:11%;width:34px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
-    <svg class="gsx-star" style="bottom:26%;left:19%;width:22px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
-    <svg class="gsx-star" style="bottom:32%;right:17%;width:30px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
-  </div>
   <div class="gsh-top">
     <svg class="gsh-logo" viewBox="0 0 1080 1080" aria-hidden="true">
       <circle cx="540" cy="540" r="540" fill="#FF5A2D"/>
@@ -312,7 +344,7 @@ footer a:hover{color:var(--gs-orange)}
 </script>
 
 <!-- ===== CATEGORY TILES ===== -->
-<section id="cats" style="background:#202024"><div class="wrap">
+<section id="cats" style="background:rgba(32,32,36,.72)"><div class="wrap">
   <style>
     .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .pillar{position:relative;border-radius:22px;padding:28px 24px;min-height:236px;color:#fff;
@@ -367,14 +399,10 @@ footer a:hover{color:var(--gs-orange)}
     <a class="subcat" href="#preorder">🎌 日本代購</a>
     <a class="subcat" href="events.html">🏆 賽事排行</a>
   </div>
-  <figure class="brandfig">
-    <img src="assets/brand/hero-3in1.jpg" alt="Go Shoot 三大主打品牌主視覺：戰鬥陀螺 Beyblade X、娃娃機、線上一番賞實拍合成" loading="lazy" decoding="async" width="1200" height="1200">
-    <figcaption>戰鬥陀螺 × 娃娃機 × 線上一番賞——Go Shoot 一次到齊</figcaption>
-  </figure>
 </div></section>
 
 <!-- ===== 戰鬥陀螺從 0 開始 ===== -->
-<section id="start" style="background:#1A1A1A;border-top:1px solid rgba(255,255,255,.06)"><div class="wrap">
+<section id="start" style="background:rgba(26,26,26,.55)"><div class="wrap">
   <style>
     .zero{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
     @media(max-width:900px){.zero{grid-template-columns:1fr 1fr}}
@@ -414,7 +442,7 @@ footer a:hover{color:var(--gs-orange)}
 </div></section>
 
 <!-- ===== PRODUCTS ===== -->
-<section id="products" style="background:#1A1A1A"><div class="wrap">
+<section id="products" style="background:rgba(26,26,26,.55)"><div class="wrap">
   <style>
     .news{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     .newscard{background:var(--paper);border:1px solid rgba(255,255,255,.10);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.15s;display:flex;flex-direction:column;color:var(--text)}
@@ -519,7 +547,7 @@ footer a:hover{color:var(--gs-orange)}
 .rel-cta.alt{background:transparent;color:#ECECEA;border:1.5px solid rgba(255,255,255,.18)}
 @media(max-width:560px){.rel-cta{flex:1 1 100%;text-align:center}}
 </style>
-<section id="releases" style="background:#1A1A1A"><div class="wrap">
+<section id="releases" style="background:rgba(26,26,26,.55)"><div class="wrap">
   <span class="eyebrow">發售雷達 ・ 每週更新</span>
   <h2 class="sec">新品發售追蹤</h2>
   <p class="sec-lead">戰鬥陀螺官方新品×寶可夢×皮克敏——發售日、狀態、在哪買，一條龍幫你盯好。</p>
@@ -577,7 +605,7 @@ footer a:hover{color:var(--gs-orange)}
   <p style="font-size:12.5px;color:#8A8790;margin-top:12px">發售日以官方公告為準・本區每週自動更新｜也可逛 <a href="shop.html" style="color:#FF8A6B">蝦皮商城現貨</a></p>
 </div></section>
 
-<section id="claw" style="background:#202024"><div class="wrap">
+<section id="claw" style="background:rgba(32,32,36,.72)"><div class="wrap">
   <style>
     .claw-row{background:linear-gradient(135deg,#5BB3CE,#8FCDE0);border-radius:20px;box-shadow:var(--shadow);padding:30px 18px 24px;display:flex;gap:14px;align-items:flex-end;justify-content:center;flex-wrap:wrap}
     .claw-row img{width:clamp(96px,17vw,160px);height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.2))}
@@ -604,10 +632,6 @@ footer a:hover{color:var(--gs-orange)}
     <div class="claw-feat"><b>常更新</b><span>景品定期換・不定期保夾</span></div>
     <div class="claw-feat"><b>站旁</b><span>中和捷運站旁，好到好停</span></div>
   </div>
-  <figure class="brandfig sq">
-    <img src="assets/brand/promo-24h.jpg" alt="Go Shoot 中和娃娃機店 24 小時營業主打視覺" loading="lazy" decoding="async" width="900" height="900">
-    <figcaption>24 小時營業——半夜想夾就來夾</figcaption>
-  </figure>
   <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
     <a class="btn" href="#visit">來店看看 →</a>
     <a class="btn btn-ghost" href="#" data-line>加 LINE 看新景品</a>
@@ -615,7 +639,7 @@ footer a:hover{color:var(--gs-orange)}
 </div></section>
 
 <!-- ===== ICHIBAN ===== -->
-<section id="ichiban" style="background:#1A1A1A"><div class="wrap">
+<section id="ichiban" style="background:rgba(26,26,26,.55)"><div class="wrap">
   <div class="band" style="background:linear-gradient(120deg,#7B3FE4,#FF5A2D)">
     <div class="emblem"><svg viewBox="0 0 64 64"><path d="M14 26 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M14 26 l18-14 18 14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="38" r="5" fill="#fff"/></svg></div>
     <div style="flex:1;min-width:260px">
@@ -628,7 +652,7 @@ footer a:hover{color:var(--gs-orange)}
 </div></section>
 
 <!-- ===== ARENA BAND ===== -->
-<section id="arena" style="background:#202024"><div class="wrap">
+<section id="arena" style="background:rgba(32,32,36,.72)"><div class="wrap">
   <div class="band ink">
     <div class="emblem"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#FBF6EE" stroke-width="3.5"/><circle cx="32" cy="32" r="7" fill="#FF5A2D"/><path class="spin" d="M32 6 A26 26 0 0 1 58 32" fill="none" stroke="#FF5A2D" stroke-width="4" stroke-linecap="round"/></svg></div>
     <div style="flex:1;min-width:260px">
@@ -642,7 +666,7 @@ footer a:hover{color:var(--gs-orange)}
 </div></section>
 
 <!-- ===== SPLIT BANDS ===== -->
-<section style="padding-top:0;background:#1A1A1A"><div class="wrap">
+<section style="padding-top:0;background:rgba(26,26,26,.55)"><div class="wrap">
   <div class="split">
     <div class="half sky">
       <h3>🕹️ 娃娃機台區</h3>
@@ -658,7 +682,7 @@ footer a:hover{color:var(--gs-orange)}
 </div></section>
 
 <!-- ===== GUIDES ===== -->
-<section id="guides" style="background:#202024"><div class="wrap">
+<section id="guides" style="background:rgba(32,32,36,.72)"><div class="wrap">
   <span class="eyebrow">戰略攻略</span>
   <h2 class="sec">新手到老手，都能變強</h2>
   <div class="grid-2">
@@ -671,7 +695,7 @@ footer a:hover{color:var(--gs-orange)}
 </div></section>
 
 <!-- ===== PREORDER ===== -->
-<section id="preorder" style="background:#1A1A1A"><div class="wrap">
+<section id="preorder" style="background:rgba(26,26,26,.55)"><div class="wrap">
   <div class="band coral">
     <div style="flex:1;min-width:260px">
       <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.18);border-color:transparent">代購・預購</span>
@@ -684,7 +708,7 @@ footer a:hover{color:var(--gs-orange)}
 </div></section>
 
 <!-- ===== VISIT ===== -->
-<section id="visit" style="background:#202024"><div class="wrap">
+<section id="visit" style="background:rgba(32,32,36,.72)"><div class="wrap">
   <span class="eyebrow">來店資訊</span>
   <h2 class="sec">中和站旁，走路就到</h2>
   <div class="info" style="margin-top:18px">
@@ -699,10 +723,6 @@ footer a:hover{color:var(--gs-orange)}
       <div style="margin-top:20px"><a class="btn" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20預購・賽事報名詢問">✉ Email 預購・報名 →</a></div>
     </div>
   </div>
-  <figure class="brandfig">
-    <img src="assets/brand/services-grid.jpg" alt="Go Shoot 門市服務一覽：戰鬥陀螺、娃娃機、線上一番賞、24H 營業、賽事資訊、加入我們" loading="lazy" decoding="async" width="1200" height="800">
-    <figcaption>來店能玩什麼？六大服務一張看懂</figcaption>
-  </figure>
 </div></section>
 
 <!-- ===== FOOTER ===== -->
@@ -767,11 +787,14 @@ document.addEventListener("DOMContentLoaded",function(){
       .from(".gsh-sub",{y:20,autoAlpha:0},"-=.35")
       .from(".gsh-cta .gsh-btn",{y:18,autoAlpha:0,stagger:.1},"-=.3");
 
-    // 速度線掃入＋星芒閃爍
+    // 氛圍層：速度線掃入＋星芒閃爍
     gsap.from(".gsx-speed",{scaleX:0,transformOrigin:"left center",autoAlpha:0,
       duration:1,stagger:.12,ease:"power2.out",delay:.3});
     gsap.to(".gsx-star",{autoAlpha:1,scale:1.15,duration:1.4,ease:"sine.inOut",
       repeat:-1,yoyo:true,stagger:{each:.5,from:"random"}});
+    // 氛圍層：速度線隨捲動極輕量橫移視差（fixed 層，只動 transform）
+    gsap.to(".gs-atmos .gsx-speed",{xPercent:28,ease:"none",
+      scrollTrigger:{trigger:document.body,start:"top top",end:"max",scrub:1.4}});
 
     // 捲動 reveal（once:true，只動 transform/opacity）
     // 註：用 onEnter callback 而非 gsap.from+toggleActions——快速捲動一次跳過
@@ -792,7 +815,7 @@ document.addEventListener("DOMContentLoaded",function(){
     rev(".newscard",".news");
     rev(".rel",".rel-list",{y:24,stagger:.07});
     rev(".claw-feat",".claw-feats",{y:24});
-    gsap.utils.toArray(".band,.half,.grid-2 .guide-card,.brandfig").forEach(function(el){
+    gsap.utils.toArray(".band,.half,.grid-2 .guide-card").forEach(function(el){
       rev(el,el,{y:32,stagger:0});
     });
 
