@@ -75,6 +75,12 @@
 - [發射技巧](https://goshoot.com.tw/guide-shoot.html)
 - [什麼是 Beyblade X](https://goshoot.com.tw/guide-whatisx.html)
 
+## 政策與條款
+
+- [服務條款](https://goshoot.com.tw/terms.html)：門市購物、代購預購、店內賽事與線上一番賞的使用約定、Go幣計價、禁止行為與準據法。
+- [退款政策](https://goshoot.com.tw/refund.html)：門市與代購預購退換貨、線上一番賞抽賞商品性質、未使用 Go幣退款、瑕疵獎品處理與申請管道。
+- [隱私權政策](https://goshoot.com.tw/privacy.html)：個人資料蒐集項目、利用目的、Cookie 與第三方分析工具、金流物流資料提供、當事人權利。
+
 ## 店家資訊
 
 - 店名：Go Shoot
