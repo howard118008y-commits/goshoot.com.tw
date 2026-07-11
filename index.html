@@ -139,15 +139,6 @@ body>section:not(.gsh-hero)::before{content:"";position:absolute;top:0;left:0;ri
 
 /* ===== category tiles ===== */
 .tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
-.tile{border-radius:20px;padding:24px 16px;text-align:center;color:#fff;font-family:var(--disp);
-  font-weight:700;box-shadow:var(--shadow);transition:.15s;min-height:150px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
-.tile:hover{transform:translateY(-4px)}
-.tile svg{width:46px;height:46px}
-.tile small{font-weight:500;opacity:.9;font-family:var(--body);font-size:12px}
-.t1{background:linear-gradient(150deg,var(--coral),var(--coral-deep))} .t2{background:linear-gradient(150deg,var(--sky-deep),#3f8aa3)} .t3{background:linear-gradient(160deg,#23232a,#15151a)}
-.t4{background:linear-gradient(160deg,rgba(8,8,12,.45),rgba(8,8,12,.66)),url('assets/photos/claw-colorful.jpg') center/cover} .t5{background:linear-gradient(150deg,#3FA77B,#2c7d5b)} .t6{background:linear-gradient(150deg,#E5912A,var(--gold));color:#1A1A1A}
-.tile{border:1px solid rgba(255,255,255,.10)}
 
 /* ===== product grid ===== */
 .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -169,9 +160,13 @@ body>section:not(.gsh-hero)::before{content:"";position:absolute;top:0;left:0;ri
 .band .emblem svg{width:120px;height:120px}
 .band h2{font-size:clamp(24px,3vw,34px);font-weight:800;margin-bottom:8px}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.half{border-radius:24px;padding:34px;color:#fff;border:1px solid rgba(255,255,255,.08)}
-.half.sky{background:linear-gradient(120deg,var(--sky-deep),var(--sky))}
-.half.gold{background:linear-gradient(120deg,#f0a93a,var(--gold));color:#1A1A1A}
+.half{border-radius:24px;padding:34px;color:#fff;border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+/* 店內廣告圖卡風：黑底＋橘/金頂線區分兩卡 */
+.half.sky{background:linear-gradient(160deg,#232326,#151517);border:1.5px solid rgba(255,90,45,.5);border-top:3px solid var(--gs-orange)}
+.half.gold{background:linear-gradient(160deg,#26200f,#161307);border:1.5px solid rgba(255,194,75,.5);border-top:3px solid var(--gold)}
+.half .hdeco{position:absolute;right:-24px;bottom:-28px;width:150px;height:auto;border-radius:12px;
+  mix-blend-mode:screen;opacity:.7;filter:contrast(1.1) saturate(1.05);transform:rotate(-8deg);pointer-events:none}
+.half h3,.half p,.half .btn{position:relative;z-index:1}
 .half h3{font-size:24px;font-weight:800;margin-bottom:8px}
 
 /* ===== guide / cards ===== */
@@ -354,39 +349,41 @@ footer a:hover{color:var(--gs-orange)}
     .pillar h3{font-family:var(--disp);font-size:25px;font-weight:800;margin:14px 0 6px;color:#fff}
     .pillar p{font-size:13.5px;opacity:.95;line-height:1.5;margin-bottom:14px}
     .pillar .go{font-family:var(--disp);font-weight:700;font-size:15px}
-    .p-bey{background:linear-gradient(150deg,var(--coral),var(--coral-deep))}
-    .p-claw{background:linear-gradient(150deg,#5BB3CE,#8FCDE0)}
-    .p-ichi{background:linear-gradient(150deg,#7B3FE4,#FF5A2D)}
-    .pillar .pdeco{position:absolute;pointer-events:none;z-index:0}
+    /* 店內廣告圖卡風：三卡統一黑底橘框，右下品類素材 screen blend 融入 */
+    .p-bey,.p-claw,.p-ichi{background:linear-gradient(160deg,#232326,#151517);
+      border:1.5px solid rgba(255,90,45,.5);border-top:3px solid var(--gs-orange)}
+    .pillar .pdeco{position:absolute;pointer-events:none;z-index:0;
+      right:-26px;bottom:-30px;width:190px;height:auto;
+      mix-blend-mode:screen;opacity:.85;filter:contrast(1.1) saturate(1.05);
+      transform:rotate(-8deg);border-radius:14px}
     .pillar h3,.pillar p,.pillar .go,.pillar>svg:not(.pdeco){position:relative;z-index:1}
-    .p-bey .pdeco{right:-30px;bottom:-32px;width:190px;height:190px;opacity:.18}
-    .p-ichi .pdeco{right:-22px;bottom:-46px;width:182px;height:auto;transform:rotate(-11deg);border-radius:12px;box-shadow:0 10px 26px rgba(0,0,0,.3)}
-    .p-claw .pdeco{right:-12px;bottom:-20px;width:152px;height:auto;filter:drop-shadow(0 8px 18px rgba(0,0,0,.22))}
+    .pillar .go{color:var(--gs-orange)}
     .subcats{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .subcat{background:var(--paper2);border:1px solid rgba(255,255,255,.10);border-radius:30px;padding:11px 20px;font-weight:700;font-size:14px;box-shadow:var(--shadow);transition:.15s;color:var(--text)}
     .subcat:hover{transform:translateY(-2px);color:var(--coral2)}
-    @media(max-width:760px){.pillars{grid-template-columns:1fr}.pillar{min-height:170px}}
+    @media(max-width:760px){.pillars{grid-template-columns:1fr}.pillar{min-height:170px}
+      .pillar .pdeco{width:150px;opacity:.55;right:-30px;bottom:-34px}}
   </style>
   <span class="eyebrow">三大主打</span>
   <h2 class="sec">Go Shoot 主推這三樣</h2>
   <p class="sec-lead" style="margin-bottom:24px">戰鬥陀螺・娃娃機・線上一番賞——這裡一次到齊。</p>
   <div class="pillars">
     <a class="pillar p-bey" href="#products">
-      <svg class="pdeco" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="5"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="26"/></g><circle cx="50" cy="50" r="11" fill="#fff"/><path d="M50 6 A44 44 0 0 1 94 50" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg>
+      <img class="pdeco" src="assets/brand/card-beyblade.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="#fff" stroke-width="4"/><circle cx="32" cy="32" r="16" fill="none" stroke="#fff" stroke-width="1.6" opacity=".5"/><circle cx="32" cy="32" r="7" fill="#fff"/></svg>
       <h3>戰鬥陀螺</h3>
       <p>Beyblade X 新品快訊、天梯榜與改裝攻略，店內現貨・現場試打</p>
       <span class="go">看情報 →</span>
     </a>
     <a class="pillar p-claw" href="#claw">
-      <img class="pdeco" src="assets/claw-illus.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <img class="pdeco" src="assets/brand/card-claw.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <svg viewBox="0 0 64 64"><rect x="16" y="14" width="32" height="36" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M26 30 l6 6 6-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
       <h3>娃娃機</h3>
       <p>店內主力・24H 營業・景品定期更新・不定期保夾</p>
       <span class="go">看專區 →</span>
     </a>
     <a class="pillar p-ichi" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">
-      <img class="pdeco" src="assets/ichiban-card.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <img class="pdeco" src="assets/brand/card-ichiban-ticket.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <svg viewBox="0 0 64 64"><path d="M14 26 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M14 26 l18-14 18 14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="38" r="5" fill="#fff"/></svg>
       <h3>線上一番賞</h3>
       <p>24H 隨時抽・每抽必中・公開亂數可驗證公平</p>
@@ -541,7 +538,7 @@ footer a:hover{color:var(--gs-orange)}
 .rt-bey{background:#FF5A2D;color:#fff}.rt-pok{background:#FFC24B;color:#1A1A1A}.rt-pik{background:#3FC8C8;color:#1A1A1A}
 .rel-st{font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;flex:0 0 auto}
 .st-pre{color:#FFC24B;background:rgba(255,194,75,.12)}
-.st-soon{color:#5BB3CE;background:rgba(91,179,206,.14)}
+.st-soon{color:#FFC24B;background:rgba(255,194,75,.14)}
 .st-hot{color:#FF8A6B;background:rgba(255,90,45,.14)}
 .rel-cta{flex:0 0 auto;font:800 13px 'Noto Sans TC';background:var(--gs-orange);color:#fff;padding:9px 16px;border-radius:999px;text-decoration:none;white-space:nowrap}
 .rel-cta.alt{background:transparent;color:#ECECEA;border:1.5px solid rgba(255,255,255,.18)}
@@ -607,9 +604,13 @@ footer a:hover{color:var(--gs-orange)}
 
 <section id="claw" style="background:rgba(32,32,36,.72)"><div class="wrap">
   <style>
-    .claw-row{background:linear-gradient(135deg,#5BB3CE,#8FCDE0);border-radius:20px;box-shadow:var(--shadow);padding:30px 18px 24px;display:flex;gap:14px;align-items:flex-end;justify-content:center;flex-wrap:wrap}
-    .claw-row img{width:clamp(96px,17vw,160px);height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.2))}
-    .claw-row img.mid{width:clamp(116px,20vw,190px)}
+    /* 店內廣告圖卡風：黑底橘框，品牌娃娃機素材 screen blend 無縫融入 */
+    .claw-row{background:#0d0d0f;border:1.5px solid rgba(255,90,45,.5);border-top:3px solid var(--gs-orange);
+      border-radius:20px;box-shadow:var(--shadow);padding:26px 18px;display:flex;gap:20px;
+      align-items:center;justify-content:center;flex-wrap:wrap}
+    .claw-row img{width:clamp(170px,30vw,300px);height:auto;border-radius:14px;
+      mix-blend-mode:screen;filter:contrast(1.1) saturate(1.05)}
+    .claw-row img.mid{transform:rotate(-4deg)}
     .claw-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
     .claw-feat{background:var(--paper);border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:18px 14px;text-align:center;box-shadow:var(--shadow)}
     .claw-feat b{display:block;font-family:var(--disp);font-size:22px;color:var(--gs-orange);margin-bottom:4px}
@@ -621,10 +622,8 @@ footer a:hover{color:var(--gs-orange)}
   <span class="eyebrow">店內主打</span>
   <h2 class="sec">整間，都是娃娃機 🕹️</h2>
   <p class="sec-lead" style="margin-bottom:24px">中和捷運站旁・<b>24 小時營業</b>。場內滿滿娃娃機台，景品定期更新、不定期保夾活動——從人氣公仔、玩偶到限定景品都有。逛玩具、開戰之餘，順手夾一發帶回家。</p>
-  <div class="claw-row" role="img" aria-label="Go Shoot 店內整排娃娃機台">
-    <img src="assets/claw-illus.svg" alt="" loading="lazy" decoding="async">
-    <img src="assets/claw-illus.svg" alt="" class="mid" loading="lazy" decoding="async">
-    <img src="assets/claw-illus.svg" alt="" loading="lazy" decoding="async">
+  <div class="claw-row" role="img" aria-label="Go Shoot 店內娃娃機台品牌視覺">
+    <img src="assets/brand/card-claw.jpg" alt="" class="mid" loading="lazy" decoding="async">
   </div>
   <div class="claw-feats">
     <div class="claw-feat"><b>24H</b><span>全天候營業，隨時來夾</span></div>
@@ -640,8 +639,9 @@ footer a:hover{color:var(--gs-orange)}
 
 <!-- ===== ICHIBAN ===== -->
 <section id="ichiban" style="background:rgba(26,26,26,.55)"><div class="wrap">
-  <div class="band" style="background:linear-gradient(120deg,#7B3FE4,#FF5A2D)">
-    <div class="emblem"><svg viewBox="0 0 64 64"><path d="M14 26 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M14 26 l18-14 18 14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="38" r="5" fill="#fff"/></svg></div>
+  <div class="band" style="background:linear-gradient(120deg,#141416 0%,#2a1710 45%,#E24A2C 130%);border:1.5px solid rgba(255,90,45,.5)">
+    <div class="emblem"><img src="assets/brand/card-ichiban-ticket.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"
+      style="width:150px;height:auto;border-radius:14px;mix-blend-mode:screen;filter:contrast(1.1) saturate(1.05);transform:rotate(-6deg)"></div>
     <div style="flex:1;min-width:260px">
       <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.16);border-color:transparent">線上開抽</span>
       <h2>Go Shoot 線上一番賞</h2>
@@ -669,14 +669,15 @@ footer a:hover{color:var(--gs-orange)}
 <section style="padding-top:0;background:rgba(26,26,26,.55)"><div class="wrap">
   <div class="split">
     <div class="half sky">
+      <img class="hdeco" src="assets/brand/card-claw.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <h3>🕹️ 娃娃機台區</h3>
       <p>景品定期更新、不定期保夾活動。逛玩具之餘順手夾一發，夾到帶回家。</p>
-      <a class="btn btn-light" href="#visit" style="margin-top:14px">來店看看 →</a>
+      <a class="btn" href="#visit" style="margin-top:14px">來店看看 →</a>
     </div>
     <div class="half gold">
       <h3>🎌 日本代購</h3>
       <p>日版與限定款預購代購，早一步入手別人買不到的款式，到店取貨可現場驗。</p>
-      <a class="btn" href="#preorder" style="margin-top:14px;background:var(--ink);color:#fff">填預購單 →</a>
+      <a class="btn" href="#preorder" style="margin-top:14px">填預購單 →</a>
     </div>
   </div>
 </div></section>
