@@ -1,68 +1,29 @@
-Go Shoot 官網 — 要索引的網頁清單（全站 43 頁）
-更新：2026-07-04
+Go Shoot 官網 — 要索引的網頁清單
+更新：2026-07-11（第二輪代送完畢，佇列全清）
 用途：到 Google Search Console → 網址審查 → 貼上網址 → 「要求建立索引」
-（每日配額約 10 條，照下面順序由上往下送，額滿隔天接著送）
+（每日配額約 10-12 條；佇列已清空，之後改由每日稽核直接讀 GSC「網頁未編入索引」報告抓 URL 補送）
 
-【✅ 2026-07-11 已送出（Jarvis 代送，12 條全數「已加入優先檢索佇列」）】
+【✅ 2026-07-11 第二輪已送出（Jarvis 代送 11 條，全數「已加入優先檢索佇列」）】
+ichiban-pokemon / ichiban-jujutsu / ichiban-hololive /
+article-what-is-online-ichiban / article-choose-online-ichiban / article-online-ichiban-claim /
+article-jujutsu-ichiban-latest / article-pokemon-ichiban-latest /
+article-kimetsu-ichiban-latest / article-chiikawa-ichiban-latest /
+guide-daikou
+
+【✅ 2026-07-11 檢查時已編入索引（免送，15 條）】
+ichiban-kimetsu / ichiban-chiikawa / ichiban-spyfamily / ichiban-chainsawman / ichiban-dandadan /
+ichiban-pikmin / ichiban-onepiece / ichiban-naruto /
+article-online-ichiban-fair / article-online-ichiban-odds /
+article-how-to-play-online-ichiban / article-ichiban-prize-grades /
+guide-terms / guide-shoot / guide-mods
+
+【✅ 2026-07-11 第一輪已送出（Jarvis 代送，12 條全數「已加入優先檢索佇列」）】
 beyblade-release-calendar / article-beyblade-711-heavens-ring / article-beyblade-where-to-buy /
 about / ichiban-beyblade / article-beyblade-ichiban-guide / article-beyblade-ichiban-latest /
 article-beyblade-limited / article-beyblade-ichiban-vs-buy / article-beyblade-boen /
 store / beyblade-history
-→ 明日接著送：第二優先 IP 主題賞頁 7 頁起
 
-
-【2026-07-09 內容攻勢五頁（最優先）】
-★★ https://goshoot.com.tw/beyblade-release-calendar.html       ← 戰鬥陀螺發售月曆（新頁）
-★★ https://goshoot.com.tw/article-beyblade-711-heavens-ring.html ← 7-11 天堂日輪盲盒開搶（新頁・時效高）
-★★ https://goshoot.com.tw/article-beyblade-where-to-buy.html    ← 戰鬥陀螺哪裡買（新頁）
-★★ https://goshoot.com.tw/about.html                            ← 關於 Go Shoot（新頁）
-★★ https://goshoot.com.tw/ichiban-beyblade.html                 ← 戰鬥陀螺一番賞（內容升級・重送）
-
-【★★最優先：戰鬥陀螺一番賞（主打關鍵字，2026-07-04 新上線）】
-★★ https://goshoot.com.tw/ichiban-beyblade.html               ← 戰鬥陀螺一番賞（主題頁）
-★★ https://goshoot.com.tw/article-beyblade-ichiban-guide.html  ← 戰鬥陀螺一番賞怎麼抽（教學）
-★★ https://goshoot.com.tw/article-beyblade-ichiban-latest.html ← 戰鬥陀螺一番賞情報總整理（DMMくじ/限定）
-★★ https://goshoot.com.tw/article-beyblade-limited.html        ← Beyblade X 限定配色陀螺哪裡買
-★★ https://goshoot.com.tw/article-beyblade-ichiban-vs-buy.html ← 一番賞 vs 直接買
-★★ https://goshoot.com.tw/article-beyblade-boen.html       ← 博恩熱點文（時效高，優先送！）
-★★ https://goshoot.com.tw/beyblade-history.html             ← 戰鬥陀螺歷史（招牌內容）
-
-【今日最優先（老欠款：6/25 配額用完沒送成的 3 篇）】
-★★ https://goshoot.com.tw/article-what-is-online-ichiban.html
-★★ https://goshoot.com.tw/article-online-ichiban-fair.html
-★★ https://goshoot.com.tw/article-online-ichiban-odds.html
-
-【第二優先：新上線主題賞頁（高搜尋量 IP 先送）】
-★ https://goshoot.com.tw/ichiban-kimetsu.html      ← 鬼滅之刃
-★ https://goshoot.com.tw/ichiban-pokemon.html      ← 寶可夢
-★ https://goshoot.com.tw/ichiban-jujutsu.html      ← 咒術迴戰
-★ https://goshoot.com.tw/ichiban-chiikawa.html     ← 吉伊卡哇
-★ https://goshoot.com.tw/ichiban-spyfamily.html    ← 間諜家家酒
-★ https://goshoot.com.tw/ichiban-chainsawman.html  ← 鏈鋸人
-★ https://goshoot.com.tw/ichiban-dandadan.html     ← 膽大黨
-
-【第三優先：其餘新頁（隔天送）】
-★ https://goshoot.com.tw/article-jujutsu-ichiban-latest.html   ← 今日新上線最新彈文（時效高）
-★ https://goshoot.com.tw/article-pokemon-ichiban-latest.html   ← 今日新上線最新彈文（時效高）
-★ https://goshoot.com.tw/article-kimetsu-ichiban-latest.html   ← 今日新上線最新彈文（時效高）
-★ https://goshoot.com.tw/article-chiikawa-ichiban-latest.html   ← 今日新上線最新彈文（時效高）
-https://goshoot.com.tw/ichiban-hololive.html
-https://goshoot.com.tw/ichiban-pikmin.html
-https://goshoot.com.tw/ichiban-onepiece.html
-https://goshoot.com.tw/ichiban-naruto.html
-https://goshoot.com.tw/ichiban-beyblade.html
-https://goshoot.com.tw/article-how-to-play-online-ichiban.html
-https://goshoot.com.tw/article-choose-online-ichiban.html
-https://goshoot.com.tw/article-ichiban-prize-grades.html
-https://goshoot.com.tw/article-online-ichiban-claim.html
-
-【第四優先：攻略子頁（之前記錄待送的）】
-https://goshoot.com.tw/guide-terms.html
-https://goshoot.com.tw/guide-shoot.html
-https://goshoot.com.tw/guide-mods.html
-https://goshoot.com.tw/guide-daikou.html
-
-【已送出（不用再送）】
+【更早已送出（不用再送）】
 https://goshoot.com.tw/
 https://goshoot.com.tw/ichiban.html
 https://goshoot.com.tw/shop.html
@@ -73,15 +34,15 @@ https://goshoot.com.tw/guide-beginner.html
 https://goshoot.com.tw/guide-tierlist.html
 https://goshoot.com.tw/guide-whatisx.html
 https://goshoot.com.tw/guide-rules.html
+https://goshoot.com.tw/store.html
 
 ────────────────────────────────────────
 不要索引（已正確排除，不用送）：
 - screen.html （店內 TOP100 螢幕，已設 noindex）
-- index-classic.html / index-v2.html （備份／預覽，未上線、不在 sitemap）
+- brand-preview.html （VI 樣板頁，noindex 不進 sitemap）
 - googleea8aada33a914342.html （Google 驗證檔）
 
 備註：
-- sitemap 已含全部 33 頁，Google 會自動陸續收錄；手動「要求建立索引」只是催它快點。
-- 送完一批就把該批移到【已送出】區。
 - sitemap 位置：https://goshoot.com.tw/sitemap.xml （已在 GSC 提交）
-https://goshoot.com.tw/store.html
+- 索引基準：2026-07-11 上午 24/60；本輪檢查發現至少 15 頁新收錄，索引數已明顯上升，每日稽核持續盯。
+- 之後補送流程：不維護人工清單，直接在 GSC「網頁未編入索引」報告 drilldown 抓 URL（見 memory: gsc-pending-index）。
