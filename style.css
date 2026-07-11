@@ -12,7 +12,7 @@
   --gs-orange:#FF5A2D; --gs-orange-deep:#E24A2C; --gs-gray:#555555;
   --rar-s:#FF5A2D; --rar-a:#FFC24B; --rar-b:#9B5CFF; --rar-c:#3FC8C8; --rar-d:#C9A94E;
   --coral:#FF5A2D; --coral2:#FF8A6B; --coral-deep:#E24A2C;
-  --sky:#8FCDE0; --sky-deep:#5BB3CE; --gold:#FFC24B;
+  --sky:#3FC8C8; --sky-deep:#3FC8C8; --gold:#FFC24B;
   --line:rgba(255,255,255,.10); --shadow:0 10px 34px rgba(0,0,0,.55);
   --display:'Poppins',system-ui,sans-serif;
   --body:'Noto Sans TC','Poppins',system-ui,sans-serif;
@@ -98,7 +98,6 @@ h2.sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;
 
 /* cards */
 .grid{display:grid;gap:18px}
-.grid-3{grid-template-columns:repeat(3,1fr)}
 .grid-2{grid-template-columns:repeat(2,1fr)}
 .card{position:relative;overflow:hidden;background:rgba(255,255,255,.045);
   backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);
@@ -131,9 +130,6 @@ h2.sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;
 .prod img{position:absolute;inset:0;z-index:1;width:100%;height:100%;
   object-fit:cover;background:var(--paper)}
 
-/* form box */
-.formbox{background:var(--paper);border:1px dashed var(--gs-orange);border-radius:var(--rlg);
-  padding:30px;text-align:center}
 
 /* guide cards（液態玻璃）*/
 .guide-card{display:block;position:relative;overflow:hidden;background:rgba(255,255,255,.045);
@@ -204,7 +200,7 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
   .nav-links .btn{margin:8px 22px 0;justify-content:center}
   .menu-btn{display:block}
   .nav-links.open{display:flex}
-  .grid-3,.grid-2,.info{grid-template-columns:1fr}
+  .grid-2,.info{grid-template-columns:1fr}
   .band{padding:32px 24px}
   section{padding:40px 0}
 }
@@ -227,7 +223,7 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
 .gs-blob.b4{animation-duration:22s;animation-delay:-4s;opacity:.25}
 @keyframes gsDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-50px) scale(1.18)}}
 .gs-cover h1{font-size:clamp(32px,7vw,54px);margin:14px 0 12px;line-height:1.15}
-.gs-cover h1 .g{background:linear-gradient(100deg,var(--gold),var(--coral) 55%,#FF4D6D);
+.gs-cover h1 .g{background:linear-gradient(100deg,var(--gold),var(--coral) 55%,#E24A2C);
   -webkit-background-clip:text;background-clip:text;color:transparent}
 .gs-cover .lead{color:var(--muted);max-width:640px;margin:0 0 26px;font-size:clamp(15px,2vw,18px)}
 .gs-cover .cta-row,.gs-cover .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
