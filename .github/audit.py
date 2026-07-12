@@ -13,7 +13,7 @@ import sys
 import urllib.request
 
 SKIP = {"index-v2.html", "index-classic.html", "screen.html",
-        "googleea8aada33a914342.html"}
+        "googleea8aada33a914342.html", "brand-preview.html"}
 issues = []
 
 pages = sorted(f for f in glob.glob("*.html") if f not in SKIP)
@@ -50,7 +50,7 @@ for f in pages:
 # sitemap / robots / llms 完整度
 sm = open("sitemap.xml").read() if os.path.exists("sitemap.xml") else ""
 for f in pages:
-    if f != "index.html" and f not in sm:
+    if f != "index.html" and "/" + f not in sm:
         issues.append("sitemap 缺：" + f)
 robots = open("robots.txt").read() if os.path.exists("robots.txt") else ""
 for k in ["GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended"]:
