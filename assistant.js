@@ -50,9 +50,6 @@
     ".gsa-panel{position:absolute;right:0;bottom:70px;width:min(360px,calc(100vw - 36px));height:min(520px,calc(100vh - 130px));margin-top:24px;display:none;flex-direction:column;overflow:visible;border-radius:20px;background:rgba(18,18,21,.9);border:2px solid rgba(255,90,45,.55);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 0 0 4px rgba(255,90,45,.10),0 18px 60px rgba(0,0,0,.6)}" +
     ".gsa.open .gsa-panel{display:flex}" +
     ".gsa-crown{position:absolute;top:-38px;left:50%;transform:translateX(-50%);z-index:4;width:76px;height:76px;border-radius:50%;object-fit:cover;background:#141416;border:3px solid #FF5A2D;box-shadow:0 6px 22px rgba(255,90,45,.6)}" +
-    ".gsa-ear{position:absolute;top:-16px;width:34px;height:26px;z-index:2;background:linear-gradient(#FF5A2D,#E24A2C);clip-path:polygon(50% 0,100% 100%,0 100%);box-shadow:0 2px 8px rgba(255,90,45,.4)}" +
-    ".gsa-ear.l{left:34px;transform:rotate(-18deg)}" +
-    ".gsa-ear.r{right:34px;transform:rotate(18deg)}" +
     ".gsa-head{position:relative;padding:44px 16px 12px;text-align:center;color:#ECECEA;font-size:15px;background:linear-gradient(180deg,rgba(255,90,45,.22),rgba(255,90,45,.03));border-radius:18px 18px 0 0;border-bottom:1px solid rgba(255,90,45,.28)}" +
     ".gsa-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#FF5A2D;animation:gsaPulse 1.4s ease-in-out infinite;vertical-align:middle;margin:0 4px}" +
     ".gsa-sub{color:#B4B4BB;font-size:12px}" +
@@ -70,7 +67,7 @@
     ".gsa-input input:focus{border-color:rgba(255,90,45,.45)}" +
     ".gsa-input button{background:linear-gradient(135deg,#FF5A2D,#E24A2C);color:#fff;font-weight:800;border:none;border-radius:12px;padding:0 16px;font-size:13.5px;cursor:pointer}" +
     "@keyframes gsaPulse{0%,100%{opacity:1}50%{opacity:.35}}" +
-    "@media (max-width:480px){.gsa{right:12px;bottom:12px}.gsa-panel{bottom:64px;width:min(320px,calc(100vw - 24px));height:min(460px,60vh)}.gsa-body{padding:10px}.gsa-msg{font-size:13px}}";
+    "@media (max-width:480px){.gsa{right:12px;bottom:12px}.gsa-panel{bottom:64px;width:min(320px,calc(100vw - 24px));height:min(560px,68vh)}.gsa-body{padding:10px}.gsa-msg{font-size:13px}}";
 
   function build() {
     var style = document.createElement("style");
@@ -81,7 +78,6 @@
     root.className = "gsa";
     root.innerHTML =
       '<div class="gsa-panel" role="dialog" aria-label="小Go 智能客服">' +
-      '<span class="gsa-ear l" aria-hidden="true"></span><span class="gsa-ear r" aria-hidden="true"></span>' +
       '<img class="gsa-crown" src="' + FACE + '" alt="">' +
       '<div class="gsa-head"><b>小Go</b><span class="gsa-dot"></span><span class="gsa-sub">智能客服・24 小時</span>' +
       '<button class="gsa-x" aria-label="關閉">✕</button></div>' +
