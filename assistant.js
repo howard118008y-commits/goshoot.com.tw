@@ -70,7 +70,7 @@
     ".gsa-input input:focus{border-color:rgba(255,90,45,.45)}" +
     ".gsa-input button{background:linear-gradient(135deg,#FF5A2D,#E24A2C);color:#fff;font-weight:800;border:none;border-radius:12px;padding:0 16px;font-size:13.5px;cursor:pointer}" +
     "@keyframes gsaPulse{0%,100%{opacity:1}50%{opacity:.35}}" +
-    "@media (max-width:480px){.gsa{right:12px;bottom:12px}.gsa-panel{bottom:64px;width:min(320px,calc(100vw - 24px));height:min(340px,42vh)}.gsa-body{padding:10px}.gsa-msg{font-size:13px}}";
+    "@media (max-width:480px){.gsa{right:12px;bottom:12px}.gsa-panel{bottom:64px;width:min(320px,calc(100vw - 24px));height:min(460px,60vh)}.gsa-body{padding:10px}.gsa-msg{font-size:13px}}";
 
   function build() {
     var style = document.createElement("style");
