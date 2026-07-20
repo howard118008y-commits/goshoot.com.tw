@@ -227,7 +227,8 @@ function mountScrollWorld(container, config) {
 
     for (let i = 0; i < NSEG; i++) {
       const s = SEGMENTS[i];
-      if (y > s.start - 1.6 * vh && y < s.end + 1.6 * vh) loadClip(s);
+      // 只預載「目前段＋後 2 段」的滑動窗口：首屏不再狂載整鏈（原 1.6vh 窗在慣性捲動下會把前 7 段全抓進來，首屏 ~8MB）
+      if (i >= ci && i <= ci + 2) loadClip(s);
       const local = clamp((y - s.start) / (s.end - s.start), 0, 1);
       s.target = s.linger ? lingerEase(local, s.linger) : local;
       let outside = 0;
