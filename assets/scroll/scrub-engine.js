@@ -243,9 +243,16 @@ function mountScrollWorld(container, config) {
       const im = new Image();
       im.decoding = 'async';
       im.onload = () => { if (first) { first = false; s.ready = true; s.hasClip = true; read(); } };
-      im.src = s.frameDir + pad3(i + 1) + '.jpg';
+      im.src = s.frameDir + pad3(i + 1) + '.webp';
       s.frames[i] = im;
     }
+  }
+
+  // 卸載遠離視窗的段：釋放 decoded Image（高清幀很吃記憶體，手機流暢度關鍵），回退 poster。
+  function unloadFrames(s) {
+    if (!s.frames) return;
+    s.frames = null; s.loading = false; s.hasClip = false; s.ready = false; s.frameIdx = -1;
+    if (s.canvas) { s.canvasShown = false; s.canvas.style.opacity = '0'; }
   }
 
   function loadClip(s) {
@@ -280,8 +287,9 @@ function mountScrollWorld(container, config) {
 
     for (let i = 0; i < NSEG; i++) {
       const s = SEGMENTS[i];
-      // 只預載「目前段＋後 2 段」的滑動窗口：首屏不再狂載整鏈（原 1.6vh 窗在慣性捲動下會把前 7 段全抓進來）
-      if (i >= ci && i <= ci + 2) { if (frameMode) loadFrames(s); else loadClip(s); }
+      // 滑動窗口「目前段±1」：高清幀 decoded 吃記憶體，離窗口即卸載釋放（手機流暢度）
+      if (i >= ci - 1 && i <= ci + 1) { if (frameMode) loadFrames(s); else loadClip(s); }
+      else if (frameMode) unloadFrames(s);
       const local = clamp((y - s.start) / (s.end - s.start), 0, 1);
       s.target = s.linger ? lingerEase(local, s.linger) : local;
       let outside = 0;
