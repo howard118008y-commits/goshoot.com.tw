@@ -221,17 +221,19 @@ function mountScrollWorld(container, config) {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, cw, ch);
     const iw = im.naturalWidth, ih = im.naturalHeight;
-    const cover = window.innerWidth > 768;
-    const scale = cover ? Math.max(cw / iw, ch / ih) : Math.min(cw / iw, ch / ih);
+    // 一律 cover 滿版（桌面＋手機都鋪滿整個畫面，運鏡推進在中央仍明顯）
+    const scale = Math.max(cw / iw, ch / ih);
     const dw = iw * scale, dh = ih * scale;
-    const dx = (cw - dw) / 2, dy = (ch - dh) * (cover ? 0.5 : 0.38);
+    const dx = (cw - dw) / 2, dy = (ch - dh) * 0.5;
     ctx.drawImage(im, dx, dy, dw, dh);
     if (!s.canvasShown) { s.canvasShown = true; cv.style.opacity = '1'; }
   }
 
   // image-sequence 預載：一次把該段所有幀建成 Image 物件（瀏覽器解碼＋快取），raf 用 drawFrame 畫到 canvas。
+  // 注意：不受 prefers-reduced-motion 阻擋——逐幀 scrub 是「使用者手動滑動控制」，非自動動畫，
+  // 不違反減少動態效果精神；許多 iOS 用戶開此設定，若阻擋會導致單幕不推進＝看不到飛入。
   function loadFrames(s) {
-    if (reduce || s.loading || !s.frameDir) return;
+    if (s.loading || !s.frameDir) return;
     s.loading = true;
     const n = FRAMES.count;
     s.frames = new Array(n);
