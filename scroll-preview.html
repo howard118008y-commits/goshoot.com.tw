@@ -39,6 +39,18 @@
     /* 粒子換品牌橘（引擎 dot/ring 預設吃 accent，這裡加一點金色變化） */
     .sw-root .sw-pt--ring { border-color: #FFC24B; }
 
+    /* 手機直式：方形影片改 contain，完整看見相機推進運鏡（cover 會把 1:1 放大裁掉左右，
+       飛入感在中央窄條看不出來）。上下留深色空間＋漸層讓方形邊界融入場景，文案疊在下半。 */
+    @media (max-width: 768px) {
+      .sw-root .sw-scene__video, .sw-root .sw-scene__still {
+        object-fit: contain !important; object-position: center 38% !important;
+      }
+      .sw-root .sw-scene::after {
+        content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+        background: linear-gradient(180deg, #1A1A1A 0%, rgba(26,26,26,0) 22%, rgba(26,26,26,0) 58%, #1A1A1A 92%);
+      }
+    }
+
     /* ===== 著陸段：滾到最底，世界拉遠後浮現 GO SHOOT 主頁入口 ===== */
     #gs-landing { position: fixed; inset: 0; z-index: 5000; opacity: 0; pointer-events: none;
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
