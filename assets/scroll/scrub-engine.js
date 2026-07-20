@@ -74,6 +74,11 @@ function mountScrollWorld(container, config) {
   const SECTIONS = config.sections || [];
   const CONNECTORS = config.connectors || [];
   const CONNECTORS_M = config.connectorsMobile || [];
+  // image-sequence 模式（goshoot fork）：滾動換 <img> src 逐幀，繞開 iOS Safari 的 muted-video scrub
+  // 不 paint 問題。config.frames = { base:'…/frames/', count:20 }；dive i→d{i+1}/、conn i→c{i+1}/。
+  const FRAMES = config.frames || null;
+  const frameMode = !!FRAMES;
+  const pad3 = n => ('00' + n).slice(-3);
   const DIVE_W = config.diveScroll || 1.3;
   const CONN_W = config.connScroll || 0.9;
   const CROSSFADE = (config.crossfade != null) ? config.crossfade : 0.12;  // seam dissolve width (vh)
@@ -87,7 +92,8 @@ function mountScrollWorld(container, config) {
   const SEGMENTS = [];
   SECTIONS.forEach((s, i) => {
     const dive = { kind: 'dive', si: i, clip: s.clip, clipM: s.clipMobile, still: s.still, stillM: s.stillMobile,
-                   accent: s.accent, w: s.scroll || DIVE_W, linger: s.linger || 0 };
+                   accent: s.accent, w: s.scroll || DIVE_W, linger: s.linger || 0,
+                   frameDir: frameMode ? FRAMES.base + 'd' + (i + 1) + '/' : null };
     SEGMENTS.push(dive);
     s._seg = dive;
     // A connector is optional: if connectors[i] is falsy, the two dives simply
@@ -96,7 +102,8 @@ function mountScrollWorld(container, config) {
     if (i < N - 1 && CONNECTORS[i]) {
       SEGMENTS.push({ kind: 'conn', si: i, clip: CONNECTORS[i], clipM: CONNECTORS_M[i],
                       still: SECTIONS[i + 1].still, stillM: SECTIONS[i + 1].stillMobile,
-                      accent: SECTIONS[i + 1].accent, w: CONN_W });
+                      accent: SECTIONS[i + 1].accent, w: CONN_W,
+                      frameDir: frameMode ? FRAMES.base + 'c' + (i + 1) + '/' : null });
     }
   });
   const NSEG = SEGMENTS.length;
@@ -195,6 +202,24 @@ function mountScrollWorld(container, config) {
     window.scrollTo({ top: seg.start + (seg.end - seg.start) * 0.5, behavior: reduce ? 'auto' : 'smooth' });
   }
 
+  // image-sequence 預載：一次把該段所有幀建成 Image 物件（瀏覽器解碼＋快取），
+  // 之後 raf() 只切 img.src 到已快取的幀＝iOS 即時、零 video 依賴。
+  function loadFrames(s) {
+    if (reduce || s.loading || !s.frameDir) return;
+    s.loading = true;
+    const n = FRAMES.count;
+    s.frames = new Array(n);
+    s.frameIdx = -1;
+    let first = true;
+    for (let i = 0; i < n; i++) {
+      const im = new Image();
+      im.decoding = 'async';
+      im.onload = () => { if (first) { first = false; s.ready = true; s.hasClip = true; read(); } };
+      im.src = s.frameDir + pad3(i + 1) + '.jpg';
+      s.frames[i] = im;
+    }
+  }
+
   function loadClip(s) {
     // Under prefers-reduced-motion we never load the clips at all — the stills stay up
     // and simply cross-dissolve as you scroll. No scrubbed video motion, no decode cost.
@@ -227,8 +252,8 @@ function mountScrollWorld(container, config) {
 
     for (let i = 0; i < NSEG; i++) {
       const s = SEGMENTS[i];
-      // 只預載「目前段＋後 2 段」的滑動窗口：首屏不再狂載整鏈（原 1.6vh 窗在慣性捲動下會把前 7 段全抓進來，首屏 ~8MB）
-      if (i >= ci && i <= ci + 2) loadClip(s);
+      // 只預載「目前段＋後 2 段」的滑動窗口：首屏不再狂載整鏈（原 1.6vh 窗在慣性捲動下會把前 7 段全抓進來）
+      if (i >= ci && i <= ci + 2) { if (frameMode) loadFrames(s); else loadClip(s); }
       const local = clamp((y - s.start) / (s.end - s.start), 0, 1);
       s.target = s.linger ? lingerEase(local, s.linger) : local;
       let outside = 0;
@@ -236,9 +261,16 @@ function mountScrollWorld(container, config) {
       const op = smooth(1 - outside / fade);
       s.el.style.opacity = op; s.visible = op > 0.001;
       s.el.style.zIndex = (i === ci) ? '120' : String(100 + Math.round(op * 10));
-      if (!s.hasClip || !s.ready) {
-        // 靜圖飛入模式（goshoot fork）：加速推進曲線（前慢後衝）＋收尾微降視角；
-        // 最大縮放落在 crossfade 淡出區，放大糊化被淡接遮掉
+      if (frameMode) {
+        // 幀序列模式：運鏡在幀本身，img 不縮放，只保留桌面水平偏移
+        if (s.hasClip) s.img.style.transform = `translateX(${stageX - 2}vw)`;
+        else {
+          // 幀尚未載入：poster still 做輕推 ken-burns 佔位
+          const sc = reduce ? 1 : 1.0 + Math.pow(local, 1.6) * 0.4;
+          s.img.style.transform = `translateX(${stageX - 2}vw) scale(${sc.toFixed(3)})`;
+        }
+      } else if (!s.hasClip || !s.ready) {
+        // 靜圖飛入模式（無幀無片）：加速推進曲線（前慢後衝）＋收尾微降視角
         const fly = local * local * (3 - 2 * local);
         const sc = reduce ? 1 : 1.0 + Math.pow(local, 1.6) * 0.72;
         const dy = reduce ? 0 : fly * -2;
@@ -279,6 +311,19 @@ function mountScrollWorld(container, config) {
     const eps = isMobile() ? 0.02 : 0.008;   // coarser seek step on phones = fewer decodes
     for (let i = 0; i < NSEG; i++) {
       const s = SEGMENTS[i];
+      if (frameMode) {
+        // 幀序列 scrub：lerp cur→target，換 img.src 到對應幀（iOS 可靠、無解碼卡頓）
+        if (!s.hasClip || !s.frames) continue;
+        if (!s.visible && Math.abs(s.cur - s.target) < 0.002) continue;
+        s.cur += (s.target - s.cur) * (reduce ? 1 : 0.18);
+        const n = s.frames.length;
+        const idx = Math.min(n - 1, Math.max(0, Math.round(clamp(s.cur, 0, 1) * (n - 1))));
+        if (idx !== s.frameIdx) {
+          const im = s.frames[idx];
+          if (im && im.complete) { s.frameIdx = idx; s.img.src = im.src; }
+        }
+        continue;
+      }
       if (!s.hasClip || !s.ready || !s.video) continue;
       // Never queue a seek while the decoder is still resolving the last one.
       // On phones a fast flick would otherwise pile up seeks and freeze the clip;

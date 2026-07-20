@@ -96,6 +96,7 @@
       cta: { label: '立即開抽', href: 'https://goshoot-ichiban.vercel.app/draw' },
       hint: '往下滑，飛進店裡',
       diveScroll: 1.25, connScroll: 0.9,
+      frames: { base: 'assets/scroll/frames/', count: 20 },   // iOS 可靠：逐幀換 img.src（取代 video scrub）
       sections: [
         { id: 'street', label: '店門口', still: 'assets/scroll/scene-street.webp', clip: 'assets/scroll/vid/dive1.mp4', accent: '#FF5A2D',
           eyebrow: '新北・中和｜景平路 593 號', title: '半夜十二點，店門是開的。',
