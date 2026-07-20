@@ -78,6 +78,13 @@
   <div id="top"></div>
   <div id="world"></div>
 
+  <!-- 開場模式（?intro=1 從首頁導入）：右上跳過 → 直接進官網首頁 -->
+  <a id="gsSkipIntro" href="index.html" hidden
+     style="position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:9000;
+     font:800 13px/1 'Noto Sans TC',sans-serif;color:#F7F3ED;background:rgba(0,0,0,.5);text-decoration:none;
+     border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 16px;
+     backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)">跳過開場 ✕</a>
+
   <!-- 著陸段：滾到最底浮現品牌入口 -->
   <div id="gs-landing" aria-hidden="true">
     <img src="assets/brand/logo-main-dark.jpg" alt="Go Shoot" />
@@ -147,16 +154,11 @@
       update();
     })();
 
-    // 若本頁是被首頁當開場疊層（iframe ?intro=1）嵌入：「進入官網首頁」改為通知父頁收合疊層，
-    // 而不是在 iframe 內再開一份 index（會變成頁中頁）。獨立開啟本頁時維持正常連結。
+    // 開場模式（首頁導入 ?intro=1）：顯示「跳過開場」入口，隨時可直接進首頁
     (function () {
-      var inIntro = window.top !== window.self;
-      if (!inIntro) return;
-      var enter = document.getElementById('gsEnterHome');
-      if (enter) enter.addEventListener('click', function (ev) {
-        ev.preventDefault();
-        try { window.parent.postMessage('gs-enter-home', '*'); } catch (e) { window.top.location.href = 'index.html'; }
-      });
+      if (!/[?&]intro=1\b/.test(location.search)) return;
+      var skip = document.getElementById('gsSkipIntro');
+      if (skip) skip.hidden = false;
     })();
   </script>
 </body>

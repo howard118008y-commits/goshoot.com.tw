@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#1A1A1A">
+<!-- 開場動畫門控：真人首訪導向「飛進 Go Shoot 世界」滾動頁（獨立頁＝iOS 滾動正常，不用 iframe）。
+     爬蟲＋搜尋來源一律放行看完整首頁＝零 SEO 風險；同 session 只跑一次。越早執行越不閃首頁。 -->
+<script>
+(function(){
+  try{
+    var ua = navigator.userAgent || '';
+    if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|quora|pinterest|whatsapp|line\b|telegrambot|w3c_validator|lighthouse|headlesschrome/i.test(ua)) return; // 爬蟲/預覽器→看完整 SEO 首頁
+    if (sessionStorage.getItem('gsIntroSeen')) return;   // 同 session 已看過
+    if (location.hash) return;                            // 站內錨點跳轉
+    var ref = document.referrer || '';
+    if (/[./](google|bing|yahoo|baidu|yandex|sogou|naver)\.|duckduckgo/i.test(ref)) return; // 搜尋來的→不擾，保護每日第一優先流量
+    sessionStorage.setItem('gsIntroSeen','1');
+    location.replace('scroll-preview.html?intro=1');
+  }catch(e){ /* 任何失敗都不擋首頁 */ }
+})();
+</script>
 <title>Go Shoot 線上一番賞・戰鬥陀螺・玩具・娃娃機｜中和站旁</title>
 <meta name="description" content="Go Shoot：線上一番賞 24H 隨時抽、每抽必中、公開透明可驗證；也是中和捷運站旁的戰鬥陀螺・玩具・娃娃機店，含日本代購與店內賽事。">
 <meta name="keywords" content="線上一番賞,一番賞線上,線上抽獎,Go Shoot,戰鬥陀螺,娃娃機,中和玩具店,日本代購">
@@ -826,49 +842,5 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 </script>
 
-<!-- ===== 開場動畫：首次進站疊層播放「飛進 Go Shoot 世界」，看完/跳過淡出（URL 不變＝不影響 SEO；sessionStorage 一個 session 只跑一次）===== -->
-<script>
-(function(){
-  try{
-    if (sessionStorage.getItem('gsIntroSeen')) return;      // 同 session 已看過 → 不再跑
-    if (location.hash) return;                              // 帶錨點進站（站內跳轉）→ 不攔
-    sessionStorage.setItem('gsIntroSeen','1');
-
-    var ov = document.createElement('div');
-    ov.id = 'gsIntroOverlay';
-    ov.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#1A1A1A;opacity:1;transition:opacity .5s ease';
-
-    var f = document.createElement('iframe');
-    f.src = 'scroll-preview.html?intro=1';
-    f.title = '飛進 Go Shoot 世界';
-    f.setAttribute('allow', 'autoplay; fullscreen');   // iOS 需要此授權，iframe 內影片才能 play→scrub 才會 paint（否則畫面靜止＝看不到飛入）
-    f.setAttribute('allowfullscreen', '');
-    f.style.cssText = 'width:100%;height:100%;border:0;display:block';
-    ov.appendChild(f);
-
-    var skip = document.createElement('button');
-    skip.type = 'button';
-    skip.textContent = '跳過開場 ✕';
-    skip.setAttribute('aria-label','跳過開場動畫');
-    skip.style.cssText = 'position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:100001;'
-      + 'font:800 13px/1 "Noto Sans TC",sans-serif;color:#F7F3ED;background:rgba(0,0,0,.5);'
-      + 'border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 16px;cursor:pointer;'
-      + 'backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)';
-
-    function close(){
-      ov.style.opacity = '0';
-      setTimeout(function(){ ov.remove(); }, 520);
-      document.body.style.overflow = '';
-    }
-    skip.addEventListener('click', close);
-    // iframe 內著陸段「進入官網首頁」→ postMessage 收合疊層（而非在 iframe 裡開新 index）
-    window.addEventListener('message', function(e){ if (e.data === 'gs-enter-home') close(); });
-
-    ov.appendChild(skip);
-    document.body.style.overflow = 'hidden';
-    (document.body || document.documentElement).appendChild(ov);
-  }catch(e){ /* 任何失敗都不擋首頁 */ }
-})();
-</script>
 </body>
 </html>
