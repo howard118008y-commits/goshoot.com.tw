@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Go Shoot 滾動世界（內部預覽）｜飛進中和最好玩的一間店</title>
+  <meta name="description" content="滾動式官網改版內部預覽——scroll 飛進 Go Shoot 的世界。" />
+  <link rel="icon" href="assets/favicon.svg" />
+  <style>
+    /* ---- Go Shoot theme（VI v2：動感橘 × 炫酷黑）----
+       引擎預設包在 @layer sw，這裡的無層 token 必勝。 */
+    :root, .sw-root {
+      --sw-bg: #1A1A1A;         /* 炫酷黑 */
+      --sw-ink: #F7F3ED;        /* 米白主文字 */
+      --sw-ink-soft: #A8A29B;   /* 次要字 */
+      --sw-accent: #FF5A2D;     /* 動感橘 */
+      --sw-font-display: "Poppins", "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+      --sw-font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    }
+    body { margin: 0; background: #1A1A1A; }
+
+    /* 深色主題覆蓋（引擎預設假設淺色頁） */
+    .sw-root .sw-nav { background: color-mix(in srgb, #000 46%, transparent); border-color: color-mix(in srgb, var(--sw-accent) 28%, transparent); }
+    .sw-root .sw-nav__item { color: color-mix(in srgb, var(--sw-ink) 62%, transparent); }
+    .sw-root .sw-nav__item:hover { color: var(--sw-ink); }
+    .sw-root .sw-nav__item.is-active { color: #1A1A1A; background: var(--sw-accent); }
+    .sw-root .sw-topcta { color: #fff; background: linear-gradient(135deg, #FF5A2D, #E24A2C); font-weight: 800; letter-spacing: .02em; }
+    .sw-root .sw-topcta:hover { filter: brightness(1.1); }
+    .sw-root .sw-btn--primary { color: #fff; background: linear-gradient(135deg, #FF5A2D, #E24A2C); box-shadow: 0 12px 30px rgba(255,90,45,.35); font-weight: 800; letter-spacing: .02em; }
+    .sw-root .sw-btn--primary:hover { filter: brightness(1.1); }
+    .sw-root .sw-btn--ghost { color: var(--sw-ink); border-color: color-mix(in srgb, var(--sw-ink) 40%, transparent); }
+    .sw-root .sw-btn--ghost:hover { border-color: var(--sw-accent); color: var(--sw-accent); }
+    .sw-root .sw-copy__tags li { color: #FFB59E; background: rgba(255,90,45,.12); border-color: rgba(255,90,45,.34); }
+    .sw-root .sw-route__label { background: color-mix(in srgb, #1A1A1A 84%, transparent); color: var(--sw-ink); border-color: rgba(255,90,45,.22); }
+    .sw-root .sw-copy__eyebrow { letter-spacing: .24em; font-weight: 800; }
+    .sw-root .sw-copy__title { font-weight: 900; letter-spacing: .01em; line-height: 1.12; }
+    .sw-root .sw-brand__name { font-weight: 900; letter-spacing: .12em; }
+    /* 粒子換品牌橘（引擎 dot/ring 預設吃 accent，這裡加一點金色變化） */
+    .sw-root .sw-pt--ring { border-color: #FFC24B; }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="world"></div>
+
+  <!-- scrub engine：oso95/scroll-world（MIT）references/scrub-engine.js -->
+  <script src="assets/scroll/scrub-engine.js"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'GO SHOOT', href: '#top' },
+      cta: { label: '立即開抽', href: 'https://goshoot-ichiban.vercel.app/draw' },
+      hint: '往下滑，飛進店裡',
+      diveScroll: 1.25, connScroll: 0.9,
+      sections: [
+        { id: 'street', label: '店門口', still: 'assets/scroll/scene-street.webp', accent: '#FF5A2D',
+          eyebrow: '新北・中和｜景平路 593 號', title: '半夜十二點，店門是開的。',
+          body: '捷運站旁、24 小時無人娃娃機店——景平路上最亮的一間。',
+          tags: ['24H 無人店', '中和捷運站旁'] },
+        { id: 'claw', label: '娃娃機牆', still: 'assets/scroll/scene-claw.webp', accent: '#FF5A2D',
+          eyebrow: '第一站', title: '整排機台，等你出手。',
+          body: '韓系燈牆與滿滿的獎品，投幣聲就是這裡的開場音樂。',
+          tags: ['韓系燈牆', '天天補貨'] },
+        { id: 'ichiban', label: '一番賞牆', still: 'assets/scroll/scene-ichiban.webp', accent: '#FF5A2D',
+          eyebrow: '鎮店主打', title: '每一抽，都有獎。',
+          body: '戰鬥陀螺 × 寶可夢卡牌 × 皮克敏——每抽必中，絕不槓龜。',
+          tags: ['每抽必中', '三大 IP'] },
+        { id: 'online', label: '線上開抽', still: 'assets/scroll/scene-online.webp', accent: '#FF5A2D',
+          eyebrow: '不想出門？', title: '手機就是抽獎機。',
+          body: '線上一番賞 24H 開抽，公開亂數可驗證，中獎宅配到府。',
+          tags: ['24H 線上抽', '公開可驗證'] },
+        { id: 'prize', label: '大賞時刻', still: 'assets/scroll/scene-prize.webp', accent: '#FF5A2D',
+          eyebrow: '開箱瞬間', title: '搶不到的，在這裡抽到。',
+          body: '超商搶破頭的限定機，在這裡是 S 賞——抽到直接帶回家。',
+          tags: ['限定大賞', '宅配到府'] },
+        { id: 'world', label: '3・2・1', still: 'assets/scroll/scene-world.webp', accent: '#FF5A2D',
+          eyebrow: '3・2・1', title: 'Go Shoot！',
+          body: '線上開抽，或來店裡玩一場——我們 24 小時都在。',
+          cta: { primary: { label: '立即開抽 →', href: 'https://goshoot-ichiban.vercel.app/draw' },
+                 secondary: { label: '查看門市位置', href: 'store.html' } } },
+      ],
+      connectors: [null, null, null, null, null],
+    });
+  </script>
+</body>
+</html>
