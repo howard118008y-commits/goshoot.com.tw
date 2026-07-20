@@ -151,6 +151,13 @@ function mountScrollWorld(container, config) {
     scene.appendChild(img); stage.appendChild(scene);
     s.el = scene; s.img = img; s.video = null; s.hasClip = false;
     s.loading = false; s.ready = false; s.cur = 0; s.target = 0; s.visible = false;
+    // 幀模式：canvas 疊在 poster 上，drawImage 逐幀（iOS 對 img.src 快速切換不重繪，canvas 才可靠）
+    if (frameMode) {
+      const cv = el('canvas', 'sw-scene__canvas');
+      cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0;transition:opacity .25s';
+      scene.appendChild(cv);
+      s.canvas = cv; s.ctx = cv.getContext('2d'); s.frameIdx = -1; s.canvasShown = false;
+    }
   });
 
   // per-section copy / route / nav
@@ -202,8 +209,27 @@ function mountScrollWorld(container, config) {
     window.scrollTo({ top: seg.start + (seg.end - seg.start) * 0.5, behavior: reduce ? 'auto' : 'smooth' });
   }
 
-  // image-sequence 預載：一次把該段所有幀建成 Image 物件（瀏覽器解碼＋快取），
-  // 之後 raf() 只切 img.src 到已快取的幀＝iOS 即時、零 video 依賴。
+  // canvas 逐幀繪製：手算 object-fit（桌面 cover / 手機 contain，手機 object-position 偏上 38%）＋DPR。
+  function drawFrame(s, im) {
+    const cv = s.canvas, ctx = s.ctx;
+    if (!cv || !ctx) return;
+    const cw = cv.clientWidth, ch = cv.clientHeight;
+    if (!cw || !ch) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    const bw = Math.round(cw * dpr), bh = Math.round(ch * dpr);
+    if (cv.width !== bw || cv.height !== bh) { cv.width = bw; cv.height = bh; }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, cw, ch);
+    const iw = im.naturalWidth, ih = im.naturalHeight;
+    const cover = window.innerWidth > 768;
+    const scale = cover ? Math.max(cw / iw, ch / ih) : Math.min(cw / iw, ch / ih);
+    const dw = iw * scale, dh = ih * scale;
+    const dx = (cw - dw) / 2, dy = (ch - dh) * (cover ? 0.5 : 0.38);
+    ctx.drawImage(im, dx, dy, dw, dh);
+    if (!s.canvasShown) { s.canvasShown = true; cv.style.opacity = '1'; }
+  }
+
+  // image-sequence 預載：一次把該段所有幀建成 Image 物件（瀏覽器解碼＋快取），raf 用 drawFrame 畫到 canvas。
   function loadFrames(s) {
     if (reduce || s.loading || !s.frameDir) return;
     s.loading = true;
@@ -262,12 +288,14 @@ function mountScrollWorld(container, config) {
       s.el.style.opacity = op; s.visible = op > 0.001;
       s.el.style.zIndex = (i === ci) ? '120' : String(100 + Math.round(op * 10));
       if (frameMode) {
-        // 幀序列模式：運鏡在幀本身，img 不縮放，只保留桌面水平偏移
-        if (s.hasClip) s.img.style.transform = `translateX(${stageX - 2}vw)`;
+        // 幀序列模式：運鏡在幀本身；canvas 與 poster 同步桌面水平偏移
+        const tx = `translateX(${stageX - 2}vw)`;
+        if (s.canvas) s.canvas.style.transform = tx;
+        if (s.hasClip) s.img.style.transform = tx;
         else {
           // 幀尚未載入：poster still 做輕推 ken-burns 佔位
           const sc = reduce ? 1 : 1.0 + Math.pow(local, 1.6) * 0.4;
-          s.img.style.transform = `translateX(${stageX - 2}vw) scale(${sc.toFixed(3)})`;
+          s.img.style.transform = `${tx} scale(${sc.toFixed(3)})`;
         }
       } else if (!s.hasClip || !s.ready) {
         // 靜圖飛入模式（無幀無片）：加速推進曲線（前慢後衝）＋收尾微降視角
@@ -312,16 +340,15 @@ function mountScrollWorld(container, config) {
     for (let i = 0; i < NSEG; i++) {
       const s = SEGMENTS[i];
       if (frameMode) {
-        // 幀序列 scrub：lerp cur→target，換 img.src 到對應幀（iOS 可靠、無解碼卡頓）
+        // 幀序列 scrub：lerp cur→target，drawImage 對應幀到 canvas（iOS 強制重繪，img.src 快切不重繪）
         if (!s.hasClip || !s.frames) continue;
         if (!s.visible && Math.abs(s.cur - s.target) < 0.002) continue;
         s.cur += (s.target - s.cur) * (reduce ? 1 : 0.18);
         const n = s.frames.length;
         const idx = Math.min(n - 1, Math.max(0, Math.round(clamp(s.cur, 0, 1) * (n - 1))));
-        if (idx !== s.frameIdx) {
-          const im = s.frames[idx];
-          if (im && im.complete) { s.frameIdx = idx; s.img.src = im.src; }
-        }
+        // 每幀重繪可見/移動中的段（drawImage 便宜）：換幀即時，且 resize 後尺寸自動跟上
+        const im = s.frames[idx];
+        if (im && im.complete && im.naturalWidth) { s.frameIdx = idx; drawFrame(s, im); }
         continue;
       }
       if (!s.hasClip || !s.ready || !s.video) continue;
