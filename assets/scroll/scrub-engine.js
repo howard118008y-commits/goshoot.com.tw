@@ -236,8 +236,12 @@ function mountScrollWorld(container, config) {
       s.el.style.opacity = op; s.visible = op > 0.001;
       s.el.style.zIndex = (i === ci) ? '120' : String(100 + Math.round(op * 10));
       if (!s.hasClip || !s.ready) {
-        const sc = reduce ? 1 : 1.03 + local * 0.14;
-        s.img.style.transform = `translateX(${stageX - 2}vw) scale(${sc.toFixed(3)})`;
+        // 靜圖飛入模式（goshoot fork）：加速推進曲線（前慢後衝）＋收尾微降視角；
+        // 最大縮放落在 crossfade 淡出區，放大糊化被淡接遮掉
+        const fly = local * local * (3 - 2 * local);
+        const sc = reduce ? 1 : 1.0 + Math.pow(local, 1.6) * 0.72;
+        const dy = reduce ? 0 : fly * -2;
+        s.img.style.transform = `translateX(${stageX - 2}vw) translateY(${dy.toFixed(2)}vh) scale(${sc.toFixed(3)})`;
       }
     }
 
