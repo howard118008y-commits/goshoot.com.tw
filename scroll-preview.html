@@ -83,8 +83,8 @@
     <img src="assets/brand/logo-main-dark.jpg" alt="Go Shoot" />
     <p class="gs-land-sub">3・2・1，Go Shoot！ 準備好進入了嗎？</p>
     <div class="gs-land-btns">
-      <a class="gs-enter" href="index.html">進入官網首頁 →</a>
-      <a class="gs-draw" href="https://goshoot-ichiban.vercel.app/draw">立即線上開抽</a>
+      <a class="gs-enter" id="gsEnterHome" href="index.html">進入官網首頁 →</a>
+      <a class="gs-draw" href="https://goshoot-ichiban.vercel.app/draw" target="_top">立即線上開抽</a>
     </div>
   </div>
 
@@ -144,6 +144,18 @@
       }, { passive: true });
       window.addEventListener('resize', update);
       update();
+    })();
+
+    // 若本頁是被首頁當開場疊層（iframe ?intro=1）嵌入：「進入官網首頁」改為通知父頁收合疊層，
+    // 而不是在 iframe 內再開一份 index（會變成頁中頁）。獨立開啟本頁時維持正常連結。
+    (function () {
+      var inIntro = window.top !== window.self;
+      if (!inIntro) return;
+      var enter = document.getElementById('gsEnterHome');
+      if (enter) enter.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        try { window.parent.postMessage('gs-enter-home', '*'); } catch (e) { window.top.location.href = 'index.html'; }
+      });
     })();
   </script>
 </body>

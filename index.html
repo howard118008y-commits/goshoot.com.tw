@@ -825,5 +825,48 @@ document.addEventListener("DOMContentLoaded",function(){
   });
 });
 </script>
+
+<!-- ===== 開場動畫：首次進站疊層播放「飛進 Go Shoot 世界」，看完/跳過淡出（URL 不變＝不影響 SEO；sessionStorage 一個 session 只跑一次）===== -->
+<script>
+(function(){
+  try{
+    if (sessionStorage.getItem('gsIntroSeen')) return;      // 同 session 已看過 → 不再跑
+    if (location.hash) return;                              // 帶錨點進站（站內跳轉）→ 不攔
+    sessionStorage.setItem('gsIntroSeen','1');
+
+    var ov = document.createElement('div');
+    ov.id = 'gsIntroOverlay';
+    ov.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#1A1A1A;opacity:1;transition:opacity .5s ease';
+
+    var f = document.createElement('iframe');
+    f.src = 'scroll-preview.html?intro=1';
+    f.title = '飛進 Go Shoot 世界';
+    f.style.cssText = 'width:100%;height:100%;border:0;display:block';
+    ov.appendChild(f);
+
+    var skip = document.createElement('button');
+    skip.type = 'button';
+    skip.textContent = '跳過開場 ✕';
+    skip.setAttribute('aria-label','跳過開場動畫');
+    skip.style.cssText = 'position:fixed;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:100001;'
+      + 'font:800 13px/1 "Noto Sans TC",sans-serif;color:#F7F3ED;background:rgba(0,0,0,.5);'
+      + 'border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:9px 16px;cursor:pointer;'
+      + 'backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)';
+
+    function close(){
+      ov.style.opacity = '0';
+      setTimeout(function(){ ov.remove(); }, 520);
+      document.body.style.overflow = '';
+    }
+    skip.addEventListener('click', close);
+    // iframe 內著陸段「進入官網首頁」→ postMessage 收合疊層（而非在 iframe 裡開新 index）
+    window.addEventListener('message', function(e){ if (e.data === 'gs-enter-home') close(); });
+
+    ov.appendChild(skip);
+    document.body.style.overflow = 'hidden';
+    (document.body || document.documentElement).appendChild(ov);
+  }catch(e){ /* 任何失敗都不擋首頁 */ }
+})();
+</script>
 </body>
 </html>
