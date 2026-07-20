@@ -38,11 +38,43 @@
     .sw-root .sw-brand__name { font-weight: 900; letter-spacing: .12em; }
     /* 粒子換品牌橘（引擎 dot/ring 預設吃 accent，這裡加一點金色變化） */
     .sw-root .sw-pt--ring { border-color: #FFC24B; }
+
+    /* ===== 著陸段：滾到最底，世界拉遠後浮現 GO SHOOT 主頁入口 ===== */
+    #gs-landing { position: fixed; inset: 0; z-index: 5000; opacity: 0; pointer-events: none;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
+      padding: 24px; text-align: center;
+      background: radial-gradient(120% 90% at 50% 40%, rgba(18,14,12,.975), #0f0e0d 60%);
+      transition: opacity .45s ease; }
+    #gs-landing.on { pointer-events: auto; }
+    #gs-landing img { width: min(76vw, 500px); height: auto;
+      filter: drop-shadow(0 0 60px rgba(255,90,45,.45)); transform: translateY(14px) scale(.96);
+      transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+    #gs-landing.on img { transform: translateY(0) scale(1); }
+    #gs-landing .gs-land-sub { color: #A8A29B; font-size: 14.5px; letter-spacing: .04em; margin: -8px 0 0; }
+    #gs-landing .gs-land-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    #gs-landing a { text-decoration: none; font-weight: 800; font-size: 16px; border-radius: 999px;
+      padding: 15px 30px; transition: filter .15s, transform .15s; }
+    #gs-landing a.gs-enter { color: #fff; background: linear-gradient(135deg, #FF5A2D, #E24A2C);
+      box-shadow: 0 14px 36px rgba(255,90,45,.4); }
+    #gs-landing a.gs-draw { color: #F7F3ED; border: 1px solid rgba(247,243,237,.4); background: rgba(0,0,0,.35); }
+    #gs-landing a:hover { filter: brightness(1.1); transform: translateY(-2px); }
+    #gs-landing a:focus-visible { outline: 2px solid #FFC24B; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { #gs-landing, #gs-landing img { transition: none; } }
   </style>
 </head>
 <body>
   <div id="top"></div>
   <div id="world"></div>
+
+  <!-- 著陸段：滾到最底浮現品牌入口 -->
+  <div id="gs-landing" aria-hidden="true">
+    <img src="assets/brand/logo-main-dark.jpg" alt="Go Shoot" />
+    <p class="gs-land-sub">3・2・1，Go Shoot！ 準備好進入了嗎？</p>
+    <div class="gs-land-btns">
+      <a class="gs-enter" href="index.html">進入官網首頁 →</a>
+      <a class="gs-draw" href="https://goshoot-ichiban.vercel.app/draw">立即線上開抽</a>
+    </div>
+  </div>
 
   <!-- scrub engine：oso95/scroll-world（MIT）references/scrub-engine.js -->
   <script src="assets/scroll/scrub-engine.js"></script>
@@ -81,6 +113,26 @@
       ],
       connectors: ['assets/scroll/vid/conn1.mp4','assets/scroll/vid/conn2.mp4','assets/scroll/vid/conn3.mp4','assets/scroll/vid/conn4.mp4','assets/scroll/vid/conn5.mp4'],
     });
+
+    // 著陸段：滾動進度 >92% 時淡入 GO SHOOT 主頁入口（最後一幕拉遠後接品牌畫面）
+    (function () {
+      var land = document.getElementById('gs-landing');
+      var START = 0.92, ticking = false;
+      function update() {
+        ticking = false;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var p = max > 0 ? window.scrollY / max : 0;
+        var op = Math.max(0, Math.min(1, (p - START) / (1 - START)));
+        land.style.opacity = op;
+        land.classList.toggle('on', op > 0.5);
+        land.setAttribute('aria-hidden', op > 0.5 ? 'false' : 'true');
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
   </script>
 </body>
 </html>
