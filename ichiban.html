@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     // HERO 進場 stagger reveal
     var tl=gsap.timeline({delay:.1});
-    tl.from(".hero-logo",{y:26,scale:.94,autoAlpha:0,duration:.85})
+    tl.from(".hero-logo",{y:26,scale:.94,duration:.85})  /* LCP 元素：不淡入（去 autoAlpha），首幀即可見，只做位移進場 */
       .from(".hero .eyebrow",{y:18,autoAlpha:0},"-=.5")
       .from(".hero h1",{y:24,autoAlpha:0},"-=.4")
       .from(".hero .wrap>p",{y:20,autoAlpha:0},"-=.45")
