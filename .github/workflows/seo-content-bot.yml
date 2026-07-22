@@ -1,0 +1,45 @@
+name: Weekly SEO content bot
+
+on:
+  schedule:
+    - cron: '0 6 * * 2,5,0'   # UTC：週二/五/日 06:00 = 台灣 14:00（避開週一/四 02:00 新聞卡）
+  workflow_dispatch: {}         # 手動觸發（測試用）
+
+permissions:
+  contents: write
+
+jobs:
+  write-article:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安裝 Claude CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: 產出文章（Claude）
+        timeout-minutes: 15
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude -p "$(cat .github/seo-content-prompt.md)" \
+            --model claude-opus-4-8 \
+            --dangerously-skip-permissions
+
+      - name: 提交變更（指名檔案＋rebase 防撞車）
+        run: |
+          git config user.name  "github-actions"
+          git config user.email "actions@github.com"
+          git add article-*.html sitemap.xml ichiban-beyblade.html llms.txt store.html content-queue.md 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "沒有變更，跳過 commit（可能今天沒選到新題）"
+          else
+            git commit -m "content(seo): 每週自動新增 SEO 文章 $(date +%F)"
+            git fetch origin
+            git rebase origin/main
+            git push
+          fi
