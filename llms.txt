@@ -53,6 +53,7 @@
 ## 線上一番賞知識文章
 
 - [什麼是線上一番賞](https://goshoot.com.tw/article-what-is-online-ichiban.html)：線上一番賞的定義、與實體一番賞的差異、運作方式。
+- [goshoot 是什麼](https://goshoot.com.tw/article-what-is-goshoot.html)：Go Shoot（goshoot）品牌與線上一番賞平台介紹，每抽必中、公開可驗證、中和門市即將開幕。
 - [線上一番賞公不公平](https://goshoot.com.tw/article-online-ichiban-fair.html)：公開透明與可驗證機制如何確保公平。
 - [線上一番賞中獎機率](https://goshoot.com.tw/article-online-ichiban-odds.html)：每抽必中與賞品機率的說明。
 - [線上一番賞怎麼玩](https://goshoot.com.tw/article-how-to-play-online-ichiban.html)：新手 5 步驟 3 分鐘上手教學。

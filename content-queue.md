@@ -16,7 +16,7 @@
 - [ ] 二番賞 / 一番賞的由來與歷史
 
 ## C. GSC 關鍵字回填
-- [ ] goshoot 是什麼、Go Shoot 線上一番賞介紹
+- [x] article-what-is-goshoot.html 2026-07-22  ← goshoot 是什麼、Go Shoot 線上一番賞介紹
 - [ ] 線上抽獎 是什麼、合法嗎、怎麼選平台
 - [ ] Beyblade X 新品/新彈整理（需 WebSearch 查證）
 - [ ] Beyblade X 天梯 Tier List（需 WebSearch/社群查證）
