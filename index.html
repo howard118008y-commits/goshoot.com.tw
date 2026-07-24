@@ -331,7 +331,10 @@ footer a:hover{color:var(--gs-orange)}
 .gsh-mq b{font-weight:800;padding-right:.5em}
 @keyframes gshMq{to{transform:translateX(-50%)}}
 .gsh-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.gsh-btn{display:inline-block;font-weight:800;font-size:15px;padding:15px 28px;border-radius:999px;border:0;text-decoration:none;transition:transform .12s,filter .2s,box-shadow .2s;will-change:transform,opacity}
+/* font-size 19px：主 CTA 進 WCAG large-text 門檻（3:1），白字 on 橙 3.11:1 達標（padding 微收控制按鈕增高） */
+.gsh-btn{display:inline-block;font-weight:800;font-size:19px;padding:14px 30px;border-radius:999px;border:0;text-decoration:none;transition:transform .12s,filter .2s,box-shadow .2s;will-change:transform,opacity}
+/* 鍵盤 focus 樣式（原本全站 0 處）：米白 ring 在深底與橙底上都清楚可見 */
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 .gsh-btn.solid{background:linear-gradient(100deg,#FF5A2D,#E24A2C);color:#fff;
   box-shadow:0 0 28px rgba(255,90,45,.45),0 8px 22px rgba(0,0,0,.45)}.gsh-btn.solid:hover{filter:brightness(1.08);transform:translateY(-2px)}
 .gsh-btn.ghost{background:rgba(255,255,255,.06);color:#F3F0EA;
