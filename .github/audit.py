@@ -13,7 +13,10 @@ import sys
 import urllib.request
 
 SKIP = {"index-v2.html", "index-classic.html", "screen.html",
-        "googleea8aada33a914342.html", "brand-preview.html"}
+        "googleea8aada33a914342.html", "brand-preview.html",
+        # noindex 內部頁：scroll-bench 是效能測試台、scroll-preview 是訪客品牌開場體驗頁
+        # （非 SEO 內容頁，架構鐵律見 memory: scroll-world-redesign——不進 sitemap、不稀釋站質）
+        "scroll-bench.html", "scroll-preview.html"}
 issues = []
 
 pages = sorted(f for f in glob.glob("*.html") if f not in SKIP)
