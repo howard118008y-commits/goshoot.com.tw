@@ -308,11 +308,12 @@ footer a:hover{color:var(--gs-orange)}
 @media(prefers-reduced-motion:reduce){.gsx-star{opacity:.45}}
 .gsh-logo{width:clamp(88px,11vw,128px);height:auto;will-change:transform,opacity;filter:drop-shadow(0 8px 26px rgba(255,90,45,.35))}
 .gsh-h1{margin:0}
-.gsh-h1img{position:relative;z-index:2;display:block;width:min(90vw,860px,105svh);height:auto;margin:0 auto;mix-blend-mode:screen;filter:contrast(1.12);will-change:transform,opacity}
-/* 矮視窗（並排視窗、橫向平板）：等比縮小主視覺，讓 logo→標語→CTA 三段塞得下、CTA 不落進底部 marquee。
-   用 svh 驅動 width（height:auto 等比），不用 max-height 以免 logo JPG 黑底被 letterbox 露出深灰方塊。 */
+/* 去背透明 PNG（logo-main-cutout）直接疊在深色背景上、天生無黑底，不需 mix-blend/contrast。
+   圖為緊貼裁切、寬高比約 3:1，故最大寬度比舊黑底圖（含黑 padding）小。 */
+.gsh-h1img{position:relative;z-index:2;display:block;width:min(88vw,720px);height:auto;margin:0 auto;filter:drop-shadow(0 10px 30px rgba(0,0,0,.4));will-change:transform,opacity}
+/* 矮視窗（並排視窗、橫向平板）：等比縮小主視覺，讓 logo→標語→CTA 三段塞得下、CTA 不落進底部 marquee。 */
 @media(max-height:1000px){
-  .gsh-h1img{width:min(90vw,860px,56svh)}
+  .gsh-h1img{width:min(88vw,600px)}
   .gsh-logo{width:clamp(64px,7vh,96px)}
   .gsh-top{gap:clamp(10px,1.6vh,18px)}
 }
@@ -352,7 +353,7 @@ footer a:hover{color:var(--gs-orange)}
       <circle cx="540" cy="540" r="34" fill="#993C1D"/>
       <path d="M540 196 A344 344 0 0 1 884 540" fill="none" stroke="#FBF6EE" stroke-width="46" stroke-linecap="round"/>
     </svg>
-    <h1 class="gsh-h1"><img class="gsh-h1img" src="assets/brand/logo-main-dark.webp" alt="Go Shoot｜中和戰鬥陀螺專門店・線上一番賞・24H 娃娃機" fetchpriority="high"></h1>
+    <h1 class="gsh-h1"><img class="gsh-h1img" src="assets/brand/logo-main-cutout.webp" alt="Go Shoot｜中和戰鬥陀螺專門店・線上一番賞・24H 娃娃機" fetchpriority="high"></h1>
     <div class="gsh-sub"><b>戰鬥陀螺</b><span class="x">×</span><b>娃娃機</b><span class="x">×</span><b>線上一番賞</b></div>
     <div class="gsh-cta">
       <a class="gsh-btn solid" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽線上一番賞 →</a>
