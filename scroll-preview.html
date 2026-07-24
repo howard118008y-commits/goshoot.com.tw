@@ -93,34 +93,41 @@
   <script src="assets/site.js" defer></script>
   <script src="assets/scroll/scrub-engine.js"></script>
   <script>
+    // 桌面高清分流：寬螢幕＋精確指標（滑鼠）才載 2160 幀。
+    // ⚠️ 手機／平板觸控一律維持 1080——記憶體天花板，2160×3段窗口會被 iOS 殺分頁（見 scroll-bench 實測）。
+    var HD = window.matchMedia('(min-width: 900px) and (pointer: fine)').matches;
+    var FR = HD ? 'assets/scroll/frames-hd/' : 'assets/scroll/frames/';
+    var SCENE = function (name) {
+      return 'assets/scroll/scene-' + name + (HD ? '-hd' : '') + '.webp';
+    };
     mountScrollWorld(document.getElementById('world'), {
       brand: { name: 'GO SHOOT', href: '#top' },
       cta: { label: '立即開抽', href: 'https://goshoot-ichiban.vercel.app/draw' },
       hint: '往下滑，飛進店裡',
       diveScroll: 1.25, connScroll: 0.9,
-      frames: { base: 'assets/scroll/frames/', count: 20 },   // iOS 可靠：逐幀換 img.src（取代 video scrub）
+      frames: { base: FR, count: 20 },   // 桌面 2160-hd／手機 1080（HD 分流見上方）
       sections: [
-        { id: 'street', label: '店門口', still: 'assets/scroll/scene-street.webp', clip: 'assets/scroll/vid/dive1.mp4', accent: '#FF5A2D',
+        { id: 'street', label: '店門口', still: SCENE('street'), clip: 'assets/scroll/vid/dive1.mp4', accent: '#FF5A2D',
           eyebrow: '新北・中和｜景平路 593 號', title: '半夜十二點，店門是開的。',
           body: '捷運站旁、24 小時無人娃娃機店——景平路上最亮的一間。',
           tags: ['24H 無人店', '中和捷運站旁'] },
-        { id: 'claw', label: '娃娃機牆', still: 'assets/scroll/scene-claw.webp', clip: 'assets/scroll/vid/dive2.mp4', accent: '#FF5A2D',
+        { id: 'claw', label: '娃娃機牆', still: SCENE('claw'), clip: 'assets/scroll/vid/dive2.mp4', accent: '#FF5A2D',
           eyebrow: '第一站', title: '整排機台，等你出手。',
           body: '韓系燈牆與滿滿的獎品，投幣聲就是這裡的開場音樂。',
           tags: ['韓系燈牆', '天天補貨'] },
-        { id: 'ichiban', label: '一番賞牆', still: 'assets/scroll/scene-ichiban.webp', clip: 'assets/scroll/vid/dive3.mp4', accent: '#FF5A2D',
+        { id: 'ichiban', label: '一番賞牆', still: SCENE('ichiban'), clip: 'assets/scroll/vid/dive3.mp4', accent: '#FF5A2D',
           eyebrow: '鎮店主打', title: '每一抽，都有獎。',
           body: '戰鬥陀螺 × 寶可夢卡牌 × 皮克敏——每抽必中，絕不槓龜。',
           tags: ['每抽必中', '三大 IP'] },
-        { id: 'online', label: '線上開抽', still: 'assets/scroll/scene-online.webp', clip: 'assets/scroll/vid/dive4.mp4', accent: '#FF5A2D',
+        { id: 'online', label: '線上開抽', still: SCENE('online'), clip: 'assets/scroll/vid/dive4.mp4', accent: '#FF5A2D',
           eyebrow: '不想出門？', title: '手機就是抽獎機。',
           body: '線上一番賞 24H 開抽，公開亂數可驗證，中獎宅配到府。',
           tags: ['24H 線上抽', '公開可驗證'] },
-        { id: 'prize', label: '大賞時刻', still: 'assets/scroll/scene-prize.webp', clip: 'assets/scroll/vid/dive5.mp4', accent: '#FF5A2D',
+        { id: 'prize', label: '大賞時刻', still: SCENE('prize'), clip: 'assets/scroll/vid/dive5.mp4', accent: '#FF5A2D',
           eyebrow: '開箱瞬間', title: '搶不到的，在這裡抽到。',
           body: '超商搶破頭的限定機，在這裡是 S 賞——抽到直接帶回家。',
           tags: ['限定大賞', '宅配到府'] },
-        { id: 'world', label: '3・2・1', still: 'assets/scroll/scene-world.webp', clip: 'assets/scroll/vid/dive6.mp4', accent: '#FF5A2D',
+        { id: 'world', label: '3・2・1', still: SCENE('world'), clip: 'assets/scroll/vid/dive6.mp4', accent: '#FF5A2D',
           eyebrow: '3・2・1', title: 'Go Shoot！',
           body: '線上開抽，或來店裡玩一場——我們 24 小時都在。',
           cta: { primary: { label: '立即開抽 →', href: 'https://goshoot-ichiban.vercel.app/draw' },
