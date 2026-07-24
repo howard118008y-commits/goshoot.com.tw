@@ -283,7 +283,8 @@ footer a:hover{color:var(--gs-orange)}
 
 <!-- ===== HERO (cinematic) ===== -->
 <style>
-.gsh-hero{position:relative;height:90svh;min-height:540px;overflow:hidden;
+/* padding:0 覆蓋全域 section 的上下 64px：hero 頂已有 nav、底已有 marquee，該 padding 只會白吃可用高、逼內容溢出 */
+.gsh-hero{position:relative;display:flex;flex-direction:column;height:90svh;min-height:540px;overflow:hidden;padding:0;
   /* 中央不透明（logo JPG 黑底靠 screen blend 隱形，需要實心深底）、左右外緣漸透讓 .gs-atmos 透出 */
   background:radial-gradient(ellipse 62% 105% at 50% 38%,#221410 0%,#1A1A1A 58%,rgba(26,26,26,.35) 82%,rgba(26,26,26,0) 100%)}
 @media(max-width:768px){
@@ -291,7 +292,10 @@ footer a:hover{color:var(--gs-orange)}
   .gsh-hero{background:radial-gradient(140% 90% at 50% 30%,#221410 0%,#1A1A1A 62%)}
 }
 .gsh-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.gsh-top{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 22px clamp(64px,10vh,96px);gap:clamp(16px,2.8vh,26px)}
+/* flex:1 佔據 hero 扣掉底部 marquee 後的空間；內容在其中置中，永不與 marquee 重疊（矮視窗曾蓋住 CTA）。
+   ⚠️ 不可設 z-index：會建立 stacking context 讓 h1img 的 mix-blend-mode:screen 失效、logo 黑底變黑框。
+   DOM 順序已在 grain/deco 之後，自然疊上，不需 z-index。 */
+.gsh-top{position:relative;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(14px,2.4vh,28px) 22px;gap:clamp(12px,2.4vh,26px)}
 .gsh-deco{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:190px 190px;background-position:center top}
 .gsh-deco i{position:absolute;border:1px solid rgba(255,255,255,.055);border-radius:230px}
 .gsh-deco i:first-child{top:9%;left:11%;width:42%;height:54%}
@@ -305,12 +309,23 @@ footer a:hover{color:var(--gs-orange)}
 .gsh-logo{width:clamp(88px,11vw,128px);height:auto;will-change:transform,opacity;filter:drop-shadow(0 8px 26px rgba(255,90,45,.35))}
 .gsh-h1{margin:0}
 .gsh-h1img{position:relative;z-index:2;display:block;width:min(90vw,860px,105svh);height:auto;margin:0 auto;mix-blend-mode:screen;filter:contrast(1.12);will-change:transform,opacity}
+/* 矮視窗（並排視窗、橫向平板）：等比縮小主視覺，讓 logo→標語→CTA 三段塞得下、CTA 不落進底部 marquee。
+   用 svh 驅動 width（height:auto 等比），不用 max-height 以免 logo JPG 黑底被 letterbox 露出深灰方塊。 */
+@media(max-height:1000px){
+  .gsh-h1img{width:min(90vw,860px,56svh)}
+  .gsh-logo{width:clamp(64px,7vh,96px)}
+  .gsh-top{gap:clamp(10px,1.6vh,18px)}
+}
+/* 極矮（筆電橫放、並排視窗）：靶心 spinner 純裝飾，收掉騰出垂直空間給標語＋CTA */
+@media(max-height:720px){
+  .gsh-logo{display:none}
+}
 .gsh-sub{position:relative;z-index:2;display:inline-flex;flex-wrap:wrap;gap:8px 12px;justify-content:center;align-items:center;
   font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:clamp(15px,3vw,22px);color:#FBF6EE;
   padding:11px 22px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
   backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);will-change:transform,opacity}
 .gsh-sub .x{color:var(--gs-orange);font-family:'Poppins',sans-serif;font-weight:800}
-.gsh-marquee{position:absolute;left:0;right:0;bottom:0;z-index:5;background:rgba(18,18,20,.92);border-top:1px solid rgba(255,90,45,.28);overflow:hidden;padding:clamp(12px,1.8vh,18px) 0}
+.gsh-marquee{position:relative;flex:0 0 auto;z-index:5;background:rgba(18,18,20,.92);border-top:1px solid rgba(255,90,45,.28);overflow:hidden;padding:clamp(12px,1.8vh,18px) 0}
 .gsh-mq{display:flex;width:max-content;white-space:nowrap;animation:gshMq 26s linear infinite;font:800 clamp(15px,2.2vw,26px)/1 'Poppins','Noto Sans TC',sans-serif;color:#FF5A2D;letter-spacing:.02em}
 .gsh-mq b{font-weight:800;padding-right:.5em}
 @keyframes gshMq{to{transform:translateX(-50%)}}
