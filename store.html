@@ -27,7 +27,7 @@
 </script>
 <style>
 /* ===== 招牌爆炸風 landing（store）——黑底珊瑚玻璃 × 漫畫動感 ===== */
-:root{--st-coral:#FF5A2D;--st-coral-deep:#E24A2C;--st-cream:#FBF6EE;--st-ink:#1A1A1A}
+:root{--st-coral:#FF5A2D;--st-coral-deep:#E8552F;--st-cream:#FBF6EE;--st-ink:#1A1A1A}
 .st-main{background:#1A1A1A;color:var(--st-cream);overflow:hidden}
 .st-wrap{width:min(1080px,92vw);margin:0 auto}
 
@@ -67,7 +67,7 @@
 .st-cta{position:relative;z-index:2;margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .st-btn{display:inline-block;font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:16px;padding:16px 30px;
   border-radius:999px;text-decoration:none;transition:transform .14s,filter .2s,box-shadow .2s;will-change:transform}
-.st-btn.solid{background:linear-gradient(100deg,var(--st-coral),var(--st-coral-deep));color:#fff;
+.st-btn.solid{background:linear-gradient(100deg,var(--st-coral),var(--st-coral-deep));color:#1A1A1A;
   box-shadow:0 0 30px rgba(255,90,45,.45),0 10px 24px rgba(0,0,0,.5)}
 .st-btn.solid:hover{transform:translateY(-2px);filter:brightness(1.07)}
 .st-btn.ghost{background:rgba(255,255,255,.06);color:var(--st-cream);border:1px solid rgba(255,255,255,.2)}
@@ -87,7 +87,7 @@
   box-shadow:0 18px 50px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.09)}
 .st-card.c1{background:linear-gradient(155deg,#FF5A2D,#B0331C)}
 .st-card.c2{background:linear-gradient(155deg,#2FA8A8,#0F3E3E)}
-.st-card.c3{background:linear-gradient(155deg,#E24A2C,#FF5A2D)}
+.st-card.c3{background:linear-gradient(155deg,#E8552F,#FF5A2D)}
 .st-card .ci{position:absolute;top:24px;left:26px;width:46px;height:46px;opacity:.95}
 .st-card h3{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:26px;margin:0 0 8px;color:#fff}
 .st-card p{font-size:14px;line-height:1.6;margin:0;color:rgba(255,255,255,.94)}
@@ -126,6 +126,8 @@
   .st-spin{animation:none!important}
   .st-word .ch,.st-badge,.st-card,.st-qr,.st-sub,.st-cta{opacity:1!important;transform:none!important}
 }
+/* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
 </head>
 <body>

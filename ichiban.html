@@ -24,16 +24,16 @@
 <link rel="preload" as="image" href="assets/brand/logo-ichiban.webp" fetchpriority="high">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--paper2:#2B2B30;--ink:#0E0E12;--text:#ECECEA;--gs-orange:#FF5A2D;--gs-orange-deep:#E24A2C;--coral:#FF5A2D;--coral2:#FF8A6B;--coral-deep:#E24A2C;--sky:#3FC8C8;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB;--muted:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--paper2:#2B2B30;--ink:#0E0E12;--text:#ECECEA;--gs-orange:#FF5A2D;--gs-orange-deep:#E8552F;--coral:#FF5A2D;--coral2:#FF8A6B;--coral-deep:#E8552F;--sky:#3FC8C8;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB;--muted:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.75}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--gs-orange);color:#fff}
 .wrap{max-width:920px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-family:'Poppins','Noto Sans TC',sans-serif;line-height:1.25}
-.btn{display:inline-block;background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#fff;font-weight:800;padding:14px 28px;border-radius:999px;box-shadow:0 0 28px rgba(255,90,45,.32),0 8px 22px rgba(0,0,0,.4);transition:transform .12s,filter .2s}
+.btn{display:inline-block;background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#1A1A1A;font-weight:800;padding:14px 28px;border-radius:999px;box-shadow:0 0 28px rgba(255,90,45,.32),0 8px 22px rgba(0,0,0,.4);transition:transform .12s,filter .2s}
 .btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
-.btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#fff;box-shadow:0 0 28px rgba(255,90,45,.34),0 8px 22px rgba(0,0,0,.4)}
+.btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#1A1A1A;box-shadow:0 0 28px rgba(255,90,45,.34),0 8px 22px rgba(0,0,0,.4)}
 .btn.btn-race:hover{filter:brightness(1.08)}
 .btn-ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
 /* nav */
@@ -48,7 +48,7 @@ h1,h2,h3{font-family:'Poppins','Noto Sans TC',sans-serif;line-height:1.25}
 .util b{color:var(--gold,#E8C15A)}
 .util a{color:var(--gs-orange);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
-.nav-links .btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#fff;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34)}
+.nav-links .btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34)}
 @media(max-width:720px){
   .nav .wrap{position:relative}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#1A1A1A;padding:6px 0 12px;border-bottom:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.5)}
@@ -83,7 +83,7 @@ h1,h2,h3{font-family:'Poppins','Noto Sans TC',sans-serif;line-height:1.25}
   border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
   font-weight:800;font-size:13px;letter-spacing:1px;padding:8px 16px;border-radius:999px;margin-bottom:16px}
 .hero h1{font-size:clamp(30px,6vw,52px);font-weight:900;margin-bottom:14px}
-.hero h1 .g{background:linear-gradient(100deg,#FFC24B,#FF5A2D 55%,#E24A2C);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .g{background:linear-gradient(100deg,#FFC24B,#FF5A2D 55%,#E8552F);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{font-size:clamp(16px,2.4vw,20px);max-width:640px;margin-bottom:26px;color:#B4B4BB}
 .hero .btn-ghost{background:rgba(255,255,255,.06);color:#ECECEA;border:1px solid rgba(255,255,255,.14);
   backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
@@ -125,6 +125,8 @@ footer{background:#000;color:var(--sec);padding:40px 0;font-size:14px;text-align
 footer a{color:var(--gs-orange)}
 .crumb{font-size:13px;color:var(--sec);padding:14px 0}
 .crumb a{color:var(--coral2)}
+/* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
 <!-- ===== 結構化資料（SEO / GEO / AEO）===== -->
 <script type="application/ld+json">
@@ -171,8 +173,8 @@ footer a{color:var(--gs-orange)}
 <header class="hero">
   <div class="hero-bgfx" aria-hidden="true">
     <span class="hero-blob" style="top:-30%;left:-10%;width:420px;height:420px;background:#FF5A2D"></span>
-    <span class="hero-blob b2" style="top:-10%;right:-12%;width:460px;height:460px;background:#E24A2C"></span>
-    <span class="hero-blob b3" style="bottom:-45%;left:30%;width:420px;height:420px;background:#E24A2C"></span>
+    <span class="hero-blob b2" style="top:-10%;right:-12%;width:460px;height:460px;background:#E8552F"></span>
+    <span class="hero-blob b3" style="bottom:-45%;left:30%;width:420px;height:420px;background:#E8552F"></span>
     <span class="hero-blob b4" style="top:35%;right:22%;width:240px;height:240px;background:#FFC24B"></span>
     <div class="gsx-dots"></div>
     <i class="gsx-speed" style="top:20%;left:-10%;width:36%"></i>
@@ -241,7 +243,7 @@ footer a{color:var(--gs-orange)}
 </div></section>
 
 <section><div class="wrap">
-  <div class="band" style="position:relative;overflow:hidden;text-align:left;display:flex;align-items:center;gap:26px;flex-wrap:wrap;background:linear-gradient(120deg,#141416 0%,#2a1710 45%,#E24A2C 130%);border:1.5px solid rgba(255,90,45,.5)">
+  <div class="band" style="position:relative;overflow:hidden;text-align:left;display:flex;align-items:center;gap:26px;flex-wrap:wrap;background:linear-gradient(120deg,#141416 0%,#2a1710 45%,#E8552F 130%);border:1.5px solid rgba(255,90,45,.5)">
     <img src="assets/brand/poster-s-win.jpg" alt="恭喜獲得 S 賞中獎海報" loading="lazy" decoding="async"
       style="width:170px;height:auto;border-radius:14px;mix-blend-mode:screen;filter:contrast(1.1) saturate(1.05);transform:rotate(-5deg);flex-shrink:0">
     <div style="flex:1;min-width:240px">

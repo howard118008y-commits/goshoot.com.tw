@@ -11,7 +11,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;0,900;1,900&family=Noto+Sans+TC:wght@500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;0,900;1,900&family=Noto+Sans+TC:wght@500;700;900&display=swap"></noscript>
 <style>
 :root{
-  --gs-orange:#FF5A2D; --gs-orange-deep:#E24A2C;
+  --gs-orange:#FF5A2D; --gs-orange-deep:#E8552F;
   --gs-white:#FFFFFF; --gs-black:#1A1A1A; --gs-gray:#555555;
   --gs-cream:#FBF6EE; --gs-surface:#232326; --gs-muted:#B4B4BB;
   --rar-s:#FF5A2D; --rar-a:#FFC24B; --rar-b:#9B5CFF; --rar-c:#3FC8C8; --rar-d:#C9A94E;
@@ -57,7 +57,7 @@ h2 .en{color:var(--gs-orange);font-style:italic;margin-right:10px}
 /* 按鈕 */
 .btnrow{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .gbtn{display:inline-block;font-family:var(--disp);font-weight:800;font-size:17px;padding:14px 30px;border-radius:99px;text-decoration:none;transition:transform .18s,box-shadow .18s,background .18s;cursor:pointer;border:0}
-.gbtn.solid{background:var(--gs-orange);color:#fff}
+.gbtn.solid{background:var(--gs-orange);color:#1A1A1A}
 .gbtn.solid:hover{background:var(--gs-orange-deep);transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,90,45,.45)}
 .gbtn.ghost{background:rgba(255,255,255,.04);color:var(--gs-cream);border:1px solid var(--line);backdrop-filter:blur(8px)}
 .gbtn.ghost:hover{border-color:var(--gs-orange);color:var(--gs-orange);transform:translateY(-2px)}
@@ -112,6 +112,8 @@ h2 .en{color:var(--gs-orange);font-style:italic;margin-right:10px}
 footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--gs-muted);font-size:14px}
 .reveal{opacity:0}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1}}
+/* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
 </head>
 <body>

@@ -9,9 +9,9 @@
   --text:#ECECEA;       /* 主要文字（近白）*/
   --muted:#B4B4BB;      /* 次要文字（灰）*/
   /* 重點色：動感橘為主品牌色，金／天藍為輔（螢光綠／賽車紅已退役）*/
-  --gs-orange:#FF5A2D; --gs-orange-deep:#E24A2C; --gs-gray:#555555;
+  --gs-orange:#FF5A2D; --gs-orange-deep:#E8552F; --gs-gray:#555555;
   --rar-s:#FF5A2D; --rar-a:#FFC24B; --rar-b:#9B5CFF; --rar-c:#3FC8C8; --rar-d:#C9A94E;
-  --coral:#FF5A2D; --coral2:#FF8A6B; --coral-deep:#E24A2C;
+  --coral:#FF5A2D; --coral2:#FF8A6B; --coral-deep:#E8552F;
   --sky:#3FC8C8; --sky-deep:#3FC8C8; --gold:#FFC24B;
   --line:rgba(255,255,255,.10); --shadow:0 10px 34px rgba(0,0,0,.55);
   --display:'Poppins',system-ui,sans-serif;
@@ -58,12 +58,12 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.2;letter-spaci
 
 /* buttons（膠囊・粗體；主 CTA＝動感橘漸層發光，幽靈＝液態玻璃）*/
 .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));
-  color:#fff;font-family:var(--display);font-weight:800;font-size:15px;
+  color:#1A1A1A;font-family:var(--display);font-weight:800;font-size:15px;
   padding:12px 22px;border-radius:40px;border:0;cursor:pointer;transition:.15s;
   box-shadow:0 0 24px rgba(255,90,45,.28),0 6px 18px rgba(0,0,0,.35)}
 .btn:hover{transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 0 30px rgba(255,90,45,.45),0 8px 22px rgba(0,0,0,.4)}
 /* .btn-race：舊賽車紅重點 CTA 已退役，統一併入動感橘（class 保留供既有頁面引用）*/
-.btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#fff;box-shadow:0 0 26px rgba(255,90,45,.34),0 6px 18px rgba(0,0,0,.4)}
+.btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#1A1A1A;box-shadow:0 0 26px rgba(255,90,45,.34),0 6px 18px rgba(0,0,0,.4)}
 .btn.btn-race:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 0 34px rgba(255,90,45,.55),0 8px 22px rgba(0,0,0,.45)}
 .btn-ghost{background:rgba(255,255,255,.06);color:var(--text);border:1px solid rgba(255,255,255,.14);
   backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
@@ -120,7 +120,7 @@ h2.sec::after{content:"";display:block;width:52px;height:4px;border-radius:2px;
 .band h2{color:var(--text);margin:0 0 8px}
 .band p{color:rgba(255,255,255,.82);margin:0 0 18px;max-width:520px}
 .band .btn-ghost{color:var(--gs-orange);border-color:var(--gs-orange)}
-.band .btn-ghost:hover{background:var(--gs-orange);color:#fff}
+.band .btn-ghost:hover{background:var(--gs-orange);color:#1A1A1A}
 
 /* product tiles */
 .prod{aspect-ratio:1;border:1px solid var(--line);border-radius:var(--r);
@@ -223,7 +223,7 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
 .gs-blob.b4{animation-duration:22s;animation-delay:-4s;opacity:.25}
 @keyframes gsDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-50px) scale(1.18)}}
 .gs-cover h1{font-size:clamp(32px,7vw,54px);margin:14px 0 12px;line-height:1.15}
-.gs-cover h1 .g{background:linear-gradient(100deg,var(--gold),var(--coral) 55%,#E24A2C);
+.gs-cover h1 .g{background:linear-gradient(100deg,var(--gold),var(--coral) 55%,#E8552F);
   -webkit-background-clip:text;background-clip:text;color:transparent}
 .gs-cover .lead{color:var(--muted);max-width:640px;margin:0 0 26px;font-size:clamp(15px,2vw,18px)}
 .gs-cover .cta-row,.gs-cover .hero-cta{display:flex;gap:12px;flex-wrap:wrap}

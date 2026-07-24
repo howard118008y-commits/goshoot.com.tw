@@ -26,7 +26,7 @@
     padding:7px 11px;border-radius:999px;cursor:pointer}
   .seg button.on{background:var(--orange);color:#fff}
   .lbl{font:700 11px/1 var(--mono);color:var(--sub);letter-spacing:.05em;margin-right:2px}
-  .run{margin-left:auto;border:0;background:linear-gradient(120deg,#FF5A2D,#E24A2C);color:#fff;
+  .run{margin-left:auto;border:0;background:linear-gradient(120deg,#FF5A2D,#E8552F);color:#fff;
     font:800 13px/1 "Noto Sans TC";padding:9px 15px;border-radius:999px;cursor:pointer}
   .readout{position:fixed;z-index:5;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0));
     background:var(--panel)ee;border:1px solid var(--line);border-radius:16px;padding:14px 16px;backdrop-filter:blur(6px)}
@@ -37,6 +37,8 @@
   .verdict{margin-top:11px;font:800 13.5px/1.45 "Noto Sans TC";padding:9px 12px;border-radius:10px}
   .status{font:600 11.5px/1.4 var(--mono);color:var(--sub);margin-top:8px;min-height:16px}
   .hint{position:fixed;z-index:5;left:0;right:0;top:96px;text-align:center;font:600 12px/1 "Noto Sans TC";color:var(--sub);pointer-events:none}
+/* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
 </head>
 <body>
