@@ -25,9 +25,10 @@
     .sw-root .sw-nav__item { color: color-mix(in srgb, var(--sw-ink) 62%, transparent); }
     .sw-root .sw-nav__item:hover { color: var(--sw-ink); }
     .sw-root .sw-nav__item.is-active { color: #1A1A1A; background: var(--sw-accent); }
-    .sw-root .sw-topcta { color: #fff; background: linear-gradient(135deg, #FF5A2D, #E8552F); font-weight: 800; letter-spacing: .02em; }
+    /* 橙底白字只有 3.11:1；黑字在漸層兩端分別是 5.6 與 4.78，全站按鈕同一規則 */
+    .sw-root .sw-topcta { color: #1A1A1A; background: linear-gradient(135deg, #FF5A2D, #E8552F); font-weight: 800; letter-spacing: .02em; }
     .sw-root .sw-topcta:hover { filter: brightness(1.1); }
-    .sw-root .sw-btn--primary { color: #fff; background: linear-gradient(135deg, #FF5A2D, #E8552F); box-shadow: 0 12px 30px rgba(255,90,45,.35); font-weight: 800; letter-spacing: .02em; }
+    .sw-root .sw-btn--primary { color:#1A1A1A; background: linear-gradient(135deg, #FF5A2D, #E8552F); box-shadow: 0 12px 30px rgba(255,90,45,.35); font-weight: 800; letter-spacing: .02em; }
     .sw-root .sw-btn--primary:hover { filter: brightness(1.1); }
     .sw-root .sw-btn--ghost { color: var(--sw-ink); border-color: color-mix(in srgb, var(--sw-ink) 40%, transparent); }
     .sw-root .sw-btn--ghost:hover { border-color: var(--sw-accent); color: var(--sw-accent); }
@@ -59,7 +60,7 @@
     #gs-landing .gs-land-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
     #gs-landing a { text-decoration: none; font-weight: 800; font-size: 16px; border-radius: 999px;
       padding: 15px 30px; transition: filter .15s, transform .15s; }
-    #gs-landing a.gs-enter { color: #fff; background: linear-gradient(135deg, #FF5A2D, #E8552F);
+    #gs-landing a.gs-enter { color:#1A1A1A; background: linear-gradient(135deg, #FF5A2D, #E8552F);
       box-shadow: 0 14px 36px rgba(255,90,45,.4); }
     #gs-landing a.gs-draw { color: #F7F3ED; border: 1px solid rgba(247,243,237,.4); background: rgba(0,0,0,.35); }
     #gs-landing a:hover { filter: brightness(1.1); transform: translateY(-2px); }
@@ -89,6 +90,7 @@
   </div>
 
   <!-- scrub engine：oso95/scroll-world（MIT）references/scrub-engine.js -->
+  <script src="assets/site.js" defer></script>
   <script src="assets/scroll/scrub-engine.js"></script>
   <script>
     mountScrollWorld(document.getElementById('world'), {

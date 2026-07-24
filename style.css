@@ -12,6 +12,10 @@
   --gs-orange:#FF5A2D; --gs-orange-deep:#E8552F; --gs-gray:#555555;
   --rar-s:#FF5A2D; --rar-a:#FFC24B; --rar-b:#9B5CFF; --rar-c:#3FC8C8; --rar-d:#C9A94E;
   --coral:#FF5A2D; --coral2:#FF8A6B; --coral-deep:#E8552F;
+  /* --lime 是 VI v1 的舊名，改版時漏了它：吃本檔的頁若還寫 var(--lime)，
+     解析失敗會讓背景整個不見（shop.html 的購買按鈕就這樣變成隱形黑字）。
+     新頁面一律用 --coral，這個別名只為既有頁面保底。 */
+  --lime:var(--coral); --lime-deep:var(--coral-deep);
   --sky:#3FC8C8; --sky-deep:#3FC8C8; --gold:#FFC24B;
   --line:rgba(255,255,255,.10); --shadow:0 10px 34px rgba(0,0,0,.55);
   --display:'Poppins',system-ui,sans-serif;
@@ -27,7 +31,7 @@ a{color:var(--text);text-decoration:none}
 :focus-visible{outline:2px solid var(--gs-orange);outline-offset:2px;border-radius:4px}
 h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.2;letter-spacing:.2px;color:var(--text)}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-::selection{background:var(--gs-orange);color:#fff}
+::selection{background:var(--gs-orange);color:#1A1A1A}
 
 /* emblem */
 .emblem{display:block}
@@ -186,7 +190,7 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
 .article .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
 .tier{display:flex;gap:14px;align-items:flex-start;background:var(--paper);
   border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin:12px 0;box-shadow:var(--shadow)}
-.tier .badge{font-family:var(--display);font-weight:800;font-size:18px;color:#fff;
+.tier .badge{font-family:var(--display);font-weight:800;font-size:18px;color:#1A1A1A;
   background:var(--gs-orange);min-width:46px;height:46px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;flex:0 0 auto}
 .tier.t1 .badge{background:#2A2A30;color:var(--text)}

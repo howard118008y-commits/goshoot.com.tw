@@ -29,12 +29,12 @@
 .pcard img{width:100%;height:100%;object-fit:cover;display:block}
 .pcard .rank{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.65);color:#fff;
   font-family:var(--display);font-weight:700;font-size:13px;padding:3px 10px;border-radius:999px}
-.pcard .rank.top{background:var(--coral)}
+.pcard .rank.top{background:var(--coral);color:#1A1A1A}  /* 只換底色會沿用 .rank 的白字（3.11:1）*/
 .pcard .body{padding:12px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
 .pcard .name{font-size:14px;line-height:1.5;color:var(--text);display:-webkit-box;
   -webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:42px}
-.pcard .price{font-family:var(--display);font-weight:600;font-size:18px;color:var(--coral-deep)}
-.pcard .buy{margin-top:auto;display:block;text-align:center;background:var(--lime);
+.pcard .price{font-family:var(--display);font-weight:600;font-size:18px;color:var(--coral)}
+.pcard .buy{margin-top:auto;display:block;text-align:center;background:var(--coral);
   color:#1A1A1A;font-family:var(--display);font-size:14px;padding:9px;border-radius:10px}
 .pcard .buy:hover{filter:brightness(1.05)}
 .state{padding:50px 0;text-align:center;color:var(--muted)}
@@ -73,7 +73,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div id="grid" class="pgrid"><div class="state">商品載入中…</div></div>
 
   <div class="shopnote">
-    本頁為 Go Shoot 嚴選推薦，每月更新。點擊「在蝦皮購買」會前往蝦皮商品頁完成下單。<b>本頁含蝦皮聯盟推薦連結，透過連結購買 Go Shoot 可獲得回饋，不影響你的購買價格。</b>日版與限定款請走<a href="index.html#preorder" style="color:var(--coral-deep)">預購</a>。
+    本頁為 Go Shoot 嚴選推薦，每月更新。點擊「在蝦皮購買」會前往蝦皮商品頁完成下單。<b>本頁含蝦皮聯盟推薦連結，透過連結購買 Go Shoot 可獲得回饋，不影響你的購買價格。</b>日版與限定款請走<a href="index.html#preorder" style="color:var(--coral)">預購</a>。
   </div>
 </div></section>
 
@@ -114,7 +114,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         +'</div></div>';
     }).join('');
   }catch(e){
-    grid.innerHTML='<div class="state">推薦資料還沒準備好。<br>請先更新 products.json，或<a href="#" data-shopee style="color:var(--coral-deep)">直接逛蝦皮精選</a>。</div>';
+    grid.innerHTML='<div class="state">推薦資料還沒準備好。<br>請先更新 products.json，或<a href="#" data-shopee style="color:var(--coral)">直接逛蝦皮精選</a>。</div>';
   }
 })();
 </script>

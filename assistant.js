@@ -65,7 +65,7 @@
     ".gsa-input{display:flex;gap:8px;padding:12px}" +
     ".gsa-input input{flex:1;min-width:0;background:rgba(255,255,255,.06);color:#ECECEA;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 12px;font-size:13.5px;outline:none}" +
     ".gsa-input input:focus{border-color:rgba(255,90,45,.45)}" +
-    ".gsa-input button{background:linear-gradient(135deg,#FF5A2D,#E24A2C);color:#fff;font-weight:800;border:none;border-radius:12px;padding:0 16px;font-size:13.5px;cursor:pointer}" +
+    ".gsa-input button{background:linear-gradient(135deg,#FF5A2D,#E8552F);color:#1A1A1A;font-weight:800;border:none;border-radius:12px;padding:0 16px;font-size:13.5px;cursor:pointer}" +
     "@keyframes gsaPulse{0%,100%{opacity:1}50%{opacity:.35}}" +
     "@media (max-width:480px){.gsa{right:12px;bottom:12px}.gsa-panel{bottom:64px;width:min(320px,calc(100vw - 24px));height:min(560px,68vh)}.gsa-body{padding:10px}.gsa-msg{font-size:13px}}";
 
