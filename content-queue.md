@@ -13,7 +13,7 @@
 
 ## A. 一番賞玩法・獎品（多數已寫，僅剩少數缺口）
 - [x] article-ichiban-gold-silver-cert.html 2026-07-24  ← 一番賞金證/銀證是什麼、值錢嗎
-- [ ] 二番賞 / 一番賞的由來與歷史
+- [x] article-nibansho-history.html 2026-07-26  ← 二番賞 / 一番賞的由來與歷史
 
 ## C. GSC 關鍵字回填
 - [x] article-what-is-goshoot.html 2026-07-22  ← goshoot 是什麼、Go Shoot 線上一番賞介紹
