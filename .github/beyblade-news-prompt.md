@@ -40,7 +40,8 @@
      - `.rel-date`：`<b>月/日或月份</b><span>年份或狀態</span>`
      - `.rel-tag` 品類 class：`rt-bey` 陀螺／`rt-pok` 寶可夢／`rt-pik` 皮克敏
      - `.rel-name` 品名、`.rel-sub` 一句重點（站內有對應情報頁就內連）
-     - `.rel-st` 狀態 chip：`st-pre` 預購中／`st-soon` 即將發售／`st-hot` 熱抽中
-     - `.rel-cta` **購買連結一律連站內**：陀螺新品→`#preorder`（預購/代購）；寶可夢→`ichiban-pokemon.html`；皮克敏→`ichiban-pikmin.html`；陀螺賞→`ichiban-beyblade.html`；現貨→`shop.html`。**絕不外連購物網站。**
-   - 過期處理：發售日已過的列，改狀態為「已開賣→熱抽中/現貨」或移除換新情報。日期不確定就寫月份並標「情報公開」，**嚴禁捏造確切日期**。
+     - `.rel-st` 狀態 chip：`st-pre` 可預約代購／`st-soon` 即將發售・新品情報・情報公開。**⛔ 嚴禁任何庫存/銷售暗示字眼：「現貨」「熱賣」「熱銷」「熱抽中」「抽賞中」「開抽」一律不准寫**（門市庫存由老闆手動管理，本區只做情報）。
+     - `.rel-cta` **連結一律連站內、文案一律中性**：只准「情報 →」「了解更多 →」兩種（用 `rel-cta alt` 樣式），連對應情報頁（陀螺→`article-beyblade-*.html` 或 `ichiban-beyblade.html`；寶可夢→`ichiban-pokemon.html`；皮克敏→`ichiban-pikmin.html`）；未上市品可用「預約代購 →」連 `#preorder`。**絕不外連購物網站，絕不寫「看現貨」「抽○○賞」類 CTA。**
+   - 過期處理：發售日已過的列，狀態改「已上市」或移除換新情報。日期不確定就寫月份並標「情報公開」，**嚴禁捏造確切日期**。
+   - **⛔ 絕對禁區：「主打預告」區塊（`id="featured-drop"`，HTML 註解標明「老闆手動管理」）整段不准讀改動刪**，它不屬於本任務範圍。
 7. 完成後自我檢查：`index.html` 仍有正好 4 個 `class="newscard"`、1 個 `class="news-notice"`、5–7 個 `class="rel"`（含 `id="releases"` 區塊完整）；4 張 news 圖片內容不重複。不要 commit，改完檔案即可結束。
