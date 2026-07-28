@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1A1A1A">
+<title>首頁封面改版提案（內部預覽，未上線）</title>
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;0,800;0,900;1,900&family=Noto+Sans+TC:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+body{background:#1A1A1A}
+.note-bar{background:#FFC24B;color:#1A1A1A;font:800 14px/1.4 'Noto Sans TC';text-align:center;padding:10px 16px}
+
+/* ---------- HERO：日系海報版面節奏＋VI v2 黑橘皮膚 ---------- */
+.cvr-hero{position:relative;overflow:hidden;padding:64px 22px 0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,#2a1710 0%,#1A1A1A 55%,#141416 100%)}
+.cvr-hero .wrap{position:relative;z-index:2;text-align:center;padding-bottom:38px}
+.cvr-rays{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg at 50% 15%,rgba(255,90,45,.10) 0deg 6deg,transparent 6deg 12deg)}
+.cvr-eyebrow{display:inline-block;font:800 14px/1 'Noto Sans TC';color:#1A1A1A;background:var(--gs-orange);
+  padding:8px 18px;border-radius:999px;letter-spacing:.06em;margin-bottom:22px;box-shadow:0 0 24px rgba(255,90,45,.5)}
+.cvr-headline{font-family:var(--display);font-weight:900;line-height:.98;margin:0;
+  font-size:clamp(40px,8vw,88px);color:#FBF6EE;letter-spacing:-.01em}
+.cvr-headline .hot{display:block;color:var(--gs-orange);font-size:clamp(56px,11vw,124px);
+  text-shadow:0 0 40px rgba(255,90,45,.55);transform:rotate(-2deg);margin:6px 0}
+.cvr-headline .pct{font-family:'Poppins',sans-serif}
+.cvr-sub{font:800 clamp(15px,2.4vw,20px)/1.6 'Noto Sans TC';color:#ECECEA;max-width:620px;margin:22px auto 30px}
+.cvr-sub b{color:var(--gs-orange)}
+.cvr-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:46px}
+.cvr-btn{font:800 18px/1 'Noto Sans TC';padding:16px 30px;border-radius:999px;text-decoration:none;display:inline-block}
+.cvr-btn.solid{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#fff;box-shadow:0 0 28px rgba(255,90,45,.5),0 8px 22px rgba(0,0,0,.45)}
+.cvr-btn.ghost{background:rgba(255,255,255,.06);color:#F3F0EA;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+
+/* ---------- 主題縮圖列：對照參考站 5 張方卡 ---------- */
+.cvr-strip{position:relative;z-index:2;background:#141416;border-top:1px solid rgba(255,90,45,.25);
+  padding:22px 0 26px}
+.cvr-strip-inner{display:flex;gap:14px;overflow-x:auto;padding:0 22px;max-width:var(--maxw);margin:0 auto;scrollbar-width:none}
+.cvr-strip-inner::-webkit-scrollbar{display:none}
+.cvr-card{flex:0 0 auto;width:150px;border-radius:16px;overflow:hidden;position:relative;
+  border:1.5px solid rgba(255,90,45,.4);background:#0d0d0f}
+.cvr-card img{width:100%;height:150px;object-fit:cover;display:block}
+.cvr-card .tag{position:absolute;top:8px;left:8px;background:rgba(20,20,22,.85);color:var(--gs-orange);
+  font:800 10.5px/1 'Noto Sans TC';padding:5px 9px;border-radius:999px;border:1px solid rgba(255,90,45,.5)}
+.cvr-card .cap{padding:9px 10px 11px;font:800 13.5px/1.3 'Noto Sans TC';color:#ECECEA}
+
+/* ---------- 說明區塊：對照參考站金黃紙紋段落 ---------- */
+.cvr-explain{position:relative;z-index:2;padding:60px 22px;text-align:center;
+  background:linear-gradient(160deg,#E8552F,#FF5A2D 55%,#E8552F);
+  background-image:linear-gradient(160deg,#E8552F,#FF5A2D 55%,#E8552F),
+    repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 26px)}
+.cvr-explain .diamond{width:64px;height:64px;background:#1A1A1A;transform:rotate(45deg);margin:0 auto 26px;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.cvr-explain .diamond span{transform:rotate(-45deg);color:var(--gs-orange);font:900 22px 'Poppins'}
+.cvr-explain h2{font-family:var(--display);font-weight:900;font-size:clamp(26px,4vw,38px);color:#1A1A1A;margin:0 0 18px}
+.cvr-explain p{max-width:640px;margin:0 auto 28px;font:600 16px/1.75 'Noto Sans TC';color:#2a1710}
+.cvr-explain p strong{color:#1A1A1A}
+</style>
+</head>
+<body>
+<div class="note-bar">⚠️ 內部預覽頁，未連結、未上線、noindex——只是給老闆看版面提案用</div>
+
+<!-- ===== NAV（沿用現有首頁 nav，未改動）===== -->
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/favicon.svg" alt="" width="34" height="34" style="border-radius:8px"><b>Go Shoot</b></a>
+  <div class="nav-links">
+    <a href="index.html#products">商品</a>
+    <a href="#">代購預約</a>
+    <a href="ichiban.html">線上一番賞</a>
+    <a href="#">賽事</a>
+    <a href="#">攻略</a>
+    <a href="#">常見問題</a>
+    <a class="btn btn-sm btn-race" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽一番賞</a>
+  </div>
+</div></nav>
+
+<!-- ===== HERO：大字海報式標語，取代現有 logo 置中版 ===== -->
+<section class="cvr-hero">
+  <div class="cvr-rays" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="cvr-eyebrow">中和戰鬥陀螺專門店 × 線上一番賞</span>
+    <h1 class="cvr-headline">想抽就有得抽<span class="hot">每抽必中<span class="pct">!</span></span></h1>
+    <p class="cvr-sub">戰鬥陀螺・娃娃機・線上一番賞——<b>公開亂數可驗證公平</b>，抽完不槓龜，24 小時想玩就玩。</p>
+    <div class="cvr-cta">
+      <a class="cvr-btn solid" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽線上一番賞 →</a>
+      <a class="cvr-btn ghost" href="index.html#products">逛戰鬥陀螺</a>
+    </div>
+  </div>
+
+  <!-- ===== 主題縮圖列：對照參考站「5 張方卡」節奏 ===== -->
+  <div class="cvr-strip">
+    <div class="cvr-strip-inner">
+      <a class="cvr-card" href="ichiban-beyblade.html">
+        <span class="tag">陀螺</span>
+        <img src="assets/brand/products/戰鬥陀螺/商品-陀螺-S-空力天馬紅版.jpg" alt="戰鬥陀螺一番賞">
+        <div class="cap">戰鬥陀螺一番賞</div>
+      </a>
+      <a class="cvr-card" href="index.html#claw">
+        <span class="tag">娃娃機</span>
+        <img src="assets/brand/card-claw.webp" alt="24H 娃娃機">
+        <div class="cap">24H 娃娃機</div>
+      </a>
+      <a class="cvr-card" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">
+        <span class="tag">線上</span>
+        <img src="assets/brand/card-ichiban-ticket.webp" alt="線上一番賞">
+        <div class="cap">線上一番賞</div>
+      </a>
+      <a class="cvr-card" href="ichiban-pokemon.html">
+        <span class="tag">寶可夢</span>
+        <img src="assets/brand/products/寶可夢卡/商品-寶可夢-S-達克萊伊ex卡.jpg" alt="寶可夢卡牌一番賞">
+        <div class="cap">寶可夢卡牌</div>
+      </a>
+      <a class="cvr-card" href="ichiban-pikmin.html">
+        <span class="tag">皮克敏</span>
+        <img src="assets/brand/products/皮克敏/商品-皮克敏-S-歐擬蛹小夜燈.jpg" alt="皮克敏一番賞">
+        <div class="cap">皮克敏一番賞</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 說明區塊：對照參考站「所謂的一番賞」金黃段落 ===== -->
+<section class="cvr-explain">
+  <div class="diamond"><span>賞</span></div>
+  <h2>所謂的一番賞</h2>
+  <p>傳統扭蛋或刮刮樂可能槓龜，但一番賞不一樣：<strong>每一張籤都對應到一個獎品</strong>，所以你每抽一定會拿到東西，差別只在賞別大小（A 賞、B 賞……到最珍貴的最後賞）。這也是一番賞讓人「一抽再抽」的魅力來源。</p>
+  <a class="cvr-btn" style="background:#1A1A1A;color:#fff" href="article-what-is-online-ichiban.html">3 分鐘搞懂玩法 →</a>
+</section>
+
+<section style="padding:40px 22px;text-align:center;background:#1A1A1A">
+  <p style="color:#8A8790;font-size:13px;max-width:640px;margin:0 auto">
+    以上是「封面版面結構」提案（沿用參考站 nav→大字 hero→主題縮圖列→說明區塊 的節奏），皮膚仍是 Go Shoot 動感橘×炫酷黑，沒有動色系。<br>
+    下方「三大主打」「新品發售追蹤」等既有內容區塊不受影響，這個提案只涵蓋首頁最上面封面的部分。
+  </p>
+</section>
+
+</body>
+</html>
