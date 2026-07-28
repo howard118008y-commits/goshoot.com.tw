@@ -229,6 +229,50 @@ footer a:hover{color:var(--gs-orange)}
   .slide .emb{display:none}
 }
 @media(max-width:480px){ .tiles{grid-template-columns:repeat(2,1fr)} .prods{grid-template-columns:1fr 1fr} }
+
+/* ===== gsbtn：送出態按鈕（改編自 Uiverse.io by marcelodolza，Go Shoot 動感橘×炫酷黑）
+   純 CSS :focus 驅動，點擊即觸發「送出→完成」動畫。首頁專屬按鈕樣式，只套用於本頁。===== */
+.gsbtn{
+  --primary:#FF5A2D; --neutral-1:#2B2B30; --neutral-2:#1A1A1A; --radius:40px;
+  cursor:pointer;color:#ECECEA;border-radius:var(--radius);text-decoration:none;
+  text-shadow:0 1px 1px rgba(0,0,0,.35);border:none;
+  box-shadow:0 .5px .5px 1px rgba(255,255,255,.12),0 10px 20px rgba(0,0,0,.35),0 4px 5px 0 rgba(0,0,0,.08);
+  display:inline-flex;align-items:center;justify-content:center;position:relative;
+  transition:all .3s ease;min-width:150px;padding:0 22px;height:48px;
+  font-family:var(--disp);font-size:15px;font-weight:800}
+.gsbtn.gsbtn-sm{min-width:0;height:40px;padding:0 16px;font-size:14px}
+.gsbtn:hover{transform:scale(1.02);box-shadow:0 0 1px 2px rgba(255,90,45,.35),0 15px 30px rgba(0,0,0,.4),0 10px 3px -3px rgba(0,0,0,.06)}
+.gsbtn:active{transform:scale(1);box-shadow:0 0 1px 2px rgba(255,90,45,.35),0 10px 3px -3px rgba(0,0,0,.3)}
+.gsbtn:after{content:"";position:absolute;inset:0;border-radius:var(--radius);border:2.5px solid transparent;
+  background:linear-gradient(var(--neutral-1),var(--neutral-2)) padding-box,
+    linear-gradient(to bottom,rgba(255,255,255,.14),rgba(0,0,0,.5)) border-box;z-index:0;transition:all .4s ease}
+.gsbtn:hover::after{transform:scale(1.03,1.08);box-shadow:inset 0 -1px 3px 0 rgba(255,144,100,.35)}
+.gsbtn:before{content:"";position:absolute;inset:5px;background:linear-gradient(to top,var(--neutral-1),var(--neutral-2));
+  border-radius:calc(var(--radius) - 4px);filter:blur(.5px);z-index:1}
+.gsbtn-state{padding-left:0;z-index:2;display:flex;align-items:center;position:relative;gap:8px}
+.gsbtn .gsbtn-state p{display:flex;align-items:center;justify-content:center;margin:0}
+.gsbtn .gsbtn-icon{position:relative;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s ease}
+.gsbtn-outline{position:absolute;border-radius:inherit;overflow:hidden;z-index:1;opacity:0;transition:opacity .4s ease;inset:-2px -3.5px}
+.gsbtn-outline::before{content:"";position:absolute;inset:-100%;
+  background:conic-gradient(from 180deg,transparent 60%,#FBF6EE 80%,transparent 100%);
+  animation:gsbtnSpin 2s linear infinite;animation-play-state:paused}
+@keyframes gsbtnSpin{to{transform:rotate(360deg)}}
+.gsbtn:hover .gsbtn-outline{opacity:1}
+.gsbtn:hover .gsbtn-outline::before{animation-play-state:running}
+.gsbtn .gsbtn-state p span{display:block;opacity:0;animation:gsbtnSlideDown .8s ease forwards calc(var(--i)*.03s)}
+.gsbtn:hover .gsbtn-state--default p span{opacity:1;animation:gsbtnWave .5s ease forwards calc(var(--i)*.02s)}
+.gsbtn:focus .gsbtn-state--default p span{opacity:1;animation:gsbtnDisapear .6s ease forwards calc(var(--i)*.03s)}
+@keyframes gsbtnWave{30%{opacity:1;transform:translateY(4px) translateX(0) rotate(0)}50%{opacity:1;transform:translateY(-3px) translateX(0) rotate(0);color:var(--primary)}100%{opacity:1;transform:translateY(0) translateX(0) rotate(0)}}
+@keyframes gsbtnSlideDown{0%{opacity:0;transform:translateY(-20px) translateX(5px) rotate(-90deg);color:var(--primary);filter:blur(5px)}30%{opacity:1;transform:translateY(4px) translateX(0) rotate(0);filter:blur(0)}50%{opacity:1;transform:translateY(-3px) translateX(0) rotate(0)}100%{opacity:1;transform:translateY(0) translateX(0) rotate(0)}}
+@keyframes gsbtnDisapear{from{opacity:1}to{opacity:0;transform:translateX(5px) translateY(20px);color:var(--primary);filter:blur(5px)}}
+.gsbtn-state--sent{display:none}
+.gsbtn:focus .gsbtn-state--default{position:absolute}
+.gsbtn:focus .gsbtn-state--sent{display:flex}
+.gsbtn:focus .gsbtn-state--sent span{opacity:0;animation:gsbtnSlideDown .8s ease forwards calc(var(--i)*.2s)}
+.gsbtn:focus .gsbtn-state--sent .gsbtn-icon{opacity:0;animation:gsbtnAppear 1.2s ease forwards .8s}
+@keyframes gsbtnAppear{0%{opacity:0;transform:scale(3) rotate(-40deg);color:var(--primary);filter:blur(4px)}30%{opacity:1;transform:scale(.6);filter:blur(1px)}50%{opacity:1;transform:scale(1.15);filter:blur(0)}100%{opacity:1;transform:scale(1)}}
+.gsbtn.gsbtn-ghost{--neutral-1:rgba(255,255,255,.08);--neutral-2:rgba(255,255,255,.03)}
+@media(prefers-reduced-motion:reduce){.gsbtn,.gsbtn *{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -273,7 +317,7 @@ footer a:hover{color:var(--gs-orange)}
     <a href="events.html">賽事</a>
     <a href="guide.html">攻略</a>
     <a href="faq.html">常見問題</a>
-    <a class="btn btn-sm btn-race" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽一番賞</a>
+    <a class="gsbtn gsbtn-sm" data-sent="前往抽獎" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽一番賞</a>
   </div>
   <form class="search" onsubmit="var q=this.querySelector('input').value.trim();location.href=q?('https://www.google.com/search?q='+encodeURIComponent('site:goshoot.com.tw '+q)):'shop.html';return false;">
     <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋全站">
@@ -359,9 +403,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     <h1 class="gsh-h1"><img class="gsh-h1img" src="assets/brand/logo-main-cutout.webp" alt="Go Shoot｜中和戰鬥陀螺專門店・線上一番賞・24H 娃娃機" fetchpriority="high"></h1>
     <div class="gsh-sub"><b>戰鬥陀螺</b><span class="x">×</span><b>娃娃機</b><span class="x">×</span><b>線上一番賞</b></div>
     <div class="gsh-cta">
-      <a class="gsh-btn solid" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽線上一番賞 →</a>
-      <a class="gsh-btn ghost" href="scroll-preview.html">✦ 飛進 Go Shoot 世界</a>
-      <a class="gsh-btn ghost" href="#products">逛戰鬥陀螺</a>
+      <a class="gsbtn" data-sent="前往開抽" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽線上一番賞 →</a>
+      <a class="gsbtn gsbtn-ghost" href="scroll-preview.html">✦ 飛進 Go Shoot 世界</a>
+      <a class="gsbtn gsbtn-ghost" href="#products">逛戰鬥陀螺</a>
     </div>
   </div>
   <div class="gsh-marquee" aria-hidden="true"><div class="gsh-mq"><b>中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ </b><b>中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ </b></div></div>
@@ -553,8 +597,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     </a>
   </div>
   <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-    <a class="btn" href="guide-tierlist.html">看本月天梯榜 →</a>
-    <a class="btn btn-ghost" href="#preorder">日版／限定款代購</a>
+    <a class="gsbtn" href="guide-tierlist.html">看本月天梯榜 →</a>
+    <a class="gsbtn gsbtn-ghost" href="#preorder">日版／限定款代購</a>
     <span style="color:#9a948c;font-size:13px">情報定期更新</span>
   </div>
 </div></section>
@@ -573,7 +617,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">BX／UX／CX 三線齊發</span>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-      <a class="btn" href="ichiban-beyblade.html">陀螺一番賞情報 →</a>
+      <a class="gsbtn" href="ichiban-beyblade.html">陀螺一番賞情報 →</a>
       <span style="color:#9a948c;font-size:13px">敬請期待・以到貨公告為準</span>
     </div>
   </div>
@@ -690,8 +734,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     <div class="claw-feat"><b>站旁</b><span>中和捷運站旁，好到好停</span></div>
   </div>
   <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
-    <a class="btn" href="#visit">來店看看 →</a>
-    <a class="btn btn-ghost" href="#" data-line>加 LINE 看新景品</a>
+    <a class="gsbtn" href="#visit">來店看看 →</a>
+    <a class="gsbtn gsbtn-ghost" href="#" data-line>加 LINE 看新景品</a>
   </div>
 </div></section>
 
@@ -704,7 +748,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.16);border-color:transparent">線上開抽</span>
       <h2>Go Shoot 線上一番賞</h2>
       <p>不必到店、隨時開抽。每一抽都有獎，A 賞、最後賞通通有機會帶回家。透明公正、即時開獎，用 Google 帳號登入就能玩。中獎可選宅配到府、到店取貨，或折抵店內消費。</p>
-      <a class="btn btn-race" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
+      <a class="gsbtn" data-sent="前往抽獎" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
     </div>
   </div>
 </div></section>
@@ -717,8 +761,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       <span class="eyebrow">店內賽場</span>
       <h2>不只是買，是來開戰</h2>
       <p>店內對戰賽場與即時排行榜，平日開放練習、假日舉辦賽事。贏一場、上一次榜，這裡是屬於你的戰場。</p>
-      <a class="btn btn-light" href="events.html">完整賽制・排行榜 →</a>
-      <a class="btn btn-ghost" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20店內賽事報名" style="border-color:#fff;color:#fff;margin-left:8px">賽事報名</a>
+      <a class="gsbtn gsbtn-ghost" href="events.html">完整賽制・排行榜 →</a>
+      <a class="gsbtn gsbtn-ghost" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20店內賽事報名" style="border-color:#fff;color:#fff;margin-left:8px">賽事報名</a>
     </div>
   </div>
 </div></section>
@@ -730,12 +774,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       <img class="hdeco" src="assets/brand/card-claw.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <h3><img src="/assets/brand/icon/claw.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 娃娃機台區</h3>
       <p>景品定期更新、不定期保夾活動。逛玩具之餘順手夾一發，夾到帶回家。</p>
-      <a class="btn" href="#visit" style="margin-top:14px">來店看看 →</a>
+      <a class="gsbtn" href="#visit" style="margin-top:14px">來店看看 →</a>
     </div>
     <div class="half gold">
       <h3>🎌 日本代購</h3>
       <p>日版與限定款預購代購，早一步入手別人買不到的款式，到店取貨可現場驗。</p>
-      <a class="btn" href="#preorder" style="margin-top:14px">填預購單 →</a>
+      <a class="gsbtn" href="#preorder" style="margin-top:14px">填預購單 →</a>
     </div>
   </div>
 </div></section>
@@ -750,7 +794,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     <a class="guide-card" href="guide-mods.html"><span class="kicker">改裝攻略</span><h3>配件怎麼搭，陀螺才會更強？</h3><p>三大部位拆解、性能影響與進階搭配範例。</p></a>
     <a class="guide-card" href="guide-daikou.html"><span class="kicker">代購情報</span><h3>日版／限定款代購怎麼買最划算？</h3><p>代購流程、運費、預購制與在地取貨的好處。</p></a>
   </div>
-  <div style="margin-top:22px"><a class="btn btn-ghost" href="guide.html">看全部攻略 →</a></div>
+  <div style="margin-top:22px"><a class="gsbtn gsbtn-ghost" href="guide.html">看全部攻略 →</a></div>
 </div></section>
 
 <!-- ===== PREORDER ===== -->
@@ -760,8 +804,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.18);border-color:transparent">代購・預購</span>
       <h2>線上填單 → 到店取貨</h2>
       <p>想要的日版或限定款還沒進台灣？Email 或來電告訴我們，幫你調貨，到貨通知你到店領取。</p>
-      <a class="btn btn-light" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20日本代購・預購">✉ Email 預購 →</a>
-      <a class="btn btn-ghost" href="tel:+886976507911" style="border-color:#fff;color:#fff;margin-left:8px">☎ 來電詢問</a>
+      <a class="gsbtn gsbtn-ghost" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20日本代購・預購">✉ Email 預購 →</a>
+      <a class="gsbtn gsbtn-ghost" href="tel:+886976507911" style="border-color:#fff;color:#fff;margin-left:8px">☎ 來電詢問</a>
     </div>
   </div>
 </div></section>
@@ -779,7 +823,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
         <dt>營業時間</dt><dd><img src="/assets/brand/icon/claw.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 娃娃機：24 小時<br><img src="/assets/brand/icon/spintop.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 戰鬥陀螺：每日 16:00–24:00</dd>
         <dt>聯絡</dt><dd><a href="mailto:goshoot593@gmail.com" style="color:var(--coral2)">goshoot593@gmail.com</a> ／ <a href="tel:+886976507911" style="color:var(--coral2)">0976-507-911</a></dd>
       </dl>
-      <div style="margin-top:20px"><a class="btn" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20預購・賽事報名詢問">✉ Email 預購・報名 →</a></div>
+      <div style="margin-top:20px"><a class="gsbtn" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20預購・賽事報名詢問">✉ Email 預購・報名 →</a></div>
     </div>
   </div>
 </div></section>
@@ -792,7 +836,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
         Go Shoot
       </div>
       <p style="color:#cfc8bf;font-size:14px;max-width:280px">中和捷運站旁的戰鬥陀螺・玩具・娃娃機店。買得到、找得到對手、上得了排行榜。一起 Go Shoot！</p>
-      <a class="btn btn-sm fcta" href="mailto:goshoot593@gmail.com">✉ Email 聯絡</a>
+      <a class="gsbtn gsbtn-sm" href="mailto:goshoot593@gmail.com">✉ Email 聯絡</a>
       <div class="fsoc"><a href="mailto:goshoot593@gmail.com" title="Email 聯絡">✉</a><a href="tel:+886976507911" title="電話 0976-507-911">📞</a></div>
     </div>
     <div><h4>逛商品</h4><a href="#products">戰鬥陀螺</a><a href="#products">玩具公仔</a><a href="#products">扭蛋模型</a><a href="#" data-shopee>蝦皮賣場</a></div>
@@ -844,7 +888,7 @@ document.addEventListener("DOMContentLoaded",function(){
     tl.from(".gsh-logo",{scale:.45,autoAlpha:0,rotation:-70,duration:.85,ease:"back.out(1.6)"})
       .from(".gsh-h1img",{y:30,scale:.96,autoAlpha:0,duration:.9},"-=.45")
       .from(".gsh-sub",{y:20,autoAlpha:0},"-=.35")
-      .from(".gsh-cta .gsh-btn",{y:18,autoAlpha:0,stagger:.1},"-=.3");
+      .from(".gsh-cta .gsbtn",{y:18,autoAlpha:0,stagger:.1},"-=.3");
 
     // 氛圍層：速度線掃入＋星芒閃爍
     gsap.from(".gsx-speed",{scaleX:0,transformOrigin:"left center",autoAlpha:0,
@@ -881,6 +925,29 @@ document.addEventListener("DOMContentLoaded",function(){
     return function(){ /* matchMedia 自動 revert */ };
   });
 });
+</script>
+
+<!-- gsbtn 強化：把 <a class="gsbtn">文字→ 自動包成逐字 span＋預設/送出兩態，純漸進增強，JS 關閉時仍是可點的連結 -->
+<script>
+(function(){
+  var PLANE = '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none"><path d="M14.22 21.63c-1.18 0-2.85-.83-4.17-4.8l-.72-2.16-2.16-.72C3.21 12.63 2.38 10.96 2.38 9.78s.83-2.85 4.8-4.18l8.49-2.83c2.12-.71 3.89-.5 4.98.58s1.29 2.86.58 4.98l-2.83 8.49c-1.33 3.98-3 4.81-4.18 4.81zM7.64 7.03C4.86 7.96 3.87 9.06 3.87 9.78s.99 1.82 3.77 2.74l2.52.84c.22.07.4.25.47.47l.84 2.52c.92 2.78 2.03 3.77 2.75 3.77s1.83-.99 2.76-3.77l2.83-8.49c.51-1.54.42-2.8-.23-3.45s-1.91-.74-3.44-.23L7.64 7.03z" fill="currentColor"/><path d="M10.11 14.4a.75.75 0 0 1-.53-1.28l3.58-3.59a.75.75 0 1 1 1.06 1.06l-3.58 3.59a.747.747 0 0 1-.53.22z" fill="currentColor"/></svg>';
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" width="1em" height="1em"><path fill="currentColor" d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12S6.07 1.25 12 1.25 22.75 6.07 22.75 12 17.93 22.75 12 22.75Zm0-20a9.25 9.25 0 1 0 0 18.5 9.25 9.25 0 0 0 0-18.5Z"/><path fill="currentColor" d="M10.58 15.58a.75.75 0 0 1-.53-.22l-2.83-2.83a.75.75 0 1 1 1.06-1.06l2.3 2.3 5.14-5.14a.75.75 0 1 1 1.06 1.06l-5.67 5.67a.75.75 0 0 1-.53.22Z"/></svg>';
+  function letters(text){
+    return Array.prototype.slice.call(text).map(function(ch,i){
+      return '<span style="--i:'+i+'">'+(ch===' '?'&nbsp;':ch)+'</span>';
+    }).join('');
+  }
+  document.querySelectorAll('a.gsbtn').forEach(function(a){
+    if (a.dataset.gsbtnDone) return;
+    var label = a.textContent.trim();
+    var sent = a.getAttribute('data-sent') || '完成';
+    a.dataset.gsbtnDone = '1';
+    a.innerHTML =
+      '<span class="gsbtn-outline"></span>' +
+      '<span class="gsbtn-state gsbtn-state--default"><span class="gsbtn-icon">'+PLANE+'</span><p>'+letters(label)+'</p></span>' +
+      '<span class="gsbtn-state gsbtn-state--sent"><span class="gsbtn-icon">'+CHECK+'</span><p>'+letters(sent)+'</p></span>';
+  });
+})();
 </script>
 
 </body>
