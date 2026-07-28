@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1A1A1A">
+<!-- 開場動畫門控：真人首訪導向「飛進 Go Shoot 世界」滾動頁（獨立頁＝iOS 滾動正常，不用 iframe）。
+     爬蟲＋搜尋來源一律放行看完整首頁＝零 SEO 風險；同 session 只跑一次。越早執行越不閃首頁。 -->
+<script>
+(function(){
+  try{
+    var ua = navigator.userAgent || '';
+    if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|quora|pinterest|whatsapp|line\b|telegrambot|w3c_validator|lighthouse|headlesschrome/i.test(ua)) return; // 爬蟲/預覽器→看完整 SEO 首頁
+    if (sessionStorage.getItem('gsIntroSeen')) return;   // 同 session 已看過
+    if (location.hash) return;                            // 站內錨點跳轉
+    var ref = document.referrer || '';
+    if (/[./](google|bing|yahoo|baidu|yandex|sogou|naver)\.|duckduckgo/i.test(ref)) return; // 搜尋來的→不擾，保護每日第一優先流量
+    sessionStorage.setItem('gsIntroSeen','1');
+    location.replace('scroll-preview.html?intro=1');
+  }catch(e){ /* 任何失敗都不擋首頁 */ }
+})();
+</script>
+<title>Go Shoot 線上一番賞・戰鬥陀螺・玩具・娃娃機｜中和站旁</title>
+<meta name="description" content="Go Shoot：線上一番賞 24H 隨時抽、每抽必中、公開透明可驗證；也是中和捷運站旁的戰鬥陀螺・玩具・娃娃機店，含日本代購與店內賽事。">
+<meta name="keywords" content="線上一番賞,一番賞線上,線上抽獎,Go Shoot,戰鬥陀螺,娃娃機,中和玩具店,日本代購">
+<link rel="canonical" href="https://goshoot.com.tw/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Go Shoot">
+<meta property="og:title" content="Go Shoot 線上一番賞・戰鬥陀螺・玩具・娃娃機">
+<meta property="og:description" content="線上一番賞 24H 隨時抽、每抽必中、公開透明可驗證。中和站旁戰鬥陀螺・玩具・娃娃機店。">
+<meta property="og:url" content="https://goshoot.com.tw/">
+<meta property="og:image" content="https://goshoot.com.tw/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":["Organization","ToyStore"],"@id":"https://goshoot.com.tw/#org","name":"Go Shoot","alternateName":["GoShoot","Go Shoot 一番賞","Go Shoot 戰鬥陀螺","Go Shoot 娃娃機","Go Shoot 中和"],"slogan":"3・2・1・Go Shoot！","url":"https://goshoot.com.tw/","logo":"https://goshoot.com.tw/assets/favicon.svg","image":"https://goshoot.com.tw/assets/og-cover.png","description":"Go Shoot 是線上一番賞平台，也是新北市中和捷運站旁的戰鬥陀螺（Beyblade X）專門店，兼營精選玩具與娃娃機，提供日本代購與店內對戰賽事。","areaServed":"TW","knowsAbout":["線上一番賞","戰鬥陀螺","Beyblade X","公仔玩具","娃娃機","日本代購"],"address":{"@type":"PostalAddress","streetAddress":"景平路593號之1","addressLocality":"中和區","addressRegion":"新北市","addressCountry":"TW"}},
+{"@type":"WebSite","@id":"https://goshoot.com.tw/#website","url":"https://goshoot.com.tw/","name":"Go Shoot","alternateName":"Go Shoot 線上一番賞","inLanguage":"zh-TW","publisher":{"@id":"https://goshoot.com.tw/#org"}}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/brand/logo-main-dark.webp" fetchpriority="high">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
+<style>
+:root{
+  --cream:#1A1A1A; --paper:#232326; --paper2:#2B2B30; --ink:#0E0E12;
+  --text:#ECECEA; --muted:#B4B4BB;
+  --gs-orange:#FF5A2D; --gs-orange-deep:#E8552F;
+  --coral:#FF5A2D; --coral2:#FF8A6B; --coral-deep:#E8552F;
+  --sky:#3FC8C8; --sky-deep:#3FC8C8; --gold:#FFC24B;
+  --disp:'Poppins','Noto Sans TC',sans-serif; --body:'Noto Sans TC','Poppins',sans-serif;
+  --shadow:0 10px 34px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gs-orange);color:#1A1A1A}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.disp{font-family:var(--disp)}
+.btn{display:inline-block;background:var(--gs-orange);color:#1A1A1A;font-weight:800;font-family:var(--disp);
+  padding:13px 22px;border-radius:40px;border:none;cursor:pointer;transition:.15s;white-space:nowrap}
+.btn:hover{background:var(--gs-orange-deep);transform:translateY(-1px);box-shadow:0 6px 22px rgba(255,90,45,.3)}
+.btn-ghost{background:transparent;color:var(--gs-orange);border:2px solid var(--gs-orange)}
+.btn-ghost:hover{background:var(--gs-orange);color:#1A1A1A}
+.btn-light{background:var(--paper2);color:var(--text);border:1px solid var(--line,rgba(255,255,255,.1))}
+.btn-light:hover{border-color:var(--gs-orange);color:var(--gs-orange)}
+.btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#1A1A1A;box-shadow:0 0 26px rgba(255,90,45,.32),0 6px 18px rgba(0,0,0,.4)}
+.btn.btn-race:hover{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));filter:brightness(1.08);box-shadow:0 0 34px rgba(255,90,45,.55),0 8px 22px rgba(0,0,0,.45)}
+.btn-sm{padding:9px 16px;font-size:14px}
+.eyebrow{display:inline-block;font-family:var(--disp);font-weight:800;letter-spacing:2px;
+  text-transform:uppercase;font-size:12px;color:var(--gs-orange);
+  background:rgba(255,90,45,.10);border:1px solid rgba(255,90,45,.35);
+  padding:5px 12px;border-radius:20px}
+.sec{font-size:clamp(24px,3.4vw,38px);font-weight:800;margin:14px 0 6px;color:var(--text)}
+.sec::after{content:"✦";display:block;width:max-content;margin-top:10px;padding-left:66px;
+  font-size:15px;line-height:1;color:var(--gs-orange);text-shadow:0 0 12px rgba(255,90,45,.85);
+  background:linear-gradient(90deg,var(--gs-orange),rgba(255,90,45,.22)) left center/52px 4px no-repeat;border-radius:2px}
+.sec-lead{color:var(--muted);max-width:680px}
+section{padding:64px 0}
+
+/* ===== 全頁氛圍層：黑橘漫畫能量宇宙（設計系統 §6 延伸） ===== */
+.gs-atmos{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.util,footer,body>section{position:relative;z-index:1}
+body>section:not(.gsh-hero)::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,90,45,.34) 50%,transparent);pointer-events:none}
+.gs-atmos-dots{position:absolute;inset:0;opacity:.5;
+  background-image:radial-gradient(rgba(255,90,45,.55) 1.3px,transparent 1.5px);background-size:22px 22px;
+  -webkit-mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.26) 30%,rgba(0,0,0,.26) 70%,#000);
+          mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.26) 30%,rgba(0,0,0,.26) 70%,#000)}
+.gs-glow{position:absolute;border-radius:50%;will-change:transform,opacity;animation:gsBreath 10s ease-in-out infinite}
+.gs-glow.g1{top:-12%;left:-12%;width:52vw;height:52vw;background:radial-gradient(circle,rgba(255,90,45,.15),transparent 68%)}
+.gs-glow.g2{top:30%;right:-16%;width:56vw;height:56vw;background:radial-gradient(circle,rgba(255,90,45,.12),transparent 68%);animation-delay:-3.4s}
+.gs-glow.g3{bottom:-14%;left:-10%;width:48vw;height:48vw;background:radial-gradient(circle,rgba(226,74,44,.13),transparent 68%);animation-delay:-6.8s}
+@keyframes gsBreath{0%,100%{transform:scale(1);opacity:.72}50%{transform:scale(1.1);opacity:1}}
+.gs-atmos .gsx-speed{height:2px}
+.gs-atmos .gsx-star.o{fill:var(--gs-orange)}
+@media(prefers-reduced-motion:reduce){.gs-glow{animation:none;opacity:.6}}
+@media(max-width:768px){
+  .gs-atmos .d{display:none}
+  .gs-atmos-dots{opacity:.28}
+  .gs-glow{animation:none;opacity:.5}
+}
+
+/* ===== utility bar ===== */
+.util{background:#000;color:var(--muted);font-size:13px;border-bottom:1px solid rgba(255,255,255,.10)}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.util b{color:var(--gold)}
+.util a{color:var(--gs-orange);font-weight:700}
+@media(max-width:600px){
+  .util .wrap{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:10px;font-size:12px;scrollbar-width:none}
+  .util .wrap::-webkit-scrollbar{display:none}
+  .util .wrap>span{white-space:nowrap}
+  .util .wrap>a{white-space:nowrap;flex:0 0 auto}
+}
+
+/* ===== nav ===== */
+.nav{position:sticky;top:0;z-index:1000;background:rgba(26,26,26,.88);
+  backdrop-filter:saturate(150%) blur(10px);-webkit-backdrop-filter:saturate(150%) blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.10)}
+.nav .wrap{display:flex;align-items:center;gap:18px;padding-top:12px;padding-bottom:12px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:800;font-size:22px;color:var(--text)}
+.brand svg{width:34px;height:34px}
+.nav-links{display:flex;align-items:center;gap:20px;margin-left:6px}
+.nav-links a{font-weight:500}
+.nav-links a:hover{color:var(--gs-orange)}
+.search{margin-left:auto;display:flex;align-items:center;background:var(--paper2);
+  border-radius:30px;padding:8px 14px;gap:8px;min-width:180px;border:1px solid rgba(255,255,255,.10)}
+.search input{border:none;background:transparent;outline:none;font-family:var(--body);width:100%;color:var(--text)}
+.search input::placeholder{color:var(--muted)}
+.menu-btn{display:none;font-size:26px;background:none;border:none;cursor:pointer;color:var(--text)}
+
+/* ===== hero carousel ===== */
+.hero{position:relative;overflow:hidden}
+.slides{position:relative;height:clamp(380px,46vw,520px)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s;display:flex;align-items:center}
+.slide.on{opacity:1}
+.slide .wrap{display:flex;align-items:center;gap:30px;width:100%}
+.slide .txt{flex:1;min-width:260px;color:#fff}
+.slide h2{font-size:clamp(30px,5vw,56px);font-weight:800;line-height:1.1;margin-bottom:14px}
+.slide p{font-size:clamp(15px,2vw,19px);margin-bottom:22px;max-width:520px}
+.slide .badge{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--disp);
+  font-weight:800;font-size:13px;letter-spacing:1px;padding:6px 14px;border-radius:20px;margin-bottom:16px}
+.slide .emb{flex:0 0 auto}
+.slide .emb svg{width:clamp(140px,22vw,260px);height:auto}
+.slide .emb img{width:clamp(170px,25vw,290px);height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.18))}
+.s-coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
+.s-ink{background:linear-gradient(120deg,#2f2b33,#46414b)}
+.s-sky{background:linear-gradient(120deg,var(--sky-deep),var(--sky))}
+.dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:3}
+.dots b{width:11px;height:11px;border-radius:50%;background:#ffffff8c;cursor:pointer}
+.dots b.on{background:#fff;width:26px;border-radius:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{transform-origin:32px 32px;animation:spin 3.5s linear infinite}
+.spin2{animation:spin 5s linear infinite}
+
+/* ===== category tiles ===== */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+
+/* ===== product grid ===== */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod{background:var(--paper);border:1px solid rgba(255,255,255,.10);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.15s;position:relative}
+.prod:hover{transform:translateY(-4px);border-color:rgba(255,90,45,.45)}
+.prod .ph{aspect-ratio:1;background:linear-gradient(140deg,#23232a,#15151a);display:flex;align-items:center;justify-content:center}
+.prod .ph svg{width:70px;height:70px;opacity:.4}
+.prod .ph img{width:100%;height:100%;object-fit:cover}
+.prod .pb{position:absolute;top:12px;left:12px;font-family:var(--disp);font-weight:800;font-size:12px;
+  padding:4px 10px;border-radius:14px;color:#1A1A1A;background:var(--gs-orange)}
+.pb.new{background:var(--sky-deep);color:#1A1A1A} .pb.hot{background:var(--coral);color:#1A1A1A} .pb.ltd{background:#2A2A30;color:var(--text)}
+.prod .pi{padding:14px 16px 18px}
+.prod .pi .nm{font-weight:700;margin-bottom:4px;color:var(--text)}
+.prod .pi .meta{color:var(--muted);font-size:13px}
+
+/* ===== bands ===== */
+.band{border-radius:24px;padding:40px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;color:#fff;border:1px solid rgba(255,255,255,.08)}
+.band.ink{background:rgba(8,8,10,.82)} .band.coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
+.band .emblem svg{width:120px;height:120px}
+.band h2{font-size:clamp(24px,3vw,34px);font-weight:800;margin-bottom:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.half{border-radius:24px;padding:34px;color:#fff;border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+/* 店內廣告圖卡風：黑底＋橘/金頂線區分兩卡 */
+.half.sky{background:linear-gradient(160deg,#232326,#151517);border:1.5px solid rgba(255,90,45,.5);border-top:3px solid var(--gs-orange)}
+.half.gold{background:linear-gradient(160deg,#26200f,#161307);border:1.5px solid rgba(255,194,75,.5);border-top:3px solid var(--gold)}
+.half .hdeco{position:absolute;right:-24px;bottom:-28px;width:150px;height:auto;border-radius:12px;
+  mix-blend-mode:screen;opacity:.7;filter:contrast(1.1) saturate(1.05);transform:rotate(-8deg);pointer-events:none}
+.half h3,.half p,.half .btn{position:relative;z-index:1}
+.half h3{font-size:24px;font-weight:800;margin-bottom:8px}
+
+/* ===== guide / cards ===== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.guide-card{background:var(--paper);border:1px solid rgba(255,255,255,.10);border-radius:18px;padding:24px;box-shadow:var(--shadow);transition:.15s}
+.guide-card:hover{transform:translateY(-3px);border-color:rgba(255,90,45,.45)}
+.guide-card .kicker{font-family:var(--disp);font-weight:800;font-size:12px;letter-spacing:1px;color:var(--gs-orange)}
+.guide-card h3{font-size:19px;margin:6px 0;color:var(--text)}
+.guide-card p{color:var(--muted);font-size:14px}
+
+/* ===== visit ===== */
+.info{display:grid;grid-template-columns:1.2fr 1fr;gap:26px;align-items:start}
+.map{border-radius:18px;overflow:hidden;box-shadow:var(--shadow);min-height:300px;border:1px solid rgba(255,255,255,.10)}
+.map iframe{width:100%;height:100%;min-height:320px;border:0}
+dl dt{font-family:var(--disp);font-weight:800;color:var(--gs-orange);margin-top:14px}
+dl dd{margin-left:0;color:var(--text)}
+
+/* ===== footer ===== */
+footer{background:#000;color:var(--muted);padding:56px 0 28px;border-top:1px solid rgba(255,255,255,.10)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+footer h4{font-family:var(--disp);font-size:15px;margin-bottom:12px;color:var(--text)}
+footer a{display:block;color:rgba(255,255,255,.72);padding:4px 0;font-size:14px}
+footer a:hover{color:var(--gs-orange)}
+.fbrand{display:flex;align-items:center;gap:9px;font-family:var(--disp);font-weight:800;font-size:22px;color:var(--text);margin-bottom:10px}
+.fbrand svg{width:34px;height:34px}
+.fcta{margin-top:14px}
+.fsoc{display:flex;gap:10px;margin-top:10px}
+.fsoc a{display:inline-flex;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);align-items:center;justify-content:center;color:#fff}
+.fsoc a:hover{border-color:var(--gs-orange);color:var(--gs-orange)}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:18px;color:rgba(255,255,255,.45);font-size:13px;text-align:center}
+
+/* ===== responsive ===== */
+@media(max-width:880px){
+  .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;
+    align-items:flex-start;gap:0;padding:8px 22px 16px;box-shadow:var(--shadow);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:10px 0;width:100%;border-bottom:1px solid rgba(255,255,255,.10)}
+  .menu-btn{display:block;margin-left:auto}
+  .search{display:none}
+  .tiles{grid-template-columns:repeat(3,1fr)}
+  .prods{grid-template-columns:repeat(2,1fr)}
+  .grid-2,.split,.info,.fgrid{grid-template-columns:1fr}
+  .slide .emb{display:none}
+}
+@media(max-width:480px){ .tiles{grid-template-columns:repeat(2,1fr)} .prods{grid-template-columns:1fr 1fr} }
+</style>
+</head>
+<body>
+
+<!-- ===== 全頁氛圍層（黑橘漫畫能量宇宙：網點×光暈×速度線×星芒） ===== -->
+<div class="gs-atmos" aria-hidden="true">
+  <div class="gs-atmos-dots"></div>
+  <span class="gs-glow g1"></span>
+  <span class="gs-glow g2 d"></span>
+  <span class="gs-glow g3"></span>
+  <i class="gsx-speed" style="top:13%;left:-12%;width:32%;rotate:-7deg"></i>
+  <i class="gsx-speed cream d" style="top:24%;left:-10%;width:20%;rotate:-5deg"></i>
+  <i class="gsx-speed d" style="top:42%;right:-12%;width:27%;rotate:6deg"></i>
+  <i class="gsx-speed cream" style="top:60%;right:-10%;width:21%;rotate:5deg"></i>
+  <i class="gsx-speed" style="top:77%;left:-12%;width:29%;rotate:-6deg"></i>
+  <i class="gsx-speed cream d" style="top:90%;right:-12%;width:18%;rotate:4deg"></i>
+  <svg class="gsx-star" style="top:12%;left:3%;width:24px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star o" style="top:21%;right:4%;width:30px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star d" style="top:37%;left:5%;width:18px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star o d" style="top:52%;right:3%;width:22px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star" style="top:66%;left:4%;width:28px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star o d" style="top:74%;left:8%;width:16px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star" style="top:84%;right:5%;width:24px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+  <svg class="gsx-star o" style="top:94%;left:3%;width:20px" viewBox="0 0 24 24"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+</div>
+
+<!-- ===== UTILITY BAR ===== -->
+<div class="util"><div class="wrap">
+  <span><img src="/assets/brand/icon/claw.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 娃娃機 24H・<img src="/assets/brand/icon/spintop.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 戰鬥陀螺 16:00–24:00　|　<img src="/assets/brand/icon/target.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> <b>中和捷運站旁</b></span>
+  <a href="https://goshoot-ichiban.vercel.app/draw" rel="noopener"><img src="/assets/brand/icon/trophy.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 線上一番賞・馬上抽 →</a>
+</div></div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#ECECEA" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#ECECEA" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF5A2D"/><circle cx="256" cy="256" r="18" fill="#ECECEA"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF5A2D" stroke-width="26" stroke-linecap="round"/></svg>
+    Go Shoot
+  </a>
+  <div class="nav-links">
+    <a href="#products">商品</a>
+    <a href="#preorder">代購預購</a>
+    <a href="ichiban.html" style="color:var(--gs-orange);font-weight:700">線上一番賞</a>
+    <a href="events.html">賽事</a>
+    <a href="guide.html">攻略</a>
+    <a href="faq.html">常見問題</a>
+    <a class="btn btn-sm btn-race" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽一番賞</a>
+  </div>
+  <form class="search" onsubmit="var q=this.querySelector('input').value.trim();location.href=q?('https://www.google.com/search?q='+encodeURIComponent('site:goshoot.com.tw '+q)):'shop.html';return false;">
+    <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋全站">
+  </form>
+  <button class="menu-btn" aria-label="選單"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display:block"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></nav>
+
+<!-- ===== HERO：9 段捲動故事（取代舊 logo 置中版，07-29 老闆拍板融合進真首頁）===== -->
+<style>
+.story-scene{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:90px 22px;overflow:hidden;border-bottom:1px solid rgba(255,90,45,.18)}
+.story-scene .wrap{position:relative;z-index:2;text-align:center;width:100%;max-width:1080px;margin:0 auto}
+.story-num{position:absolute;top:24px;left:24px;z-index:5;font:800 13px 'Poppins';color:rgba(255,255,255,.4);
+  letter-spacing:.1em;background:rgba(255,255,255,.06);padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.12)}
+.story-scene::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:64px 64px;background-position:center top}
+.scene-ring{position:absolute;z-index:0;pointer-events:none;border-radius:50%;border:1px solid rgba(255,90,45,.14)}
+.scene-ring.r1{width:46%;height:70%;top:-14%;left:-10%}
+.scene-ring.r2{width:38%;height:58%;bottom:-16%;right:-8%}
+.story-speed{position:absolute;z-index:1;display:block;height:4px;border-radius:4px;transform-origin:left center;pointer-events:none;
+  background:linear-gradient(90deg,transparent,#FF5A2D,transparent)}
+.story-star{position:absolute;z-index:1;color:#FBF6EE;opacity:.55;pointer-events:none;font-size:20px}
+.px-photo{position:absolute;z-index:1;border-radius:14px;object-fit:cover;opacity:.5;
+  border:1px solid rgba(255,255,255,.15);box-shadow:0 20px 40px rgba(0,0,0,.5);pointer-events:none}
+.sc-hero{background:radial-gradient(ellipse 75% 65% at 50% 30%,#341a10 0%,#1A1A1A 62%,#141416 100%);min-height:118vh}
+.sc-hero .logo-orbit{width:clamp(150px,20vw,260px);height:auto;margin:0 auto 26px;filter:drop-shadow(0 14px 40px rgba(255,90,45,.5))}
+.sc-hero h1{font-family:var(--display);font-weight:900;font-size:clamp(44px,9vw,104px);color:#FBF6EE;line-height:1.0;margin:0;
+  text-shadow:0 4px 24px rgba(0,0,0,.4)}
+.sc-hero h1 .hot{display:block;color:var(--gs-orange);font-size:clamp(60px,12.5vw,140px);text-shadow:0 0 50px rgba(255,90,45,.65);
+  -webkit-text-stroke:2px rgba(255,255,255,.06)}
+.sc-hero p{font:700 18px/1.75 'Noto Sans TC';color:#ECECEA;max-width:600px;margin:26px auto 0}
+.sc-hero .px1{width:120px;height:150px;top:12%;left:8%;transform:rotate(-8deg)}
+.sc-hero .px2{width:110px;height:140px;top:16%;right:9%;transform:rotate(7deg)}
+.sc-hero .px3{width:100px;height:130px;bottom:20%;left:14%;transform:rotate(6deg)}
+.sc-hero .px4{width:110px;height:140px;bottom:18%;right:13%;transform:rotate(-6deg)}
+.sc-marquee{position:absolute;bottom:0;left:0;right:0;background:rgba(18,18,20,.94);border-top:2px solid rgba(255,90,45,.4);
+  overflow:hidden;padding:16px 0;z-index:3}
+.sc-mq{display:flex;width:max-content;white-space:nowrap;animation:mqScroll 22s linear infinite;
+  font:800 16px/1 'Noto Sans TC';color:var(--gs-orange)}
+.sc-mq b{padding-right:2.4em}
+@keyframes mqScroll{to{transform:translateX(-50%)}}
+.sc-explain{background:linear-gradient(160deg,#E8552F,#FF5A2D 55%,#E8552F);
+  background-image:linear-gradient(160deg,#E8552F,#FF5A2D 55%,#E8552F),repeating-linear-gradient(115deg,rgba(255,255,255,.06) 0 2px,transparent 2px 28px)}
+.sc-explain .diamond{width:84px;height:84px;background:#1A1A1A;transform:rotate(45deg);margin:0 auto 30px;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.sc-explain .diamond span{transform:rotate(-45deg);color:var(--gs-orange);font:900 30px 'Poppins'}
+.sc-explain h2{font-family:var(--display);font-weight:900;font-size:clamp(30px,5.5vw,50px);color:#1A1A1A;margin:0 0 22px}
+.sc-explain .cols{display:flex;gap:34px;align-items:center;text-align:left;max-width:900px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.sc-explain .cols p{flex:1 1 360px;margin:0;font:700 17px/1.85 'Noto Sans TC';color:#2a1710}
+.sc-explain .gradebox{flex:0 0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sc-explain .gradebox span{background:rgba(26,26,26,.12);border:1.5px solid rgba(26,26,26,.25);border-radius:12px;
+  padding:10px 16px;font:900 15px 'Poppins';color:#1A1A1A;text-align:center}
+.sc-claw{background:#1A1A1A}
+.sc-claw .split{display:flex;gap:50px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:left}
+.sc-claw .cab{width:min(60vw,320px);position:relative;flex:0 0 auto}
+.sc-claw .cab img{width:100%;border-radius:20px;border:2px solid rgba(255,90,45,.55);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 40px rgba(255,90,45,.15)}
+.sc-claw .cab .mini{position:absolute;bottom:-22px;right:-26px;width:96px;height:96px;border-radius:14px;object-fit:cover;
+  border:2px solid rgba(255,194,75,.6);box-shadow:0 10px 26px rgba(0,0,0,.5);transform:rotate(6deg)}
+.sc-claw .claw-ico{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:46px;z-index:3;
+  animation:clawdrop 2.4s ease-in-out infinite;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+@keyframes clawdrop{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(20px)}}
+.sc-claw .txt{flex:1 1 320px;max-width:440px}
+.sc-claw h2{font-family:var(--display);font-weight:900;font-size:clamp(30px,5.5vw,46px);color:#FBF6EE;margin:0 0 14px}
+.sc-claw p{color:var(--muted);font-size:16.5px;line-height:1.8}
+.sc-claw .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.sc-claw .chips span{background:rgba(255,90,45,.12);border:1px solid rgba(255,90,45,.4);color:var(--gs-orange);
+  font:800 12.5px 'Noto Sans TC';padding:7px 14px;border-radius:999px}
+.sc-flow{background:#202024}
+.sc-flow h2{font-family:var(--display);font-weight:900;font-size:clamp(30px,5.5vw,46px);color:#FBF6EE;margin:0 0 30px}
+.sc-flow .frame{display:inline-block;padding:14px;background:#0d0d0f;border-radius:24px;border:1.5px solid rgba(255,90,45,.4);
+  box-shadow:0 20px 50px rgba(0,0,0,.5);position:relative}
+.sc-flow img{max-width:min(92vw,700px);display:block;border-radius:14px}
+.sc-flow .badge{position:absolute;top:-16px;left:-16px;background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#fff;
+  font:900 13px 'Noto Sans TC';padding:8px 16px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.4);transform:rotate(-8deg)}
+.sc-wall{background:radial-gradient(ellipse 65% 75% at 50% 8%,#341a10,#1A1A1A 65%)}
+.sc-wall h2{font-family:var(--display);font-weight:900;font-size:clamp(34px,6vw,56px);color:#FBF6EE;margin:0 0 6px}
+.sc-wall .pct{color:var(--gs-orange);font-family:'Poppins';font-size:clamp(52px,10vw,96px);font-weight:900;display:block;
+  text-shadow:0 0 40px rgba(255,90,45,.5)}
+.sc-wall .lead{color:var(--muted);max-width:560px;margin:14px auto 0;font-size:16px}
+.sc-wall .pile{position:relative;max-width:900px;margin:50px auto 0;height:300px}
+.sc-wall .pile figure{margin:0;position:absolute;width:180px}
+.sc-wall .pile img{width:180px;height:230px;object-fit:cover;border-radius:16px;border:2px solid rgba(255,90,45,.5);
+  box-shadow:0 20px 44px rgba(0,0,0,.55);display:block;animation:storyfloat 5.5s ease-in-out infinite}
+.sc-wall .pile figcaption{margin-top:8px;font:800 12.5px 'Noto Sans TC';color:#B4B4BB;text-align:center}
+.sc-wall .pile figure:nth-child(1){left:2%;top:34px;transform:rotate(-9deg);z-index:1}
+.sc-wall .pile figure:nth-child(2){left:22%;top:0;transform:rotate(-3deg);z-index:3}
+.sc-wall .pile figure:nth-child(2) img{animation-delay:.3s}
+.sc-wall .pile figure:nth-child(3){left:42%;top:20px;transform:rotate(4deg);z-index:4}
+.sc-wall .pile figure:nth-child(3) img{animation-delay:.6s}
+.sc-wall .pile figure:nth-child(4){left:62%;top:4px;transform:rotate(-5deg);z-index:2}
+.sc-wall .pile figure:nth-child(4) img{animation-delay:.9s}
+.sc-wall .pile figure:nth-child(5){left:81%;top:38px;transform:rotate(8deg);z-index:1}
+.sc-wall .pile figure:nth-child(5) img{animation-delay:1.2s}
+.sc-wall .badge{position:absolute;top:-10px;right:-10px;background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#fff;
+  font:900 11px 'Noto Sans TC';padding:5px 10px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.4);transform:rotate(6deg);z-index:5}
+@keyframes storyfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@media(max-width:820px){.sc-wall .pile{height:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+  .sc-wall .pile figure{position:static !important;transform:none !important;width:130px}
+  .sc-wall .pile img{width:130px;height:170px}}
+.sc-last{background:#0d0d0f}
+.sc-last .rays{position:absolute;inset:-20%;z-index:0;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,194,75,.08) 0deg 8deg,transparent 8deg 16deg)}
+.sc-last .spot{position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 50% 42%,rgba(255,194,75,.28),transparent 55%)}
+.sc-last .stage{position:relative;display:inline-block}
+.sc-last .stage img.hero{width:min(58vw,340px);border-radius:18px;filter:drop-shadow(0 0 60px rgba(255,194,75,.5));
+  border:2px solid rgba(255,194,75,.5);display:block;margin:0 auto}
+.sc-last .stage img.orbit{position:absolute;width:92px;height:92px;border-radius:12px;object-fit:cover;opacity:.7;
+  border:1.5px solid rgba(255,255,255,.25);box-shadow:0 12px 26px rgba(0,0,0,.5)}
+.sc-last .stage .o1{top:-30px;left:-70px;transform:rotate(-10deg)}
+.sc-last .stage .o2{bottom:10px;right:-80px;transform:rotate(9deg)}
+.sc-last .stage .o3{bottom:-40px;left:-30px;transform:rotate(6deg)}
+.sc-last .tag{display:inline-block;font:900 19px 'Noto Sans TC';color:#1A1A1A;background:linear-gradient(100deg,#FFC24B,#FF5A2D);
+  padding:10px 26px;border-radius:999px;margin-bottom:24px;letter-spacing:.05em;box-shadow:0 0 30px rgba(255,194,75,.4)}
+.sc-last h2{font-family:var(--display);font-weight:900;font-size:clamp(30px,6vw,50px);color:#FBF6EE;margin:24px 0 0}
+.sc-last p{color:var(--muted);margin-top:16px;font-size:16.5px;max-width:480px;margin-left:auto;margin-right:auto}
+@media(max-width:760px){.sc-last .stage .orbit{display:none}}
+.sc-map{background:#1A1A1A}
+.sc-map h2{font-family:var(--display);font-weight:900;font-size:clamp(28px,5vw,42px);color:#FBF6EE;margin:0 0 32px}
+.sc-map-frame{display:inline-block;padding:30px 40px;background:#0d0d0f;border-radius:24px;border:1.5px solid rgba(255,90,45,.4);
+  box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.sc-map-svg{margin:0 auto;display:block}
+.sc-map p{color:var(--muted);margin-top:24px;font-size:16.5px;line-height:1.8}
+.sc-map p b{color:var(--gs-orange)}
+.sc-now{background:#202024}
+.sc-now h2{font-family:var(--display);font-weight:900;font-size:clamp(28px,5vw,42px);color:#FBF6EE;margin:0 0 32px}
+.sc-now .row{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;max-width:900px;margin:0 auto}
+.sc-now .card{width:250px;border-radius:20px;overflow:hidden;border:2px solid rgba(255,90,45,.5);background:#0d0d0f;text-align:left;
+  box-shadow:0 16px 40px rgba(0,0,0,.5);position:relative}
+.sc-now .card:nth-child(2){transform:translateY(-18px)}
+.sc-now .card .live{position:absolute;top:12px;right:12px;background:#FF5A2D;color:#1A1A1A;font:900 11px 'Noto Sans TC';
+  padding:4px 10px;border-radius:999px;z-index:2;animation:storypulse 1.6s ease-in-out infinite}
+@keyframes storypulse{0%,100%{opacity:1}50%{opacity:.55}}
+.sc-now .card img{width:100%;height:230px;object-fit:cover}
+.sc-now .card .cap{padding:16px 16px 4px;font:800 16px 'Noto Sans TC';color:#ECECEA}
+.sc-now .card .sub{padding:0 16px 16px;font-size:13px;color:var(--muted)}
+.sc-now .cta{margin-top:52px}
+@media(max-width:760px){.sc-now .card:nth-child(2){transform:none}}
+</style>
+<div id="storyScenes">
+<section class="story-scene sc-hero" id="s1">
+  <div class="scene-ring r1 px" data-speed="-.3"></div><div class="scene-ring r2 px" data-speed=".25"></div>
+  <span class="story-speed px" data-speed=".4" style="width:180px;top:18%;left:6%;transform:rotate(-14deg)"></span>
+  <span class="story-speed px" data-speed="-.35" style="width:140px;top:70%;right:8%;transform:rotate(10deg)"></span>
+  <span class="story-star px" data-speed=".5" style="top:24%;right:16%">✦</span>
+  <span class="story-star px" data-speed="-.45" style="bottom:26%;left:12%;font-size:14px">✦</span>
+  <img class="px-photo px1 px" data-speed=".3" src="assets/brand/products/戰鬥陀螺/包裝-CX07起始組.jpg" alt="">
+  <img class="px-photo px2 px" data-speed="-.4" src="assets/brand/products/寶可夢卡/商品-寶可夢-S-達克萊伊ex卡.jpg" alt="">
+  <img class="px-photo px3 px" data-speed=".45" src="assets/brand/products/皮克敏/商品-皮克敏-S-歐擬蛹小夜燈.jpg" alt="">
+  <img class="px-photo px4 px" data-speed="-.3" src="assets/brand/products/戰鬥陀螺/商品-陀螺-A-暴風天馬復刻.jpg" alt="">
+  <div class="wrap">
+    <svg class="logo-orbit px" data-speed=".2" viewBox="0 0 1080 1080" aria-hidden="true">
+      <circle cx="540" cy="540" r="540" fill="#FF5A2D"/>
+      <circle cx="540" cy="540" r="519" fill="none" stroke="#FBF6EE" stroke-width="30"/>
+      <circle cx="540" cy="540" r="300" fill="none" stroke="#FBF6EE" stroke-width="42"/>
+      <circle cx="540" cy="540" r="92" fill="#FBF6EE"/>
+      <circle cx="540" cy="540" r="34" fill="#993C1D"/>
+    </svg>
+    <h1>想抽就有得抽<span class="hot">每抽必中！</span></h1>
+    <p>戰鬥陀螺・娃娃機・線上一番賞——公開亂數可驗證公平，24 小時想玩就玩。</p>
+  </div>
+  <div class="sc-marquee"><div class="sc-mq">
+    <b>🔥 開幕第一彈｜戰鬥陀螺 爭霸　開抽中</b>
+    <b>🔥 開幕第二彈｜寶可夢卡牌 傳說對決　開抽中</b>
+    <b>🔥 開幕第三彈｜皮克敏 萌力全開　開抽中</b>
+    <b>🔥 開幕第一彈｜戰鬥陀螺 爭霸　開抽中</b>
+    <b>🔥 開幕第二彈｜寶可夢卡牌 傳說對決　開抽中</b>
+    <b>🔥 開幕第三彈｜皮克敏 萌力全開　開抽中</b>
+  </div></div>
+</section>
+
+<section class="story-scene sc-explain" id="s2">
+  <div class="wrap">
+    <div class="diamond"><span>賞</span></div>
+    <h2>所謂的一番賞</h2>
+    <div class="cols">
+      <p>傳統扭蛋或刮刮樂可能槓龜，但一番賞不一樣：<strong>每一張籤都對應到一個獎品</strong>，所以你每抽一定會拿到東西，差別只在賞別大小。這也是一番賞讓人「一抽再抽」的魅力來源。</p>
+      <div class="gradebox">
+        <span>S 賞</span><span>A 賞</span><span>B 賞</span><span>C 賞</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story-scene sc-claw" id="s3">
+  <div class="scene-ring r1 px" data-speed=".3"></div><div class="scene-ring r2 px" data-speed="-.25"></div>
+  <div class="wrap">
+    <div class="split">
+      <div class="cab">
+        <span class="claw-ico">🕹️</span>
+        <img src="assets/brand/card-claw.webp" alt="Go Shoot 24H 娃娃機">
+        <img class="mini" src="assets/brand/products/皮克敏/商品-皮克敏-B-紅皮克敏絨毛.jpg" alt="夾娃娃機景品示意">
+      </div>
+      <div class="txt">
+        <h2>實體店：24H 娃娃機</h2>
+        <p>新北市中和區景平路 593 號之 1，就在<b style="color:var(--gs-orange)">捷運中和站旁</b>、連城路口公車站步行約 1 分——來現場夾娃娃、看戰鬥陀螺對戰。</p>
+        <div class="chips"><span>24H 營業</span><span>捷運站旁</span><span>對戰區同場</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story-scene sc-flow" id="s4">
+  <div class="wrap">
+    <h2>線上怎麼抽、怎麼領？</h2>
+    <div class="frame"><span class="badge">3 分鐘上手</span><img src="assets/brand/flow-5steps.webp" alt="Go Shoot 線上一番賞抽獎流程五步驟：選擇一番賞、進行抽獎、開獎動畫、查看獎品、運送到家"></div>
+  </div>
+</section>
+
+<section class="story-scene sc-wall" id="s5">
+  <span class="story-speed px" data-speed=".35" style="width:160px;top:14%;right:6%;transform:rotate(12deg)"></span>
+  <span class="story-speed px" data-speed="-.3" style="width:130px;top:80%;left:5%;transform:rotate(-8deg)"></span>
+  <div class="wrap">
+    <h2>中獎率<span class="pct">100%</span></h2>
+    <p class="lead">戰鬥陀螺一番賞，正版市購品、原廠外包裝——每一抽都是實體商品，不是虛擬點數。</p>
+    <div class="pile">
+      <figure><span class="badge">正版</span><img src="assets/brand/products/戰鬥陀螺/包裝-CX07起始組.jpg" alt="Beyblade X CX-07 起始組零售包裝"><figcaption>CX-07 起始組</figcaption></figure>
+      <figure><span class="badge">正版</span><img src="assets/brand/products/戰鬥陀螺/包裝-CX17隨機強化組.jpg" alt="Beyblade X CX-17 隨機強化組零售包裝"><figcaption>CX-17 隨機強化組</figcaption></figure>
+      <figure><span class="badge">正版</span><img src="assets/brand/products/戰鬥陀螺/包裝-BX37競技場套組.jpg" alt="Beyblade X BX-37 競技場套組零售包裝"><figcaption>BX-37 競技場套組</figcaption></figure>
+      <figure><span class="badge">正版</span><img src="assets/brand/products/戰鬥陀螺/包裝-BX25收納盒.jpg" alt="Beyblade X BX-25 收納盒零售包裝"><figcaption>BX-25 收納盒</figcaption></figure>
+      <figure><span class="badge">正版</span><img src="assets/brand/products/戰鬥陀螺/包裝-BX18拉線發射器.jpg" alt="Beyblade X BX-18 拉線發射器零售包裝"><figcaption>BX-18 拉線發射器</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="story-scene sc-last" id="s6">
+  <div class="rays px" data-speed=".15" aria-hidden="true"></div>
+  <div class="spot" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="tag">LAST ONE 賞</span>
+    <div class="stage">
+      <img class="orbit o1 px" data-speed=".3" src="assets/brand/products/戰鬥陀螺/包裝-CX17隨機強化組.jpg" alt="">
+      <img class="orbit o2 px" data-speed="-.3" src="assets/brand/products/戰鬥陀螺/包裝-BX37競技場套組.jpg" alt="">
+      <img class="orbit o3 px" data-speed=".25" src="assets/brand/products/戰鬥陀螺/包裝-BX25收納盒.jpg" alt="">
+      <img class="hero" src="assets/brand/products/戰鬥陀螺/商品-陀螺-S-空力天馬紅版.jpg" alt="LAST賞：空力天馬紅色限定版">
+    </div>
+    <h2>抽到最後一張，還有更狠的</h2>
+    <p>抽走整套最後一張籤，獨得全場最稀有的 LAST ONE 賞——空力天馬紅色限定版，市價上看 8,000+。</p>
+  </div>
+</section>
+
+<section class="story-scene sc-map" id="s7">
+  <div class="wrap">
+    <h2>怎麼找到我們</h2>
+    <div class="sc-map-frame">
+      <svg class="sc-map-svg" width="360" height="260" viewBox="0 0 360 260">
+        <line x1="55" y1="195" x2="285" y2="75" stroke="#FF5A2D" stroke-width="4" stroke-dasharray="8 10" stroke-linecap="round"/>
+        <circle cx="55" cy="195" r="30" fill="#232326" stroke="#FBF6EE" stroke-width="2.5"/>
+        <text x="55" y="203" text-anchor="middle" font-size="24" fill="#FBF6EE">🚇</text>
+        <text x="55" y="240" text-anchor="middle" font-size="14" fill="#B4B4BB" font-family="Noto Sans TC" font-weight="700">捷運中和站</text>
+        <circle cx="285" cy="75" r="32" fill="#FF5A2D"/>
+        <text x="285" y="84" text-anchor="middle" font-size="26" fill="#1A1A1A">📍</text>
+        <text x="285" y="128" text-anchor="middle" font-size="15" fill="#FF5A2D" font-family="Noto Sans TC" font-weight="900">Go Shoot</text>
+      </svg>
+    </div>
+    <p>新北市中和區<b>景平路 593 號之 1</b><br>捷運中和站旁・連城路口公車站<b>步行約 1 分</b></p>
+  </div>
+</section>
+
+<section class="story-scene sc-now" id="s8">
+  <div class="wrap">
+    <h2>現在有哪些一番賞？</h2>
+    <div class="row">
+      <div class="card">
+        <span class="live">熱抽中</span>
+        <img src="assets/brand/products/戰鬥陀螺/商品-陀螺-S-空力天馬紅版.jpg" alt="戰鬥陀螺 爭霸">
+        <div class="cap">戰鬥陀螺 爭霸</div>
+        <div class="sub">開幕第一彈・開抽中</div>
+      </div>
+      <div class="card">
+        <span class="live">熱抽中</span>
+        <img src="assets/brand/products/寶可夢卡/商品-寶可夢-S-達克萊伊ex卡.jpg" alt="寶可夢卡牌 傳說對決">
+        <div class="cap">寶可夢卡牌 傳說對決</div>
+        <div class="sub">開幕第二彈・開抽中</div>
+      </div>
+      <div class="card">
+        <span class="live">熱抽中</span>
+        <img src="assets/brand/products/皮克敏/商品-皮克敏-S-歐擬蛹小夜燈.jpg" alt="皮克敏 萌力全開">
+        <div class="cap">皮克敏 萌力全開</div>
+        <div class="sub">開幕第三彈・開抽中</div>
+      </div>
+    </div>
+    <div class="cta" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a style="font:800 18px 'Noto Sans TC';padding:17px 34px;border-radius:999px;display:inline-block;
+      background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#fff;text-decoration:none;box-shadow:0 0 30px rgba(255,90,45,.55)"
+      href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
+      <a style="font:800 16px 'Noto Sans TC';padding:16px 28px;border-radius:999px;display:inline-block;
+      background:rgba(255,255,255,.06);color:#F3F0EA;text-decoration:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)"
+      href="scroll-preview.html">✦ 飛進 Go Shoot 世界</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ===== CATEGORY TILES ===== -->
+<section id="cats" style="background:rgba(32,32,36,.72)"><div class="wrap">
+  <style>
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .pillar{position:relative;border-radius:22px;padding:28px 24px;min-height:236px;color:#fff;
+      display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;box-shadow:var(--shadow);transition:.18s}
+    .pillar:hover{transform:translateY(-5px)}
+    .pillar svg{width:50px;height:50px;margin-bottom:auto}
+    .pillar h3{font-family:var(--disp);font-size:25px;font-weight:800;margin:14px 0 6px;color:#fff}
+    .pillar p{font-size:13.5px;opacity:.95;line-height:1.5;margin-bottom:14px}
+    .pillar .go{font-family:var(--disp);font-weight:700;font-size:15px}
+    /* 店內廣告圖卡風：三卡統一黑底橘框，右下品類素材 screen blend 融入 */
+    .p-bey,.p-claw,.p-ichi{background:linear-gradient(160deg,#232326,#151517);
+      border:1.5px solid rgba(255,90,45,.5);border-top:3px solid var(--gs-orange)}
+    .pillar .pdeco{position:absolute;pointer-events:none;z-index:0;
+      right:-26px;bottom:-30px;width:190px;height:auto;
+      mix-blend-mode:screen;opacity:.85;filter:contrast(1.1) saturate(1.05);
+      transform:rotate(-8deg);border-radius:14px}
+    .pillar h3,.pillar p,.pillar .go,.pillar>svg:not(.pdeco){position:relative;z-index:1}
+    .pillar .go{color:var(--gs-orange)}
+    .subcats{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .subcat{background:var(--paper2);border:1px solid rgba(255,255,255,.10);border-radius:30px;padding:11px 20px;font-weight:700;font-size:14px;box-shadow:var(--shadow);transition:.15s;color:var(--text)}
+    .subcat:hover{transform:translateY(-2px);color:var(--coral2)}
+    @media(max-width:760px){.pillars{grid-template-columns:1fr}.pillar{min-height:170px}
+      .pillar .pdeco{width:150px;opacity:.55;right:-30px;bottom:-34px}}
+  </style>
+  <span class="eyebrow">三大主打</span>
+  <h2 class="sec">Go Shoot 主推這三樣</h2>
+  <p class="sec-lead" style="margin-bottom:24px">戰鬥陀螺・娃娃機・線上一番賞——這裡一次到齊。</p>
+  <div class="pillars">
+    <a class="pillar p-bey" href="#products">
+      <img class="pdeco" src="assets/brand/card-beyblade.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="#fff" stroke-width="4"/><circle cx="32" cy="32" r="16" fill="none" stroke="#fff" stroke-width="1.6" opacity=".5"/><circle cx="32" cy="32" r="7" fill="#fff"/></svg>
+      <h3>戰鬥陀螺</h3>
+      <p>Beyblade X 新品快訊、天梯榜與改裝攻略，店內現貨・現場試打</p>
+      <span class="go">看情報 →</span>
+    </a>
+    <a class="pillar p-claw" href="#claw">
+      <img class="pdeco" src="assets/brand/card-claw.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <svg viewBox="0 0 64 64"><rect x="16" y="14" width="32" height="36" rx="5" fill="none" stroke="#fff" stroke-width="4"/><path d="M26 30 l6 6 6-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+      <h3>娃娃機</h3>
+      <p>店內主力・24H 營業・景品定期更新・不定期保夾</p>
+      <span class="go">看專區 →</span>
+    </a>
+    <a class="pillar p-ichi" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">
+      <img class="pdeco" src="assets/brand/card-ichiban-ticket.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <svg viewBox="0 0 64 64"><path d="M14 26 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M14 26 l18-14 18 14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="38" r="5" fill="#fff"/></svg>
+      <h3>線上一番賞</h3>
+      <p>24H 隨時抽・每抽必中・公開亂數可驗證公平</p>
+      <span class="go">立即開抽 →</span>
+    </a>
+  </div>
+  <div class="subcats">
+    <a class="subcat" href="#products">🧸 玩具公仔</a>
+    <a class="subcat" href="#products">🥚 扭蛋模型</a>
+    <a class="subcat" href="#preorder">🎌 日本代購</a>
+    <a class="subcat" href="events.html"><img src="/assets/brand/icon/trophy.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 賽事排行</a>
+  </div>
+</div></section>
+
+<!-- ===== 戰鬥陀螺從 0 開始 ===== -->
+<section id="start" style="background:rgba(26,26,26,.55)"><div class="wrap">
+  <style>
+    .zero{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+    @media(max-width:900px){.zero{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.zero{grid-template-columns:1fr}}
+    .z-card{background:var(--paper);border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:20px 18px;color:var(--text);transition:.15s;display:flex;flex-direction:column;gap:8px}
+    .z-card:hover{transform:translateY(-4px);border-color:var(--coral)}
+    .z-card .n{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#1A1A1A;font-family:var(--disp);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px}
+    .z-card h3{font-size:17px;font-weight:900;margin-top:4px}
+    .z-card p{color:var(--muted);font-size:13.5px;line-height:1.6;flex:1;margin:0}
+    .z-card .go{color:var(--coral2);font-weight:800;font-size:13.5px;font-family:var(--disp)}
+  </style>
+  <span class="eyebrow">新手友善・最舒服的入口</span>
+  <h2 class="sec">戰鬥陀螺，從 0 開始</h2>
+  <p class="sec-lead" style="margin-bottom:6px">被博恩帶進坑、或想重溫童年？完全沒碰過也沒關係——照這四步，輕鬆認識戰鬥陀螺。</p>
+  <div class="zero">
+    <a class="z-card" href="beyblade-history.html">
+      <span class="n">1</span><h3>認識它</h3>
+      <p>從爆転到 Beyblade X，日本與台灣二十幾年的故事，一頁看懂。</p>
+      <span class="go">看戰鬥陀螺歷史 →</span>
+    </a>
+    <a class="z-card" href="guide-whatisx.html">
+      <span class="n">2</span><h3>搞懂它</h3>
+      <p>Beyblade X 是什麼？規則、三段式構造、四大取向，白話帶你懂。</p>
+      <span class="go">看規則入門 →</span>
+    </a>
+    <a class="z-card" href="ichiban-beyblade.html">
+      <span class="n">3</span><h3>入手它</h3>
+      <p>線上一番賞每抽必中，用親民單價抽到正版陀螺，不怕買錯。</p>
+      <span class="go">看戰鬥陀螺一番賞 →</span>
+    </a>
+    <a class="z-card" href="guide-beginner.html">
+      <span class="n">4</span><h3>開始玩</h3>
+      <p>第一顆怎麼選、基本玩法一次懂，到中和門市賽場當場試打。</p>
+      <span class="go">看新手入門 →</span>
+    </a>
+  </div>
+</div></section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products" style="background:rgba(26,26,26,.55)"><div class="wrap">
+  <style>
+    .news{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .newscard{background:var(--paper);border:1px solid rgba(255,255,255,.10);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:.15s;display:flex;flex-direction:column;color:var(--text)}
+    .newscard:hover{transform:translateY(-4px)}
+    .news-top{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .news-top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .nt-new{background:linear-gradient(135deg,var(--coral),var(--coral-deep))}
+    .nt-ltd{background:linear-gradient(135deg,#2f2b33,#46414b)}
+    .nt-sky{background:linear-gradient(135deg,var(--sky-deep),#2FA8A8)}
+    .nt-game{background:linear-gradient(135deg,var(--gold),#E5912A)}
+    .news-emoji{font-size:46px}
+    .news-tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--disp);font-weight:800;font-size:12px;padding:4px 11px;border-radius:12px}
+    .news-body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+    .news-title{font-weight:700;font-size:15px;line-height:1.45}
+    .news-meta{color:var(--muted);font-size:13px;line-height:1.5;flex:1}
+    .news-src{color:var(--coral2);font-size:12.5px;font-weight:700;font-family:var(--disp)}
+    .news-notice{display:flex;background:var(--paper);border:1px solid rgba(255,90,45,.38);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:22px;color:var(--text);transition:.15s}
+    .news-notice:hover{transform:translateY(-3px)}
+    .nn-cover{flex:0 0 38%;max-width:330px;overflow:hidden;background:#141018}
+    .nn-cover img{width:100%;height:100%;object-fit:cover;display:block}
+    .nn-body{padding:18px 22px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+    .nn-tag{align-self:flex-start;background:linear-gradient(135deg,var(--coral),var(--coral-deep));color:#1A1A1A;font-family:var(--disp);font-weight:800;font-size:12px;padding:4px 12px;border-radius:12px}
+    .nn-title{font-weight:900;font-size:20px;line-height:1.35}
+    .nn-text{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
+    .nn-src{color:var(--coral2);font-size:13px;font-weight:800;font-family:var(--disp)}
+    @media(max-width:680px){.news-notice{flex-direction:column}.nn-cover{flex:none;max-width:none;aspect-ratio:16/10}}
+    @media(max-width:900px){.news{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.news{grid-template-columns:1fr}}
+  </style>
+  <span class="eyebrow">戰鬥陀螺情報</span>
+  <h2 class="sec">最新戰況・新品快訊</h2>
+  <p class="sec-lead" style="margin-bottom:26px">Beyblade X 最新新品、限定款與賽事情報，幫你跟上戰局。想入手日版／限定款？店內可代購。</p>
+  <a class="news-notice" href="ichiban-beyblade.html">
+    <div class="nn-cover"><img src="assets/news/genuine-first.svg" alt="Go Shoot 只賣正版 Beyblade X 戰鬥陀螺，拒絕盜版" loading="lazy"></div>
+    <div class="nn-body">
+      <span class="nn-tag">正版聲明</span>
+      <div class="nn-title">我們只賣正版・拒絕盜版陀螺</div>
+      <p class="nn-text">市面上（蝦皮、露天）充斥山寨陀螺，做工差、對戰易碎裂有安全疑慮，還會磨傷競技盤。Go Shoot 是戰鬥陀螺專門店，<strong>只賣正版 Beyblade X（TAKARA TOMY）</strong>、認明 ST 安全玩具標誌——抽賞、對戰、代購都安心。</p>
+      <span class="nn-src">看正版戰鬥陀螺一番賞 →</span>
+    </div>
+  </a>
+  <div class="news">
+    <a class="newscard" href="https://www.nownews.com/news/6848235" target="_blank" rel="noopener">
+      <div class="news-top nt-new"><img src="assets/news/news-1.jpg" alt="戰鬥陀螺X 暴風天馬回歸，鋼鐵奇兵系列7/11開賣3款新品曝光" loading="lazy"><span class="news-tag">新品</span></div>
+      <div class="news-body">
+        <div class="news-title">暴風天馬回歸！《鋼鐵奇兵》3 款新品曝光</div>
+        <div class="news-meta">BX-00 暴風天馬3-70RA領軍，鋼鐵奇兵系列7/11同步開賣。</div>
+        <div class="news-src">NOWnews今日新聞 ・ 看詳情 →</div>
+      </div>
+    </a>
+    <a class="newscard" href="https://universe.oneone.com.tw/posts/6055" target="_blank" rel="noopener">
+      <div class="news-top nt-ltd"><img src="assets/news/news-2.jpg" alt="Animate日本快閃店7月登場，限定黑龍陀螺、紅色飛馬同步開賣" loading="lazy"><span class="news-tag">限定</span></div>
+      <div class="news-body">
+        <div class="news-title">Animate 快閃店開幕・限定黑龍陀螺登場</div>
+        <div class="news-meta">大阪梅田、廣島、秋葉原、仙台四站巡迴，限定塗裝每人限購1個。</div>
+        <div class="news-src">oneone宇宙 ・ 看詳情 →</div>
+      </div>
+    </a>
+    <a class="newscard" href="https://www.nownews.com/news/6857662" target="_blank" rel="noopener">
+      <div class="news-top nt-sky"><img src="assets/news/news-3.jpg" alt="戰鬥陀螺極限盃G1高雄場7/25開戰，逾500玩家對決限定品曝光" loading="lazy"><span class="news-tag">賽事</span></div>
+      <div class="news-body">
+        <div class="news-title">極限盃 G1 高雄場開戰・逾 500 高手對決</div>
+        <div class="news-meta">7/25夢時代登場，前三名奪限定蒼龍突擊、晉級世界盃代表選拔賽。</div>
+        <div class="news-src">NOWnews今日新聞 ・ 看詳情 →</div>
+      </div>
+    </a>
+    <a class="newscard" href="https://game.udn.com/game/story/122089/9567338" target="_blank" rel="noopener">
+      <div class="news-top nt-game"><img src="assets/news/news-4.jpg" alt="Steam戰鬥陀螺小遊戲Slayblade爆紅開放試玩版" loading="lazy"><span class="news-tag">遊戲</span></div>
+      <div class="news-body">
+        <div class="news-title">Steam《Slayblade》爆紅・免排隊線上開戰</div>
+        <div class="news-meta">陀螺Roguelite新作開放試玩，網讚終於不用受黃牛氣。</div>
+        <div class="news-src">udn遊戲角落 ・ 看詳情 →</div>
+      </div>
+    </a>
+  </div>
+  <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <a class="btn" href="guide-tierlist.html">看本月天梯榜 →</a>
+    <a class="btn btn-ghost" href="#preorder">日版／限定款代購</a>
+    <span style="color:#9a948c;font-size:13px">情報定期更新</span>
+  </div>
+</div></section>
+
+<!-- ===== CLAW MACHINE ZONE ===== -->
+<!-- ===== 主打預告（id="featured-drop"）：老闆手動管理，只有老闆點名才更新內容；自動化（新聞卡 bot／SEO bot）禁止讀改動刪本區塊 ===== -->
+<section id="featured-drop" style="background:rgba(26,26,26,.55)"><div class="wrap">
+  <div style="background:linear-gradient(120deg,#141416 0%,#2a1710 55%,#E8552F 145%);border:1.5px solid rgba(255,90,45,.55);border-top:3px solid var(--gs-orange);border-radius:20px;box-shadow:var(--shadow);padding:28px 22px">
+    <span class="eyebrow">主打預告 ・ 海外直送</span>
+    <h2 class="sec" style="margin-top:6px">歐版 Beyblade X「Infinity」系列，登陸一番賞</h2>
+    <p class="sec-lead" style="margin-bottom:14px">Hasbro 歐美版 2026 最新彈，7/15 起於歐美通路上架——Go Shoot 海外代購・歐洲直送，整波直接進一番賞獎池：<b>線上一番賞＋中和門市現場</b>都抽得到，上架時間以本站公告為準。</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">Sneak Attack 戰鬥場組</span>
+      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">Clip &amp; Rip 攜帶發射器</span>
+      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">Infinity Starter Pack ×4</span>
+      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">BX／UX／CX 三線齊發</span>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <a class="btn" href="ichiban-beyblade.html">陀螺一番賞情報 →</a>
+      <span style="color:#9a948c;font-size:13px">敬請期待・以到貨公告為準</span>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== 新品發售追蹤（每週自動更新：戰鬥陀螺官方發售＋皮克敏＋寶可夢） ===== -->
+<style>
+.rel-list{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.rel{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px 16px;flex-wrap:wrap;transition:border-color .15s}
+.rel:hover{border-color:rgba(255,90,45,.4)}
+.rel-date{flex:0 0 auto;text-align:center;background:#2B2B30;border-radius:10px;padding:7px 12px;min-width:64px}
+.rel-date b{display:block;font:800 17px/1.1 'Poppins';color:#FF8A6B}
+.rel-date span{font-size:10.5px;color:#8A8790;letter-spacing:.05em}
+.rel-main{flex:1 1 220px;min-width:0}
+.rel-name{font-weight:800;font-size:15.5px;line-height:1.4}
+.rel-sub{font-size:12.5px;color:#B4B4BB;margin-top:2px}
+.rel-tag{font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;margin-right:6px;vertical-align:1px}
+.rt-bey{background:#FF5A2D;color:#1A1A1A}.rt-pok{background:#FFC24B;color:#1A1A1A}.rt-pik{background:#3FC8C8;color:#1A1A1A}
+.rel-st{font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;flex:0 0 auto}
+.st-pre{color:#FFC24B;background:rgba(255,194,75,.12)}
+.st-soon{color:#FFC24B;background:rgba(255,194,75,.14)}
+.st-hot{color:#FF8A6B;background:rgba(255,90,45,.14)}
+.rel-thumb{width:52px;height:52px;border-radius:10px;object-fit:cover;flex:0 0 auto;border:1px solid rgba(255,255,255,.12)}
+.rel-cta{flex:0 0 auto;font:800 13px 'Noto Sans TC';background:var(--gs-orange);color:#1A1A1A;padding:9px 16px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.rel-cta.alt{background:transparent;color:#ECECEA;border:1.5px solid rgba(255,255,255,.18)}
+@media(max-width:560px){.rel-cta{flex:1 1 100%;text-align:center}}
+</style>
+<section id="releases" style="background:rgba(26,26,26,.55)"><div class="wrap">
+  <span class="eyebrow">發售雷達 ・ 每週更新</span>
+  <h2 class="sec">新品發售追蹤</h2>
+  <p class="sec-lead">戰鬥陀螺官方新品×寶可夢×皮克敏——發售日、狀態、在哪買，一條龍幫你盯好。</p>
+  <div class="rel-list">
+    <div class="rel">
+      <div class="rel-date"><b>已上市</b><span>日版</span></div>
+      <div class="rel-main"><div class="rel-name"><span class="rel-tag rt-bey">陀螺</span>UX-20 榮耀女武神 LF</div>
+        <div class="rel-sub">彈跳反擊新機構＋白色金屬塗裝，攻擊型新品已開賣</div></div>
+      <span class="rel-st st-soon">話題新品</span>
+      <a class="rel-cta alt" href="article-beyblade-ux20-valkyrie.html">情報 →</a>
+    </div>
+    <div class="rel">
+      <div class="rel-date"><b>已上市</b><span>日版</span></div>
+      <div class="rel-main"><div class="rel-name"><span class="rel-tag rt-bey">陀螺</span>烈風天馬＋天堂日輪隨機強化組 Vol.11</div>
+        <div class="rel-sub">3 款新品同步開賣，7-11 會員限定預購已截止（<a href="article-beyblade-711-heavens-ring.html" style="color:#FF8A6B">情報</a>）</div></div>
+      <span class="rel-st st-soon">新品情報</span>
+      <a class="rel-cta alt" href="ichiban-beyblade.html">了解更多 →</a>
+    </div>
+    <div class="rel">
+      <div class="rel-date"><b>已上市</b><span>日版</span></div>
+      <div class="rel-main"><div class="rel-name"><span class="rel-tag rt-pok">寶可夢</span>一番賞 Pokémon 30th ANNIVERSARY vol.2</div>
+        <div class="rel-sub">五地區御三家絨毛＋30週年皮卡丘壓軸賞，7/18 日版開抽</div></div>
+      <span class="rel-st st-soon">情報公開</span>
+      <a class="rel-cta alt" href="ichiban-pokemon.html">了解更多 →</a>
+    </div>
+    <div class="rel">
+      <div class="rel-date"><b>8/8</b><span>2026</span></div>
+      <div class="rel-main"><div class="rel-name"><span class="rel-tag rt-bey">陀螺</span>UX-21 地獄幽冥 Deck Set</div>
+        <div class="rel-sub">全新高度切換刀刃機構，一盒收錄三顆陀螺</div></div>
+      <span class="rel-st st-pre">可預約代購</span>
+      <a class="rel-cta" href="#preorder">預購／代購 →</a>
+    </div>
+    <div class="rel">
+      <div class="rel-date"><b>8/29</b><span>2026</span></div>
+      <div class="rel-main"><div class="rel-name"><span class="rel-tag rt-bey">陀螺</span>戰鬥陀螺 X × 福音戰士 EVA 聯名組</div>
+        <div class="rel-sub">初號機、零號機、二號機三色金屬塗裝，TAKARA TOMY MALL／EVA STORE限定（<a href="article-beyblade-evangelion.html" style="color:#FF8A6B">情報</a>）</div></div>
+      <span class="rel-st st-pre">可預約代購</span>
+      <a class="rel-cta" href="#preorder">預約代購 →</a>
+    </div>
+    <div class="rel">
+      <div class="rel-date"><b>8/29</b><span>2026</span></div>
+      <div class="rel-main"><div class="rel-name"><span class="rel-tag rt-pok">寶可夢</span>一番賞 Pokémon Masters EX 7th Anniversary</div>
+        <div class="rel-sub">紅蓮客萊斯特＆莉莉艾豪華人形登場，慶祝手遊 7 週年</div></div>
+      <span class="rel-st st-soon">情報公開</span>
+      <a class="rel-cta alt" href="ichiban-pokemon.html">關注寶可夢賞 →</a>
+    </div>
+    <div class="rel">
+      <div class="rel-date"><b>現行彈</b><span>一番賞</span></div>
+      <img class="rel-thumb" src="assets/brand/products/皮克敏/商品-皮克敏-A-歐慶抱枕.jpg" alt="皮克敏一番賞悠閒居家系列：歐慶臉頰抱枕" loading="lazy" decoding="async">
+      <div class="rel-main"><div class="rel-name"><span class="rel-tag rt-pik">皮克敏</span>一番賞 皮克敏 悠閒居家系列</div>
+        <div class="rel-sub">歐慶臉頰抱枕、歐擬蛹小夜燈超療癒</div></div>
+      <span class="rel-st st-soon">情報公開</span>
+      <a class="rel-cta alt" href="ichiban-pikmin.html">了解更多 →</a>
+    </div>
+  </div>
+  <p style="font-size:12.5px;color:#8A8790;margin-top:12px">發售日以官方公告為準・本區每週自動更新｜也可逛 <a href="shop.html" style="color:#FF8A6B">蝦皮商城</a></p>
+</div></section>
+
+<section id="claw" style="background:rgba(32,32,36,.72)"><div class="wrap">
+  <style>
+    /* 店內廣告圖卡風：黑底橘框，品牌娃娃機素材 screen blend 無縫融入 */
+    .claw-row{background:#0d0d0f;border:1.5px solid rgba(255,90,45,.5);border-top:3px solid var(--gs-orange);
+      border-radius:20px;box-shadow:var(--shadow);padding:26px 18px;display:flex;gap:20px;
+      align-items:center;justify-content:center;flex-wrap:wrap}
+    .claw-row img{width:clamp(170px,30vw,300px);height:auto;border-radius:14px;
+      mix-blend-mode:screen;filter:contrast(1.1) saturate(1.05)}
+    .claw-row img.mid{transform:rotate(-4deg)}
+    .claw-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+    .claw-feat{background:var(--paper);border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:18px 14px;text-align:center;box-shadow:var(--shadow)}
+    .claw-feat b{display:block;font-family:var(--disp);font-size:22px;color:var(--gs-orange);margin-bottom:4px}
+    .claw-feat span{font-size:13px;color:var(--muted)}
+    @media(max-width:760px){
+      .claw-feats{grid-template-columns:1fr 1fr}
+    }
+  </style>
+  <span class="eyebrow">店內主打</span>
+  <h2 class="sec">整間，都是娃娃機 <img src="/assets/brand/icon/claw.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></h2>
+  <p class="sec-lead" style="margin-bottom:24px">中和捷運站旁・<b>24 小時營業</b>。場內滿滿娃娃機台，景品定期更新、不定期保夾活動——從人氣公仔、玩偶到限定景品都有。逛玩具、開戰之餘，順手夾一發帶回家。</p>
+  <div class="claw-row" role="img" aria-label="Go Shoot 店內娃娃機台品牌視覺">
+    <img src="assets/brand/card-claw.webp" alt="" class="mid" loading="lazy" decoding="async">
+  </div>
+  <div class="claw-feats">
+    <div class="claw-feat"><b>24H</b><span>全天候營業，隨時來夾</span></div>
+    <div class="claw-feat"><b>滿場台</b><span>場內主力，機台超多</span></div>
+    <div class="claw-feat"><b>常更新</b><span>景品定期換・不定期保夾</span></div>
+    <div class="claw-feat"><b>站旁</b><span>中和捷運站旁，好到好停</span></div>
+  </div>
+  <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+    <a class="btn" href="#visit">來店看看 →</a>
+    <a class="btn btn-ghost" href="#" data-line>加 LINE 看新景品</a>
+  </div>
+</div></section>
+
+<!-- ===== ICHIBAN ===== -->
+<section id="ichiban" style="background:rgba(26,26,26,.55)"><div class="wrap">
+  <div class="band" style="background:linear-gradient(120deg,#141416 0%,#2a1710 45%,#E8552F 130%);border:1.5px solid rgba(255,90,45,.5)">
+    <div class="emblem"><img src="assets/brand/card-ichiban-ticket.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"
+      style="width:150px;height:auto;border-radius:14px;mix-blend-mode:screen;filter:contrast(1.1) saturate(1.05);transform:rotate(-6deg)"></div>
+    <div style="flex:1;min-width:260px">
+      <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.16);border-color:transparent">線上開抽</span>
+      <h2>Go Shoot 線上一番賞</h2>
+      <p>不必到店、隨時開抽。每一抽都有獎，A 賞、最後賞通通有機會帶回家。透明公正、即時開獎，用 Google 帳號登入就能玩。中獎可選宅配到府、到店取貨，或折抵店內消費。</p>
+      <a class="btn btn-race" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== ARENA BAND ===== -->
+<section id="arena" style="background:rgba(32,32,36,.72)"><div class="wrap">
+  <div class="band ink">
+    <div class="emblem"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24" fill="none" stroke="#FBF6EE" stroke-width="3.5"/><circle cx="32" cy="32" r="7" fill="#FF5A2D"/><path class="spin" d="M32 6 A26 26 0 0 1 58 32" fill="none" stroke="#FF5A2D" stroke-width="4" stroke-linecap="round"/></svg></div>
+    <div style="flex:1;min-width:260px">
+      <span class="eyebrow">店內賽場</span>
+      <h2>不只是買，是來開戰</h2>
+      <p>店內對戰賽場與即時排行榜，平日開放練習、假日舉辦賽事。贏一場、上一次榜，這裡是屬於你的戰場。</p>
+      <a class="btn btn-light" href="events.html">完整賽制・排行榜 →</a>
+      <a class="btn btn-ghost" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20店內賽事報名" style="border-color:#fff;color:#fff;margin-left:8px">賽事報名</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== SPLIT BANDS ===== -->
+<section style="padding-top:0;background:rgba(26,26,26,.55)"><div class="wrap">
+  <div class="split">
+    <div class="half sky">
+      <img class="hdeco" src="assets/brand/card-claw.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <h3><img src="/assets/brand/icon/claw.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 娃娃機台區</h3>
+      <p>景品定期更新、不定期保夾活動。逛玩具之餘順手夾一發，夾到帶回家。</p>
+      <a class="btn" href="#visit" style="margin-top:14px">來店看看 →</a>
+    </div>
+    <div class="half gold">
+      <h3>🎌 日本代購</h3>
+      <p>日版與限定款預購代購，早一步入手別人買不到的款式，到店取貨可現場驗。</p>
+      <a class="btn" href="#preorder" style="margin-top:14px">填預購單 →</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== GUIDES ===== -->
+<section id="guides" style="background:rgba(32,32,36,.72)"><div class="wrap">
+  <span class="eyebrow">戰略攻略</span>
+  <h2 class="sec">新手到老手，都能變強</h2>
+  <div class="grid-2">
+    <a class="guide-card" href="guide-beginner.html"><span class="kicker">新手入門</span><h3>第一次玩戰鬥陀螺，要準備什麼？</h3><p>一套需要什麼、第一顆怎麼選、基本玩法一次搞懂。</p></a>
+    <a class="guide-card" href="guide-tierlist.html"><span class="kicker">本月天梯</span><h3>Beyblade X 天梯 Tier List（每月更新）</h3><p>現在什麼配置最強？攻擊／防禦／持久代表一次看。</p></a>
+    <a class="guide-card" href="guide-mods.html"><span class="kicker">改裝攻略</span><h3>配件怎麼搭，陀螺才會更強？</h3><p>三大部位拆解、性能影響與進階搭配範例。</p></a>
+    <a class="guide-card" href="guide-daikou.html"><span class="kicker">代購情報</span><h3>日版／限定款代購怎麼買最划算？</h3><p>代購流程、運費、預購制與在地取貨的好處。</p></a>
+  </div>
+  <div style="margin-top:22px"><a class="btn btn-ghost" href="guide.html">看全部攻略 →</a></div>
+</div></section>
+
+<!-- ===== PREORDER ===== -->
+<section id="preorder" style="background:rgba(26,26,26,.55)"><div class="wrap">
+  <div class="band coral">
+    <div style="flex:1;min-width:260px">
+      <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.18);border-color:transparent">代購・預購</span>
+      <h2>線上填單 → 到店取貨</h2>
+      <p>想要的日版或限定款還沒進台灣？Email 或來電告訴我們，幫你調貨，到貨通知你到店領取。</p>
+      <a class="btn btn-light" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20日本代購・預購">✉ Email 預購 →</a>
+      <a class="btn btn-ghost" href="tel:+886976507911" style="border-color:#fff;color:#fff;margin-left:8px">☎ 來電詢問</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== VISIT ===== -->
+<section id="visit" style="background:rgba(32,32,36,.72)"><div class="wrap">
+  <span class="eyebrow">來店資訊</span>
+  <h2 class="sec">中和站旁，走路就到</h2>
+  <div class="info" style="margin-top:18px">
+    <div class="map"><iframe title="Go Shoot 地圖位置" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%99%AF%E5%B9%B3%E8%B7%AF593%E8%99%9F%E4%B9%8B1&output=embed"></iframe></div>
+    <div>
+      <dl>
+        <dt>地址</dt><dd>新北市中和區景平路593號之1</dd>
+        <dt>交通</dt><dd>捷運中和站旁，連城路口公車站步行約 1 分鐘</dd>
+        <dt>營業時間</dt><dd><img src="/assets/brand/icon/claw.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 娃娃機：24 小時<br><img src="/assets/brand/icon/spintop.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 戰鬥陀螺：每日 16:00–24:00</dd>
+        <dt>聯絡</dt><dd><a href="mailto:goshoot593@gmail.com" style="color:var(--coral2)">goshoot593@gmail.com</a> ／ <a href="tel:+886976507911" style="color:var(--coral2)">0976-507-911</a></dd>
+      </dl>
+      <div style="margin-top:20px"><a class="btn" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20預購・賽事報名詢問">✉ Email 預購・報名 →</a></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== FOOTER ===== -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <div class="fbrand"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#ECECEA" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#ECECEA" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF5A2D"/><circle cx="256" cy="256" r="18" fill="#ECECEA"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF5A2D" stroke-width="26" stroke-linecap="round"/></svg>
+        Go Shoot
+      </div>
+      <p style="color:#cfc8bf;font-size:14px;max-width:280px">中和捷運站旁的戰鬥陀螺・玩具・娃娃機店。買得到、找得到對手、上得了排行榜。一起 Go Shoot！</p>
+      <a class="btn btn-sm fcta" href="mailto:goshoot593@gmail.com">✉ Email 聯絡</a>
+      <div class="fsoc"><a href="mailto:goshoot593@gmail.com" title="Email 聯絡">✉</a><a href="tel:+886976507911" title="電話 0976-507-911">📞</a></div>
+    </div>
+    <div><h4>逛商品</h4><a href="#products">戰鬥陀螺</a><a href="#products">玩具公仔</a><a href="#products">扭蛋模型</a><a href="#" data-shopee>蝦皮賣場</a></div>
+    <div><h4>玩家服務</h4><a href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">線上一番賞</a><a href="#preorder">代購預購</a><a href="#arena">店內賽事</a><a href="#visit">娃娃機台區</a><a href="faq.html">常見問題</a></div>
+    <div><h4>攻略資源</h4><a href="guide-beginner.html">新手入門</a><a href="guide-tierlist.html">本月天梯</a><a href="guide-mods.html">改裝攻略</a><a href="guide.html">全部攻略</a></div>
+  </div>
+  <div class="copy"><a href="terms.html" style="color:inherit">服務條款</a> ・ <a href="privacy.html" style="color:inherit">隱私權政策</a> ・ <a href="refund.html" style="color:inherit">退款政策</a> ・ 旋賞數位有限公司（設立登記辦理中）</div>
+  <div class="copy">© 2026 Go Shoot 戰鬥陀螺 ・ 新北市中和區景平路593號之1 ・ 一起開戰！</div>
+</div></footer>
+
+<script src="assets/site.js" defer></script>
+<script>
+/* Hero 輪播 */
+(function(){
+  var slides=document.querySelectorAll('.slide'), dots=document.getElementById('dots'), i=0;
+  if(!dots||!slides.length) return;
+  slides.forEach(function(_,n){var b=document.createElement('b');if(n===0)b.className='on';
+    b.onclick=function(){go(n)};dots.appendChild(b);});
+  var dot=dots.children;
+  function go(n){slides[i].classList.remove('on');dot[i].classList.remove('on');
+    i=n;slides[i].classList.add('on');dot[i].classList.add('on');}
+  setInterval(function(){go((i+1)%slides.length);},5000);
+})();
+</script>
+<script defer src="assistant.js"></script>
+
+<!-- ===== GSAP 動效（本地引入，不依賴外部 CDN；設計系統 §7）===== -->
+<script defer src="assets/gsap/gsap.min.js"></script>
+<script defer src="assets/gsap/ScrollTrigger.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  if(!window.gsap||!window.ScrollTrigger){return;}
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.defaults({ease:"power3.out",duration:.7});
+
+  var mm=gsap.matchMedia();
+  mm.add({
+    reduce:"(prefers-reduced-motion: reduce)",
+    ok:"(prefers-reduced-motion: no-preference)"
+  },function(ctx){
+    if(ctx.conditions.reduce){
+      // 靜態降級：星芒半透明常駐，其餘維持 CSS 原樣不動
+      gsap.set(".gsx-star",{autoAlpha:.45});
+      return function(){};
+    }
+
+    // HERO：9 段捲動故事進場 stagger reveal ＋ 視差漂浮層（取代舊 logo 置中 hero timeline）
+    document.querySelectorAll("#storyScenes .story-scene").forEach(function(sec){
+      var kids = Array.from(sec.querySelectorAll(".wrap > *"));
+      gsap.set(kids,{y:30,scale:.96,autoAlpha:0});
+      ScrollTrigger.create({trigger:sec,start:"top 78%",once:true,
+        onEnter:function(){gsap.to(kids,{y:0,scale:1,autoAlpha:1,stagger:.09,overwrite:"auto"});}});
+      var layers = Array.from(sec.querySelectorAll(".px"));
+      if(layers.length){
+        ScrollTrigger.create({trigger:sec,start:"top bottom",end:"bottom top",scrub:.6,
+          onUpdate:function(self){
+            var p = self.progress - .5;
+            layers.forEach(function(el){
+              var speed = parseFloat(el.dataset.speed || .3);
+              gsap.set(el,{y:p*260*speed,rotation:p*14*speed});
+            });
+          }});
+      }
+    });
+
+    // 氛圍層：速度線掃入＋星芒閃爍
+    gsap.from(".gsx-speed",{scaleX:0,transformOrigin:"left center",autoAlpha:0,
+      duration:1,stagger:.12,ease:"power2.out",delay:.3});
+    gsap.to(".gsx-star",{autoAlpha:1,scale:1.15,duration:1.4,ease:"sine.inOut",
+      repeat:-1,yoyo:true,stagger:{each:.5,from:"random"}});
+    // 氛圍層：速度線隨捲動極輕量橫移視差（fixed 層，只動 transform）
+    gsap.to(".gs-atmos .gsx-speed",{xPercent:28,ease:"none",
+      scrollTrigger:{trigger:document.body,start:"top top",end:"max",scrub:1.4}});
+
+    // 捲動 reveal（once:true，只動 transform/opacity）
+    // 註：用 onEnter callback 而非 gsap.from+toggleActions——快速捲動一次跳過
+    // start 與 end 時 toggleActions 不會播放，元素會卡在隱藏態；callback 保證觸發。
+    function rev(items,trigger,opts){
+      opts=opts||{};
+      var els=gsap.utils.toArray(items);
+      if(!els.length){return;}
+      var dy=(opts.y!=null?opts.y:36), st=(opts.stagger!=null?opts.stagger:.1);
+      gsap.set(els,{y:dy,autoAlpha:0});
+      ScrollTrigger.create({trigger:trigger,start:"top 82%",once:true,
+        onEnter:function(){gsap.to(els,{y:0,autoAlpha:1,duration:.7,stagger:st,overwrite:"auto"});}});
+    }
+    rev(".pillar",".pillars");
+    rev(".subcat",".subcats",{y:16,stagger:.06});
+    rev(".z-card",".zero");
+    rev(".news-notice",".news-notice",{y:26,stagger:0});
+    rev(".newscard",".news");
+    rev(".rel",".rel-list",{y:24,stagger:.07});
+    rev(".claw-feat",".claw-feats",{y:24});
+    gsap.utils.toArray(".band,.half,.grid-2 .guide-card").forEach(function(el){
+      rev(el,el,{y:32,stagger:0});
+    });
+
+    return function(){ /* matchMedia 自動 revert */ };
+  });
+});
+</script>
+
+</body>
+</html>
