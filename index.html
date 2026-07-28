@@ -259,7 +259,7 @@ footer a:hover{color:var(--gs-orange)}
 @keyframes gsbtnSpin{to{transform:rotate(360deg)}}
 .gsbtn:hover .gsbtn-outline{opacity:1}
 .gsbtn:hover .gsbtn-outline::before{animation-play-state:running}
-.gsbtn .gsbtn-state p span{display:block;opacity:0;animation:gsbtnSlideDown .8s ease forwards calc(var(--i)*.03s)}
+.gsbtn .gsbtn-state p span{display:block;opacity:1}
 .gsbtn:hover .gsbtn-state--default p span{opacity:1;animation:gsbtnWave .5s ease forwards calc(var(--i)*.02s)}
 .gsbtn:focus .gsbtn-state--default p span{opacity:1;animation:gsbtnDisapear .6s ease forwards calc(var(--i)*.03s)}
 @keyframes gsbtnWave{30%{opacity:1;transform:translateY(4px) translateX(0) rotate(0)}50%{opacity:1;transform:translateY(-3px) translateX(0) rotate(0);color:var(--primary)}100%{opacity:1;transform:translateY(0) translateX(0) rotate(0)}}
@@ -884,11 +884,14 @@ document.addEventListener("DOMContentLoaded",function(){
     }
 
     // HERO 進場 stagger reveal
+    // ⚠️ 07-29 移除 .gsh-cta .gsbtn 的進場 tween：實機（iPhone Safari）發現這個 tween 會卡在
+    // autoAlpha:0 的起始態，永遠沒播到結束值，導致三顆按鈕文字整個消失。原因未完全查明（懷疑跟
+    // gsbtn 內層 innerHTML 由另一支 script 在動有關），與其修 GSAP 時序，不如直接讓按鈕可見度
+    // 不依賴任何動畫是否播完——CTA 按鈕本來就不需要進場動畫也能用。
     var tl=gsap.timeline({delay:.1});
     tl.from(".gsh-logo",{scale:.45,autoAlpha:0,rotation:-70,duration:.85,ease:"back.out(1.6)"})
       .from(".gsh-h1img",{y:30,scale:.96,autoAlpha:0,duration:.9},"-=.45")
-      .from(".gsh-sub",{y:20,autoAlpha:0},"-=.35")
-      .from(".gsh-cta .gsbtn",{y:18,autoAlpha:0,stagger:.1},"-=.3");
+      .from(".gsh-sub",{y:20,autoAlpha:0},"-=.35");
 
     // 氛圍層：速度線掃入＋星芒閃爍
     gsap.from(".gsx-speed",{scaleX:0,transformOrigin:"left center",autoAlpha:0,
