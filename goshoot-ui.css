@@ -1,0 +1,392 @@
+/* ==========================================================================
+   Go Shoot UI — 手機優先全站樣式
+   --------------------------------------------------------------------------
+   在每一頁 </head> 前的最後一行加上：
+     <link rel="stylesheet" href="goshoot-ui.css">
+   必須排在 style.css 與該頁自己的 <style> 之後。
+   不改任何 HTML 結構就會生效；要退版只要移除那一行。
+
+   設計決策（依需求排序）：
+   ① 手機好用   — 所有可點區塊 ≥ 48px、底部導覽列、字級放大
+   ② 質感       — 深空網格底、光束描邊卡、光斑商品卡
+   ③ 文章不像記事本 — 摘要框／重點框／圖說／資料表／轉換卡五種停頓元件
+   ========================================================================== */
+
+:root{
+  /* 表面 —— 與 goshoot-ichiban LIFF 設計系統 v2 同一組 token */
+  --gs-bg:#0A0812;         /* 頁面最底 */
+  --gs-surface:#1A1A1A;    /* 面板 */
+  --gs-surface2:#232326;   /* 卡片 */
+  --gs-inner-a:#232326;
+  --gs-inner-b:#17171A;
+  /* 線 */
+  --gs-grid:rgba(255,90,45,.045);
+  --gs-hair:rgba(251,246,238,.07);
+  --gs-line:rgba(251,246,238,.10);
+  /* 字 */
+  --gs-text:#FBF6EE;
+  --gs-muted:rgba(251,246,238,.66);
+  --gs-dim:rgba(251,246,238,.45);
+  --gs-body:rgba(251,246,238,.82);
+  /* 品牌色 */
+  --gs-accent:#FF5A2D;
+  --gs-accent-deep:#E8552F;
+  --gs-accent-soft:#FF8A6B;
+  --gs-gold:#FFC24B;
+  --gs-teal:#3FC8C8;
+  --gs-teal-deep:#2FA8A8;
+  /* 稀有度 —— 全部取自 LIFF 的 T[]，非推測值 */
+  --gs-rar-last:#FF5A2D;
+  --gs-rar-a:#FFC24B; --gs-rar-b:#9B5CFF; --gs-rar-c:#3FC8C8; --gs-rar-d:#C9A94E;
+  --gs-rar-e:#7FDDDD; --gs-rar-f:#B4B4BB; --gs-rar-g:#8D8A93;
+  /* 會員卡等 */
+  --gs-tier-normal:#8D8A93; --gs-tier-silver:#B4B4BB; --gs-tier-gold:#FFC24B;
+  --gs-tier-platinum:#7FDDDD; --gs-tier-black:#9B5CFF;
+  /* 幾何 */
+  --gs-r:18px; --gs-r-sm:14px;
+  --gs-tabbar-h:78px;
+  --gs-tap:48px;               /* 最小可點高度 */
+}
+
+/* ── 1. 背景系統 ─────────────────────────────────────────── */
+body{
+  background-color:var(--gs-bg);
+  background-image:
+    linear-gradient(var(--gs-grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--gs-grid) 1px,transparent 1px);
+  background-size:40px 40px;
+  background-attachment:fixed;
+  color:var(--gs-text);
+  font-size:16px;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 85% at 50% 0%,transparent 34%,rgba(0,0,0,.72) 100%);
+}
+body>*{position:relative;z-index:1}
+body>section+section,body>section+footer{border-top:1px solid var(--gs-hair)}
+.gs-deep{background:rgba(0,0,0,.35)}
+.gs-cover{background:#08080A}
+
+/* ── 2. 觸控目標：手機最重要的一項 ───────────────────────── */
+.nav-links a,
+.fnav a,
+.util a,
+.btn,.btn-sm,
+summary,
+.pcard .buy{min-height:var(--gs-tap);display:inline-flex;align-items:center}
+.btn,.btn-sm{justify-content:center;padding-inline:22px}
+.nav-links a{padding:12px 4px}
+.menu-btn{min-width:var(--gs-tap);min-height:var(--gs-tap)}
+summary{padding-block:14px}
+a,button,summary{-webkit-tap-highlight-color:rgba(255,90,45,.18)}
+a:focus-visible,button:focus-visible,summary:focus-visible,
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
+
+/* ── 3. 光束描邊卡（.card / .guide-card）────────────────── */
+.card,.guide-card{
+  position:relative;isolation:isolate;overflow:hidden;
+  background:transparent;border:0;border-radius:var(--gs-r);
+  padding:20px 18px;
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+  box-shadow:0 14px 40px rgba(0,0,0,.5);
+  transition:transform .25s;
+}
+.card::before,.guide-card::before{
+  content:"";position:absolute;z-index:-1;top:50%;left:50%;
+  width:260%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:0;
+  background:conic-gradient(from 0deg,transparent 0 58%,
+    var(--gs-accent) 74%,var(--gs-gold) 84%,transparent 94%);
+  animation:gsSpin 4.5s linear infinite;
+}
+.card::after,.guide-card::after{
+  content:"";position:absolute;z-index:-1;inset:1.5px;
+  top:1.5px;left:1.5px;width:auto;height:auto;transform:none;transition:none;
+  border-radius:calc(var(--gs-r) - 2px);
+  background:linear-gradient(160deg,var(--gs-inner-a),var(--gs-inner-b));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+}
+.card:hover,.guide-card:hover{transform:translateY(-3px)}
+.card:hover::after,.guide-card:hover::after{transform:none}
+.card h3,.guide-card h3{margin:0 0 8px;font-size:17px;line-height:1.35;color:var(--gs-text)}
+.card p,.guide-card p{margin:0;color:var(--gs-muted);font-size:14px;line-height:1.7}
+.guide-card .kicker{
+  display:inline-block;font-family:var(--display,'Poppins',sans-serif);
+  font-weight:800;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--gs-accent)}
+.card>img:first-child,.guide-card>img:first-child{
+  margin:-20px -18px 14px;width:calc(100% + 36px);max-width:none;
+  border-radius:calc(var(--gs-r) - 2px) calc(var(--gs-r) - 2px) 0 0}
+/* 只讓每組的第一張跑光束，其餘靜態 —— 中低階手機不會掉幀 */
+.grid>.card:not(:first-child)::before,
+.grid>.guide-card:not(:first-child)::before,
+.two>.card:not(:first-child)::before{animation:none;background:rgba(255,255,255,.12)}
+
+/* ── 4. 商品卡：液態光斑（.pcard）────────────────────────── */
+.pcard{
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--gs-surface2);border:1px solid var(--gs-line);
+  border-radius:var(--gs-r);box-shadow:0 12px 34px rgba(0,0,0,.5);
+  transition:transform .2s,border-color .2s;
+}
+.pcard::before{
+  content:"";position:absolute;z-index:-1;top:-30%;left:-20%;
+  width:200px;height:200px;border-radius:50%;
+  background:var(--gs-accent);filter:blur(56px);opacity:.3;
+  animation:gsDrift 18s ease-in-out infinite alternate}
+.pcard::after{
+  content:"";position:absolute;z-index:-1;bottom:-25%;right:-20%;
+  width:180px;height:180px;border-radius:50%;
+  background:var(--gs-gold);filter:blur(56px);opacity:.2;
+  animation:gsDrift 24s ease-in-out infinite alternate-reverse}
+.pcard:hover{transform:translateY(-3px);border-color:rgba(255,90,45,.45)}
+.pcard .imgwrap{background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.08)}
+.pcard .body{background:rgba(20,20,22,.58);
+  backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%)}
+.pcard .name{font-size:14px}
+.pcard .price{font-size:19px;color:var(--gs-accent)}
+.pcard .buy{
+  background:linear-gradient(100deg,var(--gs-accent),var(--gs-accent-deep));
+  color:#141416;font-weight:800;border-radius:11px;justify-content:center;
+  box-shadow:0 0 20px rgba(255,90,45,.3)}
+.pcard .rank.top{background:var(--gs-accent);color:#141416;font-weight:800}
+
+/* ── 5. 表格（.rt）：手機上改成資料列，不再橫向溢出 ──────── */
+.rt{background:var(--gs-surface);border:1px solid var(--gs-line);
+  border-radius:var(--gs-r-sm);overflow:hidden;
+  backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+.rt th{background:rgba(255,90,45,.08);color:var(--gs-accent);
+  font-weight:700;font-size:12.5px;letter-spacing:.6px;
+  border-bottom:1px solid var(--gs-line)}
+.rt td{border-bottom:1px solid rgba(255,255,255,.06);color:var(--gs-body)}
+.rt tr:last-child td{border-bottom:0}
+.rt td:last-child{font-weight:800;color:var(--gs-text)}
+
+/* ── 6. 長文版型 ────────────────────────────────────────── */
+.article{max-width:760px;padding-inline:18px}
+.article h1{font-size:clamp(26px,7vw,40px);line-height:1.24}
+.article h2{margin:32px 0 10px;font-size:clamp(20px,5vw,25px);line-height:1.4}
+.article h3{margin:24px 0 8px;font-size:18px}
+.article p,.article li{font-size:16.5px;line-height:1.9;color:var(--gs-body);text-wrap:pretty}
+.article .kicker{color:var(--gs-accent)}
+.article .meta{color:var(--gs-dim);font-size:13px}
+
+/* 停頓元件 ①：三句話看完（AEO 直答段落 — speakable 指向這裡） */
+.gs-tldr{
+  margin:20px 0;padding:16px 18px;border-radius:var(--gs-r);
+  background:linear-gradient(160deg,rgba(255,194,75,.1),var(--gs-surface) 60%);
+  border:1px solid rgba(255,194,75,.3)}
+.gs-tldr>b{display:flex;align-items:center;gap:8px;
+  font-family:var(--display,'Poppins',sans-serif);font-weight:800;font-size:11px;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--gs-gold)}
+.gs-tldr>b::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gs-gold)}
+.gs-tldr ul{margin:12px 0 0;padding-left:18px}
+.gs-tldr li{font-size:15px;line-height:1.85;color:var(--gs-body)}
+
+/* 停頓元件 ②：重點框 */
+.article .callout,.callout{
+  background:var(--gs-surface);border-left:4px solid var(--gs-accent);
+  border-radius:0 var(--gs-r-sm) var(--gs-r-sm) 0;
+  padding:16px 18px;margin:22px 0;color:var(--gs-muted);
+  font-size:15px;line-height:1.8;box-shadow:none}
+.article .callout strong,.callout strong{color:var(--gs-text)}
+
+/* 停頓元件 ③：圖說 */
+.gfig{background:var(--gs-surface);border:1px solid var(--gs-line);
+  border-radius:var(--gs-r);padding:0;overflow:hidden;text-align:center;margin:24px 0}
+.gfig img{width:100%;max-width:none}
+.gfig figcaption{padding:13px 16px;margin:0;text-align:left;
+  border-top:1px solid rgba(255,255,255,.08);
+  font-size:12.5px;line-height:1.7;color:var(--gs-dim)}
+
+/* 停頓元件 ④：文中轉換卡 */
+.gs-cta{
+  margin:22px 0;padding:16px 18px;border-radius:var(--gs-r);
+  background:linear-gradient(120deg,rgba(255,90,45,.13),var(--gs-surface) 60%);
+  border:1px solid rgba(255,90,45,.3)}
+.gs-cta b{display:block;font-size:16px;line-height:1.4;color:var(--gs-text)}
+.gs-cta p{margin:7px 0 0;font-size:13.5px;line-height:1.7;color:var(--gs-muted)}
+.gs-cta a{display:flex;align-items:center;justify-content:center;
+  min-height:var(--gs-tap);margin-top:13px;border-radius:13px;
+  background:var(--gs-accent);color:#141416;
+  font-family:var(--display,'Poppins',sans-serif);font-weight:800;font-size:15px}
+
+/* 停頓元件 ⑤：文末相關文章 */
+.gs-more{margin-top:34px;padding-top:20px;border-top:1px solid var(--gs-hair)}
+.gs-more>b{font-family:var(--display,'Poppins',sans-serif);font-weight:800;font-size:11px;
+  letter-spacing:1.8px;text-transform:uppercase;color:var(--gs-accent)}
+.gs-more-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:13px}
+.gs-more-grid a{display:block;border-radius:var(--gs-r-sm);overflow:hidden;
+  background:#141416;border:1px solid var(--gs-line)}
+.gs-more-grid img{width:100%;height:78px;object-fit:cover;display:block}
+.gs-more-grid span{display:block;padding:10px 12px;font-size:13px;line-height:1.5;
+  font-weight:700;color:var(--gs-text)}
+
+/* 閱讀進度條（goshoot-article.js 注入） */
+.gs-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:80;
+  background:rgba(255,255,255,.08);pointer-events:none}
+.gs-progress i{display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--gs-gold),var(--gs-accent));
+  box-shadow:0 0 10px rgba(255,90,45,.7)}
+
+/* 目錄浮動鈕與底稿（goshoot-article.js 注入） */
+.gs-toc-fab{position:fixed;right:14px;z-index:70;
+  bottom:calc(var(--gs-tabbar-h) + 14px);
+  display:flex;align-items:center;gap:8px;padding:0 16px;min-height:var(--gs-tap);
+  border-radius:99px;background:rgba(28,28,32,.94);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 26px rgba(0,0,0,.5);
+  font-weight:700;font-size:13px;color:var(--gs-text)}
+.gs-toc-sheet{position:fixed;inset:0;z-index:90;display:none}
+.gs-toc-sheet[open]{display:block}
+.gs-toc-sheet .gs-scrim{position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.gs-toc-sheet nav{position:absolute;left:0;right:0;bottom:0;
+  max-height:70vh;overflow:auto;padding:8px 0 24px;
+  background:var(--gs-surface);border-top:1px solid var(--gs-line);
+  border-radius:20px 20px 0 0}
+.gs-toc-sheet h4{margin:0;padding:16px 20px 10px;
+  font-family:var(--display,'Poppins',sans-serif);font-weight:800;font-size:11px;
+  letter-spacing:1.6px;text-transform:uppercase;color:var(--gs-dim)}
+.gs-toc-sheet a{display:block;padding:14px 20px;min-height:var(--gs-tap);
+  border-left:2px solid transparent;font-size:15px;line-height:1.5;color:var(--gs-muted)}
+.gs-toc-sheet a[aria-current="true"]{
+  border-left-color:var(--gs-accent);background:rgba(255,90,45,.08);
+  font-weight:700;color:var(--gs-accent)}
+
+/* ── 7. 一番賞：賞別階梯與即時剩餘（goshoot-stock.js 渲染）── */
+.gs-stock-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+.gs-stock-bar i{display:block;height:100%;border-radius:99px;
+  background:linear-gradient(90deg,var(--gs-gold),var(--gs-accent));
+  box-shadow:0 0 14px rgba(255,90,45,.65);transition:width .5s ease}
+.gs-grades{display:flex;flex-direction:column;gap:8px}
+.gs-grade{display:flex;align-items:center;gap:12px;padding:11px 13px;
+  border-radius:var(--gs-r-sm);background:#1a1a1e;border:1px solid rgba(255,255,255,.08);
+  box-shadow:inset 3px 0 0 var(--g,var(--gs-accent))}
+.gs-grade b{width:34px;height:34px;flex:0 0 auto;border-radius:10px;
+  background:var(--g,var(--gs-accent));display:flex;align-items:center;justify-content:center;
+  font-family:var(--display,'Poppins',sans-serif);font-weight:800;font-size:15px;color:#141416}
+.gs-grade .gs-g-body{flex:1;min-width:0}
+.gs-grade .gs-g-name{font-weight:700;font-size:13px;line-height:1.35;color:var(--gs-text)}
+.gs-grade .gs-g-meta{display:flex;align-items:center;gap:8px;margin-top:6px}
+.gs-grade .gs-g-meta span:first-child{flex:1;max-width:110px;height:4px;border-radius:99px;
+  background:rgba(255,255,255,.1);overflow:hidden}
+.gs-grade .gs-g-meta i{display:block;height:100%;background:var(--g,var(--gs-accent))}
+.gs-grade .gs-g-left{font-family:var(--display,'Poppins',sans-serif);font-weight:600;
+  font-size:10.5px;color:var(--gs-dim)}
+.gs-grade .gs-g-pct{font-family:var(--display,'Poppins',sans-serif);font-weight:800;
+  font-size:12px;color:var(--g,var(--gs-accent));white-space:nowrap}
+.gs-grade[data-grade="A"]{--g:var(--gs-rar-a)} .gs-grade[data-grade="B"]{--g:var(--gs-rar-b)}
+.gs-grade[data-grade="C"]{--g:var(--gs-rar-c)} .gs-grade[data-grade="D"]{--g:var(--gs-rar-d)}
+.gs-grade[data-grade="E"]{--g:var(--gs-rar-e)} .gs-grade[data-grade="F"]{--g:var(--gs-rar-f)}
+.gs-grade[data-grade="G"]{--g:var(--gs-rar-g)}
+.gs-grade[data-grade="LAST"]{--g:var(--gs-rar-last);
+  background:linear-gradient(100deg,#2a2118,var(--gs-surface) 60%);
+  border-color:rgba(255,194,75,.34)}
+.gs-grade[data-grade="LAST"] b{width:44px;font-size:11px;
+  background:linear-gradient(140deg,var(--gs-gold),var(--gs-rar-last))}
+.gs-live{display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--display,'Poppins',sans-serif);font-weight:800;font-size:11px;
+  letter-spacing:1.4px;text-transform:uppercase;color:var(--gs-accent)}
+.gs-live::before{content:"";width:7px;height:7px;border-radius:50%;
+  background:var(--gs-accent);animation:gsPulse 1.6s ease-in-out infinite}
+
+/* 會員卡等表（goshoot-stock.js 由 ichiban-stock.json 的 tiers 渲染） */
+.gs-tiers{display:flex;flex-direction:column;border-radius:var(--gs-r-sm);overflow:hidden;
+  background:var(--gs-surface);border:1px solid var(--gs-line)}
+.gs-tier{display:flex;align-items:center;gap:11px;padding:11px 14px;
+  border-top:1px solid rgba(251,246,238,.06)}
+.gs-tier:first-child{border-top:0}
+.gs-tier[aria-current="true"]{background:rgba(255,90,45,.07)}
+.gs-tier b{width:26px;height:26px;flex:0 0 auto;border-radius:50%;
+  border:1.5px solid var(--t,var(--gs-tier-normal));color:var(--t,var(--gs-tier-normal));
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px}
+.gs-tier .gs-t-name{flex:1;min-width:0;font-weight:700;font-size:13px;color:var(--gs-text)}
+.gs-tier .gs-t-perk{font-size:11.5px;color:var(--gs-muted);white-space:nowrap}
+.gs-tier .gs-t-need{font-family:var(--display,'Poppins',sans-serif);font-weight:600;
+  font-size:11px;color:var(--gs-dim);white-space:nowrap}
+.gs-tier[data-tier="normal"]{--t:var(--gs-tier-normal)}
+.gs-tier[data-tier="silver"]{--t:var(--gs-tier-silver)}
+.gs-tier[data-tier="gold"]{--t:var(--gs-tier-gold)}
+.gs-tier[data-tier="platinum"]{--t:var(--gs-tier-platinum)}
+.gs-tier[data-tier="black"]{--t:var(--gs-tier-black)}
+
+/* ── 8. 底部導覽列（goshoot-nav.js 注入・手機限定）────────── */
+.gs-tabbar{position:fixed;left:0;right:0;bottom:0;z-index:75;display:flex;
+  background:rgba(13,13,15,.95);
+  backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
+  border-top:1px solid var(--gs-line);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+.gs-tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:5px;padding:9px 0;min-height:56px;
+  font-size:10.5px;font-weight:500;color:#8E8E96;text-decoration:none}
+.gs-tabbar a img{width:24px;height:24px;border-radius:7px;object-fit:cover;
+  filter:grayscale(1) brightness(.62)}
+.gs-tabbar a[aria-current="page"]{font-weight:700;color:var(--gs-accent)}
+.gs-tabbar a[aria-current="page"] img{filter:none}
+/* 中央凸起的一番賞主鈕 */
+.gs-tabbar .gs-tab-cta{flex:1.1;position:relative}
+.gs-tabbar .gs-tab-cta em{position:absolute;top:-26px;left:50%;transform:translateX(-50%);
+  width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(140deg,var(--gs-gold),var(--gs-accent));
+  border:3px solid var(--gs-bg);
+  box-shadow:0 0 30px rgba(255,90,45,.55),0 8px 20px rgba(0,0,0,.5);
+  font-style:normal;font-weight:900;font-size:12px;line-height:1.15;
+  color:#141416;text-align:center}
+.gs-tabbar .gs-tab-cta span{margin-top:40px;padding-bottom:11px;
+  font-weight:700;font-size:10.5px;color:var(--gs-accent)}
+body.gs-has-tabbar{padding-bottom:var(--gs-tabbar-h)}
+/* 原本的回上一頁浮球會擋到導覽列，往上推 */
+body.gs-has-tabbar .js-back{bottom:calc(var(--gs-tabbar-h) + 12px)!important}
+
+/* ── 9. 其他既有元件對齊 ─────────────────────────────────── */
+.band{background:linear-gradient(120deg,#1c1c22,#101015);
+  border:1px solid var(--gs-line);border-radius:22px}
+.band.ink{background:#08080A}
+.tier{background:var(--gs-surface);border:1px solid var(--gs-line);
+  border-radius:var(--gs-r-sm);box-shadow:none}
+.tier .badge{border-radius:11px}
+.step{background:var(--gs-surface);border:1px solid var(--gs-line);border-radius:16px}
+.faq{background:var(--gs-surface);border:1px solid var(--gs-line);border-radius:var(--gs-r-sm)}
+details{border-bottom:1px solid rgba(255,255,255,.08)}
+summary::before{color:var(--gs-accent)}
+.brandfig{background:var(--gs-surface);border:1px solid var(--gs-line);border-radius:var(--gs-r)}
+.brandfig figcaption{border-top:1px solid rgba(255,255,255,.08);color:var(--gs-dim)}
+h2.sec::after{box-shadow:0 0 14px rgba(255,90,45,.55)}
+.prod{background:var(--gs-surface2);border-color:var(--gs-line)}
+
+/* ── 10. 動畫 ────────────────────────────────────────────── */
+@keyframes gsSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes gsDrift{from{transform:translate(0,0) scale(1)}
+                   to{transform:translate(38px,-26px) scale(1.25)}}
+@keyframes gsPulse{0%,100%{opacity:.45}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .card::before,.guide-card::before,.pcard::before,.pcard::after,.gs-live::before{animation:none}
+  .card::before,.guide-card::before{
+    background:conic-gradient(from 210deg,transparent 0 58%,
+      var(--gs-accent) 74%,var(--gs-gold) 84%,transparent 94%)}
+  .gs-stock-bar i{transition:none}
+}
+
+/* ── 11. 桌機（≥861px）：手機優先的加寬層 ─────────────────── */
+@media(min-width:861px){
+  body{background-size:54px 54px}
+  .gs-tabbar{display:none}
+  body.gs-has-tabbar{padding-bottom:0}
+  body.gs-has-tabbar .js-back{bottom:14px!important}
+  .card,.guide-card{padding:24px 22px}
+  .card>img:first-child,.guide-card>img:first-child{
+    margin:-24px -22px 16px;width:calc(100% + 44px)}
+  .card h3,.guide-card h3{font-size:19px}
+  .article{padding-inline:22px}
+  .article p,.article li{font-size:17px;line-height:1.85}
+  .gs-more-grid{grid-template-columns:repeat(3,1fr)}
+  .gs-toc-fab{display:none}          /* 桌機用側邊固定目錄，見下 */
+  .gs-toc-aside{position:sticky;top:82px;align-self:start;width:220px}
+  .gs-toc-aside ol{margin:0;padding:8px 0;list-style:none;
+    border-radius:var(--gs-r-sm);background:#141416;border:1px solid var(--gs-line)}
+  .gs-toc-aside a{display:block;padding:9px 16px;border-left:2px solid transparent;
+    font-size:13px;line-height:1.5;color:var(--gs-muted)}
+  .gs-toc-aside a[aria-current="true"]{border-left-color:var(--gs-accent);
+    background:rgba(255,90,45,.08);font-weight:700;color:var(--gs-accent)}
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "GOSHOOT-DATA.md",
+  "updated": "2026-07-29T09:00:00+08:00",
+  "source": "howard118008y-commits/goshoot-ichiban — frontend/lib/ui.ts, frontend/lib/pricing.ts",
+  "note": "官網唯一的一番賞資料來源。理想狀態是由 goshoot-ichiban 輸出同格式的 /api/stock 並在 <body data-gs-stock-src> 指過去；在那之前這支檔案由排程或手動更新。",
+
+  "sets": [
+    {
+      "id": "beyblade-x-3",
+      "name": "Beyblade X 一番賞 第 3 彈",
+      "unitPrice": 180,
+      "left": 57,
+      "total": 80,
+      "status": "open",
+      "commitHash": "3f9a…c2e1",
+      "grades": [
+        { "grade": "LAST", "name": "金屬塗裝限定機體＋展示盒", "short": "最終賞",   "color": "#FF5A2D", "left": 1,  "total": 1 },
+        { "grade": "A",    "name": "競技級發射器套組",         "short": "發射器",   "color": "#FFC24B", "left": 1,  "total": 2 },
+        { "grade": "B",    "name": "限定塗裝機體",             "short": "限定機體", "color": "#9B5CFF", "left": 2,  "total": 4 },
+        { "grade": "C",    "name": "攜行戰鬥盤",               "short": "戰鬥盤",   "color": "#3FC8C8", "left": 4,  "total": 6 },
+        { "grade": "D",    "name": "零件強化包",               "short": "零件",     "color": "#C9A94E", "left": 7,  "total": 10 },
+        { "grade": "E",    "name": "硬殼收納包",               "short": "收納包",   "color": "#7FDDDD", "left": 9,  "total": 12 },
+        { "grade": "F",    "name": "壓克力立牌組",             "short": "立牌",     "color": "#B4B4BB", "left": 12, "total": 16 },
+        { "grade": "G",    "name": "貼紙＋收藏卡組",           "short": "貼紙組",   "color": "#8D8A93", "left": 21, "total": 29 }
+      ]
+    },
+    {
+      "id": "beyblade-parts",
+      "name": "戰鬥陀螺 零件強化 一番賞",
+      "unitPrice": 180,
+      "left": 38,
+      "total": 60,
+      "status": "open",
+      "gradeRange": "A～E 賞 ＋ LAST 賞"
+    },
+    {
+      "id": "claw-goods",
+      "name": "娃娃機主題 週邊一番賞",
+      "unitPrice": 180,
+      "left": 9,
+      "total": 40,
+      "status": "open",
+      "gradeRange": "A～D 賞"
+    }
+  ],
+
+  "membership": {
+    "rule": "依累計儲值自動升級・永不降等",
+    "coin": "1 Go 幣 ＝ NT$1",
+    "freightRule": "實付運費 ＝ 基本運費 − 卡等折抵（不低於 0）",
+    "tiers": [
+      { "key": "normal",   "mark": "普", "name": "普卡",   "en": "NORMAL",   "need": 0,      "freightDiscount": 0,   "color": "#8D8A93" },
+      { "key": "silver",   "mark": "銀", "name": "銀卡",   "en": "SILVER",   "need": 3000,   "freightDiscount": 20,  "color": "#B4B4BB" },
+      { "key": "gold",     "mark": "金", "name": "金卡",   "en": "GOLD",     "need": 10000,  "freightDiscount": 40,  "color": "#FFC24B" },
+      { "key": "platinum", "mark": "白", "name": "白金卡", "en": "PLATINUM", "need": 30000,  "freightDiscount": 60,  "color": "#7FDDDD" },
+      { "key": "black",    "mark": "鑽", "name": "黑鑽卡", "en": "BLACK",    "need": 100000, "freightDiscount": 999, "color": "#9B5CFF", "perk": "全物流免運" }
+    ]
+  },
+
+  "shipping": [
+    { "key": "seven",  "name": "7-11 店到店",   "base": 60 },
+    { "key": "family", "name": "全家店到店",     "base": 60 },
+    { "key": "shopee", "name": "蝦皮store",      "base": 45 },
+    { "key": "post",   "name": "中華郵政",       "base": 70, "oversize": true, "limit": "最長邊 ≤150cm・三邊合計 ≤150cm・≤20kg" }
+  ],
+
+  "fulfillment": [
+    { "key": "pickup", "name": "店取",     "note": "中和景平店 · 24H 可取" },
+    { "key": "ship",   "name": "宅配寄送", "note": "運費依卡等折抵" },
+    { "key": "coin",   "name": "折 Go 幣", "note": "獎品折回錢包續抽" }
+  ],
+
+  "payment": [
+    { "key": "points",  "name": "Go幣餘額",     "status": "推薦" },
+    { "key": "store",   "name": "門市現場付款", "status": "可用" },
+    { "key": "linepay", "name": "LINE Pay",     "status": "上線後開通" },
+    { "key": "card",    "name": "信用卡",       "status": "上線後開通" }
+  ],
+
+  "store": {
+    "name": "中和景平店 · 娃娃機",
+    "address": "新北市中和區景平路 593-1 號",
+    "hours": "24H 營業 · 線上抽 → 門市取",
+    "company": "旋賞數位有限公司"
+  },
+
+  "fairness": {
+    "mechanism": "commit-reveal ＋ 公開亂數 drand",
+    "steps": ["開抽前取 drand 公開亂數", "封盒並公告承諾雜湊", "開抽", "完抽後公開種子，任何人可自行驗算"]
+  }
+}
