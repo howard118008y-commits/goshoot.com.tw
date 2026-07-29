@@ -1,46 +1,39 @@
 {
   "$schema": "GOSHOOT-DATA.md",
   "updated": "2026-07-29T09:00:00+08:00",
-  "source": "howard118008y-commits/goshoot-ichiban — frontend/lib/ui.ts, frontend/lib/pricing.ts",
-  "note": "官網唯一的一番賞資料來源。理想狀態是由 goshoot-ichiban 輸出同格式的 /api/stock 並在 <body data-gs-stock-src> 指過去；在那之前這支檔案由排程或手動更新。",
+  "source": "howard118008y-commits/goshoot-ichiban — GET /api/sets/{id}（2026-07-29 直接查證，非範例值）",
+  "note": "官網唯一的一番賞資料來源。理想狀態是由 goshoot-ichiban 輸出同格式的 /api/stock 並在 <body data-gs-stock-src> 指過去；在那之前這支檔案由排程或手動更新。id 直接沿用 app 後端真實數字 id，不要改成 slug。",
 
   "sets": [
     {
-      "id": "beyblade-x-3",
-      "name": "Beyblade X 一番賞 第 3 彈",
-      "unitPrice": 180,
-      "left": 57,
-      "total": 80,
+      "id": "19",
+      "name": "開幕第一彈｜戰鬥陀螺 爭霸",
+      "unitPrice": 500,
+      "left": 90,
+      "total": 90,
       "status": "open",
-      "commitHash": "3f9a…c2e1",
       "grades": [
-        { "grade": "LAST", "name": "金屬塗裝限定機體＋展示盒", "short": "最終賞",   "color": "#FF5A2D", "left": 1,  "total": 1 },
-        { "grade": "A",    "name": "競技級發射器套組",         "short": "發射器",   "color": "#FFC24B", "left": 1,  "total": 2 },
-        { "grade": "B",    "name": "限定塗裝機體",             "short": "限定機體", "color": "#9B5CFF", "left": 2,  "total": 4 },
-        { "grade": "C",    "name": "攜行戰鬥盤",               "short": "戰鬥盤",   "color": "#3FC8C8", "left": 4,  "total": 6 },
-        { "grade": "D",    "name": "零件強化包",               "short": "零件",     "color": "#C9A94E", "left": 7,  "total": 10 },
-        { "grade": "E",    "name": "硬殼收納包",               "short": "收納包",   "color": "#7FDDDD", "left": 9,  "total": 12 },
-        { "grade": "F",    "name": "壓克力立牌組",             "short": "立牌",     "color": "#B4B4BB", "left": 12, "total": 16 },
-        { "grade": "G",    "name": "貼紙＋收藏卡組",           "short": "貼紙組",   "color": "#8D8A93", "left": 21, "total": 29 }
+        { "grade": "LAST", "name": "空力天馬 紅色限定版（搶不到的兌換限定機）", "short": "空力天馬紅版", "color": "#FF5A2D", "left": 1,  "total": 1 },
+        { "grade": "A",    "name": "暴風天馬 復刻版（鋼鐵奇兵傳奇機）",         "short": "暴風天馬復刻", "color": "#FFC24B", "left": 3,  "total": 3 },
+        { "grade": "B",    "name": "T0 競技機體（天梯現役最強組）",            "short": "T0競技機體",   "color": "#9B5CFF", "left": 6,  "total": 6 },
+        { "grade": "C",    "name": "隨機強化組（籤王行動）",                  "short": "隨機強化組",   "color": "#3FC8C8", "left": 25, "total": 25 },
+        { "grade": "D",    "name": "改裝零件／客製發射器",                    "short": "改裝零件",     "color": "#C9A94E", "left": 55, "total": 55 }
       ]
     },
     {
-      "id": "beyblade-parts",
-      "name": "戰鬥陀螺 零件強化 一番賞",
-      "unitPrice": 180,
-      "left": 38,
+      "id": "20",
+      "name": "開幕第二彈｜寶可夢卡牌 傳說對決",
+      "unitPrice": 700,
+      "left": 60,
       "total": 60,
       "status": "open",
-      "gradeRange": "A～E 賞 ＋ LAST 賞"
-    },
-    {
-      "id": "claw-goods",
-      "name": "娃娃機主題 週邊一番賞",
-      "unitPrice": 180,
-      "left": 9,
-      "total": 40,
-      "status": "open",
-      "gradeRange": "A～D 賞"
+      "grades": [
+        { "grade": "LAST", "name": "收藏級閃卡（SAR 級・封膜可驗）",   "short": "收藏級閃卡",   "color": "#FF5A2D", "left": 1,  "total": 1 },
+        { "grade": "A",    "name": "綠寶石風暴 繁中原盒（原廠未拆封）", "short": "綠寶石風暴原盒", "color": "#FFC24B", "left": 2,  "total": 2 },
+        { "grade": "B",    "name": "深淵之瞳 繁中原盒（原廠未拆封）",   "short": "深淵之瞳原盒",  "color": "#9B5CFF", "left": 3,  "total": 3 },
+        { "grade": "C",    "name": "超級進化戰術牌組",                 "short": "戰術牌組",     "color": "#3FC8C8", "left": 10, "total": 10 },
+        { "grade": "D",    "name": "繁中補充包（原廠密封）",           "short": "補充包",       "color": "#C9A94E", "left": 44, "total": 44 }
+      ]
     }
   ],
 
@@ -65,7 +58,7 @@
   ],
 
   "fulfillment": [
-    { "key": "pickup", "name": "店取",     "note": "中和景平店 · 24H 可取" },
+    { "key": "pickup", "name": "店取",     "note": "中和景平店取貨（門市即將開幕）" },
     { "key": "ship",   "name": "宅配寄送", "note": "運費依卡等折抵" },
     { "key": "coin",   "name": "折 Go 幣", "note": "獎品折回錢包續抽" }
   ],
@@ -80,7 +73,7 @@
   "store": {
     "name": "中和景平店 · 娃娃機",
     "address": "新北市中和區景平路 593-1 號",
-    "hours": "24H 營業 · 線上抽 → 門市取",
+    "hours": "即將開幕，確切營業時間屆時公告",
     "company": "旋賞數位有限公司"
   },
 

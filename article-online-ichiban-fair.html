@@ -65,7 +65,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"Article","headline":"線上一番賞會詐騙嗎？教你 3 招看出公不公平","author":{"@type":"Organization","name":"Go Shoot"},"publisher":{"@type":"Organization","name":"Go Shoot","logo":{"@type":"ImageObject","url":"https://goshoot.com.tw/assets/favicon.svg"}},"mainEntityOfPage":"https://goshoot.com.tw/article-online-ichiban-fair.html","inLanguage":"zh-Hant","about":"線上一番賞 公平"},
+{"@type":"Article","headline":"線上一番賞會詐騙嗎？教你 3 招看出公不公平","dateModified":"2026-07-29","speakable":{"@type":"SpeakableSpecification","cssSelector":[".gs-tldr"]},"author":{"@type":"Organization","name":"Go Shoot"},"publisher":{"@type":"Organization","name":"Go Shoot","logo":{"@type":"ImageObject","url":"https://goshoot.com.tw/assets/favicon.svg"}},"mainEntityOfPage":"https://goshoot.com.tw/article-online-ichiban-fair.html","inLanguage":"zh-Hant","about":"線上一番賞 公平"},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://goshoot.com.tw/"},{"@type":"ListItem","position":2,"name":"線上一番賞","item":"https://goshoot.com.tw/ichiban.html"},{"@type":"ListItem","position":3,"name":"線上一番賞會詐騙嗎","item":"https://goshoot.com.tw/article-online-ichiban-fair.html"}]},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"線上一番賞會詐騙嗎？","acceptedAnswer":{"@type":"Answer","text":"線上一番賞本身是合法的抽獎玩法，是否可信取決於平台。會用公開亂數封盒、開抽前公告承諾、完抽後可驗證的平台，就無法作弊。挑選時看是否提供『可驗證公平』機制即可避開風險。"}},
@@ -95,10 +95,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <h1>線上一番賞會詐騙嗎？教你 3 招看出公不公平</h1>
   <p class="lead">先講結論：線上一番賞本身是合法、正當的抽獎玩法，<strong>會不會被坑取決於平台</strong>。只要平台提供「公開亂數、開抽前承諾、事後可驗證」這三項機制，它在技術上就<strong>無法作弊</strong>。下面教你怎麼一眼看出來。</p>
 
+  <div class="gs-tldr">
+    <b>三句話看完</b>
+    <ul>
+      <li>線上一番賞公平與否，取決於平台機制</li>
+      <li>看公開亂數、開抽前承諾、事後可驗算三招</li>
+      <li>Go Shoot 用 drand 封盒，完抽後可驗算</li>
+    </ul>
+  </div>
+
   <h2>為什麼有人擔心線上一番賞詐騙？</h2>
   <p>因為「抽獎結果由對方決定」，大家會怕平台偷改機率、把大獎抽掉再讓你抽、或謊報庫存。這些疑慮都合理——關鍵是平台有沒有<strong>把決定權交給公開、無法竄改的機制</strong>，而不是它自己說了算。</p>
 
-  <h2>3 招判斷線上一番賞公不公平</h2>
+  <h2>怎麼用 3 招判斷線上一番賞公不公平？</h2>
   <div class="box"><h3>第 1 招：有沒有用「公開亂數」</h3><p>公平的平台會用第三方公開亂數（例如全球公開的 drand 亂數時鐘）來決定獎落點，而不是用自家後台的亂數。公開亂數誰都查得到，平台無法偷換。</p></div>
   <div class="box"><h3>第 2 招：開抽前有沒有「承諾」</h3><p>在開抽前，平台應該先公告一段「承諾值」（commit，通常是雜湊值），等於先把答案鎖在保險箱、把鑰匙公開。事後若想改結果，承諾值就對不上，一驗就破。</p></div>
   <div class="box"><h3>第 3 招：完抽後能不能「自己驗算」</h3><p>抽完後平台應公開「種子」，讓任何人把 種子＋公開亂數＋承諾值 兜起來重算，確認每個獎落點都和當初一致。能自己驗算 ＝ 真・可驗證公平。</p></div>
@@ -107,7 +116,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <p>Go Shoot 線上一番賞三項全具備：開抽前用<strong>公開亂數 drand 封盒並公告承諾</strong>，沒有人能事先得知或竄改；同時有<strong>即時賞品看板</strong>，剩哪些、抽掉哪些一目了然，庫存不灌水；完抽後<strong>公開種子可驗算</strong>。換句話說，連我們自己都改不了結果。</p>
   <p><a class="btn" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">看 Go Shoot 線上一番賞怎麼運作 →</a></p>
 
-  <h2>挑線上一番賞平台的自保提醒</h2>
+  <h2>挑線上一番賞平台要注意什麼？</h2>
   <ul>
     <li>看有沒有公開的公平性／驗證說明，沒有就別碰。</li>
     <li>看有沒有即時庫存看板（剩餘/已抽），避免謊報。</li>
@@ -115,7 +124,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <li>理性消費，設好預算。</li>
   </ul>
 
-  <h2>常見問題</h2>
+  <div class="gs-cta">
+    <b>想親眼看公平機制？</b>
+    <p>公開亂數封盒、即時看板，自己來體驗一次。</p>
+    <a href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽一番賞看看 →</a>
+  </div>
+
+  <h2>還有哪些常見問題？</h2>
   <details open><summary>線上一番賞會詐騙嗎？</summary><p>玩法本身合法，風險在平台。選有「公開亂數＋開抽前承諾＋事後可驗證」的平台就無法作弊。</p></details>
   <details><summary>平台會不會偷偷把大獎抽走？</summary><p>有即時賞品看板＋封盒承諾的平台不行——獎落點開抽前就鎖定並公告，庫存即時透明，偷抽會被驗算抓出來。</p></details>
   <details><summary>Go Shoot 安全嗎？</summary><p>Go Shoot 用 drand 公開亂數封盒、即時看板、完抽後可驗算，做到可驗證公平。</p></details>
@@ -123,6 +138,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="related"><b>延伸閱讀</b>
     <a href="ichiban.html">→ Go Shoot 線上一番賞總覽（玩法・公平性・FAQ）</a>
     <a href="article-what-is-online-ichiban.html">→ 線上一番賞是什麼？3 分鐘搞懂</a>
+  </div>
+
+  <div class="gs-more">
+    <b>繼續讀</b>
+    <div class="gs-more-grid">
+      <a href="article-what-is-online-ichiban.html"><img src="assets/og-cover.png" alt="" loading="lazy"><span>線上一番賞是什麼？3分鐘搞懂</span></a>
+      <a href="article-online-ichiban-odds.html"><img src="assets/og-cover.png" alt="" loading="lazy"><span>線上一番賞中獎機率怎麼算</span></a>
+      <a href="article-online-ichiban-claim.html"><img src="assets/og-cover.png" alt="" loading="lazy"><span>線上一番賞中獎後怎麼領獎品</span></a>
+    </div>
   </div>
 </article>
 
