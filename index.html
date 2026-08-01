@@ -8,17 +8,8 @@
      爬蟲＋搜尋來源一律放行看完整首頁＝零 SEO 風險；同 session 只跑一次。越早執行越不閃首頁。 -->
 <script>
 (function(){
-  try{
-    var ua = navigator.userAgent || '';
-    if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|quora|pinterest|whatsapp|line\b|telegrambot|w3c_validator|lighthouse|headlesschrome/i.test(ua)) return; // 爬蟲/預覽器→看完整 SEO 首頁
-    if (window.matchMedia && matchMedia('(max-width:767px)').matches) return; // 手機→直接進 3-tab app 殼（2026-08-02 照圖改版），開場動畫只留桌機
-    if (sessionStorage.getItem('gsIntroSeen')) return;   // 同 session 已看過
-    if (location.hash) return;                            // 站內錨點跳轉
-    var ref = document.referrer || '';
-    if (/[./](google|bing|yahoo|baidu|yandex|sogou|naver)\.|duckduckgo/i.test(ref)) return; // 搜尋來的→不擾，保護每日第一優先流量
-    sessionStorage.setItem('gsIntroSeen','1');
-    location.replace('scroll-preview.html?intro=1');
-  }catch(e){ /* 任何失敗都不擋首頁 */ }
+  // 2026-08-02 老闆拍板：全裝置單一版本＝手機版 3-tab 殼，開場動畫門控退役（scroll-preview.html 保留可直連）。
+  return;
 })();
 </script>
 <title>Go Shoot 線上一番賞・戰鬥陀螺情報・娃娃機｜中和站旁</title>
@@ -942,12 +933,14 @@ document.addEventListener("DOMContentLoaded",function(){
      inline style 逐值抄 reference.html 01 screen；動態數字（hero 兩行/中獎動態）接 Railway 真 API。 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&display=swap">
 <style>
-  #gsapp{display:none}
-  @media (max-width:767px){
-    #gsapp{display:block;position:fixed;inset:0;z-index:9999;background:#1A1A1A;color:#FFFFFF;
-      font-family:'Noto Sans TC',system-ui,sans-serif;overflow:hidden}
-    #gsapp .gsa-scroll{position:absolute;inset:0;padding:58px 16px 96px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;-webkit-overflow-scrolling:touch}
-    body.gsapp-on{overflow:hidden}
+  /* 2026-08-02 全裝置單一版本：app 殼永遠顯示（桌機內容欄 480 置中），舊首頁 DOM 僅供 SEO 不再可見 */
+  #gsapp{display:block;position:fixed;inset:0;z-index:9999;background:#1A1A1A;color:#FFFFFF;
+    font-family:'Noto Sans TC',system-ui,sans-serif;overflow:hidden}
+  #gsapp .gsa-scroll{position:absolute;inset:0;padding:58px 16px 96px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  body.gsapp-on{overflow:hidden}
+  @media (min-width:768px){
+    #gsapp .gsa-scroll{max-width:480px;left:50%;transform:translateX(-50%)}
+    #gsapp nav{width:100%;max-width:480px;left:50%!important;right:auto!important;transform:translateX(-50%)}
   }
   @keyframes gsblink{0%,100%{opacity:1}50%{opacity:.25}}
   #gsapp .gsa-num{font-family:Archivo,'Noto Sans TC',sans-serif;font-weight:900;letter-spacing:-.02em}
@@ -1026,8 +1019,8 @@ document.addEventListener("DOMContentLoaded",function(){
 <script>
 (function(){
   var API="https://goshoot-ichiban-production.up.railway.app/api";
-  if(window.matchMedia&&window.matchMedia("(max-width:767px)").matches){document.body.classList.add("gsapp-on");}
-  window.matchMedia("(max-width:767px)").addEventListener("change",function(e){document.body.classList.toggle("gsapp-on",e.matches);});
+  document.body.classList.add("gsapp-on"); // 全裝置單一版本
+
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function relTime(iso){var d=(Date.now()-new Date(iso).getTime())/60000;if(d<1)return"剛剛";if(d<60)return Math.floor(d)+" 分前";if(d<1440)return Math.floor(d/60)+" 小時前";return Math.floor(d/1440)+" 天前";}
   function tint(g){if(g==="LAST")return["rgba(255,96,72,.14)","#FF8468"];if(g==="S"||g==="A")return["rgba(233,182,92,.16)","#E9B65C"];return["rgba(255,255,255,.07)","#D4D4D4"];}

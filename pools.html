@@ -17,7 +17,7 @@
   a{text-decoration:none;color:inherit}
   .num{font-family:Archivo,'Noto Sans TC',sans-serif;font-weight:900;letter-spacing:-.02em}
   @keyframes gsblink{0%,100%{opacity:1}50%{opacity:.25}}
-  .wrap{padding:58px 16px 96px;display:flex;flex-direction:column;gap:14px;max-width:640px;margin:0 auto}
+  .wrap{padding:58px 16px 96px;display:flex;flex-direction:column;gap:14px;max-width:480px;margin:0 auto}
   .head{display:flex;align-items:center;justify-content:space-between;padding:4px 2px 0}
   .head h1{font-size:25px;font-weight:900;letter-spacing:-.01em;margin:0}
   .fair{display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:#2B2B2B;border:1px solid rgba(255,255,255,.08);font-size:12px;font-weight:700;color:#D4D4D4;white-space:nowrap}
@@ -41,11 +41,9 @@
   .tabbar{position:fixed;left:0;right:0;bottom:0;height:88px;padding:9px 12px 26px;display:flex;background:rgba(26,26,26,.94);border-top:1px solid rgba(255,255,255,.07)}
   .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#757575;font-size:11px;font-weight:700}
   .tabbar a.on{color:#FF6048}
+  /* 2026-08-02 老闆拍板全裝置單一版本：桌機同手機版式，內容欄 480 置中、tab bar 常駐 */
   @media (min-width:768px){
-    .wrap{max-width:1200px;padding:48px 32px 60px}
-    .list{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
-    .feat{grid-column:1/-1;max-width:640px}
-    .tabbar{display:none}
+    .tabbar{width:100%;max-width:480px;left:50%;right:auto;transform:translateX(-50%)}
   }
 </style>
 </head>
