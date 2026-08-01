@@ -1,12 +1,11 @@
 /* ===================================================================
    Go Shoot 全站設定
-   ↓↓↓ 只要把下面 4 個連結換成你的實際網址，全站所有按鈕就會自動套用 ↓↓↓
+   ↓↓↓ 只要把下面 3 個連結換成你的實際網址，全站所有按鈕就會自動套用 ↓↓↓
    （留空白的會維持原樣、不會壞掉）
 =================================================================== */
 const GOSHOOT_LINKS = {
   line:   "",  // LINE 官方帳號加好友連結，例如 https://lin.ee/xxxxxxx
-  shopee: "",  // 蝦皮賣場連結，例如 https://shopee.tw/your-shop
-  form:   "",  // 預購表單連結（Tally / Google 表單）
+  form:   "",  // 表單連結（Tally / Google 表單）
   signup: ""   // 賽事報名連結
 };
 
@@ -34,7 +33,6 @@ const GOSHOOT_ANALYTICS = {
     });
   }
   apply("[data-line]",   GOSHOOT_LINKS.line);
-  apply("[data-shopee]", GOSHOOT_LINKS.shopee);
   apply("[data-form]",   GOSHOOT_LINKS.form);
   apply("[data-signup]", GOSHOOT_LINKS.signup);
 

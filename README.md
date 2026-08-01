@@ -1,6 +1,6 @@
 # Go Shoot 戰鬥陀螺 ・ 官方網站
 
-中和捷運站旁的戰鬥陀螺專賣店官網。靜態網站（HTML），可部署於 GitHub Pages + Cloudflare。
+Go Shoot 官網：線上一番賞平台×中和娃娃機店×戰鬥陀螺情報站。靜態網站（HTML），可部署於 GitHub Pages + Cloudflare。
 
 ---
 
@@ -8,19 +8,18 @@
 
 ```
 goshoot_site/
-├── index.html            首頁（Hero／三大賣點／賽場／商品／預購／攻略／品牌故事／來店）
+├── index.html            首頁（Hero／三大賣點／賽場／攻略／品牌故事／來店）
 ├── events.html           賽事與會員制度（賽制／排行榜／Go 幣集點）
 ├── faq.html              常見問題（含 FAQPage 結構化資料）
 ├── guide.html            攻略首頁
 ├── guide-beginner.html   SEO 文｜新手入門
 ├── guide-tierlist.html   SEO 文｜天梯 Tier List（每月更新）
 ├── guide-mods.html       SEO 文｜改裝攻略
-├── guide-daikou.html     SEO 文｜日本代購情報
 ├── style.css             全站樣式（品牌色／字型／元件）
 ├── sitemap.xml           給 Google 索引用
 ├── robots.txt            爬蟲規則
 └── assets/
-    ├── site.js           全站設定（LINE／蝦皮／表單／報名連結＋手機選單）★只改這支就能套用全站
+    ├── site.js           全站設定（LINE／表單／報名連結＋手機選單）★只改這支就能套用全站
     ├── favicon.png       網站圖示（180px）
     ├── favicon-32.png    小尺寸圖示
     ├── apple-touch-icon.png  iOS 加到主畫面圖示
@@ -40,21 +39,18 @@ goshoot_site/
 ## ✅ 上線前替換清單
 
 ### 🔴 必換（缺了按鈕會沒反應）
-打開 **`assets/site.js`**，把最上面 4 個連結填上去就好，全站所有按鈕會自動套用（留空白不會壞掉）：
+打開 **`assets/site.js`**，把最上面的連結填上去就好，全站所有按鈕會自動套用（留空白不會壞掉）：
 
 ```js
 const GOSHOOT_LINKS = {
   line:   "",  // LINE 官方帳號加好友連結
-  shopee: "",  // 蝦皮賣場連結
-  form:   "",  // 預購表單連結（Tally／Google 表單）
+  form:   "",  // 表單連結（Tally／Google 表單）
   signup: ""   // 賽事報名連結
 };
 ```
 
 ### 🟠 必填
 - **營業時間 / 電話**：`index.html` 來店區兩處「（待填）」
-- **商品照片**：把 3 張照片放進 `assets/photos/`，命名 `product-1.jpg`～`product-3.jpg` 即自動顯示（未放圖會顯示品牌圖示佔位）
-- **預購表單**：`index.html` 預購區 `formbox` 內，可改成你的表單 `<iframe>`（程式碼有範例）
 
 ### ✅ 已完成
 - **Google 地圖**：來店區已嵌入店址地圖（`新北市中和區景平路593號之1`）
@@ -68,23 +64,6 @@ const GOSHOOT_LINKS = {
 ### 🟢 內容維護
 - `guide-tierlist.html`：每月更新天梯配置
 - 賽事頁／海報數字（NT$50＝1 幣、報名費）可依實際調整
-- `products.json`：蝦皮熱銷商品清單（`shop.html` 讀取渲染）；每個商品可有 `blurb` 欄位＝商品卡上的 AI 短描述
-
----
-
-## 🤖 商品文案（AI 自動更新）
-
-`shop.html` 的商品卡會顯示 `products.json` 裡每個商品的 `blurb`（AI 生成短描述）。
-文案由專案根目錄的 AI 工具產生（`anthropic-api/`，需 `ANTHROPIC_API_KEY`）。
-
-**一鍵更新 + 上線**（改完 `products.json` 的商品名稱/價格/連結後）：
-```bash
-cd <goshoot 專案根目錄>
-./update_shop.sh          # 產文案 → 套用 → 問 y/N 後 push 上線
-```
-- 預設用便宜的 `claude-haiku-4-5`；想要更好品質：`GOSHOOT_MODEL=claude-opus-4-8 ./update_shop.sh`
-- 手動版工具：`anthropic-api/goshoot_ai.py`（`copy` 單篇 / `batch` 批量 / `social` IG・FB 貼文）
-- 細節見 `anthropic-api/README.md`
 
 ---
 

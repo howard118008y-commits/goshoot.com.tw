@@ -51,9 +51,6 @@
   },
 
   "shipping": [
-    { "key": "seven",  "name": "7-11 店到店",   "base": 60 },
-    { "key": "family", "name": "全家店到店",     "base": 60 },
-    { "key": "shopee", "name": "蝦皮store",      "base": 45 },
     { "key": "post",   "name": "中華郵政",       "base": 70, "oversize": true, "limit": "最長邊 ≤150cm・三邊合計 ≤150cm・≤20kg" }
   ],
 

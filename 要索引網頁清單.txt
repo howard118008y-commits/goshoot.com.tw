@@ -7,8 +7,7 @@ Go Shoot 官網 — 要索引的網頁清單
 ichiban-pokemon / ichiban-jujutsu / ichiban-hololive /
 article-what-is-online-ichiban / article-choose-online-ichiban / article-online-ichiban-claim /
 article-jujutsu-ichiban-latest / article-pokemon-ichiban-latest /
-article-kimetsu-ichiban-latest / article-chiikawa-ichiban-latest /
-guide-daikou
+article-kimetsu-ichiban-latest / article-chiikawa-ichiban-latest
 
 【✅ 2026-07-11 檢查時已編入索引（免送，15 條）】
 ichiban-kimetsu / ichiban-chiikawa / ichiban-spyfamily / ichiban-chainsawman / ichiban-dandadan /
@@ -26,7 +25,6 @@ store / beyblade-history
 【更早已送出（不用再送）】
 https://goshoot.com.tw/
 https://goshoot.com.tw/ichiban.html
-https://goshoot.com.tw/shop.html
 https://goshoot.com.tw/events.html
 https://goshoot.com.tw/faq.html
 https://goshoot.com.tw/guide.html

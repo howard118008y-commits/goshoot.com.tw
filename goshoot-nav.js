@@ -6,17 +6,15 @@
   if (window.__gsNav) return;
   window.__gsNav = 1;
 
-  // 四格 + 中央一番賞主鈕。想改分組只要動這個陣列。
+  // 三格 + 中央一番賞主鈕。想改分組只要動這個陣列。
   var TABS = [
     { href: 'index.html', icon: null, label: '首頁', match: /^(index\.html)?$/ },
     { href: 'guide.html', icon: 'assets/brand/icon/spintop.jpg', label: '攻略',
       match: /^(guide|beyblade-|article-)/ },
     { cta: true, href: 'ichiban.html', label: '一番\u8CDE', sub: '馬上抽',
       match: /^ichiban/ },
-    { href: 'shop.html', icon: 'assets/brand/icon/claw.jpg', label: '商品',
-      match: /^(shop|store)/ },
     { href: 'about.html', icon: 'assets/brand/icon/target.jpg', label: '門市',
-      match: /^(about|events|faq|terms|privacy|refund)/ }
+      match: /^(about|store|events|faq|terms|privacy|refund)/ }
   ];
 
   var EMBLEM = '<svg viewBox="0 0 512 512" width="24" height="24" aria-hidden="true" style="display:block">' +
