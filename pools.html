@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一番賞獎池｜Go Shoot 線上一番賞</title>
+<meta name="description" content="Go Shoot 線上一番賞獎池列表：剩餘抽數即時更新、每抽必中、公開亂數可驗證公平。">
+<link rel="canonical" href="https://goshoot.com.tw/pools.html">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+  /* design_handoff reference.html 02 一番賞・獎池列表——inline 值逐條照抄（2026-08-02 老闆拍板照圖 100%）。
+     ≤767px＝手機版（402 基準滿版）；768+＝網頁版（README W3：兩欄、最大寬 1200 居中）。 */
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;background:#1A1A1A;color:#FFFFFF;font-family:'Noto Sans TC',system-ui,sans-serif}
+  a{text-decoration:none;color:inherit}
+  .num{font-family:Archivo,'Noto Sans TC',sans-serif;font-weight:900;letter-spacing:-.02em}
+  @keyframes gsblink{0%,100%{opacity:1}50%{opacity:.25}}
+  .wrap{padding:58px 16px 96px;display:flex;flex-direction:column;gap:14px;max-width:640px;margin:0 auto}
+  .head{display:flex;align-items:center;justify-content:space-between;padding:4px 2px 0}
+  .head h1{font-size:25px;font-weight:900;letter-spacing:-.01em;margin:0}
+  .fair{display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:#2B2B2B;border:1px solid rgba(255,255,255,.08);font-size:12px;font-weight:700;color:#D4D4D4;white-space:nowrap}
+  .chips{display:flex;gap:8px;overflow-x:auto}
+  .chip{padding:9px 15px;border-radius:999px;background:#252525;border:1px solid rgba(255,255,255,.08);color:#B3B3B3;font-size:13px;font-weight:500;white-space:nowrap;cursor:pointer;font-family:inherit}
+  .chip.on{background:#FFFFFF;color:#1A1A1A;font-weight:700;border-color:transparent}
+  .feat{border-radius:20px;overflow:hidden;background:#252525;border:1px solid rgba(255,96,72,.24)}
+  .feat .img{position:relative;height:172px;background:#2B2B2B}
+  .feat .img img{width:100%;height:100%;object-fit:cover;display:block}
+  .feat .badge{position:absolute;top:12px;left:12px;font-size:11px;font-weight:800;letter-spacing:.06em;padding:6px 10px;border-radius:6px;background:#FF6048;color:#1A1A1A}
+  .feat .body{padding:14px;display:flex;flex-direction:column;gap:12px}
+  .track{height:8px;border-radius:999px;background:#363636;overflow:hidden}
+  .track.sm{height:6px}
+  .track i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#FF6048,#FFA890);transition:width .4s ease-out}
+  .cta{height:50px;border-radius:13px;background:#FF6048;color:#1A1A1A;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
+  .mini{display:flex;gap:12px;padding:12px;border-radius:18px;background:#212121;border:1px solid rgba(255,255,255,.06)}
+  .mini .thumb{width:88px;height:88px;border-radius:12px;background:#2B2B2B;flex-shrink:0;overflow:hidden}
+  .mini .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .mini .col{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+  .empty{padding:40px 0;text-align:center;color:#8C8C8C;font-size:14px}
+  .tabbar{position:fixed;left:0;right:0;bottom:0;height:88px;padding:9px 12px 26px;display:flex;background:rgba(26,26,26,.94);border-top:1px solid rgba(255,255,255,.07)}
+  .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#757575;font-size:11px;font-weight:700}
+  .tabbar a.on{color:#FF6048}
+  @media (min-width:768px){
+    .wrap{max-width:1200px;padding:48px 32px 60px}
+    .list{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+    .feat{grid-column:1/-1;max-width:640px}
+    .tabbar{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>一番賞</h1>
+    <a class="fair" href="https://goshoot-ichiban.vercel.app/fairness">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5AE08C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"></path></svg>公正性
+    </a>
+  </div>
+
+  <div class="chips" id="chips">
+    <button class="chip on" data-cat="all">全部</button>
+    <button class="chip" data-cat="陀螺">陀螺</button>
+    <button class="chip" data-cat="寶可夢">寶可夢</button>
+    <button class="chip" data-cat="皮克敏">皮克敏</button>
+  </div>
+
+  <div class="list" id="list"><div class="empty">載入中…</div></div>
+</div>
+
+<nav class="tabbar" aria-label="主要導覽">
+  <a href="index.html">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.6 12 3.2l9 7.4V21H3z"></path></svg>首頁
+  </a>
+  <a href="pools.html" class="on" aria-current="page">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="7" width="18.8" height="10" rx="2.6"></rect><path d="M9.4 7v10"></path></svg>一番賞
+  </a>
+  <a href="https://goshoot-ichiban.vercel.app/store">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.2s6.8-6 6.8-10.7a6.8 6.8 0 1 0-13.6 0c0 4.7 6.8 10.7 6.8 10.7z"></path><circle cx="12" cy="10.4" r="2.4"></circle></svg>門市
+  </a>
+</nav>
+
+<script>
+(function(){
+  var API="https://goshoot-ichiban-production.up.railway.app/api";
+  var APP="https://goshoot-ichiban.vercel.app";
+  var sets=null,cat="all";
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function nf(n){return Number(n||0).toLocaleString();}
+  function pct(s){var t=Number(s.total_draws||0),r=Number(s.remaining_draws||0);return t>0?Math.round(r/t*100):0;}
+  function barColor(p){if(p<=20)return{bar:"#E9B65C",label:"快完售"};if(p>=50)return{bar:"#5AE08C",label:null};return{bar:"linear-gradient(90deg,#FF6048,#FFA890)",label:null};}
+  function render(){
+    var box=document.getElementById("list");
+    if(!sets){box.innerHTML='<div class="empty">載入中…</div>';return;}
+    var f=sets.filter(function(s){return cat==="all"||((s.series||"")+(s.title||"")).indexOf(cat)>=0;});
+    if(!f.length){box.innerHTML='<div class="empty">這個分類目前沒有開放中的獎池。</div>';return;}
+    var feat=f[0],rest=f.slice(1),h="";
+    var p=pct(feat);
+    h+='<div class="feat"><div class="img">'
+      +(feat.cover_image?'<img src="'+esc(feat.cover_image)+'" alt="">':"")
+      +'<span class="badge">本期主打</span></div><div class="body">'
+      +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px">'
+      +'<div style="display:flex;flex-direction:column;gap:3px"><div style="font-size:17px;font-weight:900">'+esc(feat.title)+'</div>'
+      +(feat.series?'<div style="font-size:12px;color:#8C8C8C">'+esc(feat.series)+'</div>':"")
+      +'</div><div style="text-align:right;flex-shrink:0"><span class="num" style="font-size:22px">'+nf(feat.price_per_draw)+'</span><span style="font-size:12px;color:#8C8C8C">／抽</span></div></div>'
+      +'<div style="display:flex;flex-direction:column;gap:7px"><div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:#8C8C8C">剩餘抽數</span><span style="font-weight:700"><span style="color:#FF6048">'+nf(feat.remaining_draws)+'</span> / '+nf(feat.total_draws)+'</span></div>'
+      +'<div class="track"><i style="width:'+p+'%"></i></div></div>'
+      +'<a class="cta" href="'+APP+'/pools/'+feat.id+'">抽這池</a></div></div>';
+    h+=rest.map(function(s){
+      var pc=pct(s),c=barColor(pc);
+      var txt=c.label
+        ?'<div style="font-size:11px;color:#E9B65C">只剩 <span style="font-weight:700">'+nf(s.remaining_draws)+'</span> / '+nf(s.total_draws)+' 抽・'+c.label+'</div>'
+        :'<div style="font-size:11px;color:#B3B3B3">剩 <span style="font-weight:700;color:#FFF">'+nf(s.remaining_draws)+'</span> / '+nf(s.total_draws)+' 抽</div>';
+      return '<a class="mini" href="'+APP+'/pools/'+s.id+'"><div class="thumb">'
+        +(s.cover_image?'<img src="'+esc(s.cover_image)+'" alt="">':"")
+        +'</div><div class="col">'
+        +'<div style="display:flex;justify-content:space-between;gap:8px"><div style="font-size:15px;font-weight:800">'+esc(s.title)+'</div>'
+        +'<div style="flex-shrink:0"><span class="num" style="font-size:16px">'+nf(s.price_per_draw)+'</span><span style="font-size:11px;color:#8C8C8C">／抽</span></div></div>'
+        +(s.series?'<div style="font-size:12px;color:#8C8C8C">'+esc(s.series)+'</div>':"")
+        +'<div style="display:flex;flex-direction:column;gap:6px"><div class="track sm"><i style="width:'+pc+'%;background:'+c.bar+'"></i></div>'+txt+'</div>'
+        +'</div></a>';
+    }).join("");
+    box.innerHTML=h;
+  }
+  document.getElementById("chips").addEventListener("click",function(e){
+    var b=e.target.closest(".chip");if(!b)return;
+    cat=b.dataset.cat;
+    document.querySelectorAll(".chip").forEach(function(x){x.classList.toggle("on",x===b);});
+    render();
+  });
+  function load(){fetch(API+"/sets").then(function(r){return r.json()}).then(function(d){sets=d||[];render();}).catch(function(){sets=[];render();});}
+  load();setInterval(load,12000);
+})();
+</script>
+</body>
+</html>

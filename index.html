@@ -11,6 +11,7 @@
   try{
     var ua = navigator.userAgent || '';
     if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|quora|pinterest|whatsapp|line\b|telegrambot|w3c_validator|lighthouse|headlesschrome/i.test(ua)) return; // 爬蟲/預覽器→看完整 SEO 首頁
+    if (window.matchMedia && matchMedia('(max-width:767px)').matches) return; // 手機→直接進 3-tab app 殼（2026-08-02 照圖改版），開場動畫只留桌機
     if (sessionStorage.getItem('gsIntroSeen')) return;   // 同 session 已看過
     if (location.hash) return;                            // 站內錨點跳轉
     var ref = document.referrer || '';
@@ -935,5 +936,122 @@ document.addEventListener("DOMContentLoaded",function(){
 </script>
 
 <script src="goshoot-nav.js" defer></script>
+
+<!-- ═══ 手機版 app 殼（design_handoff reference.html 01 首頁，2026-08-02 老闆拍板照圖 100%）═══
+     ≤767px 以覆蓋層呈現 3-tab 體驗，桌機（768+）完全不受影響；舊首頁 DOM 原封不動（SEO 保留）。
+     inline style 逐值抄 reference.html 01 screen；動態數字（hero 兩行/中獎動態）接 Railway 真 API。 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&display=swap">
+<style>
+  #gsapp{display:none}
+  @media (max-width:767px){
+    #gsapp{display:block;position:fixed;inset:0;z-index:9999;background:#1A1A1A;color:#FFFFFF;
+      font-family:'Noto Sans TC',system-ui,sans-serif;overflow:hidden}
+    #gsapp .gsa-scroll{position:absolute;inset:0;padding:58px 16px 96px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+    body.gsapp-on{overflow:hidden}
+  }
+  @keyframes gsblink{0%,100%{opacity:1}50%{opacity:.25}}
+  #gsapp .gsa-num{font-family:Archivo,'Noto Sans TC',sans-serif;font-weight:900;letter-spacing:-.02em}
+</style>
+<div id="gsapp" aria-label="Go Shoot 手機版">
+  <div class="gsa-scroll">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:2px 2px 0">
+      <div class="gsa-num" style="font-size:20px"><span style="color:#FF6048">GO</span><span>SHOOT</span></div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <a href="https://goshoot-ichiban.vercel.app/draw" style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;background:#2B2B2B;border:1px solid rgba(255,255,255,.08);color:#FFF;text-decoration:none">
+          <span style="width:14px;height:14px;border-radius:50%;background:linear-gradient(140deg,#FFD27A,#E9A03C);display:block"></span>
+          <span class="gsa-num" style="font-weight:800;font-size:14px">1,240</span>
+          <span style="font-size:11px;color:#8C8C8C">點</span>
+        </a>
+        <a href="https://goshoot-ichiban.vercel.app/membership" aria-label="會員" style="width:38px;height:38px;border-radius:50%;background:#2B2B2B;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;text-decoration:none">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="1.9" stroke-linecap="round"><path d="M18 15V10a6 6 0 1 0-12 0v5l-1.6 2.6h15.2z"></path><path d="M9.6 20.4a2.6 2.6 0 0 0 4.8 0"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <div style="position:relative;height:258px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,96,72,.28);background:#1F1F1F;flex-shrink:0">
+      <img src="assets/brand/card-ichiban-ticket.webp" alt="線上一番賞" style="position:absolute;top:-42px;right:-96px;width:330px;height:330px;object-fit:cover;opacity:.95">
+      <div style="position:absolute;inset:0;background:linear-gradient(100deg,#1A1A1A 30%,rgba(26,26,26,.72) 58%,rgba(26,26,26,.1) 100%)"></div>
+      <div style="position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;justify-content:space-between">
+        <div style="display:flex;flex-direction:column;gap:9px;align-items:flex-start">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 9px;border-radius:5px;background:rgba(255,96,72,.16);color:#FF8468;border:1px solid rgba(255,96,72,.3)">24H 隨時抽・每抽必中</span>
+          <div style="font-size:31px;font-weight:900;line-height:1.1;letter-spacing:-.02em">線上一番賞</div>
+          <div id="gsa-hero-lines" style="font-size:13px;color:#B3B3B3;line-height:1.5">公開亂數可驗證公平，每抽都有獎。</div>
+        </div>
+        <a href="pools.html" style="height:56px;border-radius:14px;background:#FF6048;color:#1A1A1A;display:flex;align-items:center;justify-content:center;gap:8px;font-size:18px;font-weight:900;letter-spacing:.02em;text-decoration:none;box-shadow:0 8px 22px rgba(255,96,72,.32)">開戰吧・馬上抽
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5.5-6L19 12l-6.5 6"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px">
+      <a href="https://goshoot-ichiban.vercel.app/store" style="flex:1;height:126px;border-radius:18px;background:#252525;border:1px solid rgba(255,255,255,.07);padding:14px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit">
+        <div style="font-size:12px;font-weight:700;color:#8C8C8C;letter-spacing:.04em">中和門市開幕</div>
+        <div style="display:flex;align-items:flex-end;gap:4px">
+          <span class="gsa-num" style="font-size:15px;font-weight:800;color:#FF6048;padding-bottom:6px">D-</span>
+          <span class="gsa-num" style="font-size:44px;line-height:.85;color:#FF6048">12</span>
+        </div>
+        <div style="font-size:12px;color:#D4D4D4">娃娃機・站旁 1 分鐘</div>
+      </a>
+      <a href="https://goshoot-ichiban.vercel.app/store?seg=events" style="flex:1;height:126px;border-radius:18px;background:#252525;border:1px solid rgba(255,255,255,.07);padding:14px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit">
+        <div style="font-size:12px;font-weight:700;color:#8C8C8C;letter-spacing:.04em">本週賽事</div>
+        <div style="font-size:19px;font-weight:900;line-height:1.25">週六<br>店內爭霸戰</div>
+        <div style="font-size:12px;color:#FFB2A0">還剩 6 個名額</div>
+      </a>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;padding-top:2px">
+      <div style="display:flex;align-items:center;gap:7px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#5AE08C;animation:gsblink 1.4s ease-in-out infinite;display:block"></span>
+        <span style="font-size:13px;font-weight:700">剛剛有人中獎</span>
+      </div>
+      <div id="gsa-wins" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+
+  <nav aria-label="主要導覽" style="position:absolute;left:0;right:0;bottom:0;height:88px;padding:9px 12px 26px;display:flex;background:rgba(26,26,26,.94);border-top:1px solid rgba(255,255,255,.07)">
+    <a href="index.html" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#FF6048;text-decoration:none">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.6 12 3.2l9 7.4V21H3z"></path></svg>
+      <span style="font-size:11px;font-weight:700">首頁</span>
+    </a>
+    <a href="pools.html" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#757575;text-decoration:none">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="7" width="18.8" height="10" rx="2.6"></rect><path d="M9.4 7v10"></path></svg>
+      <span style="font-size:11px;font-weight:700">一番賞</span>
+    </a>
+    <a href="https://goshoot-ichiban.vercel.app/store" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#757575;text-decoration:none">
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.2s6.8-6 6.8-10.7a6.8 6.8 0 1 0-13.6 0c0 4.7 6.8 10.7 6.8 10.7z"></path><circle cx="12" cy="10.4" r="2.4"></circle></svg>
+      <span style="font-size:11px;font-weight:700">門市</span>
+    </a>
+  </nav>
+</div>
+<script>
+(function(){
+  var API="https://goshoot-ichiban-production.up.railway.app/api";
+  if(window.matchMedia&&window.matchMedia("(max-width:767px)").matches){document.body.classList.add("gsapp-on");}
+  window.matchMedia("(max-width:767px)").addEventListener("change",function(e){document.body.classList.toggle("gsapp-on",e.matches);});
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function relTime(iso){var d=(Date.now()-new Date(iso).getTime())/60000;if(d<1)return"剛剛";if(d<60)return Math.floor(d)+" 分前";if(d<1440)return Math.floor(d/60)+" 小時前";return Math.floor(d/1440)+" 天前";}
+  function tint(g){if(g==="LAST")return["rgba(255,96,72,.14)","#FF8468"];if(g==="S"||g==="A")return["rgba(233,182,92,.16)","#E9B65C"];return["rgba(255,255,255,.07)","#D4D4D4"];}
+  fetch(API+"/sets").then(function(r){return r.json()}).then(function(list){
+    var s=(list||[]).filter(function(x){return x.status==="active"})[0]||list[0];if(!s)return;
+    return fetch(API+"/sets/"+s.id).then(function(r){return r.json()}).then(function(d){
+      var cat=/寶可夢/.test((d.series||"")+(d.title||""))?"寶可夢賞":/陀螺/.test((d.series||"")+(d.title||""))?"陀螺賞":/皮克敏/.test((d.series||"")+(d.title||""))?"皮克敏賞":"一番賞";
+      var a=(d.prizes||[]).filter(function(p){return p.grade==="A"})[0];
+      var aName=a?String(a.name).replace(/（[^）]*）\s*$/,""):"";
+      var last=(d.prizes||[]).filter(function(p){return p.grade==="LAST"})[0];
+      var lastText=last?(Number(last.remaining)>0?"・最後賞還在":"・最後賞已抽出"):"";
+      document.getElementById("gsa-hero-lines").innerHTML="本期"+esc(cat)+(aName?"・A 賞 "+esc(aName):"")+"<br>剩 "+Number(d.remaining_draws).toLocaleString()+" 抽"+esc(lastText);
+    });
+  }).catch(function(){});
+  fetch(API+"/feed/recent-wins?limit=3").then(function(r){return r.json()}).then(function(ws){
+    var box=document.getElementById("gsa-wins");if(!ws||!ws.length){box.parentElement.style.display="none";return;}
+    box.innerHTML=ws.map(function(w){var t=tint(w.grade);
+      return '<div style="display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:13px;background:#212121;border:1px solid rgba(255,255,255,.055)">'
+        +'<span class="gsa-num" style="width:30px;height:30px;border-radius:9px;background:'+t[0]+';color:'+t[1]+';font-size:'+(w.grade==="LAST"?11:13)+'px;display:flex;align-items:center;justify-content:center;flex-shrink:0">'+(w.grade==="LAST"?"最後":esc(w.grade))+'</span>'
+        +'<span style="flex:1;font-size:13px;color:#F0F0F0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(w.user)+' 抽中 <b style="color:#FFF;font-weight:700">'+esc(w.prize)+'</b></span>'
+        +'<span style="font-size:11px;color:#757575;flex-shrink:0">'+relTime(w.at)+'</span></div>';
+    }).join("");
+  }).catch(function(){document.getElementById("gsa-wins").parentElement.style.display="none";});
+})();
+</script>
 </body>
 </html>
