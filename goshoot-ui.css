@@ -312,10 +312,9 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
 .gs-tier[data-tier="black"]{--t:var(--gs-tier-black)}
 
 /* ── 8. 底部導覽列（goshoot-nav.js 注入・手機限定）────────── */
-/* 2026-08-02 老闆點名「沒有置中」修正：寬視窗（平板/小桌機 ≤860 仍顯示）時整條限寬置中，
-   內容五格對稱（見 goshoot-nav.js TABS），中央一番賞大鈕落在正中。 */
-.gs-tabbar{position:fixed;left:50%;transform:translateX(-50%);bottom:0;z-index:75;display:flex;
-  width:100%;max-width:560px;
+/* 2026-08-02 置中修正：整面全寬（老闆拍板），五格對稱（見 goshoot-nav.js TABS）
+   ＝中央一番賞大鈕天然正中；小Go FAB 由下方規則抬到導覽列上方一格。 */
+.gs-tabbar{position:fixed;left:0;right:0;bottom:0;z-index:75;display:flex;
   background:rgba(13,13,15,.95);
   backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
   border-top:1px solid var(--gs-line);
@@ -341,6 +340,8 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
 body.gs-has-tabbar{padding-bottom:var(--gs-tabbar-h)}
 /* 原本的回上一頁浮球會擋到導覽列，往上推 */
 body.gs-has-tabbar .js-back{bottom:calc(var(--gs-tabbar-h) + 12px)!important}
+/* 小Go 客服浮球（assistant.js .gsa 預設 bottom:18px）壓到導覽列——抬到列上方一格 */
+body.gs-has-tabbar .gsa{bottom:calc(var(--gs-tabbar-h) + 14px)}
 
 /* ── 9. 其他既有元件對齊 ─────────────────────────────────── */
 .band{background:linear-gradient(120deg,#1c1c22,#101015);
