@@ -312,7 +312,10 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
 .gs-tier[data-tier="black"]{--t:var(--gs-tier-black)}
 
 /* ── 8. 底部導覽列（goshoot-nav.js 注入・手機限定）────────── */
-.gs-tabbar{position:fixed;left:0;right:0;bottom:0;z-index:75;display:flex;
+/* 2026-08-02 老闆點名「沒有置中」修正：寬視窗（平板/小桌機 ≤860 仍顯示）時整條限寬置中，
+   內容五格對稱（見 goshoot-nav.js TABS），中央一番賞大鈕落在正中。 */
+.gs-tabbar{position:fixed;left:50%;transform:translateX(-50%);bottom:0;z-index:75;display:flex;
+  width:100%;max-width:560px;
   background:rgba(13,13,15,.95);
   backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);
   border-top:1px solid var(--gs-line);
