@@ -937,100 +937,469 @@ document.addEventListener("DOMContentLoaded",function(){
 
 <script src="goshoot-nav.js" defer></script>
 
-<!-- ═══ 手機版 app 殼（design_handoff reference.html 01 首頁，2026-08-02 老闆拍板照圖 100%）═══
-     ≤767px 以覆蓋層呈現 3-tab 體驗，桌機（768+）完全不受影響；舊首頁 DOM 原封不動（SEO 保留）。
-     inline style 逐值抄 reference.html 01 screen；動態數字（hero 兩行/中獎動態）接 Railway 真 API。 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&display=swap">
+<!-- ═══ 手機版完整站（goshoot-mobile.html 轉正，2026-08-02 老闆拍板「全部做完」）═══
+     ≤767px 覆蓋層顯示完整手機站；桌機（768+）零影響。
+     CSS selector／class／id 全部 gsm- 前綴＋#gsapp scope，與舊首頁全域樣式完全隔離。 -->
 <style>
   #gsapp{display:none}
   @media (max-width:767px){
-    #gsapp{display:block;position:fixed;inset:0;z-index:9999;background:#1A1A1A;color:#FFFFFF;
-      font-family:'Noto Sans TC',system-ui,sans-serif;overflow:hidden}
-    #gsapp .gsa-scroll{position:absolute;inset:0;padding:58px 16px 96px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+    #gsapp{display:block;position:fixed;inset:0;z-index:9999;background:#1A1A1A;overflow:hidden}
     body.gsapp-on{overflow:hidden}
   }
-  @keyframes gsblink{0%,100%{opacity:1}50%{opacity:.25}}
-  #gsapp .gsa-num{font-family:Archivo,'Noto Sans TC',sans-serif;font-weight:900;letter-spacing:-.02em}
+  #gsapp .gsm-scroll{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+/* ═══ Go Shoot 手機版・app 主題（配色與 design_handoff reference.gsm-html 一致）═══
+   底 #1A1A1A / 卡 #212121・#252525 / 主色 #FF6048 / 亮橘 #FF8468 / 金 #E9B65C / 綠 #5AE08C
+   單欄文件流（非 fixed 覆蓋層）＝手機滑動最順；桌機內容欄 480px 置中。 */#gsapp{
+  --bg:#1A1A1A; --card:#212121; --card2:#252525; --chip:#2B2B2B;
+  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.055);
+  --text:#FFFFFF; --soft:#D4D4D4; --muted:#8C8C8C; --dim:#757575; --body2:#B3B3B3;
+  --orange:#FF6048; --orange-soft:#FF8468; --gold:#E9B65C; --green:#5AE08C;
+  --num:'Archivo','Noto Sans TC',sans-serif;
+}#gsapp *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}#gsapp{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}#gsapp img{max-width:100%;display:block}#gsapp a{color:var(--orange);text-decoration:none}#gsapp a:hover{color:var(--orange-soft)}#gsapp ::selection{background:var(--orange);color:#1A1A1A}#gsapp .gsm-num{font-family:var(--num);font-weight:900;letter-spacing:-.02em}
+
+/* 版心：手機滿版、桌機 480 置中（全裝置單一版本） */#gsapp .gsm-col{max-width:480px;margin:0 auto;padding:0 16px}#gsapp main{padding-bottom:calc(96px + env(safe-area-inset-bottom))} /* 讓開底部 tab bar */#gsapp section{padding:26px 0 6px}#gsapp .gsm-sec-head{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}#gsapp .gsm-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted)}#gsapp .gsm-sec-title{font-size:22px;font-weight:900;letter-spacing:-.01em;line-height:1.3}#gsapp .gsm-sec-lead{font-size:13px;color:var(--body2);line-height:1.7;text-wrap:pretty}
+
+/* 按鈕：只留兩種，一律 ≥48px 好按 */#gsapp .gsm-cta{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:13px;
+  background:var(--orange);color:#1A1A1A;font-size:16px;font-weight:900;letter-spacing:.02em}#gsapp .gsm-cta:hover{color:#1A1A1A;filter:brightness(1.06)}#gsapp .gsm-cta.gsm-big{height:56px;border-radius:14px;font-size:18px;box-shadow:0 8px 22px rgba(255,96,72,.32)}#gsapp .gsm-cta.gsm-ghost{background:var(--card2);color:#FFFFFF;border:1px solid rgba(255,255,255,.1);box-shadow:none;font-weight:800}#gsapp .gsm-cta.gsm-ghost:hover{color:#FFFFFF;border-color:rgba(255,96,72,.5)}#gsapp .gsm-cta.gsm-line-green{background:#06C755;color:#062E17;box-shadow:none}#gsapp .gsm-arrow{width:18px;height:18px;flex-shrink:0}
+
+/* 卡片 */#gsapp .gsm-card{background:var(--card);border:1px solid var(--line2);border-radius:18px}#gsapp .gsm-card2{background:var(--card2);border:1px solid var(--line);border-radius:18px}
+
+/* 進場 reveal：fail-open——預設可見，JS 就緒才先隱藏再由 IO 揭示；IO 沒觸發也有 timeout 保底 */body.gsm-js-rv #gsapp .gsm-rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}body.gsm-js-rv #gsapp .gsm-rv.gsm-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){body.gsm-js-rv #gsapp .gsm-rv{opacity:1;transform:none;transition:none}}
+@keyframes gsm-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes gsm-mq{to{transform:translateX(-50%)}}
+
+/* 頂欄 */#gsapp .gsm-topbar{position:sticky;top:0;z-index:100;background:rgba(26,26,26,.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line2)}#gsapp .gsm-topbar .gsm-col{display:flex;align-items:center;justify-content:space-between;height:56px}#gsapp .gsm-brand{font-family:var(--num);font-weight:900;font-size:20px;letter-spacing:-.02em;color:#FFFFFF}#gsapp .gsm-brand b{color:var(--orange)}#gsapp .gsm-top-right{display:flex;align-items:center;gap:8px}#gsapp .gsm-pts{display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;background:var(--chip);border:1px solid rgba(255,255,255,.08);color:#FFFFFF}#gsapp .gsm-pts:hover{color:#FFFFFF}#gsapp .gsm-pts .gsm-coin{width:14px;height:14px;border-radius:50%;background:linear-gradient(140deg,#FFD27A,#E9A03C)}#gsapp .gsm-icon-btn{width:38px;height:38px;border-radius:50%;background:var(--chip);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center}
+
+/* 跑馬燈 */#gsapp .gsm-marquee{overflow:hidden;border-bottom:1px solid var(--line2);background:#161616;padding:9px 0}#gsapp .gsm-marquee .gsm-mq{display:flex;width:max-content;white-space:nowrap;animation:gsm-mq 26s linear infinite;
+  font:800 13px/1 var(--num);color:var(--orange);letter-spacing:.04em}#gsapp .gsm-marquee b{font-weight:800;padding-right:.6em}
+@media(prefers-reduced-motion:reduce){#gsapp .gsm-marquee .gsm-mq{animation:none}}
+
+/* 底部 3-tab */#gsapp .gsm-tabbar{position:absolute;left:0;right:0;bottom:0;z-index:100;height:calc(64px + env(safe-area-inset-bottom));
+  padding:8px 12px calc(4px + env(safe-area-inset-bottom));display:flex;background:rgba(26,26,26,.94);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}#gsapp .gsm-tabbar .gsm-col{display:flex;flex:1;max-width:480px;margin:0 auto;padding:0}#gsapp .gsm-tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--dim)}#gsapp .gsm-tab:hover{color:var(--dim)}#gsapp .gsm-tab.gsm-on,#gsapp .gsm-tab.gsm-on:hover{color:var(--orange)}#gsapp .gsm-tab span{font-size:10.5px;font-weight:700}
+
+/* Hero：品牌＋內容入口（不主推抽賞） */#gsapp .gsm-hero-brand{border-radius:22px;border:1px solid var(--line);overflow:hidden;
+  background:radial-gradient(140% 90% at 50% 30%,#221410 0%,#1A1A1A 62%);
+  padding:28px 18px 18px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}#gsapp .gsm-hero-brand .gsm-logo{width:min(80%,300px)}#gsapp .gsm-hero-brand .gsm-subline{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;align-items:center;
+  font-weight:900;font-size:14px;color:#FBF6EE;padding:8px 16px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}#gsapp .gsm-hero-brand .gsm-subline .gsm-x{color:var(--orange);font-family:var(--num);font-weight:800}#gsapp .gsm-hero-brand .gsm-ctas{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:2px}
+
+/* Hero 主卡 */#gsapp .gsm-hero{position:relative;height:258px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,96,72,.28);background:#1F1F1F}#gsapp .gsm-hero>img{position:absolute;top:-42px;right:-96px;width:330px;height:330px;object-fit:cover;opacity:.95}#gsapp .gsm-hero .gsm-shade{position:absolute;inset:0;background:linear-gradient(100deg,#1A1A1A 30%,rgba(26,26,26,.72) 58%,rgba(26,26,26,.1) 100%)}#gsapp .gsm-hero .gsm-inner{position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;justify-content:space-between}#gsapp .gsm-badge{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 9px;border-radius:5px;
+  background:rgba(255,96,72,.16);color:var(--orange-soft);border:1px solid rgba(255,96,72,.3)}#gsapp .gsm-hero h1{font-size:31px;font-weight:900;line-height:1.1;letter-spacing:-.02em}#gsapp .gsm-hero .gsm-sub{font-size:13px;color:var(--body2);line-height:1.5}
+
+/* 兩張快速小卡 */#gsapp .gsm-duo{display:flex;gap:10px;margin-top:12px}#gsapp .gsm-duo a{flex:1;height:126px;border-radius:18px;background:var(--card2);border:1px solid var(--line);
+  padding:14px;display:flex;flex-direction:column;justify-content:space-between;color:inherit}#gsapp .gsm-duo a:hover{color:inherit;border-color:rgba(255,96,72,.4)}#gsapp .gsm-duo .gsm-k{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.04em}#gsapp .gsm-duo .gsm-d{font-size:12px;color:var(--soft)}
+
+/* 中獎動態 */#gsapp .gsm-wins{display:flex;flex-direction:column;gap:8px}#gsapp .gsm-win{display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:13px;background:var(--card);border:1px solid var(--line2)}#gsapp .gsm-win .gsm-g{width:30px;height:30px;border-radius:9px;font-family:var(--num);font-weight:900;font-size:13px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}#gsapp .gsm-win .gsm-t{flex:1;font-size:13px;color:#F0F0F0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#gsapp .gsm-win .gsm-t b{color:#FFFFFF;font-weight:700}#gsapp .gsm-win .gsm-ago{font-size:11px;color:var(--dim);flex-shrink:0}#gsapp .gsm-live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:gsm-blink 1.4s ease-in-out infinite}
+
+/* 三大主打 */#gsapp .gsm-pillar{position:relative;display:block;border-radius:20px;overflow:hidden;background:var(--card2);
+  border:1px solid rgba(255,96,72,.24);padding:18px;min-height:150px;color:inherit;margin-bottom:12px}#gsapp .gsm-pillar:hover{color:inherit;border-color:rgba(255,96,72,.5)}#gsapp .gsm-pillar img{position:absolute;right:-26px;bottom:-30px;width:180px;mix-blend-mode:screen;opacity:.8;
+  transform:rotate(-8deg);border-radius:14px;pointer-events:none}#gsapp .gsm-pillar h3{position:relative;font-size:20px;font-weight:900;margin-bottom:4px}#gsapp .gsm-pillar p{position:relative;font-size:12.5px;color:var(--body2);line-height:1.6;max-width:70%}#gsapp .gsm-pillar .gsm-go{position:relative;display:inline-block;margin-top:10px;font-size:13px;font-weight:800;color:var(--orange)}
+
+/* 從 0 開始 */#gsapp .gsm-zero{display:flex;flex-direction:column;gap:8px}#gsapp .gsm-z{display:flex;gap:13px;align-items:flex-start;padding:14px;border-radius:14px;background:var(--card);border:1px solid var(--line2);color:inherit}#gsapp .gsm-z:hover{color:inherit;border-color:rgba(255,96,72,.4)}#gsapp .gsm-z .gsm-n{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#E8552F);
+  color:#1A1A1A;font-family:var(--num);font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}#gsapp .gsm-z h3{font-size:15px;font-weight:900}#gsapp .gsm-z p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:2px 0 4px}#gsapp .gsm-z .gsm-go{font-size:12.5px;font-weight:800;color:var(--orange)}
+
+/* 正版聲明 */#gsapp .gsm-notice{display:block;border-radius:18px;overflow:hidden;background:var(--card);border:1px solid rgba(255,96,72,.38);color:inherit}#gsapp .gsm-notice:hover{color:inherit}#gsapp .gsm-notice .gsm-cover{aspect-ratio:16/7;background:#141018}#gsapp .gsm-notice .gsm-cover img{width:100%;height:100%;object-fit:cover}#gsapp .gsm-notice .gsm-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}#gsapp .gsm-tag{align-self:flex-start;font-size:11px;font-weight:800;padding:4px 10px;border-radius:5px;background:var(--orange);color:#1A1A1A}#gsapp .gsm-notice h3{font-size:17px;font-weight:900}#gsapp .gsm-notice p{font-size:13px;color:var(--body2);line-height:1.7}#gsapp .gsm-notice p b{color:#FFFFFF}#gsapp .gsm-notice .gsm-go{font-size:13px;font-weight:800;color:var(--orange)}
+
+/* 新品快訊：橫向滑動 snap */#gsapp .gsm-hscroll{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:2px 16px 10px;margin:0 -16px;scrollbar-width:none}#gsapp .gsm-hscroll::-webkit-scrollbar{display:none}#gsapp .gsm-newscard{flex:0 0 76%;scroll-snap-align:start;border-radius:18px;overflow:hidden;
+  background:var(--card);border:1px solid var(--line2);display:flex;flex-direction:column;color:inherit}#gsapp .gsm-newscard:hover{color:inherit}#gsapp .gsm-newscard .gsm-top{position:relative;aspect-ratio:16/10;overflow:hidden}#gsapp .gsm-newscard .gsm-top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}#gsapp .gsm-newscard .gsm-ntag{position:absolute;top:10px;left:10px;font-size:11px;font-weight:800;padding:4px 10px;border-radius:5px;background:rgba(26,26,26,.85);color:#FFFFFF}#gsapp .gsm-newscard .gsm-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:5px;flex:1}#gsapp .gsm-newscard h3{font-size:14.5px;font-weight:800;line-height:1.45}#gsapp .gsm-newscard .gsm-meta{font-size:12.5px;color:var(--muted);line-height:1.6;flex:1}#gsapp .gsm-newscard .gsm-src{font-size:12px;font-weight:800;color:var(--orange)}
+
+/* 主打預告 */#gsapp .gsm-feature{border-radius:20px;padding:20px 18px;border:1px solid rgba(255,96,72,.5);border-top:3px solid var(--orange);
+  background:linear-gradient(130deg,#141416 0%,#2a1710 60%,rgba(232,85,47,.5) 145%)}#gsapp .gsm-feature h3{font-size:20px;font-weight:900;line-height:1.35;margin:8px 0 6px}#gsapp .gsm-feature p{font-size:13px;color:var(--body2);line-height:1.7}#gsapp .gsm-feature p b{color:#FFFFFF}#gsapp .gsm-chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 16px}#gsapp .gsm-chips span{font-size:12px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);padding:5px 12px;border-radius:999px}
+
+/* 發售雷達 */#gsapp .gsm-rel-list{display:flex;flex-direction:column;gap:8px}#gsapp .gsm-rel{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:12px 13px;color:inherit}#gsapp .gsm-rel:hover{color:inherit;border-color:rgba(255,96,72,.4)}#gsapp .gsm-rel .gsm-date{flex:0 0 auto;text-align:center;background:var(--chip);border-radius:10px;padding:7px 10px;min-width:62px}#gsapp .gsm-rel .gsm-date b{display:block;font:800 15px/1.15 var(--num);color:var(--orange-soft)}#gsapp .gsm-rel .gsm-date span{font-size:10px;color:var(--muted);letter-spacing:.05em}#gsapp .gsm-rel .gsm-main{flex:1;min-width:0}#gsapp .gsm-rel .gsm-name{font-weight:800;font-size:13.5px;line-height:1.45}#gsapp .gsm-rel .gsm-sub{font-size:11.5px;color:var(--body2);margin-top:2px;line-height:1.55}#gsapp .gsm-rel .gsm-rtag{font-size:10px;font-weight:800;padding:2px 7px;border-radius:999px;margin-right:5px;vertical-align:1px}#gsapp .gsm-rt-bey{background:var(--orange);color:#1A1A1A}#gsapp .gsm-rt-pok{background:var(--gold);color:#1A1A1A}#gsapp .gsm-rt-pik{background:#3FC8C8;color:#1A1A1A}#gsapp .gsm-rel .gsm-st{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;flex-shrink:0;color:var(--gold);background:rgba(233,182,92,.12)}#gsapp .gsm-rel .gsm-st.gsm-hot{color:var(--orange-soft);background:rgba(255,96,72,.14)}#gsapp .gsm-fineprint{font-size:11.5px;color:var(--dim);margin-top:10px}
+
+/* 娃娃機 */#gsapp .gsm-claw-visual{border-radius:20px;border:1px solid rgba(255,96,72,.5);border-top:3px solid var(--orange);
+  background:#0d0d0f;padding:18px;display:flex;justify-content:center}#gsapp .gsm-claw-visual img{width:min(72%,260px);mix-blend-mode:screen;transform:rotate(-4deg);border-radius:14px}#gsapp .gsm-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}#gsapp .gsm-feat{background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:14px 12px;text-align:center}#gsapp .gsm-feat b{display:block;font-size:17px;font-weight:900;color:var(--orange);margin-bottom:2px}#gsapp .gsm-feat span{font-size:12px;color:var(--muted);line-height:1.5;display:block}
+
+/* band 卡（一番賞／賽場） */#gsapp .gsm-band{border-radius:20px;padding:20px 18px;border:1px solid rgba(255,96,72,.4);
+  background:linear-gradient(130deg,#141416 0%,#2a1710 55%,rgba(232,85,47,.45) 140%)}#gsapp .gsm-band.gsm-ink{background:#141416;border-color:var(--line)}#gsapp .gsm-band h3{font-size:20px;font-weight:900;margin:8px 0 6px}#gsapp .gsm-band p{font-size:13px;color:var(--body2);line-height:1.7;margin-bottom:16px}
+
+/* 攻略 */#gsapp .gsm-guides{display:flex;flex-direction:column;gap:8px}#gsapp .gsm-guide{display:block;padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line2);color:inherit}#gsapp .gsm-guide:hover{color:inherit;border-color:rgba(255,96,72,.4)}#gsapp .gsm-guide .gsm-k{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--orange)}#gsapp .gsm-guide h3{font-size:16px;font-weight:900;margin:4px 0 3px;line-height:1.4}#gsapp .gsm-guide p{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+/* 來店資訊 */#gsapp .gsm-map{border-radius:18px;overflow:hidden;border:1px solid var(--line);height:220px;margin-bottom:14px}#gsapp .gsm-map iframe{width:100%;height:100%;border:0;display:block}#gsapp .gsm-vrow{display:flex;gap:12px;padding:12px 2px;border-bottom:1px solid var(--line2);align-items:flex-start}#gsapp .gsm-vrow:last-of-type{border-bottom:0}#gsapp .gsm-vrow svg{flex-shrink:0;margin-top:2px}#gsapp .gsm-vrow .gsm-vt{flex:1;font-size:13.5px;line-height:1.55}#gsapp .gsm-vrow .gsm-vt small{display:block;font-size:12px;color:var(--muted)}#gsapp .gsm-vrow .gsm-act{font-size:12.5px;font-weight:700;color:var(--orange);flex-shrink:0;padding:2px 4px}
+
+/* footer */#gsapp footer{margin-top:30px;padding:28px 0 20px;background:#141414;border-top:1px solid var(--line2)}#gsapp footer .gsm-fb{font-family:var(--num);font-weight:900;font-size:18px;margin-bottom:6px}#gsapp footer .gsm-fb b{color:var(--orange)}#gsapp footer .gsm-fdesc{font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:16px}#gsapp .gsm-fcols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}#gsapp .gsm-fcols h4{font-size:12px;font-weight:800;color:var(--soft);margin-bottom:8px;letter-spacing:.06em}#gsapp .gsm-fcols a{display:block;color:var(--body2);font-size:13px;padding:4px 0}#gsapp .gsm-fcols a:hover{color:var(--orange)}#gsapp .gsm-legal{border-top:1px solid var(--line2);padding-top:14px;font-size:11.5px;color:var(--dim);line-height:1.8;text-align:center}#gsapp .gsm-legal a{color:inherit}
+
 </style>
 <div id="gsapp" aria-label="Go Shoot 手機版">
-  <div class="gsa-scroll">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:2px 2px 0">
-      <div class="gsa-num" style="font-size:20px"><span style="color:#FF6048">GO</span><span>SHOOT</span></div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <a href="https://goshoot-ichiban.vercel.app/draw" style="display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:999px;background:#2B2B2B;border:1px solid rgba(255,255,255,.08);color:#FFF;text-decoration:none">
-          <span style="width:14px;height:14px;border-radius:50%;background:linear-gradient(140deg,#FFD27A,#E9A03C);display:block"></span>
-          <span class="gsa-num" style="font-weight:800;font-size:14px">1,240</span>
-          <span style="font-size:11px;color:#8C8C8C">點</span>
-        </a>
-        <a href="https://goshoot-ichiban.vercel.app/membership" aria-label="會員" style="width:38px;height:38px;border-radius:50%;background:#2B2B2B;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;text-decoration:none">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="1.9" stroke-linecap="round"><path d="M18 15V10a6 6 0 1 0-12 0v5l-1.6 2.6h15.2z"></path><path d="M9.6 20.4a2.6 2.6 0 0 0 4.8 0"></path></svg>
-        </a>
-      </div>
-    </div>
+  <div class="gsm-scroll">
+<!-- ═══ 頂欄 ═══ -->
+<header class="gsm-topbar"><div class="gsm-col">
+  <a class="gsm-brand" href="index.html" style="color:#FFF"><b>GO</b>SHOOT</a>
+  <div class="gsm-top-right">
+    <a class="gsm-pts" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">
+      <span class="gsm-coin"></span><span class="gsm-num" style="font-size:14px;font-weight:800">1,240</span><span style="font-size:11px;color:var(--muted)">點</span>
+    </a>
+    <a class="gsm-icon-btn" href="https://goshoot-ichiban.vercel.app/membership" aria-label="會員" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="1.9" stroke-linecap="round"><path d="M18 15V10a6 6 0 1 0-12 0v5l-1.6 2.6h15.2z"/><path d="M9.6 20.4a2.6 2.6 0 0 0 4.8 0"/></svg>
+    </a>
+  </div>
+</div></header>
 
-    <div style="position:relative;height:258px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,96,72,.28);background:#1F1F1F;flex-shrink:0">
-      <img src="assets/brand/card-ichiban-ticket.webp" alt="線上一番賞" style="position:absolute;top:-42px;right:-96px;width:330px;height:330px;object-fit:cover;opacity:.95">
-      <div style="position:absolute;inset:0;background:linear-gradient(100deg,#1A1A1A 30%,rgba(26,26,26,.72) 58%,rgba(26,26,26,.1) 100%)"></div>
-      <div style="position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;justify-content:space-between">
-        <div style="display:flex;flex-direction:column;gap:9px;align-items:flex-start">
-          <span style="font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 9px;border-radius:5px;background:rgba(255,96,72,.16);color:#FF8468;border:1px solid rgba(255,96,72,.3)">24H 隨時抽・每抽必中</span>
-          <div style="font-size:31px;font-weight:900;line-height:1.1;letter-spacing:-.02em">線上一番賞</div>
-          <div id="gsa-hero-lines" style="font-size:13px;color:#B3B3B3;line-height:1.5">公開亂數可驗證公平，每抽都有獎。</div>
-        </div>
-        <a href="pools.html" style="height:56px;border-radius:14px;background:#FF6048;color:#1A1A1A;display:flex;align-items:center;justify-content:center;gap:8px;font-size:18px;font-weight:900;letter-spacing:.02em;text-decoration:none;box-shadow:0 8px 22px rgba(255,96,72,.32)">開戰吧・馬上抽
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5.5-6L19 12l-6.5 6"></path></svg>
-        </a>
-      </div>
-    </div>
+<!-- ═══ 跑馬燈（原 util bar 內容） ═══ -->
+<div class="gsm-marquee" aria-hidden="true"><div class="gsm-mq">
+  <b>中和戰鬥陀螺專門店 ✦ 線上一番賞 24H 隨時抽 ✦ 中和捷運站旁・娃娃機即將開幕 ✦ </b>
+  <b>中和戰鬥陀螺專門店 ✦ 線上一番賞 24H 隨時抽 ✦ 中和捷運站旁・娃娃機即將開幕 ✦ </b>
+</div></div>
 
-    <div style="display:flex;gap:10px">
-      <a href="https://goshoot-ichiban.vercel.app/store" style="flex:1;height:126px;border-radius:18px;background:#252525;border:1px solid rgba(255,255,255,.07);padding:14px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit">
-        <div style="font-size:12px;font-weight:700;color:#8C8C8C;letter-spacing:.04em">中和門市開幕</div>
-        <div style="display:flex;align-items:flex-end;gap:4px">
-          <span class="gsa-num" style="font-size:15px;font-weight:800;color:#FF6048;padding-bottom:6px">D-</span>
-          <span class="gsa-num" style="font-size:44px;line-height:.85;color:#FF6048">12</span>
-        </div>
-        <div style="font-size:12px;color:#D4D4D4">娃娃機・站旁 1 分鐘</div>
+<main>
+<!-- ═══ HERO：品牌＋內容入口（照原官網：推情報內文，抽賞退居次要 CTA）═══ -->
+<section class="gsm-col" style="padding-top:14px">
+  <div class="gsm-hero-brand">
+    <img class="gsm-logo" src="assets/brand/logo-main-cutout.webp" alt="Go Shoot｜中和戰鬥陀螺專門店・線上一番賞・娃娃機即將開幕" fetchpriority="high">
+    <div class="gsm-subline"><b>戰鬥陀螺</b><span class="gsm-x">×</span><b>娃娃機</b><span class="gsm-x">×</span><b>線上一番賞</b></div>
+    <div class="gsm-ctas">
+      <a class="gsm-cta gsm-big" href="#gsm-products">看戰鬥陀螺情報
+        <svg class="gsm-arrow" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13m-5.5-6L19 12l-6.5 6"/></svg>
       </a>
-      <a href="https://goshoot-ichiban.vercel.app/store?seg=events" style="flex:1;height:126px;border-radius:18px;background:#252525;border:1px solid rgba(255,255,255,.07);padding:14px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit">
-        <div style="font-size:12px;font-weight:700;color:#8C8C8C;letter-spacing:.04em">本週賽事</div>
-        <div style="font-size:19px;font-weight:900;line-height:1.25">週六<br>店內爭霸戰</div>
-        <div style="font-size:12px;color:#FFB2A0">還剩 6 個名額</div>
-      </a>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:10px;padding-top:2px">
-      <div style="display:flex;align-items:center;gap:7px">
-        <span style="width:7px;height:7px;border-radius:50%;background:#5AE08C;animation:gsblink 1.4s ease-in-out infinite;display:block"></span>
-        <span style="font-size:13px;font-weight:700">剛剛有人中獎</span>
-      </div>
-      <div id="gsa-wins" style="display:flex;flex-direction:column;gap:8px"></div>
+      <a class="gsm-cta gsm-ghost" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽線上一番賞 →</a>
     </div>
   </div>
 
-  <nav aria-label="主要導覽" style="position:absolute;left:0;right:0;bottom:0;height:88px;padding:9px 12px 26px;display:flex;background:rgba(26,26,26,.94);border-top:1px solid rgba(255,255,255,.07)">
-    <a href="index.html" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#FF6048;text-decoration:none">
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.6 12 3.2l9 7.4V21H3z"></path></svg>
-      <span style="font-size:11px;font-weight:700">首頁</span>
+  <div class="gsm-duo">
+    <a href="#gsm-visit">
+      <div class="gsm-k">中和門市開幕</div>
+      <div style="display:flex;align-items:flex-end;gap:4px">
+        <span class="gsm-num" style="font-size:15px;font-weight:800;color:var(--orange);padding-bottom:6px">D-</span>
+        <span class="gsm-num" style="font-size:44px;line-height:.85;color:var(--orange)">12</span>
+      </div>
+      <div class="gsm-d">娃娃機・站旁 1 分鐘</div>
     </a>
-    <a href="pools.html" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#757575;text-decoration:none">
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="7" width="18.8" height="10" rx="2.6"></rect><path d="M9.4 7v10"></path></svg>
-      <span style="font-size:11px;font-weight:700">一番賞</span>
+    <a href="events.html">
+      <div class="gsm-k">本週賽事</div>
+      <div style="font-size:19px;font-weight:900;line-height:1.25">週六<br>店內爭霸戰</div>
+      <div class="gsm-d" style="color:#FFB2A0">還剩 6 個名額</div>
     </a>
-    <a href="https://goshoot-ichiban.vercel.app/store" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#757575;text-decoration:none">
-      <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.2s6.8-6 6.8-10.7a6.8 6.8 0 1 0-13.6 0c0 4.7 6.8 10.7 6.8 10.7z"></path><circle cx="12" cy="10.4" r="2.4"></circle></svg>
-      <span style="font-size:11px;font-weight:700">門市</span>
+  </div>
+</section>
+
+<!-- ═══ 三大主打 ═══ -->
+<section class="gsm-col" id="gsm-cats">
+  <div class="gsm-sec-head gsm-rv">
+    <span class="gsm-eyebrow">三大主打</span>
+    <h2 class="gsm-sec-title">Go Shoot 主推這三樣</h2>
+    <p class="gsm-sec-lead">戰鬥陀螺・娃娃機・線上一番賞——這裡一次到齊。</p>
+  </div>
+  <a class="gsm-pillar gsm-rv" href="#gsm-products">
+    <img src="assets/brand/card-beyblade.webp" alt="" aria-hidden="true" loading="lazy">
+    <h3>戰鬥陀螺</h3>
+    <p>Beyblade X 新品快訊、天梯榜與改裝攻略，即將開幕・敬請期待</p>
+    <span class="gsm-go">看情報 →</span>
+  </a>
+  <a class="gsm-pillar gsm-rv" href="#gsm-claw">
+    <img src="assets/brand/card-claw.webp" alt="" aria-hidden="true" loading="lazy">
+    <h3>娃娃機</h3>
+    <p>即將開幕・敬請期待</p>
+    <span class="gsm-go">看專區 →</span>
+  </a>
+  <a class="gsm-pillar gsm-rv" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">
+    <img src="assets/brand/card-ichiban-ticket.webp" alt="" aria-hidden="true" loading="lazy">
+    <h3>線上一番賞</h3>
+    <p>24H 隨時抽・每抽必中・公開亂數可驗證公平</p>
+    <span class="gsm-go">立即開抽 →</span>
+  </a>
+</section>
+
+<!-- ═══ 戰鬥陀螺從 0 開始 ═══ -->
+<section class="gsm-col" id="gsm-start">
+  <div class="gsm-sec-head gsm-rv">
+    <span class="gsm-eyebrow">新手友善・最舒服的入口</span>
+    <h2 class="gsm-sec-title">戰鬥陀螺，從 0 開始</h2>
+    <p class="gsm-sec-lead">被博恩帶進坑、或想重溫童年？完全沒碰過也沒關係——照這四步，輕鬆認識戰鬥陀螺。</p>
+  </div>
+  <div class="gsm-zero">
+    <a class="gsm-z gsm-rv" href="beyblade-history.html"><span class="gsm-n">1</span><div><h3>認識它</h3><p>從爆転到 Beyblade X，日本與台灣二十幾年的故事，一頁看懂。</p><span class="gsm-go">看戰鬥陀螺歷史 →</span></div></a>
+    <a class="gsm-z gsm-rv" href="guide-whatisx.html"><span class="gsm-n">2</span><div><h3>搞懂它</h3><p>Beyblade X 是什麼？規則、三段式構造、四大取向，白話帶你懂。</p><span class="gsm-go">看規則入門 →</span></div></a>
+    <a class="gsm-z gsm-rv" href="ichiban-beyblade.html"><span class="gsm-n">3</span><div><h3>入手它</h3><p>線上一番賞每抽必中，用親民單價抽到正版陀螺，不怕買錯。</p><span class="gsm-go">看戰鬥陀螺一番賞 →</span></div></a>
+    <a class="gsm-z gsm-rv" href="guide-beginner.html"><span class="gsm-n">4</span><div><h3>開始玩</h3><p>第一顆怎麼選、基本玩法一次懂，到中和門市賽場當場試打。</p><span class="gsm-go">看新手入門 →</span></div></a>
+  </div>
+</section>
+
+<!-- ═══ 陀螺情報 ═══ -->
+<section class="gsm-col" id="gsm-products">
+  <div class="gsm-sec-head gsm-rv">
+    <span class="gsm-eyebrow">戰鬥陀螺情報</span>
+    <h2 class="gsm-sec-title">最新戰況・新品快訊</h2>
+    <p class="gsm-sec-lead">Beyblade X 最新新品、限定款與賽事情報，幫你跟上戰局。</p>
+  </div>
+  <a class="gsm-notice gsm-rv" href="ichiban-beyblade.html">
+    <div class="gsm-cover"><img src="assets/news/genuine-first.svg" alt="Go Shoot 一番賞獎品只放正版 Beyblade X 戰鬥陀螺" loading="lazy"></div>
+    <div class="gsm-body">
+      <span class="gsm-tag">正版聲明</span>
+      <h3>堅持正版・拒絕盜版陀螺</h3>
+      <p>山寨陀螺做工差、對戰易碎裂有安全疑慮，還會磨傷競技盤。Go Shoot 一番賞獎品<b>只放正版 Beyblade X（TAKARA TOMY 原廠盒裝可驗）</b>、認明 ST 安全玩具標誌——抽賞、對戰都安心。</p>
+      <span class="gsm-go">看正版戰鬥陀螺一番賞 →</span>
+    </div>
+  </a>
+  <div class="gsm-hscroll gsm-rv" style="margin-top:12px">
+    <a class="gsm-newscard" href="https://universe.oneone.com.tw/posts/5978" target="_blank" rel="noopener">
+      <div class="gsm-top"><img src="assets/news/news-1.jpg" alt="BX-50 隨機強化包 Vol.11" loading="lazy"><span class="gsm-ntag">新品</span></div>
+      <div class="gsm-body"><h3>最硬防禦型登場！BX-50 隨機強化包 Vol.11</h3><div class="gsm-meta">「天堂環0-80DS」稀有款現身，多款防禦型陀螺同步收錄。</div><span class="gsm-src">oneone宇宙・看詳情 →</span></div>
     </a>
-  </nav>
+    <a class="gsm-newscard" href="https://universe.oneone.com.tw/posts/5983" target="_blank" rel="noopener">
+      <div class="gsm-top"><img src="assets/news/news-2.jpg" alt="CX-00 鐵壁黃蜂" loading="lazy"><span class="gsm-ntag">限定</span></div>
+      <div class="gsm-body"><h3>最強萬用型限定機・CX-00 鐵壁黃蜂曝光</h3><div class="gsm-meta">R7-60T 金屬黃塗裝，全能性能直接封頂，收藏迷必搶。</div><span class="gsm-src">oneone宇宙・看詳情 →</span></div>
+    </a>
+    <a class="gsm-newscard" href="https://universe.oneone.com.tw/posts/6156" target="_blank" rel="noopener">
+      <div class="gsm-top"><img src="assets/news/news-3.jpg" alt="2026 交流賽台中" loading="lazy"><span class="gsm-ntag">賽事</span></div>
+      <div class="gsm-body"><h3>千人報名挑戰！交流賽移師台中開戰</h3><div class="gsm-meta">8/22 台中登場、42場對決，7/10 正式開放報名。</div><span class="gsm-src">oneone宇宙・看詳情 →</span></div>
+    </a>
+    <a class="gsm-newscard" href="https://www.nownews.com/news/6852859" target="_blank" rel="noopener">
+      <div class="gsm-top"><img src="assets/news/news-4.jpg" alt="戰鬥陀螺X Evo Battle PS5" loading="lazy"><span class="gsm-ntag">遊戲</span></div>
+      <div class="gsm-body"><h3>《戰鬥陀螺X》進軍 PS5・線上開戰</h3><div class="gsm-meta">Evo Battle 推出 PS5 版，4 款新陀螺限時免費入手。</div><span class="gsm-src">NOWnews・看詳情 →</span></div>
+    </a>
+  </div>
+  <a class="gsm-cta gsm-ghost gsm-rv" href="guide-tierlist.html" style="margin-top:6px">看本月天梯榜 →</a>
+</section>
+
+<!-- ═══ 主打預告（老闆手動管理區） ═══ -->
+<section class="gsm-col" id="gsm-featured-drop">
+  <div class="gsm-feature gsm-rv">
+    <span class="gsm-eyebrow" style="color:var(--orange-soft)">主打預告・海外直送</span>
+    <h3>歐版 Beyblade X「Infinity」系列，登陸一番賞</h3>
+    <p>Hasbro 歐美版 2026 最新彈，7/15 起於歐美通路上架——Go Shoot 海外採購・歐洲直送，整波直接進一番賞獎池：<b>線上一番賞＋中和門市現場</b>都抽得到，上架時間以本站公告為準。</p>
+    <div class="gsm-chips">
+      <span>Sneak Attack 戰鬥場組</span><span>Clip &amp; Rip 攜帶發射器</span>
+      <span>Infinity Starter Pack ×4</span><span>BX／UX／CX 三線齊發</span>
+    </div>
+    <a class="gsm-cta" href="ichiban-beyblade.html">陀螺一番賞情報 →</a>
+    <p class="gsm-fineprint" style="margin-top:10px">敬請期待・以到貨公告為準</p>
+  </div>
+</section>
+
+<!-- ═══ 發售雷達 ═══ -->
+<section class="gsm-col" id="gsm-releases">
+  <div class="gsm-sec-head gsm-rv">
+    <span class="gsm-eyebrow">發售雷達・每週更新</span>
+    <h2 class="gsm-sec-title">新品發售追蹤</h2>
+    <p class="gsm-sec-lead">戰鬥陀螺官方新品×寶可夢×皮克敏——發售日、狀態、在哪買，一條龍幫你盯好。</p>
+  </div>
+  <div class="gsm-rel-list">
+    <a class="gsm-rel gsm-rv" href="article-beyblade-ux20-valkyrie.html">
+      <div class="gsm-date"><b>已上市</b><span>日版</span></div>
+      <div class="gsm-main"><div class="gsm-name"><span class="gsm-rtag gsm-rt-bey">陀螺</span>UX-20 榮耀女武神 LF</div>
+        <div class="gsm-sub">彈跳反擊新機構＋白色金屬塗裝，攻擊型新品已開賣</div></div>
+      <span class="gsm-st gsm-hot">話題新品</span>
+    </a>
+    <a class="gsm-rel gsm-rv" href="ichiban-beyblade.html">
+      <div class="gsm-date"><b>已上市</b><span>日版</span></div>
+      <div class="gsm-main"><div class="gsm-name"><span class="gsm-rtag gsm-rt-bey">陀螺</span>烈風天馬＋天堂日輪隨機強化組 Vol.11</div>
+        <div class="gsm-sub">3 款新品同步開賣，7-11 會員限定預購已截止</div></div>
+      <span class="gsm-st">新品情報</span>
+    </a>
+    <a class="gsm-rel gsm-rv" href="ichiban-pokemon.html">
+      <div class="gsm-date"><b>已上市</b><span>日版</span></div>
+      <div class="gsm-main"><div class="gsm-name"><span class="gsm-rtag gsm-rt-pok">寶可夢</span>一番賞 Pokémon 30th ANNIVERSARY vol.2</div>
+        <div class="gsm-sub">五地區御三家絨毛＋30週年皮卡丘壓軸賞，7/18 日版開抽</div></div>
+      <span class="gsm-st">情報公開</span>
+    </a>
+    <a class="gsm-rel gsm-rv" href="ichiban-beyblade.html">
+      <div class="gsm-date"><b>8/8</b><span>2026</span></div>
+      <div class="gsm-main"><div class="gsm-name"><span class="gsm-rtag gsm-rt-bey">陀螺</span>UX-21 地獄幽冥 Deck Set</div>
+        <div class="gsm-sub">全新高度切換刀刃機構，同步推出 BX-57 3on3 戰術陀螺盒黑色版</div></div>
+      <span class="gsm-st">即將發售</span>
+    </a>
+    <a class="gsm-rel gsm-rv" href="article-beyblade-evangelion.html">
+      <div class="gsm-date"><b>8/29</b><span>2026</span></div>
+      <div class="gsm-main"><div class="gsm-name"><span class="gsm-rtag gsm-rt-bey">陀螺</span>戰鬥陀螺 X × 福音戰士 EVA 聯名組</div>
+        <div class="gsm-sub">初號機、零號機、二號機三色金屬塗裝，TAKARA TOMY MALL／EVA STORE 限定</div></div>
+      <span class="gsm-st">即將發售</span>
+    </a>
+    <a class="gsm-rel gsm-rv" href="ichiban-pokemon.html">
+      <div class="gsm-date"><b>8/29</b><span>2026</span></div>
+      <div class="gsm-main"><div class="gsm-name"><span class="gsm-rtag gsm-rt-pok">寶可夢</span>一番賞 Pokémon Masters EX 7th Anniversary</div>
+        <div class="gsm-sub">紅蓮客萊斯特＆莉莉艾豪華人形登場，慶祝手遊 7 週年</div></div>
+      <span class="gsm-st">情報公開</span>
+    </a>
+    <a class="gsm-rel gsm-rv" href="ichiban-pikmin.html">
+      <div class="gsm-date"><b>現行彈</b><span>一番賞</span></div>
+      <div class="gsm-main"><div class="gsm-name"><span class="gsm-rtag gsm-rt-pik">皮克敏</span>一番賞 皮克敏 悠閒居家系列</div>
+        <div class="gsm-sub">歐慶臉頰抱枕、歐擬蛹小夜燈超療癒</div></div>
+      <span class="gsm-st">情報公開</span>
+    </a>
+  </div>
+  <p class="gsm-fineprint">發售日以官方公告為準・本區每週自動更新</p>
+</section>
+
+<!-- ═══ 娃娃機 ═══ -->
+<section class="gsm-col" id="gsm-claw">
+  <div class="gsm-sec-head gsm-rv">
+    <span class="gsm-eyebrow">店內主打</span>
+    <h2 class="gsm-sec-title">整間，都是娃娃機</h2>
+    <p class="gsm-sec-lead">中和捷運站旁・<b style="color:#FFF">即將開幕</b>。滿場娃娃機台整裝中，開幕後 24 小時營業、景品定期更新、不定期保夾活動——從人氣公仔、玩偶到限定景品都有。敬請期待。</p>
+  </div>
+  <div class="gsm-claw-visual gsm-rv"><img src="assets/brand/card-claw.webp" alt="Go Shoot 店內娃娃機台品牌視覺" loading="lazy"></div>
+  <div class="gsm-feats gsm-rv">
+    <div class="gsm-feat"><b>即將開幕</b><span>敬請期待開幕日</span></div>
+    <div class="gsm-feat"><b>滿場台</b><span>開幕後場內主力，機台超多</span></div>
+    <div class="gsm-feat"><b>常更新</b><span>景品定期換・不定期保夾</span></div>
+    <div class="gsm-feat"><b>站旁</b><span>中和捷運站旁，好找好停</span></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px" class="gsm-rv">
+    <a class="gsm-cta" href="#gsm-visit">來店看看 →</a>
+    <a class="gsm-cta gsm-line-green" href="#" data-line>加 LINE 看新景品</a>
+  </div>
+</section>
+
+<!-- ═══ 線上一番賞 band ═══ -->
+<section class="gsm-col" id="gsm-ichiban">
+  <div class="gsm-band gsm-rv">
+    <span class="gsm-eyebrow" style="color:var(--orange-soft)">線上開抽</span>
+    <h3>Go Shoot 線上一番賞</h3>
+    <p>不必到店、隨時開抽。每一抽都有獎，A 賞、最後賞通通有機會帶回家。透明公正、即時開獎，用 Google 帳號登入就能玩。中獎可選宅配到府、到店取貨，或折抵店內消費。</p>
+    <p class="gsm-fineprint" id="gsm-hero-lines" style="margin:-8px 0 14px">公開亂數可驗證公平，每抽都有獎。</p>
+    <a class="gsm-cta" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">立即抽一番賞 →</a>
+  </div>
+</section>
+
+<!-- ═══ 即時中獎動態（Railway API，失敗時顯示預設） ═══ -->
+<section class="gsm-col" id="gsm-live">
+  <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">
+    <span class="gsm-live-dot"></span><span style="font-size:13px;font-weight:700">剛剛有人中獎</span>
+  </div>
+  <div class="gsm-wins" id="gsm-wins">
+    <div class="gsm-win"><span class="gsm-g" style="background:rgba(233,182,92,.16);color:var(--gold)">A</span><span class="gsm-t">陀*翔 抽中 <b>榮耀女武神 LF</b></span><span class="gsm-ago">2 分前</span></div>
+    <div class="gsm-win"><span class="gsm-g" style="background:rgba(255,255,255,.07);color:var(--soft)">C</span><span class="gsm-t">小*豪 抽中 <b>競技盤貼紙組</b></span><span class="gsm-ago">5 分前</span></div>
+    <div class="gsm-win"><span class="gsm-g" style="background:rgba(255,96,72,.14);color:var(--orange-soft);font-size:11px">最後</span><span class="gsm-t">阿* 抽中 <b>限定黑龍陀螺</b></span><span class="gsm-ago">12 分前</span></div>
+  </div>
+</section>
+
+<!-- ═══ 店內賽場 band ═══ -->
+<section class="gsm-col" id="gsm-arena">
+  <div class="gsm-band gsm-ink gsm-rv">
+    <span class="gsm-eyebrow">店內賽場</span>
+    <h3>不只是買，是來開戰</h3>
+    <p>店內對戰賽場與即時排行榜，平日開放練習、假日舉辦賽事。贏一場、上一次榜，這裡是屬於你的戰場。</p>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a class="gsm-cta gsm-ghost" href="events.html">完整賽制・排行榜 →</a>
+      <a class="gsm-cta gsm-ghost" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20店內賽事報名">賽事報名</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 攻略 ═══ -->
+<section class="gsm-col" id="gsm-guides">
+  <div class="gsm-sec-head gsm-rv">
+    <span class="gsm-eyebrow">戰略攻略</span>
+    <h2 class="gsm-sec-title">新手到老手，都能變強</h2>
+  </div>
+  <div class="gsm-guides">
+    <a class="gsm-guide gsm-rv" href="guide-beginner.html"><span class="gsm-k">新手入門</span><h3>第一次玩戰鬥陀螺，要準備什麼？</h3><p>一套需要什麼、第一顆怎麼選、基本玩法一次搞懂。</p></a>
+    <a class="gsm-guide gsm-rv" href="guide-tierlist.html"><span class="gsm-k">本月天梯</span><h3>Beyblade X 天梯 Tier List（每月更新）</h3><p>現在什麼配置最強？攻擊／防禦／持久代表一次看。</p></a>
+    <a class="gsm-guide gsm-rv" href="guide-mods.html"><span class="gsm-k">改裝攻略</span><h3>配件怎麼搭，陀螺才會更強？</h3><p>三大部位拆解、性能影響與進階搭配範例。</p></a>
+  </div>
+  <a class="gsm-cta gsm-ghost gsm-rv" href="guide.html" style="margin-top:10px">看全部攻略 →</a>
+</section>
+
+<!-- ═══ 來店資訊 ═══ -->
+<section class="gsm-col" id="gsm-visit">
+  <div class="gsm-sec-head gsm-rv">
+    <span class="gsm-eyebrow">來店資訊</span>
+    <h2 class="gsm-sec-title">中和站旁，走路就到</h2>
+  </div>
+  <div class="gsm-map gsm-rv"><iframe title="Go Shoot 地圖位置" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%99%AF%E5%B9%B3%E8%B7%AF593%E8%99%9F%E4%B9%8B1&amp;output=embed"></iframe></div>
+  <div class="gsm-card gsm-rv" style="padding:4px 14px">
+    <a class="gsm-vrow" href="https://www.google.com/maps?q=%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%AD%E5%92%8C%E5%8D%80%E6%99%AF%E5%B9%B3%E8%B7%AF593%E8%99%9F%E4%B9%8B1" target="_blank" rel="noopener" style="color:inherit">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.2s6.8-6 6.8-10.7a6.8 6.8 0 1 0-13.6 0c0 4.7 6.8 10.7 6.8 10.7z"/><circle cx="12" cy="10.4" r="2.4"/></svg>
+      <span class="gsm-vt">新北市中和區景平路593號之1<small>捷運中和站旁・連城路口公車站步行約 1 分鐘</small></span>
+      <span class="gsm-act">導航</span>
+    </a>
+    <a class="gsm-vrow" href="tel:+886976507911" style="color:inherit">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 4h4l1.5 4-2.5 1.5a10 10 0 0 0 6 6L16 13l4 1.5v4a1.5 1.5 0 0 1-1.7 1.5C10.8 19.2 4.8 13.2 4 5.7A1.5 1.5 0 0 1 5.5 4z"/></svg>
+      <span class="gsm-vt">0976-507-911<small>代購・賽事報名可直接來電</small></span>
+      <span class="gsm-act">撥號</span>
+    </a>
+    <a class="gsm-vrow" href="mailto:goshoot593@gmail.com?subject=Go%20Shoot%20詢問" style="color:inherit">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+      <span class="gsm-vt">goshoot593@gmail.com<small>Email 詢問・賽事報名</small></span>
+      <span class="gsm-act">寫信</span>
+    </a>
+    <div class="gsm-vrow">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#757575" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+      <span class="gsm-vt">營業時間<small>即將開幕，確切營業時間屆時公告</small></span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer><div class="gsm-col">
+  <div class="gsm-fb"><b>GO</b>SHOOT</div>
+  <p class="gsm-fdesc">中和捷運站旁的戰鬥陀螺情報站・娃娃機店。找得到對手、抽得到好賞。一起 Go Shoot！</p>
+  <div class="gsm-fcols">
+    <div><h4>玩家服務</h4>
+      <a href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">線上一番賞</a>
+      <a href="#gsm-products">陀螺情報</a>
+      <a href="#gsm-arena">店內賽事</a>
+      <a href="#gsm-claw">娃娃機台區</a>
+      <a href="faq.html">常見問題</a>
+    </div>
+    <div><h4>攻略資源</h4>
+      <a href="guide-beginner.html">新手入門</a>
+      <a href="guide-tierlist.html">本月天梯</a>
+      <a href="guide-mods.html">改裝攻略</a>
+      <a href="guide.html">全部攻略</a>
+    </div>
+  </div>
+  <div class="gsm-legal">
+    <a href="terms.html">服務條款</a> ・ <a href="privacy.html">隱私權政策</a> ・ <a href="refund.html">退款政策</a> ・ 旋賞數位有限公司（設立登記辦理中）<br>
+    © 2026 Go Shoot 戰鬥陀螺 ・ 新北市中和區景平路593號之1 ・ 一起開戰！
+  </div>
+</div></footer>
+</main>
+
+<!-- ═══ 底部 3-tab ═══ -->
+  </div>
+<nav class="gsm-tabbar" aria-label="主要導覽"><div class="gsm-col">
+  <a class="gsm-tab gsm-on" href="index.html">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.6 12 3.2l9 7.4V21H3z"/></svg>
+    <span>首頁</span>
+  </a>
+  <a class="gsm-tab" href="pools.html">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="7" width="18.8" height="10" rx="2.6"/><path d="M9.4 7v10"/></svg>
+    <span>一番賞</span>
+  </a>
+  <a class="gsm-tab" href="about.html">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.2s6.8-6 6.8-10.7a6.8 6.8 0 1 0-13.6 0c0 4.7 6.8 10.7 6.8 10.7z"/><circle cx="12" cy="10.4" r="2.4"/></svg>
+    <span>門市</span>
+  </a>
+</div></nav>
 </div>
 <script>
 (function(){
+  function sync(){document.body.classList.toggle("gsapp-on",window.matchMedia("(max-width:767px)").matches);}
+  sync();window.matchMedia("(max-width:767px)").addEventListener("change",sync);
+})();
+/* ═══ 1. 進場 reveal：fail-open。內容預設可見；支援 IO 且非 reduced-motion 才啟用動畫，
+   並以 1.2s timeout 保底強制揭示（iPhone Safari 曾有 IO/動畫沒觸發卡隱藏的前科，見 index.html GSAP 註解）═══ */
+(function(){
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.body.classList.add('gsm-js-rv');
+  var els=[].slice.call(document.querySelectorAll('#gsapp .gsm-rv'));
+  function show(el){ if(!el.classList.contains('gsm-in')){ el.classList.add('gsm-in'); io.unobserve(el); } }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) show(e.target); });
+  },{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el,i){
+    io.observe(el);
+    setTimeout(function(){ if(!el.classList.contains('gsm-in')){ el.style.transition='none'; show(el); } },1500+i*60); /* 無條件保底：關 transition 直接現形，不依賴動畫時間軸 */
+  });
+  addEventListener('scroll',function(){ els.forEach(function(el){ if(!el.classList.contains('gsm-in')&&el.getBoundingClientRect().top<innerHeight) show(el); }); },{passive:true});
+})();
+
+/* ═══ 2. 動態資料：接 Railway 真 API（同官網 #gsapp 寫法），失敗時保留預設內容 ═══ */
+(function(){
   var API="https://goshoot-ichiban-production.up.railway.app/api";
-  if(window.matchMedia&&window.matchMedia("(max-width:767px)").matches){document.body.classList.add("gsapp-on");}
-  window.matchMedia("(max-width:767px)").addEventListener("change",function(e){document.body.classList.toggle("gsapp-on",e.matches);});
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function relTime(iso){var d=(Date.now()-new Date(iso).getTime())/60000;if(d<1)return"剛剛";if(d<60)return Math.floor(d)+" 分前";if(d<1440)return Math.floor(d/60)+" 小時前";return Math.floor(d/1440)+" 天前";}
   function tint(g){if(g==="LAST")return["rgba(255,96,72,.14)","#FF8468"];if(g==="S"||g==="A")return["rgba(233,182,92,.16)","#E9B65C"];return["rgba(255,255,255,.07)","#D4D4D4"];}
+  /* hero 兩行：本期賞名＋剩餘抽數 */
   fetch(API+"/sets").then(function(r){return r.json()}).then(function(list){
     var s=(list||[]).filter(function(x){return x.status==="active"})[0]||list[0];if(!s)return;
     return fetch(API+"/sets/"+s.id).then(function(r){return r.json()}).then(function(d){
@@ -1039,19 +1408,21 @@ document.addEventListener("DOMContentLoaded",function(){
       var aName=a?String(a.name).replace(/（[^）]*）\s*$/,""):"";
       var last=(d.prizes||[]).filter(function(p){return p.grade==="LAST"})[0];
       var lastText=last?(Number(last.remaining)>0?"・最後賞還在":"・最後賞已抽出"):"";
-      document.getElementById("gsa-hero-lines").innerHTML="本期"+esc(cat)+(aName?"・A 賞 "+esc(aName):"")+"<br>剩 "+Number(d.remaining_draws).toLocaleString()+" 抽"+esc(lastText);
+      document.getElementById("gsm-hero-lines").innerHTML="本期"+esc(cat)+(aName?"・A 賞 "+esc(aName):"")+"<br>剩 "+Number(d.remaining_draws).toLocaleString()+" 抽"+esc(lastText);
     });
   }).catch(function(){});
+  /* 即時中獎名單 */
   fetch(API+"/feed/recent-wins?limit=3").then(function(r){return r.json()}).then(function(ws){
-    var box=document.getElementById("gsa-wins");if(!ws||!ws.length){box.parentElement.style.display="none";return;}
-    box.innerHTML=ws.map(function(w){var t=tint(w.grade);
-      return '<div style="display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:13px;background:#212121;border:1px solid rgba(255,255,255,.055)">'
-        +'<span class="gsa-num" style="width:30px;height:30px;border-radius:9px;background:'+t[0]+';color:'+t[1]+';font-size:'+(w.grade==="LAST"?11:13)+'px;display:flex;align-items:center;justify-content:center;flex-shrink:0">'+(w.grade==="LAST"?"最後":esc(w.grade))+'</span>'
-        +'<span style="flex:1;font-size:13px;color:#F0F0F0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(w.user)+' 抽中 <b style="color:#FFF;font-weight:700">'+esc(w.prize)+'</b></span>'
-        +'<span style="font-size:11px;color:#757575;flex-shrink:0">'+relTime(w.at)+'</span></div>';
+    if(!ws||!ws.length)return;
+    document.getElementById("gsm-wins").innerHTML=ws.map(function(w){var t=tint(w.grade);
+      return '<div class="gsm-win"><span class="gsm-g" style="background:'+t[0]+';color:'+t[1]+';font-size:'+(w.grade==="LAST"?11:13)+'px">'+(w.grade==="LAST"?"最後":esc(w.grade))+'</span>'
+        +'<span class="gsm-t">'+esc(w.user)+' 抽中 <b>'+esc(w.prize)+'</b></span>'
+        +'<span class="gsm-ago">'+relTime(w.at)+'</span></div>';
     }).join("");
-  }).catch(function(){document.getElementById("gsa-wins").parentElement.style.display="none";});
+  }).catch(function(){});
 })();
+
 </script>
+
 </body>
 </html>
