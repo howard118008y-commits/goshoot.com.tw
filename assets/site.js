@@ -4,7 +4,7 @@
    （留空白的會維持原樣、不會壞掉）
 =================================================================== */
 const GOSHOOT_LINKS = {
-  line:   "",  // LINE 官方帳號加好友連結，例如 https://lin.ee/xxxxxxx
+  line:   "https://line.me/R/ti/p/@722xefvm",  // LINE 官方帳號 @722xefvm（2026-08-02 開通）
   form:   "",  // 表單連結（Tally / Google 表單）
   signup: ""   // 賽事報名連結
 };
