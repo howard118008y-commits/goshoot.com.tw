@@ -17,6 +17,6 @@
 
 ## C. GSC 關鍵字回填
 - [x] article-what-is-goshoot.html 2026-07-22  ← goshoot 是什麼、Go Shoot 線上一番賞介紹
-- [ ] 線上抽獎 是什麼、合法嗎、怎麼選平台
+- [x] article-online-lottery-guide.html 2026-08-02  ← 線上抽獎 是什麼、合法嗎、怎麼選平台
 - [x] article-beyblade-x-new-releases.html 2026-07-28  ← Beyblade X 新品怎麼看：BX/UX/CX 差別＋命名規則
 - [x] article-beyblade-x-tier-list.html 2026-07-31  ← Beyblade X 天梯 Tier List 怎麼看：五軸判斷＋社群榜為何不同＋改裝計算器自算
