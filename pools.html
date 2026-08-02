@@ -40,7 +40,7 @@
   .mini .col{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
   .empty{padding:40px 0;text-align:center;color:#8C8C8C;font-size:14px}
   .tabbar{position:fixed;left:0;right:0;bottom:0;height:88px;padding:9px 12px 26px;display:flex;background:rgba(26,26,26,.94);border-top:1px solid rgba(255,255,255,.07)}
-  .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#757575;font-size:11px;font-weight:700}
+  .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;color:#9A9A9A;font-size:11px;font-weight:700}
   .tabbar a.on{color:#FF6048}
   @media (min-width:768px){
     .wrap{max-width:1200px;padding:48px 32px 60px}
@@ -60,10 +60,9 @@
   </div>
 
   <div class="chips" id="chips">
+    <!-- 分類由 API 實際有的獎池動態生成（見下方 renderChips）。寫死分類會出現
+         「點了必定顯示沒有獎池」的死 chip——set 19/20/21 下架後就發生過。 -->
     <button class="chip on" data-cat="all">全部</button>
-    <button class="chip" data-cat="陀螺">陀螺</button>
-    <button class="chip" data-cat="寶可夢">寶可夢</button>
-    <button class="chip" data-cat="皮克敏">皮克敏</button>
   </div>
 
   <div class="list" id="list"><div class="empty">載入中…</div></div>
@@ -132,7 +131,19 @@
     document.querySelectorAll(".chip").forEach(function(x){x.classList.toggle("on",x===b);});
     render();
   });
-  function load(){fetch(API+"/sets").then(function(r){return r.json()}).then(function(d){sets=d||[];render();}).catch(function(){sets=[];render();});}
+  // 分類 chip：從實際有的獎池抽出關鍵字，只顯示真的有貨的分類。
+  // 認得的系列關鍵字寫在這裡，比對 series+title；都不中的歸「全部」不另立 chip。
+  var CATS=["陀螺","寶可夢","皮克敏","鬼滅","海賊王","咒術"];
+  function renderChips(){
+    var box=document.getElementById("chips");
+    var live=CATS.filter(function(k){
+      return sets.some(function(s){return ((s.series||"")+(s.title||"")).indexOf(k)>=0;});
+    });
+    if(live.indexOf(cat)<0&&cat!=="all")cat="all";
+    box.innerHTML='<button class="chip'+(cat==="all"?" on":"")+'" data-cat="all">全部</button>'
+      +live.map(function(k){return '<button class="chip'+(cat===k?" on":"")+'" data-cat="'+esc(k)+'">'+esc(k)+'</button>';}).join("");
+  }
+  function load(){fetch(API+"/sets").then(function(r){return r.json()}).then(function(d){sets=d||[];renderChips();render();}).catch(function(){sets=[];renderChips();render();});}
   load();setInterval(load,12000);
 })();
 </script>

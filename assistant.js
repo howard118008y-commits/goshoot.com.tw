@@ -83,7 +83,7 @@
       '<button class="gsa-x" aria-label="關閉">✕</button></div>' +
       '<div class="gsa-body"></div>' +
       '<div class="gsa-quick"></div>' +
-      '<div class="gsa-input"><input placeholder="問我賞況、儲值、退款…"><button>送出</button></div>' +
+      '<div class="gsa-input"><input aria-label="輸入你的問題" placeholder="問我賞況、儲值、退款…"><button>送出</button></div>' +
       "</div>" +
       '<button class="gsa-fab" aria-label="開啟小Go客服"><img src="' + FACE + '" alt="小Go"></button>';
     document.body.appendChild(root);

@@ -953,7 +953,7 @@ document.addEventListener("DOMContentLoaded",function(){
    單欄文件流（非 fixed 覆蓋層）＝手機滑動最順；桌機內容欄 480px 置中。 */#gsapp{
   --bg:#1A1A1A; --card:#212121; --card2:#252525; --chip:#2B2B2B;
   --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.055);
-  --text:#FFFFFF; --soft:#D4D4D4; --muted:#8C8C8C; --dim:#757575; --body2:#B3B3B3;
+  --text:#FFFFFF; --soft:#D4D4D4; --muted:#8C8C8C; --dim:#9A9A9A; --body2:#B3B3B3;
   --orange:#FF6048; --orange-soft:#FF8468; --gold:#E9B65C; --green:#5AE08C;
   --num:'Archivo','Noto Sans TC',sans-serif;
 }#gsapp *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}#gsapp{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}#gsapp img{max-width:100%;display:block}#gsapp a{color:var(--orange);text-decoration:none}#gsapp a:hover{color:var(--orange-soft)}#gsapp ::selection{background:var(--orange);color:#1A1A1A}#gsapp .gsm-num{font-family:var(--num);font-weight:900;letter-spacing:-.02em}
@@ -1260,15 +1260,14 @@ document.addEventListener("DOMContentLoaded",function(){
 </section>
 
 <!-- ═══ 即時中獎動態（Railway API，失敗時顯示預設） ═══ -->
-<section class="gsm-col" id="gsm-live">
+<section class="gsm-col" id="gsm-live" style="display:none">
   <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">
     <span class="gsm-live-dot"></span><span style="font-size:13px;font-weight:700">剛剛有人中獎</span>
   </div>
-  <div class="gsm-wins" id="gsm-wins">
-    <div class="gsm-win"><span class="gsm-g" style="background:rgba(233,182,92,.16);color:var(--gold)">A</span><span class="gsm-t">陀*翔 抽中 <b>榮耀女武神 LF</b></span><span class="gsm-ago">2 分前</span></div>
-    <div class="gsm-win"><span class="gsm-g" style="background:rgba(255,255,255,.07);color:var(--soft)">C</span><span class="gsm-t">小*豪 抽中 <b>競技盤貼紙組</b></span><span class="gsm-ago">5 分前</span></div>
-    <div class="gsm-win"><span class="gsm-g" style="background:rgba(255,96,72,.14);color:var(--orange-soft);font-size:11px">最後</span><span class="gsm-t">阿* 抽中 <b>限定黑龍陀螺</b></span><span class="gsm-ago">12 分前</span></div>
-  </div>
+  <!-- 2026-08-02：這裡原本寫死三筆示範中獎紀錄當 fallback。API 一掛就會對外顯示
+       假的中獎名單（廣告不實＋踩「不產製假資料」紅線）→ 改成預設整區隱藏，
+       拿到真資料才由下面的 fetch 打開。 -->
+  <div class="gsm-wins" id="gsm-wins"></div>
 </section>
 
 <!-- ═══ 店內賽場 band ═══ -->
@@ -1413,7 +1412,8 @@ document.addEventListener("DOMContentLoaded",function(){
   }).catch(function(){});
   /* 即時中獎名單 */
   fetch(API+"/feed/recent-wins?limit=3").then(function(r){return r.json()}).then(function(ws){
-    if(!ws||!ws.length)return;
+    if(!ws||!ws.length)return;                 /* 沒有真資料就維持整區隱藏 */
+    document.getElementById("gsm-live").style.display="";
     document.getElementById("gsm-wins").innerHTML=ws.map(function(w){var t=tint(w.grade);
       return '<div class="gsm-win"><span class="gsm-g" style="background:'+t[0]+';color:'+t[1]+';font-size:'+(w.grade==="LAST"?11:13)+'px">'+(w.grade==="LAST"?"最後":esc(w.grade))+'</span>'
         +'<span class="gsm-t">'+esc(w.user)+' 抽中 <b>'+esc(w.prize)+'</b></span>'
