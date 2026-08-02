@@ -234,6 +234,11 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
 .gs-cover{position:relative;overflow:hidden;background:#050507;
   border-bottom:1px solid rgba(255,255,255,.08);padding:64px 0 58px}
 .gs-cover>.wrap{position:relative;z-index:1}
+/* 文字區壓暗層：blob 疊起來時（faq 這種 4 顆的頁）hero 底整片變橘，橘漸層 h1 疊橘底只剩約 1.8:1。
+   中央壓暗、邊緣留橘光，字回到深底上。2026-08-03 全站視覺目檢。 */
+   用 ::after 不是 ::before：blob 在 .gs-bgfx 裡，::before 會排在它前面被蓋掉。 */
+.gs-cover::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(125% 95% at 50% 52%,rgba(5,5,7,.74) 0%,rgba(5,5,7,.5) 46%,rgba(5,5,7,0) 80%)}
 .gs-bgfx{position:absolute;inset:0;z-index:0;pointer-events:none}
 .gs-blob{position:absolute;border-radius:50%;filter:blur(110px);opacity:.32;
   animation:gsDrift 26s ease-in-out infinite alternate}
@@ -243,7 +248,11 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
 @keyframes gsDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-50px) scale(1.18)}}
 .gs-cover h1{font-size:clamp(32px,7vw,54px);margin:14px 0 12px;line-height:1.15}
 .gs-cover h1 .g{background:linear-gradient(100deg,var(--gold),var(--coral) 55%,#E8552F);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  /* 橘漸層字疊在橘 blob 上只剩約 1.8:1（2026-08-03 目檢，faq 最明顯）。
+     深色描邊＋陰影把字邊界拉開，不必把 hero 的橘光整片壓掉。 */
+  -webkit-text-stroke:1.2px rgba(5,5,7,.88);paint-order:stroke fill;
+  filter:drop-shadow(0 2px 5px rgba(5,5,7,.85))}
 .gs-cover .lead{color:var(--muted);max-width:640px;margin:0 0 26px;font-size:clamp(15px,2vw,18px)}
 .gs-cover .cta-row,.gs-cover .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){.gs-blob{animation:none}}

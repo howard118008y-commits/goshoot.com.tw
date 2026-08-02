@@ -43,7 +43,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 {"@type":"Question","name":"店在哪裡？怎麼去？","acceptedAnswer":{"@type":"Answer","text":"地址為新北市中和區景平路593號之1，位於捷運中和站旁，連城路口公車站步行約一分鐘。"}}
 ]}
 </script>
-<style>.gs-cover>.wrap{text-align:center}.gs-cover .lead{margin-left:auto;margin-right:auto}.gs-cover .cta-row{justify-content:center}</style>
+<style>.gs-cover>.wrap{text-align:center}.gs-cover .lead{margin-left:auto;margin-right:auto}.gs-cover .cta-row{justify-content:center}
+/* 這頁 blob 有 4 顆且集中在文字後方，用預設 opacity 會把整片 hero 染成亮橘，橘漸層 h1 讀不出來
+   （2026-08-03 全站視覺目檢）。單頁調暗，其他頁維持原本的橘光。 */
+.gs-cover .gs-blob{opacity:.17}.gs-cover .gs-blob.b3{opacity:.12}.gs-cover .gs-blob.b4{opacity:.14}</style>
 <link rel="stylesheet" href="goshoot-ui.css">
 </head>
 <body>
