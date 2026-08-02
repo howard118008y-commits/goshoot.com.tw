@@ -31,6 +31,15 @@ a{color:inherit;text-decoration:none}
 ::selection{background:var(--gs-orange);color:#1A1A1A}
 .wrap{max-width:920px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-family:'Poppins','Noto Sans TC',sans-serif;line-height:1.25}
+/* 主 CTA 光暈（改編自 Uiverse.io by iZOXVL「wise-goat-75」，老闆 2026-08-03 指定）。
+   ⛔ 只給實心鍵；.btn-ghost 不給。 */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,232,214,.30) 0%,rgba(255,232,214,0) 70%);
+  transform:scale(0);transition:transform .5s ease}
+.btn:hover::after,.btn:focus-visible::after{transform:scale(4)}
+.btn.btn-ghost::after{display:none}
+@media(prefers-reduced-motion:reduce){.btn::after{transition:none}}
 .btn{display:inline-block;background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#1A1A1A;font-weight:800;padding:14px 28px;border-radius:999px;box-shadow:0 0 28px rgba(255,90,45,.32),0 8px 22px rgba(0,0,0,.4);transition:transform .12s,filter .2s}
 .btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
 .btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#1A1A1A;box-shadow:0 0 28px rgba(255,90,45,.34),0 8px 22px rgba(0,0,0,.4)}

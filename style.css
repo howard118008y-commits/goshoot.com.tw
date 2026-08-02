@@ -66,6 +66,18 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.2;letter-spaci
   padding:12px 22px;border-radius:40px;border:0;cursor:pointer;transition:.15s;
   box-shadow:0 0 24px rgba(255,90,45,.28),0 6px 18px rgba(0,0,0,.35)}
 .btn:hover{transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 0 30px rgba(255,90,45,.45),0 8px 22px rgba(0,0,0,.4)}
+/* 主 CTA 光暈（改編自 Uiverse.io by iZOXVL「wise-goat-75」，老闆 2026-08-03 指定）：
+   滑過時中心渲開一圈光。原稿是深灰底＋白光，這裡換品牌配色＝橙底＋暖白光。
+   ⛔ 只給實心鍵（.btn／.fbtn／.st-btn.solid）；ghost 系維持樸素，否則整頁都在發光。 */
+.btn,.fbtn,.st-btn.solid{position:relative;overflow:hidden;isolation:isolate}
+.btn::after,.fbtn::after,.st-btn.solid::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,232,214,.30) 0%,rgba(255,232,214,0) 70%);
+  transform:scale(0);transition:transform .5s ease}
+.btn:hover::after,.btn:focus-visible::after,
+.fbtn:hover::after,.fbtn:focus-visible::after,
+.st-btn.solid:hover::after,.st-btn.solid:focus-visible::after{transform:scale(4)}
+.btn-ghost::after,.btn.btn-ghost::after{display:none}
+@media(prefers-reduced-motion:reduce){.btn::after,.fbtn::after,.st-btn.solid::after{transition:none}}
 /* .btn-race：舊賽車紅重點 CTA 已退役，統一併入動感橘（class 保留供既有頁面引用）*/
 .btn.btn-race{background:linear-gradient(100deg,var(--gs-orange),var(--gs-orange-deep));color:#1A1A1A;box-shadow:0 0 26px rgba(255,90,45,.34),0 6px 18px rgba(0,0,0,.4)}
 .btn.btn-race:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 0 34px rgba(255,90,45,.55),0 8px 22px rgba(0,0,0,.45)}

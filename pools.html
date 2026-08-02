@@ -33,6 +33,16 @@
   .track{height:8px;border-radius:999px;background:#363636;overflow:hidden}
   .track.sm{height:6px}
   .track i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#FF6048,#FFA890);transition:width .4s ease-out}
+
+/* 主 CTA 光暈（改編自 Uiverse.io by iZOXVL「wise-goat-75」，老闆 2026-08-03 指定）：
+   滑過／聚焦時中心渲開一圈暖白光。⛔ 只給實心鍵，ghost 系不給（否則整頁都在發光）。 */
+.cta{position:relative;overflow:hidden;isolation:isolate}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,232,214,.30) 0%,rgba(255,232,214,0) 70%);
+  transform:scale(0);transition:transform .5s ease}
+.cta:hover::after,.cta:focus-visible::after{transform:scale(4)}
+.chip::after{display:none}
+@media(prefers-reduced-motion:reduce){.cta::after{transition:none}}
   .cta{height:50px;border-radius:13px;background:#FF6048;color:#1A1A1A;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
   .mini{display:flex;gap:12px;padding:12px;border-radius:18px;background:#212121;border:1px solid rgba(255,255,255,.06)}
   .mini .thumb{width:88px;height:88px;border-radius:12px;background:#2B2B2B;flex-shrink:0;overflow:hidden}
