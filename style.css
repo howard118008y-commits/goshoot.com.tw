@@ -75,7 +75,10 @@ h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.2;letter-spaci
   transform:scale(0);transition:transform .5s ease}
 .btn:hover::after,.btn:focus-visible::after,
 .fbtn:hover::after,.fbtn:focus-visible::after,
-.st-btn.solid:hover::after,.st-btn.solid:focus-visible::after{transform:scale(4)}
+.st-btn.solid:hover::after,.st-btn.solid:focus-visible::after,
+.btn:active::after,.fbtn:active::after,.st-btn.solid:active::after{transform:scale(4)}
+/* 觸控裝置沒有 hover：點下去才吃得到光暈；手指按住時間短，擴散收到 .28s */
+@media(hover:none){.btn::after,.fbtn::after,.st-btn.solid::after{transition:transform .28s ease}}
 .btn-ghost::after,.btn.btn-ghost::after{display:none}
 @media(prefers-reduced-motion:reduce){.btn::after,.fbtn::after,.st-btn.solid::after{transition:none}}
 /* .btn-race：舊賽車紅重點 CTA 已退役，統一併入動感橘（class 保留供既有頁面引用）*/

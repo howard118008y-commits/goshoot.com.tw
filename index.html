@@ -967,7 +967,10 @@ document.addEventListener("DOMContentLoaded",function(){
 #gsapp .gsm-cta::after,.gsbtn::after,.rel-cta::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(circle,rgba(255,232,214,.30) 0%,rgba(255,232,214,0) 70%);
   transform:scale(0);transition:transform .5s ease}
-#gsapp .gsm-cta:hover::after,#gsapp .gsm-cta:focus-visible::after,.gsbtn:hover::after,.gsbtn:focus-visible::after,.rel-cta:hover::after,.rel-cta:focus-visible::after{transform:scale(4)}
+#gsapp .gsm-cta:hover::after,#gsapp .gsm-cta:focus-visible::after,.gsbtn:hover::after,.gsbtn:focus-visible::after,.rel-cta:hover::after,.rel-cta:focus-visible::after,
+#gsapp .gsm-cta:active::after,.gsbtn:active::after,.rel-cta:active::after{transform:scale(4)}
+/* 觸控裝置沒有 hover：點下去才吃得到光暈；手指按住時間短，擴散收到 .28s */
+@media(hover:none){#gsapp .gsm-cta::after,.gsbtn::after,.rel-cta::after{transition:transform .28s ease}}
 #gsapp .gsm-cta.gsm-ghost::after,.gsbtn.gsbtn-ghost::after,.rel-cta.alt::after{display:none}
 @media(prefers-reduced-motion:reduce){#gsapp .gsm-cta::after,.gsbtn::after,.rel-cta::after{transition:none}}
 /* 按鈕：只留兩種，一律 ≥48px 好按 */#gsapp .gsm-cta{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:13px;
