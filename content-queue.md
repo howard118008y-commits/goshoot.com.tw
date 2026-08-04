@@ -20,3 +20,4 @@
 - [x] article-online-lottery-guide.html 2026-08-02  ← 線上抽獎 是什麼、合法嗎、怎麼選平台
 - [x] article-beyblade-x-new-releases.html 2026-07-28  ← Beyblade X 新品怎麼看：BX/UX/CX 差別＋命名規則
 - [x] article-beyblade-x-tier-list.html 2026-07-31  ← Beyblade X 天梯 Tier List 怎麼看：五軸判斷＋社群榜為何不同＋改裝計算器自算
+- [x] article-beyblade-how-to-play.html 2026-08-04  ← 戰鬥陀螺怎麼玩？Beyblade X 新手入門：三段式零件＋繩索發射器＋四種收尾計分規則
