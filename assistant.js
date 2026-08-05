@@ -37,8 +37,33 @@
     });
   }
 
+  /* 客人看到的連結一律中文（老闆 2026-08-05：「鏈接都寫中文」）。
+     後端與 FAQ 吐的是網址，這裡照路徑換成看得懂的頁名，href 仍是原網址。
+     表要跟 app 端 GoShootAssistant.jsx 的 LINK_LABEL 保持一致；查不到的照原樣顯示網址。 */
+  var PAGE_LABEL = {
+    "/": "一番賞首頁",
+    "/draw": "抽賞頁",
+    "/pools": "獎單列表",
+    "/prizes": "我的獎品",
+    "/membership": "會員卡等",
+    "/topup": "儲值頁",
+    "/store": "門市資訊",
+    "/login": "登入頁",
+    "/verify": "公正性驗證",
+    "/board": "賞品看板",
+    "/profile": "會員資料",
+    "/rules": "規則・活動辦法",
+    "/terms": "服務條款",
+    "/privacy": "隱私權政策",
+    "/refund": "退款政策"
+  };
+
   function linkify(s) {
-    return esc(s).replace(/(https?:\/\/[^\s，。；]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    return esc(s).replace(/(https?:\/\/[^\s，。；]+)/g, function (url) {
+      var path = url.replace(/^https?:\/\/[^/]+/, "").split("?")[0].replace(/\/$/, "") || "/";
+      var label = PAGE_LABEL[path] || url;
+      return '<a href="' + url + '" target="_blank" rel="noopener">' + label + "</a>";
+    });
   }
 
   /* 品牌造型：橘色系＋頂部探頭小Go 吉祥物臉＋兩側耳翼＋橘框（與 app GoShootAssistant 一致） */
