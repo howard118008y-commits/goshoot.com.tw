@@ -6,6 +6,15 @@
 <title>一番賞獎池｜Go Shoot 線上一番賞</title>
 <meta name="description" content="Go Shoot 線上一番賞獎池列表：剩餘抽數即時更新、每抽必中、公開亂數可驗證公平。">
 <link rel="canonical" href="https://goshoot.com.tw/pools.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Go Shoot">
+<meta property="og:title" content="一番賞獎池｜Go Shoot 線上一番賞">
+<meta property="og:description" content="Go Shoot 線上一番賞獎池列表：剩餘抽數即時更新、每抽必中、公開亂數可驗證公平。">
+<meta property="og:url" content="https://goshoot.com.tw/pools.html">
+<meta property="og:image" content="https://goshoot.com.tw/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="一番賞獎池｜Go Shoot 線上一番賞">
+<meta name="twitter:description" content="剩餘抽數即時更新、每抽必中、公開亂數可驗證公平。">
 <link rel="icon" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
@@ -158,6 +167,18 @@
   function load(){fetch(API+"/sets").then(function(r){return r.json()}).then(function(d){sets=d||[];renderChips();render();}).catch(function(){sets=[];renderChips();render();});}
   load();setInterval(load,12000);
 })();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage",
+ "name":"一番賞獎池",
+ "description":"Go Shoot 線上一番賞獎池列表：剩餘抽數即時更新、每抽必中、公開亂數可驗證公平。",
+ "url":"https://goshoot.com.tw/pools.html",
+ "inLanguage":"zh-Hant-TW",
+ "isPartOf":{"@type":"WebSite","name":"Go Shoot","url":"https://goshoot.com.tw/"},
+ "breadcrumb":{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+   {"@type":"ListItem","position":1,"name":"首頁","item":"https://goshoot.com.tw/"},
+   {"@type":"ListItem","position":2,"name":"線上一番賞","item":"https://goshoot.com.tw/ichiban.html"},
+   {"@type":"ListItem","position":3,"name":"一番賞獎池","item":"https://goshoot.com.tw/pools.html"}]}}
 </script>
 </body>
 </html>

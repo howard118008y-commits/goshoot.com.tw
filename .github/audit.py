@@ -19,7 +19,32 @@ SKIP = {"index-v2.html", "index-classic.html", "screen.html",
         "scroll-bench.html", "scroll-preview.html"}
 issues = []
 
-pages = sorted(f for f in glob.glob("*.html") if f not in SKIP)
+NOINDEX_RE = re.compile(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex',
+                        re.I)
+
+
+def is_noindex(path: str) -> bool:
+    """明著標 noindex 的頁不是 SEO 內容頁，別拿內容頁的尺去量它。
+
+    2026-08-05：稽核連 8 天紅燈，22 個問題裡有 18 個是在罵三個內部預覽頁
+    （goshoot-mobile / homepage-cover-preview / ichiban-story）沒有 canonical／og:image／
+    JSON-LD，可是它們本來就 noindex、本來就不該進 sitemap。硬編 SKIP 清單治標——
+    之後每加一個預覽頁就得再改一次腳本，忘了改就又是一串假警報。改成自動判讀。
+    """
+    try:
+        return bool(NOINDEX_RE.search(open(path, encoding="utf-8").read()))
+    except OSError:
+        return False
+
+
+noindexed = sorted(f for f in glob.glob("*.html")
+                   if f not in SKIP and is_noindex(f))
+if noindexed:
+    # 一定要印出來：跳過的頁要看得見，否則真頁面誤標 noindex 會被靜默漏檢
+    print("跳過 noindex 內部頁：" + "、".join(noindexed))
+
+pages = sorted(f for f in glob.glob("*.html")
+               if f not in SKIP and f not in noindexed)
 for f in pages:
     s = open(f, encoding="utf-8").read()
     t = re.search(r"<title>(.*?)</title>", s)
