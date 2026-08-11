@@ -152,7 +152,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"什麼是線上一番賞？","acceptedAnswer":{"@type":"Answer","text":"線上一番賞是把日本人氣的一番賞抽獎搬到網路上的玩法。花固定金額抽一張籤，每抽必中獎，從小獎到最後賞（大獎）都有機會。Go Shoot 線上一番賞 24 小時可玩，手機免下載 App 直接抽。"}},
 {"@type":"Question","name":"線上一番賞公平嗎？會不會作弊？","acceptedAnswer":{"@type":"Answer","text":"Go Shoot 線上一番賞採用公開亂數（drand）在開抽前就把每個位置對應的獎品封盒並公告，沒有人能事先得知或竄改。完抽後會公開種子，任何人都能自行驗算，確認獎落點沒有被動手腳，做到可驗證公平。"}},
-{"@type":"Question","name":"線上一番賞怎麼玩？","acceptedAnswer":{"@type":"Answer","text":"步驟為：用 Google 登入會員、儲值 Go 幣、選擇想抽的獎單、按下抽賞並刮開命運卡揭曉獎品。中獎後可選擇宅配到府、到店自取或折抵店內消費。"}},
+{"@type":"Question","name":"線上一番賞怎麼玩？","acceptedAnswer":{"@type":"Answer","text":"步驟為：用 Google 或手機號碼登入會員、選擇想抽的獎單、依標示的單抽價付款，付款完成後按下抽賞並刮開命運卡揭曉獎品。中獎後可選擇宅配到府、到店自取或折抵店內消費。"}},
 {"@type":"Question","name":"線上一番賞中獎的獎品怎麼拿到？","acceptedAnswer":{"@type":"Answer","text":"中獎後可三選一：宅配寄到你填寫的地址、到 Go Shoot 中和門市自取，或把獎品折抵成店內點數消費。"}},
 {"@type":"Question","name":"手機可以玩線上一番賞嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。Go Shoot 線上一番賞是網頁版，手機瀏覽器直接打開就能玩，不需要下載任何 App。"}},
 {"@type":"Question","name":"線上一番賞一抽多少錢？","acceptedAnswer":{"@type":"Answer","text":"每個獎單的單抽價格不同，會清楚標示在獎單卡片上，並可看到每個賞品的中獎機率與爆獎機率，公開透明。"}},
@@ -227,7 +227,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <p class="lead">四個步驟，三分鐘上手。</p>
   <div class="steps">
     <div class="step"><b>登入會員</b><p>用 Google 帳號一鍵登入，免記密碼。</p></div>
-    <div class="step"><b>儲值 Go 幣</b><p>儲值成站內 Go 幣，用來抽賞。</p></div>
+    <div class="step"><b>選擇抽賞方案</b><p>依獎單標示的單抽價付款，付款完成即可開抽。</p></div>
     <div class="step"><b>選獎單開抽</b><p>挑喜歡的主題獎單，按下抽賞、刮開命運卡揭曉獎品。</p></div>
     <div class="step"><b>領取獎品</b><p>中獎後選宅配、到店取或折抵消費。</p></div>
   </div>
@@ -238,13 +238,51 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <p style="margin-top:24px"><a class="btn btn-race" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">前往線上一番賞 →</a></p>
 </div></section>
 
+<!-- 購買與配送說明：綠界金流審核要求的揭露欄位（商品內容/價格/付款方式/寄送/
+     退貨/猶豫期/聯絡方式/金流服務提供者），同時也是客人本來就該看得到的資訊。
+     ⛔ 這一區是金流審核的依據，改動前先確認仍涵蓋全部欄位。 -->
+<section id="buy-terms"><div class="wrap">
+  <h2 class="sec-t">購買與配送說明</h2>
+  <p class="lead">下單前請先確認以下事項。</p>
+  <div class="faq">
+    <details open><summary>商品內容與價格</summary>
+      <p>本站販售「線上一番賞抽賞」服務：每次抽賞可獲得該獎單中的一項實體商品（每抽必中）。
+      單抽價格依各獎單標示為準，目前主力獎單為 <b>NT$500～700／抽</b>，價格已含營業稅，
+      並於獎單卡片與結帳頁清楚標示。各賞級的剩餘數量與中獎機率公開可查。</p></details>
+    <details><summary>付款方式</summary>
+      <p>信用卡、ATM 虛擬帳號、超商代碼／條碼（依結帳頁實際顯示為準）。
+      本站交易支付服務由 <b>綠界科技股份有限公司</b> 提供。</p></details>
+    <details><summary>配送方式與運費</summary>
+      <p>中獎商品三種領取方式擇一：<br>
+      ① <b>中華郵政宅配到府</b>：運費 NT$70／筆，會員卡等可折抵（黑鑽卡全免運）。<br>
+      ② <b>中和門市自取</b>：免運費，備妥後通知取貨。<br>
+      ③ <b>折抵店內消費</b>：不寄送，折抵等值金額於店內使用。<br>
+      出貨時間：確認領取方式後 3 個工作日內寄出（連續假期順延）。</p></details>
+    <details><summary>退換貨與猶豫期</summary>
+      <p>依《消費者保護法》第 19 條，本商品屬「<b>客製化給付、一經拆封／開獎即無法回復原狀</b>」
+      之性質，<b>不適用七日猶豫期</b>：抽賞結果於付款並執行抽選當下確定，恕不接受因中獎結果
+      不符期待而要求退費或換獎。<br>
+      如遇 <b>商品瑕疵、寄送錯誤或運送破損</b>，請於收到商品後 <b>7 日內</b> 聯繫客服並提供
+      照片，我們將免費換貨；無同款可換時全額退款。<br>
+      尚未執行抽選的付款（例如系統異常導致未開獎），可申請全額退款。</p></details>
+    <details><summary>客服聯絡方式</summary>
+      <p>電話 <a href="tel:+886976507911">0976-507-911</a>（平日 12:00–20:00）<br>
+      Email <a href="mailto:goshoot593@gmail.com">goshoot593@gmail.com</a><br>
+      LINE 官方帳號 <a href="https://lin.ee/PHlfSoY" target="_blank" rel="noopener">@722xefvm</a><br>
+      門市：新北市中和區（24 小時無人店，詳細地址見門市頁）</p></details>
+    <details><summary>年齡與參與限制</summary>
+      <p>本服務限 <b>18 歲以上</b> 參與；未滿 18 歲請由法定代理人陪同並取得同意。
+      本站為娛樂性商品販售，非賭博行為：每次抽賞皆必得實體商品，不提供現金回收。</p></details>
+  </div>
+</div></section>
+
 <section><div class="wrap">
   <h2 class="sec-t">線上一番賞・常見問題</h2>
   <p class="lead">關於 Go Shoot 線上一番賞，你想知道的都在這。</p>
   <div class="faq">
     <details open><summary>什麼是線上一番賞？</summary><p>線上一番賞是把日本人氣的一番賞抽獎搬到網路上的玩法。花固定金額抽一張籤，每抽必中獎，從小獎到最後賞都有機會。Go Shoot 線上一番賞 24 小時可玩，手機免下載 App 直接抽。</p></details>
     <details><summary>線上一番賞公平嗎？會不會作弊？</summary><p>Go Shoot 線上一番賞採用公開亂數（drand）在開抽前就把每個位置對應的獎品封盒並公告，沒有人能事先得知或竄改。完抽後公開種子，任何人都能自行驗算，做到可驗證公平。</p></details>
-    <details><summary>線上一番賞怎麼玩？</summary><p>用 Google 登入會員、儲值 Go 幣、選擇獎單、按抽賞並刮開命運卡揭曉。中獎後可選宅配、到店取或折抵消費。</p></details>
+    <details><summary>線上一番賞怎麼玩？</summary><p>用 Google 或手機號碼登入會員、選擇想抽的獎單、依標示的單抽價付款，付款完成後按抽賞並刮開命運卡揭曉。中獎後可選宅配、到店取或折抵消費。</p></details>
     <details><summary>中獎的獎品怎麼拿到？</summary><p>三選一：宅配寄到你填的地址、到 Go Shoot 中和門市自取，或折抵成店內點數消費。</p></details>
     <details><summary>手機可以玩線上一番賞嗎？</summary><p>可以。它是網頁版，手機瀏覽器直接打開就能玩，不需要下載任何 App。</p></details>
     <details><summary>線上一番賞一抽多少錢？</summary><p>每個獎單單抽價不同，清楚標示在卡片上，並可看到每個賞品的中獎機率與爆獎機率。</p></details>
@@ -316,9 +354,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="grid">
     <a class="card" href="article-choose-online-ichiban.html"><h3>怎麼選線上一番賞平台</h3><p>5 個標準挑對平台，抽得安心不踩雷。</p></a>
     <a class="card" href="article-what-is-online-ichiban.html"><h3>線上一番賞是什麼？</h3><p>3 分鐘搞懂玩法、機率與取貨，新手必看。</p></a>
-    <a class="card" href="article-how-to-play-online-ichiban.html"><h3>怎麼玩？5 步驟上手</h3><p>登入→儲值→選獎單→抽→領，3 分鐘看懂。</p></a>
+    <a class="card" href="article-how-to-play-online-ichiban.html"><h3>怎麼玩？5 步驟上手</h3><p>登入→選獎單→付款開抽→領獎，3 分鐘看懂。</p></a>
     <a class="card" href="article-ichiban-prize-grades.html"><h3>賞別・最後賞 LAST</h3><p>A賞到最後賞、上位賞、W chance 全解析。</p></a>
-    <a class="card" href="article-online-ichiban-claim.html"><h3>中獎怎麼領獎品</h3><p>宅配・店取・折抵 Go幣，運費與期限說清楚。</p></a>
+    <a class="card" href="article-online-ichiban-claim.html"><h3>中獎怎麼領獎品</h3><p>宅配・店取・折抵店內消費，運費與期限說清楚。</p></a>
     <a class="card" href="article-online-ichiban-odds.html"><h3>中獎機率怎麼算</h3><p>權重與爆獎機率一次看懂，抽得更聰明。</p></a>
     <a class="card" href="article-online-ichiban-fair.html"><h3>會詐騙嗎？怎麼看公平</h3><p>教你 3 招判斷線上一番賞公不公平。</p></a>
   </div>
