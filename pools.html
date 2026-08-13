@@ -76,7 +76,7 @@
   <div class="head">
     <h1>一番賞</h1>
     <a class="fair" href="https://goshoot-ichiban.vercel.app/fairness">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5AE08C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"></path></svg>公正性
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF5A2D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5 9.5 17.5 19.5 6.5"></path></svg>公正性
     </a>
   </div>
 
@@ -112,7 +112,7 @@
   function img(u){return !u?"":(/^https?:\/\//.test(u)?u:API.replace(/\/api$/,"")+u);}
   function nf(n){return Number(n||0).toLocaleString();}
   function pct(s){var t=Number(s.total_draws||0),r=Number(s.remaining_draws||0);return t>0?Math.round(r/t*100):0;}
-  // 進度條一律走 VI v2 橘系（原本 p>=50 是螢光綠 #5AE08C＝已退役色，同頁兩套顏色）
+  // 進度條一律走 VI v2 橘系（原本 p>=50 走已退役的螢光綠，同頁與主打卡的橘條並存）
   function barColor(p){if(p<=20)return{bar:"#E9B65C",label:"快完售"};if(p>=50)return{bar:"linear-gradient(90deg,#FF5A2D,#FFA890)",label:null};return{bar:"linear-gradient(90deg,#E24A2C,#FF6048)",label:null};}
   function render(){
     var box=document.getElementById("list");
