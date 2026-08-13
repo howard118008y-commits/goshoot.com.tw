@@ -85,14 +85,20 @@
 .st-card{position:relative;border-radius:22px;padding:30px 26px;min-height:260px;overflow:hidden;
   display:flex;flex-direction:column;justify-content:flex-end;will-change:transform,opacity;
   box-shadow:0 18px 50px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.09)}
-.st-card.c1{background:linear-gradient(155deg,#FF5A2D,#B0331C)}
-.st-card.c2{background:linear-gradient(155deg,#2FA8A8,#0F3E3E)}
+/* 橘底一律黑字（白字在 #FF5A2D 上只有 3.11:1，見 memory: contrast-palette-rules）。
+   c1 原本漸層從 #FF5A2D 跨到深紅 #B0331C，兩端沒有任何字色能同時過關，改成同一段亮橘；
+   c2 原本是全站唯一的青綠，改成 VI v2 的炫酷黑（深底配淺字，符合同一條規則的反向）。 */
+.st-card.c1{background:linear-gradient(155deg,#FF5A2D,#E24A2C)}
+.st-card.c2{background:linear-gradient(155deg,#2B2B30,#141416)}
 .st-card.c3{background:linear-gradient(155deg,#E8552F,#FF5A2D)}
 .st-card .ci{position:absolute;top:24px;left:26px;width:46px;height:46px;opacity:.95}
-.st-card h3{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:26px;margin:0 0 8px;color:#fff}
-.st-card p{font-size:14px;line-height:1.6;margin:0;color:rgba(255,255,255,.94)}
+.st-card h3{font-family:'Noto Sans TC',sans-serif;font-weight:900;font-size:26px;margin:0 0 8px;color:#1A1A1A}
+.st-card p{font-size:14px;line-height:1.6;margin:0;color:#101010}
+.st-card.c2 h3{color:#FBF6EE}
+.st-card.c2 p{color:rgba(251,246,238,.92)}
 .st-card .cbig{position:absolute;right:-18px;bottom:-26px;font-family:'Poppins',sans-serif;font-style:italic;
-  font-weight:900;font-size:150px;line-height:1;color:rgba(255,255,255,.13);pointer-events:none}
+  font-weight:900;font-size:150px;line-height:1;color:rgba(26,26,26,.13);pointer-events:none}
+.st-card.c2 .cbig{color:rgba(255,255,255,.13)}
 
 /* 24H 巨數字資訊帶 */
 .st-hours{position:relative;padding:clamp(70px,12vh,130px) 0;text-align:center;z-index:1;
