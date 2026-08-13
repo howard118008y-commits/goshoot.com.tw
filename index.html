@@ -643,6 +643,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .st-soon{color:#FFC24B;background:rgba(255,194,75,.14)}
 .st-hot{color:#FF8A6B;background:rgba(255,90,45,.14)}
 .rel-thumb{width:52px;height:52px;border-radius:10px;object-fit:cover;flex:0 0 auto;border:1px solid rgba(255,255,255,.12)}
+/* 清單只有一列有縮圖，390px 下它會把該列擠到換行、標籤錯位；窄螢幕隱藏保持列高一致 */
+@media(max-width:520px){.rel-thumb{display:none}}
 .rel-cta{flex:0 0 auto;font:800 13px 'Noto Sans TC';background:var(--gs-orange);color:#1A1A1A;padding:9px 16px;border-radius:999px;text-decoration:none;white-space:nowrap}
 .rel-cta.alt{background:transparent;color:#ECECEA;border:1.5px solid rgba(255,255,255,.18)}
 @media(max-width:560px){.rel-cta{flex:1 1 100%;text-align:center}}
