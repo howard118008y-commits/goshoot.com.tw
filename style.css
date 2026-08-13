@@ -227,7 +227,10 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
 /* 攻略頁圖解 */
 .gfig{margin:22px 0 26px;text-align:center;background:var(--paper);border:1px solid var(--line);
   border-radius:18px;padding:22px 18px}
-.gfig img{width:min(440px,100%);height:auto;display:inline-block}
+/* 這些教學 SVG 是照淺底畫的（文字與線條都是 #262329），直接放在 --paper #232326 上
+   等於深灰畫在深灰上，標籤幾乎看不見（2026-08-14 目檢）。給圖本身鋪米白底。 */
+.gfig img{width:min(440px,100%);height:auto;display:inline-block;
+  background:#FBF6EE;border-radius:12px;padding:12px}
 .gfig figcaption{margin-top:12px;font-size:13px;color:var(--muted)}
 
 /* ── 液態玻璃封面系統（glass liquid UI，同 app 首頁／官網首頁）── */
