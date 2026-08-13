@@ -440,10 +440,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       transform:rotate(-8deg);border-radius:14px}
     .pillar h3,.pillar p,.pillar .go,.pillar>svg:not(.pdeco){position:relative;z-index:1}
     .pillar .go{color:var(--gs-orange)}
+    /* 文字與右下裝飾圖重疊修正：文字讓出右側圖區，圖再從左緣淡出當底 */
+    .pillar h3,.pillar p{max-width:62%}
+    .pillar .pdeco{-webkit-mask-image:linear-gradient(to left,#000 58%,transparent 100%);
+      mask-image:linear-gradient(to left,#000 58%,transparent 100%)}
     .subcats{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .subcat{background:var(--paper2);border:1px solid rgba(255,255,255,.10);border-radius:30px;padding:11px 20px;font-weight:700;font-size:14px;box-shadow:var(--shadow);transition:.15s;color:var(--text)}
     .subcat:hover{transform:translateY(-2px);color:var(--coral2)}
     @media(max-width:760px){.pillars{grid-template-columns:1fr}.pillar{min-height:170px}
+      .pillar h3,.pillar p{max-width:70%}
       .pillar .pdeco{width:150px;opacity:.55;right:-30px;bottom:-34px}}
   </style>
   <span class="eyebrow">三大主打</span>
