@@ -14,7 +14,10 @@ const GOSHOOT_LINKS = {
    ↓↓↓ 只要填這 2 個 ID，全站每一頁就開始記錄流量 ↓↓↓
 =================================================================== */
 const GOSHOOT_ANALYTICS = {
-  ga4:     "G-CKRYMNWMP6",  // Google Analytics 4 評估 ID，格式 G-XXXXXXXXXX（GA4 後台→管理→資料串流取得）
+  // ⚠️ 2026-08-13：舊 ID G-CKRYMNWMP6 已失效（gtag.js 回 404，官網數據整段沒進 GA4）。
+  // 換 ID 前先驗 `curl -o /dev/null -w '%{http_code}' 'https://www.googletagmanager.com/gtag/js?id=<ID>'`
+  // 必須是 200——注意連亂編的假 ID 也會回 200，只有被刪除的資源才回 404。
+  ga4:     "G-L988KD8RPX",  // Google Analytics 4 評估 ID（GA4 後台→管理→資料串流取得）
   clarity: "xejhlj6akt"   // Microsoft Clarity 專案 ID，10 碼小寫英數（clarity.microsoft.com 免費，建專案後取得）
 };
 /* =================================================================== */
