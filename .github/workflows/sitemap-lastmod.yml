@@ -1,0 +1,34 @@
+# sitemap <lastmod> 自動校時：頁面 push 後與每週一下午跑一次。
+# 說明：GITHUB_TOKEN 的 push 不會再觸發 workflow，所以 bot commit（SEO 文／新聞卡）
+# 改的頁面靠每週排程補上，不會無限循環。
+name: sitemap-lastmod
+on:
+  push:
+    branches: [main]
+    paths: ["**.html"]
+  schedule:
+    - cron: "30 6 * * 1"   # 每週一 14:30 台北
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # lastmod 取 git 歷史，shallow 會拿錯日期
+      - name: Update lastmod from git history
+        run: python3 .github/update_sitemap_lastmod.py
+      - name: Commit if changed
+        run: |
+          if ! git diff --quiet sitemap.xml; then
+            git config user.name "goshoot-bot"
+            git config user.email "actions@github.com"
+            git add sitemap.xml
+            git commit -m "chore(seo): sitemap lastmod 自動校時（git commit time）"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "sitemap 無變更"
+          fi

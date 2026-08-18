@@ -5,6 +5,7 @@
 全綠 exit 0；發現任何問題 exit 1（→ workflow 亮紅、GitHub 寄信通知）。
 純標準庫、無外部相依。修正交給手動 /daily-site-audit（有判斷、可審）。
 """
+import datetime
 import glob
 import json
 import os
@@ -74,6 +75,39 @@ for f in pages:
             json.loads(m)
         except Exception as e:  # noqa: BLE001
             issues.append(f + "：JSON-LD 壞 " + str(e)[:40])
+
+# 過期日期偵測（2026-08-19 老闆指示：featured-drop 掛「7/15 起上架・敬請期待」
+# 一個月沒人發現。抓「往前看的文案配上已過去的日期」——日期已過 GRACE 天仍寫
+# 即將/敬請期待/起/開幕之類，就亮紅。回頭敘事（「已發售」）不在此列。）
+TODAY = datetime.date.today()
+GRACE = 14  # 過去這麼多天內不算過期，留檔期收尾餘裕
+STALE_RE = re.compile(
+    r"(\d{1,2})\s*[/月]\s*(\d{1,2})\s*日?\s*(?:起|開賣|上架|開幕|登場|開抽|開跑)"
+    r"|(?:即將|預計|敬請期待|倒數)[^<，。]{0,20}?(\d{1,2})\s*[/月]\s*(\d{1,2})")
+
+
+def stale_snippets(text: str):
+    for m in STALE_RE.finditer(text):
+        # 回頭敘事不算過期：「已於 7/30 起發售」「自 2026 年 7 月 31 日起已可」
+        if re.search(r"[已自]", text[max(0, m.start() - 14):m.start()]):
+            continue
+        if "已" in text[m.end():m.end() + 8]:  # 「7/31 起已陸續開放」也是回頭敘事
+            continue
+        mo, dy = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
+        try:
+            d = datetime.date(TODAY.year, int(mo), int(dy))
+        except ValueError:
+            continue
+        if (d - TODAY).days > 183:  # 半年後的日期視為去年檔期殘留
+            d = d.replace(year=TODAY.year - 1)
+        if (TODAY - d).days > GRACE:
+            yield m.group(0).strip()
+
+
+for f in pages:
+    hits = list(stale_snippets(open(f, encoding="utf-8").read()))
+    if hits:
+        issues.append(f + "：過期日期文案「" + hits[0] + "」等 " + str(len(hits)) + " 處")
 
 # sitemap / robots / llms 完整度
 sm = open("sitemap.xml").read() if os.path.exists("sitemap.xml") else ""
