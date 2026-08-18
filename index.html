@@ -304,7 +304,7 @@ footer a:hover{color:var(--gs-orange)}
 <!-- ===== UTILITY BAR ===== -->
 <div class="util"><div class="wrap">
   <span><img src="/assets/brand/icon/claw.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 中和實體店・8/25 開幕　|　<img src="/assets/brand/icon/target.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> <b>中和捷運站旁</b></span>
-  <a href="https://goshoot-ichiban.vercel.app/pools" rel="noopener"><img src="/assets/brand/icon/trophy.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 線上一番賞・馬上抽 →</a>
+  <a href="https://goshoot-ichiban.vercel.app/draw" rel="noopener"><img src="/assets/brand/icon/trophy.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 線上一番賞・馬上抽 →</a>
 </div></div>
 
 <!-- ===== NAV ===== -->
@@ -318,7 +318,7 @@ footer a:hover{color:var(--gs-orange)}
     <a href="events.html">賽事</a>
     <a href="guide.html">攻略</a>
     <a href="faq.html">常見問題</a>
-    <a class="gsbtn gsbtn-sm" data-sent="前往抽獎" href="https://goshoot-ichiban.vercel.app/pools" rel="noopener">抽一番賞</a>
+    <a class="gsbtn gsbtn-sm" data-sent="前往抽獎" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽一番賞</a>
   </div>
   <form class="search" onsubmit="var q=this.querySelector('input').value.trim();location.href=q?('https://www.google.com/search?q='+encodeURIComponent('site:goshoot.com.tw '+q)):'ichiban.html';return false;">
     <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋全站">
@@ -404,7 +404,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     <h1 class="gsh-h1"><img class="gsh-h1img" src="assets/brand/logo-main-cutout.webp" alt="Go Shoot｜中和戰鬥陀螺專門店・線上一番賞・娃娃機 8/25 開幕" fetchpriority="high"></h1>
     <div class="gsh-sub"><b>戰鬥陀螺</b><span class="x">×</span><b>娃娃機</b><span class="x">×</span><b>線上一番賞</b></div>
     <div class="gsh-cta">
-      <a class="gsbtn" data-sent="前往開抽" href="https://goshoot-ichiban.vercel.app/pools" target="_blank" rel="noopener">抽線上一番賞 →</a>
+      <a class="gsbtn" data-sent="前往開抽" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">抽線上一番賞 →</a>
       <a class="gsbtn gsbtn-ghost" href="scroll-preview.html">✦ 飛進 Go Shoot 世界</a>
       <a class="gsbtn gsbtn-ghost" href="#products">看陀螺情報</a>
     </div>
@@ -469,7 +469,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       <p>8/25 開幕・敬請期待</p>
       <span class="go">看專區 →</span>
     </a>
-    <a class="pillar p-ichi" href="https://goshoot-ichiban.vercel.app/pools" target="_blank" rel="noopener">
+    <a class="pillar p-ichi" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">
       <img class="pdeco" src="assets/brand/card-ichiban-ticket.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <svg viewBox="0 0 64 64"><path d="M14 26 h36 v22 a4 4 0 0 1-4 4 H18 a4 4 0 0 1-4-4z" fill="none" stroke="#fff" stroke-width="3.5"/><path d="M14 26 l18-14 18 14" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="38" r="5" fill="#fff"/></svg>
       <h3>線上一番賞</h3>
@@ -609,19 +609,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 <!-- ===== 主打預告（id="featured-drop"）：老闆手動管理，只有老闆點名才更新內容；自動化（新聞卡 bot／SEO bot）禁止讀改動刪本區塊 ===== -->
 <section id="featured-drop" style="background:rgba(26,26,26,.55)"><div class="wrap">
   <div style="background:linear-gradient(120deg,#141416 0%,#2a1710 55%,#E8552F 145%);border:1.5px solid rgba(255,90,45,.55);border-top:3px solid var(--gs-orange);border-radius:20px;box-shadow:var(--shadow);padding:28px 22px">
-    <span class="eyebrow">主打預告 ・ 海外直送</span>
-    <h2 class="sec" style="margin-top:6px">歐版 Beyblade X「Infinity」系列，登陸一番賞</h2>
-    <p class="sec-lead" style="margin-bottom:14px">Hasbro 歐美版 2026 最新彈，7/15 起於歐美通路上架——Go Shoot 海外採購・歐洲直送，整波直接進一番賞獎池：<b>線上一番賞＋中和門市現場</b>都抽得到，上架時間以本站公告為準。</p>
+    <span class="eyebrow">主打上線 ・ 開幕獎單</span>
+    <h2 class="sec" style="margin-top:6px">開幕 9 盒 Beyblade X 一番賞，線上開抽中</h2>
+    <p class="sec-lead" style="margin-bottom:14px">真貨開盒上架——陀螺本體＋對戰卡全數進池，每抽 NT$250、每抽必中，抽獎過程可公開驗證。<b>線上現在就能抽</b>，中和門市 8/25 開幕現場同步。</p>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
-      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">Sneak Attack 戰鬥場組</span>
-      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">Clip &amp; Rip 攜帶發射器</span>
-      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">Infinity Starter Pack ×4</span>
-      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">BX／UX／CX 三線齊發</span>
+      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">9 盒獎單同步開池</span>
+      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">每抽 NT$250</span>
+      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">每抽必中</span>
+      <span style="font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px">抽獎可驗證</span>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
-      <a class="gsbtn" href="ichiban-beyblade.html">陀螺一番賞情報 →</a>
-      <span style="color:#9a948c;font-size:13px">敬請期待・以到貨公告為準</span>
+      <a class="gsbtn" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即開抽 →</a>
+      <span class="fd-count" style="color:#9a948c;font-size:13px">中和門市 8/25 開幕</span>
     </div>
+    <script>document.addEventListener('DOMContentLoaded',function(){var d=Math.ceil((new Date(2026,7,25)-new Date())/864e5);document.querySelectorAll('.fd-count').forEach(function(el){el.textContent=d>0?'中和門市 8/25 開幕・倒數 '+d+' 天':'中和門市盛大開幕中'});});</script>
   </div>
 </div></section>
 
@@ -752,7 +753,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.16);border-color:transparent">線上開抽</span>
       <h2>Go Shoot 線上一番賞</h2>
       <p>不必到店、隨時開抽。每一抽都有獎，A 賞、最後賞通通有機會帶回家。透明公正、即時開獎，用 Google 帳號登入就能玩。中獎可選宅配到府、到店取貨，或折抵店內消費。</p>
-      <a class="gsbtn" data-sent="前往抽獎" href="https://goshoot-ichiban.vercel.app/pools" target="_blank" rel="noopener">立即抽一番賞 →</a>
+      <a class="gsbtn" data-sent="前往抽獎" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即抽一番賞 →</a>
     </div>
   </div>
 </div></section>
@@ -829,7 +830,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       <a class="gsbtn gsbtn-sm" href="mailto:goshoot593@gmail.com">✉ Email 聯絡</a>
       <div class="fsoc"><a href="mailto:goshoot593@gmail.com" title="Email 聯絡">✉</a><a href="tel:+886976507911" title="電話 0976-507-911">📞</a></div>
     </div>
-    <div><h4>玩家服務</h4><a href="https://goshoot-ichiban.vercel.app/pools" target="_blank" rel="noopener">線上一番賞</a><a href="#products">陀螺情報</a><a href="#arena">店內賽事</a><a href="#visit">娃娃機台區</a><a href="faq.html">常見問題</a></div>
+    <div><h4>玩家服務</h4><a href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">線上一番賞</a><a href="#products">陀螺情報</a><a href="#arena">店內賽事</a><a href="#visit">娃娃機台區</a><a href="faq.html">常見問題</a></div>
     <div><h4>攻略資源</h4><a href="guide-beginner.html">新手入門</a><a href="guide-tierlist.html">本月天梯</a><a href="guide-mods.html">改裝攻略</a><a href="guide.html">全部攻略</a></div>
   </div>
   <div class="copy"><a href="terms.html" style="color:inherit">服務條款</a> ・ <a href="privacy.html" style="color:inherit">隱私權政策</a> ・ <a href="refund.html" style="color:inherit">退款政策</a> ・ 旋賞數位有限公司（設立登記辦理中）</div>
@@ -1182,15 +1183,15 @@ document.addEventListener("DOMContentLoaded",function(){
 <!-- ═══ 主打預告（老闆手動管理區） ═══ -->
 <section class="gsm-col" id="gsm-featured-drop">
   <div class="gsm-feature gsm-rv">
-    <span class="gsm-eyebrow" style="color:var(--orange-soft)">主打預告・海外直送</span>
-    <h3>歐版 Beyblade X「Infinity」系列，登陸一番賞</h3>
-    <p>Hasbro 歐美版 2026 最新彈，7/15 起於歐美通路上架——Go Shoot 海外採購・歐洲直送，整波直接進一番賞獎池：<b>線上一番賞＋中和門市現場</b>都抽得到，上架時間以本站公告為準。</p>
+    <span class="gsm-eyebrow" style="color:var(--orange-soft)">主打上線・開幕獎單</span>
+    <h3>開幕 9 盒 Beyblade X 一番賞，線上開抽中</h3>
+    <p>真貨開盒上架——陀螺本體＋對戰卡全數進池，每抽 NT$250、每抽必中，抽獎過程可公開驗證。<b>線上現在就能抽</b>，中和門市 8/25 開幕現場同步。</p>
     <div class="gsm-chips">
-      <span>Sneak Attack 戰鬥場組</span><span>Clip &amp; Rip 攜帶發射器</span>
-      <span>Infinity Starter Pack ×4</span><span>BX／UX／CX 三線齊發</span>
+      <span>9 盒獎單同步開池</span><span>每抽 NT$250</span>
+      <span>每抽必中</span><span>抽獎可驗證</span>
     </div>
-    <a class="gsm-cta" href="ichiban-beyblade.html">陀螺一番賞情報 →</a>
-    <p class="gsm-fineprint" style="margin-top:10px">敬請期待・以到貨公告為準</p>
+    <a class="gsm-cta" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">立即開抽 →</a>
+    <p class="gsm-fineprint fd-count" style="margin-top:10px">中和門市 8/25 開幕</p>
   </div>
 </section>
 
