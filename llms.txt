@@ -5,6 +5,7 @@
 ## 重點頁面
 
 - [線上一番賞](https://goshoot.com.tw/ichiban.html)：24H 隨時抽、每抽必中、公開透明可驗證的線上一番賞，含玩法與常見問題。
+  - [一番賞獎池列表](https://goshoot.com.tw/pools.html)：目前開抽中的獎池總覽，剩餘抽數即時更新、每抽必中、公開亂數可驗證。
 - [首頁](https://goshoot.com.tw/)：品牌總覽，線上一番賞＋中和娃娃機店＋戰鬥陀螺情報，中和站旁。
 - [關於 Go Shoot](https://goshoot.com.tw/about.html)：品牌故事、旋賞數位有限公司、為什麼做線上一番賞與中和娃娃機店。
 - [常見問題 FAQ](https://goshoot.com.tw/faq.html)：線上一番賞玩法與取貨、娃娃機店資訊、新手入門、賽事與會員集點、營業時間與地址。
@@ -14,6 +15,9 @@
   - [夾娃娃機技巧入門](https://goshoot.com.tw/article-claw-machine-tips.html)：爪力保夾原理、兩爪三爪判斷、看擺台選機台與實戰手法，新手提高成功率。
   - [中和景平路周邊順遊指南](https://goshoot.com.tw/article-zhonghe-jingping-guide.html)：景安站/中和站交通、華新街緬甸街、四號公園、興南夜市、烘爐地夜景的一日遊動線。
   - [娃娃機術語黑話對照表](https://goshoot.com.tw/article-claw-machine-terms.html)：台主、場主、保夾、直取、進洞、上分、爪力、補台等夾娃娃常見術語白話解，分機台型態/設定機率/經營角色三類。
+  - [夾娃娃保夾原理與消保規範](https://goshoot.com.tw/article-claw-machine-rules.html)：保夾運作原理＋經濟部自助選物販賣規範重點：保證取物上限 990 元、累積金額不得歸零、禁加裝障礙物、距學校 50 公尺、爭議申訴。
+  - [韓系娃娃機是什麼](https://goshoot.com.tw/article-korean-claw-machine.html)：韓系娃娃機與台式夾娃娃店的店裝、選品、機台、消費方式差異，挑店四個判斷點。
+  - [24 小時無人娃娃機店怎麼運作](https://goshoot.com.tw/article-unmanned-claw-machine-store.html)：無人店的金流、監控、補貨維運、爭議處理與夜間安全，消費者該注意的五件事。
 
 ## 主題一番賞頁（依動漫 IP 找線上一番賞）
 
