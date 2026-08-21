@@ -111,9 +111,20 @@ for f in pages:
 
 # sitemap / robots / llms 完整度
 sm = open("sitemap.xml").read() if os.path.exists("sitemap.xml") else ""
+# 2026-08-22：canonical 指向「別頁」的收斂頁本來就不該進 sitemap（Google 會忽略非自我 canonical 的
+# sitemap 條目，還會互相矛盾）。只有自我 canonical 的頁才要求進 sitemap。
+canonicalised_away = []
 for f in pages:
-    if f != "index.html" and "/" + f not in sm:
+    if f == "index.html":
+        continue
+    m = re.search(r'rel="canonical"\s+href="([^"]+)"', open(f, encoding="utf-8").read())
+    if m and not m.group(1).rstrip("/").endswith("/" + f):
+        canonicalised_away.append(f)
+        continue
+    if "/" + f not in sm:
         issues.append("sitemap 缺：" + f)
+if canonicalised_away:
+    print("跳過 canonical 收斂頁（指向別頁，刻意不進 sitemap）：" + "、".join(canonicalised_away))
 robots = open("robots.txt").read() if os.path.exists("robots.txt") else ""
 for k in ["GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended"]:
     if k not in robots:
