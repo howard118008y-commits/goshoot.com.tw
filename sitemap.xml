@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 部署後把 https://goshoot.com.tw 換成你的實際網域 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://goshoot.com.tw/</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://goshoot.com.tw/</loc><lastmod>2026-08-22</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://goshoot.com.tw/ichiban.html</loc><lastmod>2026-08-14</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://goshoot.com.tw/pools.html</loc><lastmod>2026-08-14</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
   <url><loc>https://goshoot.com.tw/article-what-is-online-ichiban.html</loc><lastmod>2026-08-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -11,7 +11,7 @@
   <url><loc>https://goshoot.com.tw/article-online-ichiban-claim.html</loc><lastmod>2026-08-12</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://goshoot.com.tw/ichiban-onepiece.html</loc><lastmod>2026-08-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://goshoot.com.tw/ichiban-naruto.html</loc><lastmod>2026-08-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://goshoot.com.tw/ichiban-beyblade.html</loc><lastmod>2026-08-18</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://goshoot.com.tw/ichiban-beyblade.html</loc><lastmod>2026-08-22</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://goshoot.com.tw/ichiban-kimetsu.html</loc><lastmod>2026-08-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://goshoot.com.tw/ichiban-jujutsu.html</loc><lastmod>2026-08-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://goshoot.com.tw/ichiban-pokemon.html</loc><lastmod>2026-08-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
@@ -32,11 +32,11 @@
   <url><loc>https://goshoot.com.tw/guide-rules.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/guide-terms.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/guide-shoot.html</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://goshoot.com.tw/guide-tierlist.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://goshoot.com.tw/guide-tierlist.html</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://goshoot.com.tw/guide-beginner.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/guide-mods.html</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/article-jujutsu-ichiban-latest.html</loc><lastmod>2026-08-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://goshoot.com.tw/article-pokemon-ichiban-latest.html</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://goshoot.com.tw/article-pokemon-ichiban-latest.html</loc><lastmod>2026-08-22</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://goshoot.com.tw/article-kimetsu-ichiban-latest.html</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://goshoot.com.tw/article-chiikawa-ichiban-latest.html</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://goshoot.com.tw/article-beyblade-ichiban-latest.html</loc><lastmod>2026-08-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -53,11 +53,11 @@
   <url><loc>https://goshoot.com.tw/article-beyblade-grandprix-2026.html</loc><lastmod>2026-08-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://goshoot.com.tw/beyblade-db.html</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://goshoot.com.tw/beyblade-calculator.html</loc><lastmod>2026-08-01</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://goshoot.com.tw/beyblade-release-calendar.html</loc><lastmod>2026-08-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://goshoot.com.tw/beyblade-release-calendar.html</loc><lastmod>2026-08-22</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://goshoot.com.tw/article-beyblade-711-heavens-ring.html</loc><lastmod>2026-08-19</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://goshoot.com.tw/article-goshoot-topup-guide.html</loc><lastmod>2026-08-16</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://goshoot.com.tw/article-goshoot-topup-guide.html</loc><lastmod>2026-08-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/article-beyblade-x-new-releases.html</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://goshoot.com.tw/article-beyblade-where-to-buy.html</loc><lastmod>2026-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://goshoot.com.tw/article-beyblade-where-to-buy.html</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/about.html</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://goshoot.com.tw/store.html</loc><lastmod>2026-08-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://goshoot.com.tw/rental.html</loc><lastmod>2026-08-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -72,6 +72,6 @@
   <url><loc>https://goshoot.com.tw/article-online-lottery-guide.html</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/article-beyblade-how-to-play.html</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/article-claw-machine-terms.html</loc><lastmod>2026-08-14</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://goshoot.com.tw/article-beyblade-launcher-guide.html</loc><lastmod>2026-08-18</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://goshoot.com.tw/article-beyblade-launcher-guide.html</loc><lastmod>2026-08-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://goshoot.com.tw/article-beyblade-type-matchup.html</loc><lastmod>2026-08-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
