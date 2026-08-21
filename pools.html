@@ -113,7 +113,7 @@
   function nf(n){return Number(n||0).toLocaleString();}
   function pct(s){var t=Number(s.total_draws||0),r=Number(s.remaining_draws||0);return t>0?Math.round(r/t*100):0;}
   // 進度條一律走 VI v2 橘系（原本 p>=50 走已退役的螢光綠，同頁與主打卡的橘條並存）
-  function barColor(p){if(p<=20)return{bar:"#E9B65C",label:"快完售"};if(p>=50)return{bar:"linear-gradient(90deg,#FF5A2D,#FFA890)",label:null};return{bar:"linear-gradient(90deg,#E24A2C,#FF6048)",label:null};}
+  function barColor(p){if(p<=20)return{bar:"#E9B65C",label:"快完售"};if(p>=50)return{bar:"linear-gradient(90deg,#FF5A2D,#FFA890)",label:null};return{bar:"linear-gradient(90deg,#E8552F,#FF6048)",label:null};}
   function render(){
     var box=document.getElementById("list");
     if(!sets){box.innerHTML='<div class="empty">載入中…</div>';return;}

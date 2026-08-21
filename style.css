@@ -10,7 +10,7 @@
   --muted:#B4B4BB;      /* 次要文字（灰）*/
   /* 重點色：動感橘為主品牌色，金／天藍為輔（螢光綠／賽車紅已退役）*/
   --gs-orange:#FF5A2D; --gs-orange-deep:#E8552F; --gs-gray:#555555;
-  --rar-s:#FF5A2D; --rar-a:#FFC24B; --rar-b:#9B5CFF; --rar-c:#3FC8C8; --rar-d:#C9A94E;
+  --rar-s:#FF5A2D; --rar-a:#FFC24B; --rar-b:#E24A2C; --rar-c:#9B3F21; --rar-d:#C9A94E;
   --coral:#FF5A2D; --coral2:#FF8A6B; --coral-deep:#E8552F;
   /* --lime 是 VI v1 的舊名，改版時漏了它：吃本檔的頁若還寫 var(--lime)，
      解析失敗會讓背景整個不見（shop.html 的購買按鈕就這樣變成隱形黑字）。

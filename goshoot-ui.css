@@ -37,7 +37,7 @@
   --gs-teal-deep:#2FA8A8;
   /* 稀有度 —— 全部取自 LIFF 的 T[]，非推測值 */
   --gs-rar-last:#FF5A2D;
-  --gs-rar-a:#FFC24B; --gs-rar-b:#9B5CFF; --gs-rar-c:#3FC8C8; --gs-rar-d:#C9A94E;
+  --gs-rar-a:#FFC24B; --gs-rar-b:#E24A2C; --gs-rar-c:#9B3F21; --gs-rar-d:#C9A94E;
   --gs-rar-e:#7FDDDD; --gs-rar-f:#B4B4BB; --gs-rar-g:#8D8A93;
   /* 會員卡等 */
   --gs-tier-normal:#8D8A93; --gs-tier-silver:#B4B4BB; --gs-tier-gold:#FFC24B;
@@ -219,7 +219,9 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
 .gs-more-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:13px}
 .gs-more-grid a{display:block;border-radius:var(--gs-r-sm);overflow:hidden;
   background:#141416;border:1px solid var(--gs-line)}
-.gs-more-grid img{width:100%;height:78px;object-fit:cover;display:block}
+/* 2026-08-22：原本寫死 height:78px，從 900×457 的圖只裁到中間一條帶狀，
+   暗色主視覺會整格看起來像空的。改用 16/9 讓整張幾乎完整露出。 */
+.gs-more-grid img{width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;display:block}
 .gs-more-grid span{display:block;padding:10px 12px;font-size:13px;line-height:1.5;
   font-weight:700;color:var(--gs-text)}
 
