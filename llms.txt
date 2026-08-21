@@ -5,7 +5,6 @@
 ## 重點頁面
 
 - [線上一番賞](https://goshoot.com.tw/ichiban.html)：24H 隨時抽、每抽必中、公開透明可驗證的線上一番賞，含玩法與常見問題。
-  - [一番賞獎池列表](https://goshoot.com.tw/pools.html)：目前開抽中的獎池總覽，剩餘抽數即時更新、每抽必中、公開亂數可驗證。
 - [首頁](https://goshoot.com.tw/)：品牌總覽，線上一番賞＋中和娃娃機店＋戰鬥陀螺情報，中和站旁。
 - [關於 Go Shoot](https://goshoot.com.tw/about.html)：品牌故事、旋賞數位有限公司、為什麼做線上一番賞與中和娃娃機店。
 - [常見問題 FAQ](https://goshoot.com.tw/faq.html)：線上一番賞玩法與取貨、娃娃機店資訊、新手入門、賽事與會員集點、營業時間與地址。
