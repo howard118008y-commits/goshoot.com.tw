@@ -35,6 +35,11 @@ jobs:
             --model claude-sonnet-5 \
             --dangerously-skip-permissions
 
+      - name: 同步手機版新聞卡（確定性步驟，勿刪）
+        run: |
+          python3 .github/sync_mobile_news.py
+          python3 .github/sync_mobile_news.py --check
+
       - name: Commit 更新
         run: |
           git config user.name  "github-actions"
