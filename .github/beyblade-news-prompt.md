@@ -23,6 +23,7 @@
    - `<img>` 的 `src` 對應 `news-N.jpg`、`alt` = 標題
    - `.news-tag` 文字（新品／限定／賽事／遊戲）與外層 `.news-top` 的色 class（`nt-new` 珊瑚／`nt-ltd` 深／`nt-sky` 藍／`nt-game` 金）
    - `.news-title` = 一句標題、`.news-meta` = 一句重點、`.news-src` = 「來源 ・ 看詳情 →」
+   - **⚠️ 同一支 `index.html` 內還有一組手機版新聞卡（`class="gsm-newscard"`，在 `<!-- ═══ 手機版完整站 ═══ -->` 之後），媒體查詢分流給手機使用者看，用的是同一批 `news-N.jpg` 圖檔。四張 `.gsm-newscard` 必須與桌機四張 `.newscard` 同步成相同的 href／alt／標題／重點／來源**（結構是 `<h3>` 標題、`.gsm-meta` 重點、`.gsm-src` 來源、`.gsm-ntag` 標籤）。**只更新桌機那組會造成手機版圖文不符**（2026-08-22 實際發生過：手機卡停在 7 月舊聞，圖卻已被換成新的）。
 5. **偵測大熱點＋草擬社群貼文**（品牌加值）：評估這批新聞（或當前戰鬥陀螺話題）有沒有「破圈級大熱點」。判準：**名人／藝人涉入、病毒式話題、全國賽事冠軍、重大缺貨／搶購潮**等能吸引核心圈外一般人的新聞（一般新品/改版不算）。
    - **有熱點** → 在 repo 根目錄 `SOCIAL-DRAFTS.md` 的**最上方**（既有內容往下推、newest 在上）插入一段：
      - 標題行：`## YYYY-MM-DD ・〔熱點一句話〕`（日期用 `date +%F`）
@@ -43,5 +44,6 @@
      - `.rel-st` 狀態 chip：`st-pre` 可預約代購／`st-soon` 即將發售・新品情報・情報公開。**⛔ 嚴禁任何庫存/銷售暗示字眼：「現貨」「熱賣」「熱銷」「熱抽中」「抽賞中」「開抽」一律不准寫**（門市庫存由老闆手動管理，本區只做情報）。
      - `.rel-cta` **連結一律連站內、文案一律中性**：只准「情報 →」「了解更多 →」兩種（用 `rel-cta alt` 樣式），連對應情報頁（陀螺→`article-beyblade-*.html` 或 `ichiban-beyblade.html`；寶可夢→`ichiban-pokemon.html`；皮克敏→`ichiban-pikmin.html`）；未上市品可用「預約代購 →」連 `#preorder`。**絕不外連購物網站，絕不寫「看現貨」「抽○○賞」類 CTA。**
    - 過期處理：發售日已過的列，狀態改「已上市」或移除換新情報。日期不確定就寫月份並標「情報公開」，**嚴禁捏造確切日期**。
-   - **⛔ 絕對禁區：「主打預告」區塊（`id="featured-drop"`，HTML 註解標明「老闆手動管理」）整段不准讀改動刪**，它不屬於本任務範圍。
-7. 完成後自我檢查：`index.html` 仍有正好 4 個 `class="newscard"`、1 個 `class="news-notice"`、5–7 個 `class="rel"`（含 `id="releases"` 區塊完整）；4 張 news 圖片內容不重複。不要 commit，改完檔案即可結束。
+   - **⚠️ 手機版同區同步**：`index.html` 手機版另有一組 `class="gsm-rel"`（`.gsm-rel-list` 內），欄位對應 `.gsm-date` / `.gsm-rtag`（`gsm-rt-bey`／`gsm-rt-pok`／`gsm-rt-pik`）/ `.gsm-name` / `.gsm-sub` / `.gsm-st`。**內容與狀態字樣必須與桌機 `.rel` 同步**，同樣適用上面的禁用字眼與過期處理規則。
+   - **⛔ 絕對禁區：「主打預告」區塊（`id="featured-drop"` 與手機版 `id="gsm-featured-drop"`，HTML 註解標明「老闆手動管理」）整段不准讀改動刪**，它不屬於本任務範圍。
+7. 完成後自我檢查：`index.html` 仍有正好 4 個 `class="newscard"` **與 4 個 `class="gsm-newscard"`**、1 個 `class="news-notice"`、5–7 個 `class="rel"` **與相同列數的 `class="gsm-rel"`**（含 `id="releases"` 區塊完整）；桌機與手機兩組的標題／連結逐張比對一致；4 張 news 圖片內容不重複。不要 commit，改完檔案即可結束。

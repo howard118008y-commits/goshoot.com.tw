@@ -285,19 +285,20 @@ footer .fdesc{font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:
 
   <div class="duo">
     <a href="#visit">
-      <div class="k">中和門市開幕</div>
-      <div style="display:flex;align-items:flex-end;gap:4px">
-        <span class="num" style="font-size:15px;font-weight:800;color:var(--orange);padding-bottom:6px">D-</span>
-        <span class="num" style="font-size:44px;line-height:.85;color:var(--orange)">12</span>
+      <div class="k gs-openk">中和門市開幕</div>
+      <div class="gs-openbox" style="display:flex;align-items:flex-end;gap:4px">
+        <span class="num gs-dpre" style="font-size:15px;font-weight:800;color:var(--orange);padding-bottom:6px">D-</span>
+        <span class="num gs-dnum" style="font-size:44px;line-height:.85;color:var(--orange)">3</span>
       </div>
       <div class="d">娃娃機・站旁 1 分鐘</div>
     </a>
     <a href="events.html">
-      <div class="k">本週賽事</div>
+      <div class="k">店內賽事</div>
       <div style="font-size:19px;font-weight:900;line-height:1.25">週六<br>店內爭霸戰</div>
-      <div class="d" style="color:#FFB2A0">還剩 6 個名額</div>
+      <div class="d" style="color:#FFB2A0">8/25 開幕後開打</div>
     </a>
   </div>
+<script>document.addEventListener('DOMContentLoaded',function(){var d=Math.ceil((new Date(2026,7,25)-new Date())/864e5);document.querySelectorAll('.gs-openbox').forEach(function(box){var n=box.querySelector('.gs-dnum'),p=box.querySelector('.gs-dpre'),k=box.parentElement.querySelector('.gs-openk');if(d>0){if(n)n.textContent=d;}else{if(p)p.remove();if(n){n.textContent='開幕中';n.style.fontSize='27px';n.style.lineHeight='1.05';n.style.fontWeight='900';}if(k)k.textContent='中和門市';}});});</script>
 </section>
 
 <!-- ═══ 三大主打 ═══ -->
