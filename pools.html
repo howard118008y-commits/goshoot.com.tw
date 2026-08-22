@@ -113,7 +113,7 @@
   function nf(n){return Number(n||0).toLocaleString();}
   function pct(s){var t=Number(s.total_draws||0),r=Number(s.remaining_draws||0);return t>0?Math.round(r/t*100):0;}
   // 進度條一律走 VI v2 橘系（原本 p>=50 走已退役的螢光綠，同頁與主打卡的橘條並存）
-  function barColor(p){if(p<=20)return{bar:"#E9B65C",label:"快完售"};if(p>=50)return{bar:"linear-gradient(90deg,#FF5A2D,#FFA890)",label:null};return{bar:"linear-gradient(90deg,#E8552F,#FF6048)",label:null};}
+  function barColor(p){if(p<=20)return{bar:"#FFC24B",label:"快完售"};if(p>=50)return{bar:"linear-gradient(90deg,#FF5A2D,#FFA890)",label:null};return{bar:"linear-gradient(90deg,#E8552F,#FF6048)",label:null};}
   function render(){
     var box=document.getElementById("list");
     if(!sets){box.innerHTML='<div class="empty">載入中…</div>';return;}
@@ -134,7 +134,7 @@
     h+=rest.map(function(s){
       var pc=pct(s),c=barColor(pc);
       var txt=c.label
-        ?'<div style="font-size:11px;color:#E9B65C">只剩 <span style="font-weight:700">'+nf(s.remaining_draws)+'</span> / '+nf(s.total_draws)+' 抽・'+c.label+'</div>'
+        ?'<div style="font-size:11px;color:#FFC24B">只剩 <span style="font-weight:700">'+nf(s.remaining_draws)+'</span> / '+nf(s.total_draws)+' 抽・'+c.label+'</div>'
         :'<div style="font-size:11px;color:#B3B3B3">剩 <span style="font-weight:700;color:#FFF">'+nf(s.remaining_draws)+'</span> / '+nf(s.total_draws)+' 抽</div>';
       return '<a class="mini" href="'+APP+'/pools/'+s.id+'"><div class="thumb">'
         +(s.cover_image?'<img src="'+esc(img(s.cover_image))+'" alt="" loading="lazy">':"")

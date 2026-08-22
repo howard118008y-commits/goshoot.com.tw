@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--lime:#FF5A2D;--lime-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-accent-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
@@ -36,8 +36,8 @@ p{margin:12px 0;font-size:16.5px}
 .nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
 .util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
-.util b{color:var(--gold,#E8C15A)}
-.util a{color:var(--lime);font-weight:700}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 .nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
@@ -49,18 +49,18 @@ p{margin:12px 0;font-size:16.5px}
   .nav-links.open{display:flex}
 }
 .crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
-.crumb a{color:var(--lime)}
-.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--lime);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
-.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
-.btn:hover{background:var(--lime-deep)}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--gs-accent);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn:hover{background:var(--gs-accent-deep)}
 ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .focus{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0}
 .rel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
-.rel .tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:999px;background:rgba(255,90,45,.14);color:var(--lime);margin-bottom:8px}
+.rel .tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.5px;padding:3px 10px;border-radius:999px;background:rgba(255,90,45,.14);color:var(--gs-accent);margin-bottom:8px}
 .rel .tag.coral{background:rgba(255,90,45,.16);color:var(--coral)}
 .rel .meta{font-size:13.5px;color:var(--sec);margin:2px 0 6px}
 .rel .lnk{font-size:13.5px}
-.rel .lnk a{color:var(--lime);font-weight:700;margin-right:14px}
+.rel .lnk a{color:var(--gs-accent);font-weight:700;margin-right:14px}
 .tblwrap{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:14px}
 table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px}
 th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -68,20 +68,20 @@ th{background:var(--ink);color:var(--text);font-weight:800;font-size:13.5px;whit
 td .mn{font-weight:800;color:var(--coral);white-space:nowrap}
 .pill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.07);color:var(--sec)}
 .pill.jp{background:rgba(63,200,200,.16);color:var(--sky)}
-.pill.tw{background:rgba(255,90,45,.14);color:var(--lime)}
+.pill.tw{background:rgba(255,90,45,.14);color:var(--gs-accent)}
 .pill.soon{background:rgba(255,255,255,.06);color:var(--sec)}
 .note{font-size:13.5px;color:var(--sec);margin-top:8px}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
 details p{color:var(--sec)}
 .related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
 .related b{display:block;margin-bottom:6px}
-.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 .stamp{background:var(--paper);border:1px dashed var(--line);border-radius:14px;padding:14px 18px;margin:26px 0;font-size:14px;color:var(--sec)}
 .stamp b{color:var(--text)}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
-footer a{color:var(--lime)}
+footer a{color:var(--gs-accent)}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
@@ -121,7 +121,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <p class="lead">戰鬥陀螺 <strong>Beyblade X 2026 下半年新品</strong>一頁看完：日版發售日與台灣通路並列，已發售的 <strong>7/11 三新品</strong>（烈風天馬 BX-00、榮耀女武神 UX-20、天堂日輪 BX-50）與尚未開賣的 <strong>8/29 EVA 聯名 CX-00</strong> 全在表上。查不到台灣日期的款式標「待官方公布」，本頁<strong>每月更新</strong>——加入書籤，別再錯過任何一波。</p>
 
   <h2>① 7 月新品回顧：7/11 三新品同步發售</h2>
-  <p>2026 年 7 月 11 日，Takara Tomy 日版一口氣推出三款新品（來源：<a href="https://www.nownews.com/news/6848235" rel="noopener" style="color:var(--lime)">NOWnews 新品一覽</a>）。台灣通路的開賣日期與檔期以各通路官方公告為準。</p>
+  <p>2026 年 7 月 11 日，Takara Tomy 日版一口氣推出三款新品（來源：<a href="https://www.nownews.com/news/6848235" rel="noopener" style="color:var(--gs-accent)">NOWnews 新品一覽</a>）。台灣通路的開賣日期與檔期以各通路官方公告為準。</p>
   <div class="focus">
     <div class="rel">
       <span class="tag coral">攻擊型・首度單賣</span>
@@ -196,7 +196,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </tbody>
   </table>
   </div>
-  <p class="note">資料來源：<a href="https://www.nownews.com/news/6848235" rel="noopener" style="color:var(--lime)">NOWnews</a>、日本新品整理站 okuyama3093.com。台灣日期以麗嬰國際、玩具反斗城、7-11、蝦皮等通路實際公告為準；本站不販售日版現貨，僅整理發售情報。</p>
+  <p class="note">資料來源：<a href="https://www.nownews.com/news/6848235" rel="noopener" style="color:var(--gs-accent)">NOWnews</a>、日本新品整理站 okuyama3093.com。台灣日期以麗嬰國際、玩具反斗城、7-11、蝦皮等通路實際公告為準；本站不販售日版現貨，僅整理發售情報。</p>
 
   <h2>③ 怎麼買：台灣通路速查</h2>
   <p>日版新品的台灣入手管道，依「要不要現貨、能不能等」分三條路：</p>
@@ -205,21 +205,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <li><strong>7-11 uniopen 限定檔期</strong>：像天堂日輪這類 OPENPOINT 領券預購檔期，開賣時間、名額與取貨日以 7-11／uniopen 官方公告為準。</li>
     <li><strong>日本代購／預購</strong>：想第一時間拿到日版單品或抽選限定，走代購最快，但要留意運費與抽選規則。</li>
   </ul>
-  <p>完整的原價通路清單、避開黃牛的方法，看〈<a href="article-beyblade-where-to-buy.html" style="color:var(--lime)">戰鬥陀螺哪裡買？台灣通路全清單</a>〉（情報更新中）。缺貨買不到現貨，也可以直接在<strong>線上一番賞</strong>抽 Beyblade X 限定款（見下）。</p>
+  <p>完整的原價通路清單、避開黃牛的方法，看〈<a href="article-beyblade-where-to-buy.html" style="color:var(--gs-accent)">戰鬥陀螺哪裡買？台灣通路全清單</a>〉（情報更新中）。缺貨買不到現貨，也可以直接在<strong>線上一番賞</strong>抽 Beyblade X 限定款（見下）。</p>
 
   <h2>④ 新品怎麼改？每款接改裝計算器與圖鑑</h2>
   <p>拿到新陀螺別急著開戰——Beyblade X 是<strong>刃體 Blade／軸承 Ratchet／軸尖 Bit</strong> 三段式組合，換件就能改變攻擊、防禦、持久取向。新品的每個零件都能拆開重組：</p>
   <ul>
-    <li>想知道<strong>某個配置強不強、贏面多少</strong> → 用〈<a href="beyblade-calculator.html" style="color:var(--lime)">戰鬥陀螺改裝計算器</a>〉輸入零件，讀官方雷達值試算屬性總分。</li>
-    <li>想查<strong>單台機體的數值與世代</strong> → 翻〈<a href="beyblade-db.html" style="color:var(--lime)">Beyblade X 機體圖鑑</a>〉，59 台機體規格一次查。</li>
-    <li>想看<strong>現在哪些配置最強</strong> → 看〈<a href="guide-tierlist.html" style="color:var(--lime)">本月天梯 Tier List</a>〉。</li>
+    <li>想知道<strong>某個配置強不強、贏面多少</strong> → 用〈<a href="beyblade-calculator.html" style="color:var(--gs-accent)">戰鬥陀螺改裝計算器</a>〉輸入零件，讀官方雷達值試算屬性總分。</li>
+    <li>想查<strong>單台機體的數值與世代</strong> → 翻〈<a href="beyblade-db.html" style="color:var(--gs-accent)">Beyblade X 機體圖鑑</a>〉，59 台機體規格一次查。</li>
+    <li>想看<strong>現在哪些配置最強</strong> → 看〈<a href="guide-tierlist.html" style="color:var(--gs-accent)">本月天梯 Tier List</a>〉。</li>
   </ul>
   <p>例如 BX-00 烈風天馬的 3-70RA、UX-20 榮耀女武神的 LF 軸心，都能丟進計算器對比手上舊配置，決定值不值得入手。</p>
 
   <h2>買不到現貨？線上抽 Beyblade X 限定款</h2>
   <p>新品秒殺、限定配色零售買不到，是戰鬥陀螺玩家的日常痛點。<strong>Go Shoot 線上一番賞</strong>不定期上架 Beyblade X 主題獎單，<strong>每抽必中</strong>、24 小時可玩，抽到限定陀螺還能到中和門市賽場直接試打。</p>
   <p><a class="btn" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">看現在有哪些戰鬥陀螺獎單 →</a></p>
-  <p class="note">延伸：〈<a href="ichiban-beyblade.html" style="color:var(--lime)">戰鬥陀螺一番賞主題頁</a>〉、〈<a href="ichiban.html" style="color:var(--lime)">線上一番賞總覽</a>〉。</p>
+  <p class="note">延伸：〈<a href="ichiban-beyblade.html" style="color:var(--gs-accent)">戰鬥陀螺一番賞主題頁</a>〉、〈<a href="ichiban.html" style="color:var(--gs-accent)">線上一番賞總覽</a>〉。</p>
 
   <div class="stamp">
     ⑤ <b>更新機制</b>：本頁為 <b>2026-07-09 版</b>，<b>每月更新</b>。官方每釋出新一波 BX／UX／CX lineup，即補進上方月曆總表並更新台灣通路日期。發現資料有誤或有更新，歡迎來信 <b>goshoot593@gmail.com</b> 或電洽 <b>0976507911</b>。

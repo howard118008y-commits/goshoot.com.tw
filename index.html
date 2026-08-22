@@ -959,12 +959,12 @@ document.addEventListener("DOMContentLoaded",function(){
   }
   #gsapp .gsm-scroll{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
 /* ═══ Go Shoot 手機版・app 主題（配色與 design_handoff reference.gsm-html 一致）═══
-   底 #1A1A1A / 卡 #212121・#252525 / 主色 #FF6048 / 亮橘 #FF8468 / 金 #E9B65C / 綠 #5AE08C
+   底 #1A1A1A / 卡 #212121・#252525 / 主色 #FF6048 / 亮橘 #FF8468 / 金 #FFC24B / 綠 #5AE08C
    單欄文件流（非 fixed 覆蓋層）＝手機滑動最順；桌機內容欄 480px 置中。 */#gsapp{
   --bg:#1A1A1A; --card:#212121; --card2:#252525; --chip:#2B2B2B;
   --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.055);
   --text:#FFFFFF; --soft:#D4D4D4; --muted:#8C8C8C; --dim:#9A9A9A; --body2:#B3B3B3;
-  --orange:#FF6048; --orange-soft:#FF8468; --gold:#E9B65C; --green:#5AE08C;
+  --orange:#FF6048; --orange-soft:#FF8468; --gold:#FFC24B; --green:#5AE08C;
   --num:'Archivo','Noto Sans TC',sans-serif;
 }#gsapp *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}#gsapp{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}#gsapp img{max-width:100%;display:block}#gsapp a{color:var(--orange);text-decoration:none}#gsapp a:hover{color:var(--orange-soft)}#gsapp ::selection{background:var(--orange);color:#1A1A1A}#gsapp .gsm-num{font-family:var(--num);font-weight:900;letter-spacing:-.02em}
 
@@ -1421,7 +1421,7 @@ document.addEventListener("DOMContentLoaded",function(){
   var API="https://goshoot-ichiban-production.up.railway.app/api";
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function relTime(iso){var d=(Date.now()-new Date(iso).getTime())/60000;if(d<1)return"剛剛";if(d<60)return Math.floor(d)+" 分前";if(d<1440)return Math.floor(d/60)+" 小時前";return Math.floor(d/1440)+" 天前";}
-  function tint(g){if(g==="LAST")return["rgba(255,96,72,.14)","#FF8468"];if(g==="S"||g==="A")return["rgba(233,182,92,.16)","#E9B65C"];return["rgba(255,255,255,.07)","#D4D4D4"];}
+  function tint(g){if(g==="LAST")return["rgba(255,96,72,.14)","#FF8468"];if(g==="S"||g==="A")return["rgba(255,194,75,.16)","#FFC24B"];return["rgba(255,255,255,.07)","#D4D4D4"];}
   /* hero 兩行：本期賞名＋剩餘抽數 */
   fetch(API+"/sets").then(function(r){return r.json()}).then(function(list){
     var s=(list||[]).filter(function(x){return x.status==="active"})[0]||list[0];if(!s)return;

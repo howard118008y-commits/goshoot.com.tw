@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--lime:#FF5A2D;--lime-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-accent-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
@@ -36,8 +36,8 @@ p{margin:12px 0;font-size:16.5px}
 .nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
 .util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
-.util b{color:var(--gold,#E8C15A)}
-.util a{color:var(--lime);font-weight:700}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 .nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
@@ -49,11 +49,11 @@ p{margin:12px 0;font-size:16.5px}
   .nav-links.open{display:flex}
 }
 .crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
-.crumb a{color:var(--lime)}
-.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--lime);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
-.quote{font-size:20px;font-weight:800;color:var(--lime);border-left:4px solid var(--coral);padding:8px 0 8px 16px;margin:18px 0}
-.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
-.btn:hover{background:var(--lime-deep)}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--gs-accent);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
+.quote{font-size:20px;font-weight:800;color:var(--gs-accent);border-left:4px solid var(--coral);padding:8px 0 8px 16px;margin:18px 0}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn:hover{background:var(--gs-accent-deep)}
 ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .combo{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
 .combo b{font-size:16px}
@@ -63,13 +63,13 @@ ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .note{font-size:13.5px;color:var(--sec)}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
 details p{color:var(--sec)}
 .related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
 .related b{display:block;margin-bottom:6px}
-.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
-footer a{color:var(--lime)}
+footer a{color:var(--gs-accent)}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
@@ -128,7 +128,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <h3>2. 一次只換一個變數</h3>
   <p>改裝跟做實驗一樣，<strong>一次只換一個零件</strong>，才知道差別是誰造成的。這也是天梯配置怎麼被玩出來的。</p>
   <h3>3. 到賽場實測</h3>
-  <p>配裝好不好，打了才知道。<strong>Go Shoot 中和門市 8/25 開幕</strong>後，對戰賽場可實測配裝，比看數據更快進步。詳細概念見〈<a href="guide-mods.html" style="color:var(--lime)">改裝入門</a>〉與〈<a href="guide-tierlist.html" style="color:var(--lime)">本月天梯</a>〉。</p>
+  <p>配裝好不好，打了才知道。<strong>Go Shoot 中和門市 8/25 開幕</strong>後，對戰賽場可實測配裝，比看數據更快進步。詳細概念見〈<a href="guide-mods.html" style="color:var(--gs-accent)">改裝入門</a>〉與〈<a href="guide-tierlist.html" style="color:var(--gs-accent)">本月天梯</a>〉。</p>
   <p><a class="btn" href="guide-mods.html">看改裝入門 →</a></p>
 
   <div class="gs-cta">

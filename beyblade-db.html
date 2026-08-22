@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--lime:#FF5A2D;--sky:#3FC8C8;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--sky:#3FC8C8;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.8}
 a{color:inherit;text-decoration:none}
@@ -34,8 +34,8 @@ h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;margin:36px 0 10px}
 .nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
 .util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
-.util b{color:var(--gold,#E8C15A)}
-.util a{color:var(--lime);font-weight:700}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 .nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
@@ -47,16 +47,16 @@ h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;margin:36px 0 10px}
   .nav-links.open{display:flex}
 }
 .crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
-.crumb a{color:var(--lime)}
-.lead{font-size:17px;background:var(--paper);border-left:4px solid var(--lime);padding:14px 18px;border-radius:8px;margin:18px 0;font-weight:500}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:17px;background:var(--paper);border-left:4px solid var(--gs-accent);padding:14px 18px;border-radius:8px;margin:18px 0;font-weight:500}
 .note{font-size:13px;color:var(--sec)}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 6px;position:sticky;top:60px;z-index:5;background:rgba(11,11,13,.92);padding:10px 0;backdrop-filter:blur(8px)}
 .fbtn{border:1px solid var(--line);background:var(--paper);color:var(--sec);font:700 13px 'Noto Sans TC';padding:8px 15px;border-radius:999px;cursor:pointer;transition:.15s}
 .fbtn:hover{color:var(--text)}
-.fbtn.on{background:var(--lime);border-color:var(--lime);color:#1A1A1A}
+.fbtn.on{background:var(--gs-accent);border-color:var(--gs-accent);color:#1A1A1A}
 .fbtn.s.on{background:var(--coral);border-color:var(--coral);color:#1A1A1A}
 .db-search{flex:1 1 100%;box-sizing:border-box;background:var(--paper);border:1px solid var(--line);color:var(--text);font:600 15px 'Noto Sans TC';padding:11px 16px;border-radius:12px;height:44px;margin-bottom:6px}
-.db-search:focus{outline:none;border-color:var(--lime)}
+.db-search:focus{outline:none;border-color:var(--gs-accent)}
 .db-search::placeholder{color:var(--sec)}
 .count{font-size:13px;color:var(--sec);margin:4px 0 12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:10px 0 30px}
@@ -73,16 +73,16 @@ h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;margin:36px 0 10px}
 .legend b{display:inline-flex;align-items:center;gap:6px;font-weight:600}
 .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
 .callout{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:22px 0}
-.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
 details p{color:var(--sec)}
 .related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
 .related b{display:block;margin-bottom:6px}
-.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
-footer a{color:var(--lime)}
+footer a{color:var(--gs-accent)}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
@@ -109,7 +109,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <article class="wrap">
   <nav class="crumb"><a href="index.html">首頁</a> ／ <a href="guide.html">攻略</a> ／ 機體圖鑑</nav>
   <h1>戰鬥陀螺機體圖鑑<br><span style="font-size:.62em;color:var(--sec);font-weight:700">Beyblade X 全機體一覽（BX／UX／CX）</span></h1>
-  <p class="lead">三世代 <b>59 台機體</b>一次查：型號、配置代碼、類型取向。點下方按鈕即時篩選——新手選第一顆、老手查配置都好用。想自己配零件？用〈<a href="beyblade-calculator.html" style="color:var(--lime)">改裝計算器</a>〉即時算雷達數值。<span class="note">（更新：2026-07-06）</span></p>
+  <p class="lead">三世代 <b>59 台機體</b>一次查：型號、配置代碼、類型取向。點下方按鈕即時篩選——新手選第一顆、老手查配置都好用。想自己配零件？用〈<a href="beyblade-calculator.html" style="color:var(--gs-accent)">改裝計算器</a>〉即時算雷達數值。<span class="note">（更新：2026-07-06）</span></p>
 
   <img src="assets/news/db-hero.jpg" alt="戰鬥陀螺三世代機體並列的能量抽象示意圖" style="width:100%;border-radius:16px;margin:6px 0 6px;border:1px solid var(--line)" loading="lazy">
 
@@ -348,7 +348,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="mc" data-s="UX" data-t="atk">
       <div class="mc-code">UX-20<span class="mc-spec">LF</span></div>
       <div class="mc-name">榮耀女武神（榮耀戰神）</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span><a href="article-beyblade-ux20-valkyrie.html" style="color:var(--lime);font-size:12px;font-weight:700">新品情報 →</a></div>
+      <div class="mc-foot"><span class="tag t-atk">攻擊型</span><a href="article-beyblade-ux20-valkyrie.html" style="color:var(--gs-accent);font-size:12px;font-weight:700">新品情報 →</a></div>
     </div>
     <div class="mc" data-s="CX" data-t="atk">
       <div class="mc-code">CX-01<span class="mc-spec">6-60V</span></div>
@@ -436,14 +436,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div><a class="btn" href="ichiban-beyblade.html">看戰鬥陀螺一番賞 →</a></div></div>
 
   <h2>怎麼看懂型號代碼？</h2>
-  <p>每台機體的配置代碼（如 <b>3-60F</b>）由三段組成：<b>軌道環齒數</b>（前數字，影響爆擊耐受）、<b>高度</b>（中間數字：60／70／80…，高度影響攻防相性）、<b>軸尖</b>（尾字母：F=Flat 平軸攻擊走位、B=Ball 球軸持久、N=Needle 針軸防守、LF=Low Flat 低平軸貼地加速…）。想深入每個名詞，看〈<a href="guide-terms.html" style="color:var(--lime)">術語表</a>〉。</p>
+  <p>每台機體的配置代碼（如 <b>3-60F</b>）由三段組成：<b>軌道環齒數</b>（前數字，影響爆擊耐受）、<b>高度</b>（中間數字：60／70／80…，高度影響攻防相性）、<b>軸尖</b>（尾字母：F=Flat 平軸攻擊走位、B=Ball 球軸持久、N=Needle 針軸防守、LF=Low Flat 低平軸貼地加速…）。想深入每個名詞，看〈<a href="guide-terms.html" style="color:var(--gs-accent)">術語表</a>〉。</p>
 
   <h2>BX／UX／CX 世代差異</h2>
-  <p><b>BX</b>＝第一世代基本系列，零件結構最標準；<b>UX（Unique X）</b>＝第二世代，帶特殊機構（彈跳、變形、低重心…）；<b>CX（Custom X）</b>＝第三世代，刀刃拆成主刃＋輔刃＋鎖圈，自訂自由度最高。<b>三世代零件可互相混搭</b>——改裝樂趣正在這裡，入門見〈<a href="guide-mods.html" style="color:var(--lime)">改裝攻略</a>〉。</p>
+  <p><b>BX</b>＝第一世代基本系列，零件結構最標準；<b>UX（Unique X）</b>＝第二世代，帶特殊機構（彈跳、變形、低重心…）；<b>CX（Custom X）</b>＝第三世代，刀刃拆成主刃＋輔刃＋鎖圈，自訂自由度最高。<b>三世代零件可互相混搭</b>——改裝樂趣正在這裡，入門見〈<a href="guide-mods.html" style="color:var(--gs-accent)">改裝攻略</a>〉。</p>
 
   <h2>常見問題</h2>
   <details open><summary>新手第一顆機體怎麼選？</summary><p>從含發射器的 Starter 入手最省事；攻擊型（如蒼龍系）手感最直觀，想穩一點選平衡型。到 Go Shoot 中和門市可先試打再決定。</p></details>
-  <details><summary>現在賽場什麼機體最強？</summary><p>版本會變動，看每月更新的〈<a href="guide-tierlist.html" style="color:var(--lime)">天梯 Tier List</a>〉最準。</p></details>
+  <details><summary>現在賽場什麼機體最強？</summary><p>版本會變動，看每月更新的〈<a href="guide-tierlist.html" style="color:var(--gs-accent)">天梯 Tier List</a>〉最準。</p></details>
   <details><summary>型號後面的字母（F/B/N/LF）是什麼？</summary><p>軸尖型式：F 平軸攻擊、B 球軸持久、N 針軸防守、LF 低平軸更貼地、GF/GB 為帶齒輪變體等。軸尖決定走位個性。</p></details>
   <details><summary>圖鑑資料哪裡來？會更新嗎？</summary><p>整理自公開資料（維基百科、官方公布），型號與發售資訊以 TAKARA TOMY 官方為準；本頁隨新機體發售持續更新。</p></details>
 

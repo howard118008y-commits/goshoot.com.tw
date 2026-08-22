@@ -12,10 +12,11 @@
   --gs-orange:#FF5A2D; --gs-orange-deep:#E8552F; --gs-gray:#555555;
   --rar-s:#FF5A2D; --rar-a:#FFC24B; --rar-b:#E24A2C; --rar-c:#9B3F21; --rar-d:#C9A94E;
   --coral:#FF5A2D; --coral2:#FF8A6B; --coral-deep:#E8552F;
-  /* --lime 是 VI v1 的舊名，改版時漏了它：吃本檔的頁若還寫 var(--lime)，
-     解析失敗會讓背景整個不見（shop.html 的購買按鈕就這樣變成隱形黑字）。
-     新頁面一律用 --coral，這個別名只為既有頁面保底。 */
-  --lime:var(--coral); --lime-deep:var(--coral-deep);
+  /* --gs-accent（2026-08-22 由舊名 lime 改名，值早就是橘，舊名易誤解成青檸復活）：
+     吃本檔的頁若寫 var(--gs-accent) 而這裡沒定義，解析失敗會讓背景整個不見
+     （shop.html 的購買按鈕就這樣變成隱形黑字），所以這個別名一律保留。
+     新頁面一律用 --coral。 */
+  --gs-accent:var(--coral); --gs-accent-deep:var(--coral-deep);
   --sky:#3FC8C8; --sky-deep:#3FC8C8; --gold:#FFC24B;
   --line:rgba(255,255,255,.10); --shadow:0 10px 34px rgba(0,0,0,.55);
   --display:'Poppins',system-ui,sans-serif;

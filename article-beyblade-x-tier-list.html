@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--lime:#FF5A2D;--lime-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-accent-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
@@ -36,8 +36,8 @@ p{margin:12px 0;font-size:16.5px}
 .nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
 .util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
-.util b{color:var(--gold,#E8C15A)}
-.util a{color:var(--lime);font-weight:700}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 .nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
@@ -49,14 +49,14 @@ p{margin:12px 0;font-size:16.5px}
   .nav-links.open{display:flex}
 }
 .crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
-.crumb a{color:var(--lime)}
-.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--lime);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
-.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
-.btn:hover{background:var(--lime-deep)}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--gs-accent);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn:hover{background:var(--gs-accent-deep)}
 ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .steps{counter-reset:s;list-style:none;margin:14px 0;padding:0}
 .steps li{position:relative;padding:14px 16px 14px 58px;background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:10px 0}
-.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--lime);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--gs-accent);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
 .steps b{font-size:17px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:6px 20px;margin:16px 0}
 .fact .row{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}
@@ -73,23 +73,23 @@ ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .part h3{margin-top:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .tag{font-size:12px;font-weight:800;border-radius:999px;padding:3px 10px;white-space:nowrap}
 .tag.king{background:var(--coral);color:#1A1A1A}
-.tag.rare{background:var(--lime);color:#1A1A1A}
+.tag.rare{background:var(--gs-accent);color:#1A1A1A}
 .tag.norm{background:rgba(255,255,255,.08);color:var(--sec)}
 .tag.atk{background:rgba(255,90,45,.18);color:var(--coral)}
 .tag.def{background:rgba(63,200,200,.2);color:var(--sky)}
-.tag.sta{background:rgba(255,90,45,.16);color:var(--lime)}
+.tag.sta{background:rgba(255,90,45,.16);color:var(--gs-accent)}
 .part p{margin:6px 0 0;font-size:15px;color:var(--text)}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
 details p{color:var(--sec)}
 .related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
 .related b{display:block;margin-bottom:6px}
-.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 .src{font-size:12.5px;color:var(--sec);margin:22px 0 0;line-height:1.7}
 .src a{color:var(--sky);word-break:break-all}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
-footer a{color:var(--lime)}
+footer a{color:var(--gs-accent)}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
@@ -131,7 +131,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <article class="wrap article">
   <nav class="crumb"><a href="index.html">首頁</a> ／ <a href="ichiban-beyblade.html">戰鬥陀螺一番賞</a> ／ Beyblade X 天梯 Tier List 怎麼看</nav>
   <h1>Beyblade X 天梯 Tier List 怎麼看？五軸判斷陀螺強度＋自組最強配置</h1>
-  <p class="lead">想知道<strong>Beyblade X 天梯（Tier List）</strong>怎麼看、現在到底哪顆最強？這頁不背死排名，而是教你抓重點：天梯是<strong>社群依賽果排出的強度段位</strong>、為什麼各家榜不一樣，怎麼用<strong>攻／防／持久／衝刺／爆裂五軸</strong>看懂一組配置強在哪，最後用站內〈<a href="beyblade-calculator.html" style="color:var(--lime)">改裝計算器</a>〉自己算最強組合。想要限定款陀螺？文末教你上<strong>線上一番賞</strong>每抽必中抽正版。</p>
+  <p class="lead">想知道<strong>Beyblade X 天梯（Tier List）</strong>怎麼看、現在到底哪顆最強？這頁不背死排名，而是教你抓重點：天梯是<strong>社群依賽果排出的強度段位</strong>、為什麼各家榜不一樣，怎麼用<strong>攻／防／持久／衝刺／爆裂五軸</strong>看懂一組配置強在哪，最後用站內〈<a href="beyblade-calculator.html" style="color:var(--gs-accent)">改裝計算器</a>〉自己算最強組合。想要限定款陀螺？文末教你上<strong>線上一番賞</strong>每抽必中抽正版。</p>
 
   <div class="gs-tldr">
     <b>三句話看完</b>
@@ -144,7 +144,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
   <h2>① 天梯 Tier List 到底是什麼？</h2>
   <p><strong>天梯（Tier List）</strong>就是把 Beyblade X 各種陀螺組合，依實戰強度分成 <strong>S、A、B、C</strong> 等段位的排行表。它多半不是官方公布的數字，而是<strong>社群玩家依大量對戰與賽事結果</strong>整理出來的——用一句話說，就是「現在哪些配置最好用」的懶人榜。</p>
-  <p>要注意的是：Beyblade X 一顆陀螺是<strong>刃體 Blade＋軸承 Ratchet＋軸尖 Bit</strong> 三段式組合（命名規則見〈<a href="article-beyblade-x-new-releases.html" style="color:var(--lime)">新品怎麼看</a>〉），所以天梯排的通常是<strong>整組配置</strong>，不是單看某個刃體好不好。同一個刃體換不同軸尖，段位可能天差地遠。</p>
+  <p>要注意的是：Beyblade X 一顆陀螺是<strong>刃體 Blade＋軸承 Ratchet＋軸尖 Bit</strong> 三段式組合（命名規則見〈<a href="article-beyblade-x-new-releases.html" style="color:var(--gs-accent)">新品怎麼看</a>〉），所以天梯排的通常是<strong>整組配置</strong>，不是單看某個刃體好不好。同一個刃體換不同軸尖，段位可能天差地遠。</p>
 
   <h2>② 為什麼每個網站的天梯都不一樣？</h2>
   <p>如果你查過就會發現：WBO、日本社群、台灣情報站各排各的。這很正常，原因有三個：</p>
@@ -156,7 +156,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <p>所以看天梯的第一件事，是<strong>確認它的更新月份與來源</strong>；把它當「參考方向」而不是「聖旨」。真正可靠的判斷，還是回到下面的五軸與實測。</p>
 
   <h2>③ 判斷強度的五個軸：攻／防／持久／衝刺／爆裂</h2>
-  <p>與其死背排名，不如看懂一組配置「為什麼強」。Go Shoot 站內〈<a href="beyblade-calculator.html" style="color:var(--lime)">改裝計算器</a>〉就是用這五個面向畫雷達圖，對照著看很快就懂：</p>
+  <p>與其死背排名，不如看懂一組配置「為什麼強」。Go Shoot 站內〈<a href="beyblade-calculator.html" style="color:var(--gs-accent)">改裝計算器</a>〉就是用這五個面向畫雷達圖，對照著看很快就懂：</p>
   <div class="cards">
     <div class="card"><span class="e"><img src="/assets/brand/icon/attack.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></span><b>攻擊</b><span class="d">正面撞擊、擊飛對手的力道</span></div>
     <div class="card"><span class="e"><img src="/assets/brand/icon/defense.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></span><b>防禦</b><span class="d">被撞時穩住、不被彈出的能力</span></div>
@@ -181,7 +181,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <h3>⏳ 持久型（Stamina）<span class="tag sta">拖到最後一顆</span></h3>
     <p>比的是<strong>轉最久、續戰耐力</strong>，靠低重心與省力軸尖把對手耗到停轉。對上攻擊型若能閃過第一波，常能笑到最後；但遇到強力防禦拖時間就吃虧。</p>
   </div>
-  <p style="font-size:14px;color:var(--sec)">※ 想看每一台機體的官方配置代碼與類型，用站內〈<a href="beyblade-db.html" style="color:var(--lime)">機體圖鑑</a>〉篩選；三世代 BX／UX／CX 的差別見〈<a href="article-beyblade-x-new-releases.html" style="color:var(--lime)">新品怎麼看</a>〉。</p>
+  <p style="font-size:14px;color:var(--sec)">※ 想看每一台機體的官方配置代碼與類型，用站內〈<a href="beyblade-db.html" style="color:var(--gs-accent)">機體圖鑑</a>〉篩選；三世代 BX／UX／CX 的差別見〈<a href="article-beyblade-x-new-releases.html" style="color:var(--gs-accent)">新品怎麼看</a>〉。</p>
 
   <h2>⑤ 現在高段位有哪些？（以社群最新實測為準）</h2>
   <p>先講清楚：<strong>排名每週在變、各家略有差異</strong>，這裡只給方向、不給死數字。依國內外社群（如 WBO 賽事數據站與台灣天梯情報站）<strong>2026 年中</strong>的實測榜，常被列進高段位的機體包含 <strong>鳳凰翼（Phoenix Wing）、巫師杖（Wizard Rod）、衝擊闇龍（Impact Drake）、鮫鯊（Shark Scale）</strong> 等；它們分別在攻擊、持久／防禦等定位表現突出。</p>
@@ -193,7 +193,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <li><b>確認來源與日期</b><br>看到一份天梯，先找它的更新月份與是誰做的。舊榜、來源不明的榜只當參考。</li>
     <li><b>看整組、先分類</b><br>把配置當成 刃體＋軸承＋軸尖 整組看，判斷它是攻擊、防禦還是持久取向，再和同類型比。</li>
     <li><b>對照五軸找長短板</b><br>用攻／防／持久／衝刺／爆裂五個面向，理解它強在哪、弱在哪，而不是死背名次。</li>
-    <li><b>用改裝計算器實算</b><br>到站內〈<a href="beyblade-calculator.html" style="color:var(--lime)">改裝計算器</a>〉輸入零件，即時看雷達圖與總重量，還內建社群公認組合可對照。</li>
+    <li><b>用改裝計算器實算</b><br>到站內〈<a href="beyblade-calculator.html" style="color:var(--gs-accent)">改裝計算器</a>〉輸入零件，即時看雷達圖與總重量，還內建社群公認組合可對照。</li>
     <li><b>用手上零件微調</b><br>換一顆軸尖或軸承再算一次，找出「你抽得到的零件」能組出的最強解，比抄榜更實用。</li>
   </ol>
   <p><a class="btn" href="beyblade-calculator.html">打開改裝計算器算配置 →</a></p>
@@ -214,7 +214,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <h2 id="get">湊不到頂級零件？線上一番賞抽正版陀螺</h2>
   <p>天梯上的強配置常卡在「零件湊不齊」。與其被黃牛翻倍收割，不如換個穩一點的玩法。<strong>Go Shoot 就是戰鬥陀螺專門店</strong>，線上一番賞不定期上架 Beyblade X 主題獎單：<strong>每抽必中、只賣正版</strong>、手機免下載、24 小時隨時抽，有機會直接抽到限定配色與稀有款陀螺。抽中後可宅配到府，或到<strong>中和門市（8/25 開幕）</strong>自取、當場上賽場試打你的新配置。</p>
   <p><a class="btn" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">看現在有哪些戰鬥陀螺獎單 →</a></p>
-  <p style="font-size:15px">想先了解玩法與獎項結構，看〈<a href="article-beyblade-ichiban-guide.html" style="color:var(--lime)">戰鬥陀螺一番賞怎麼抽</a>〉與〈<a href="ichiban-beyblade.html" style="color:var(--lime)">戰鬥陀螺一番賞主題頁</a>〉。有問題也可以直接聯絡我們：Email <a href="mailto:goshoot593@gmail.com" style="color:var(--lime)">goshoot593@gmail.com</a>、電話 <a href="tel:0976507911" style="color:var(--lime)">0976507911</a>。</p>
+  <p style="font-size:15px">想先了解玩法與獎項結構，看〈<a href="article-beyblade-ichiban-guide.html" style="color:var(--gs-accent)">戰鬥陀螺一番賞怎麼抽</a>〉與〈<a href="ichiban-beyblade.html" style="color:var(--gs-accent)">戰鬥陀螺一番賞主題頁</a>〉。有問題也可以直接聯絡我們：Email <a href="mailto:goshoot593@gmail.com" style="color:var(--gs-accent)">goshoot593@gmail.com</a>、電話 <a href="tel:0976507911" style="color:var(--gs-accent)">0976507911</a>。</p>
 
   <div class="related"><b>延伸閱讀</b>
     <a href="beyblade-calculator.html">→ Beyblade X 改裝計算器（試算配置強度）</a>

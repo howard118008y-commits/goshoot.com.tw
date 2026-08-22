@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--lime:#FF5A2D;--lime-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-accent-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
@@ -36,8 +36,8 @@ p{margin:12px 0;font-size:16.5px}
 .nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
 .util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
-.util b{color:var(--gold,#E8C15A)}
-.util a{color:var(--lime);font-weight:700}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 .nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
@@ -49,14 +49,14 @@ p{margin:12px 0;font-size:16.5px}
   .nav-links.open{display:flex}
 }
 .crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
-.crumb a{color:var(--lime)}
-.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--lime);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
-.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
-.btn:hover{background:var(--lime-deep)}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--gs-accent);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn:hover{background:var(--gs-accent-deep)}
 ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .steps{counter-reset:s;list-style:none;margin:14px 0;padding:0}
 .steps li{position:relative;padding:14px 16px 14px 58px;background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:10px 0}
-.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--lime);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--gs-accent);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
 .steps b{font-size:17px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:6px 20px;margin:16px 0}
 .fact .row{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}
@@ -73,23 +73,23 @@ ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .part h3{margin-top:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .tag{font-size:12px;font-weight:800;border-radius:999px;padding:3px 10px;white-space:nowrap}
 .tag.king{background:var(--coral);color:#1A1A1A}
-.tag.rare{background:var(--lime);color:#1A1A1A}
+.tag.rare{background:var(--gs-accent);color:#1A1A1A}
 .tag.norm{background:rgba(255,255,255,.08);color:var(--sec)}
 .tag.atk{background:rgba(255,90,45,.18);color:var(--coral)}
 .tag.def{background:rgba(63,200,200,.2);color:var(--sky)}
-.tag.sta{background:rgba(255,90,45,.16);color:var(--lime)}
+.tag.sta{background:rgba(255,90,45,.16);color:var(--gs-accent)}
 .part p{margin:6px 0 0;font-size:15px;color:var(--text)}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
 details p{color:var(--sec)}
 .related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
 .related b{display:block;margin-bottom:6px}
-.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 .src{font-size:12.5px;color:var(--sec);margin:22px 0 0;line-height:1.7}
 .src a{color:var(--sky);word-break:break-all}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
-footer a{color:var(--lime)}
+footer a{color:var(--gs-accent)}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
@@ -143,7 +143,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
   <h2>① Go 幣是什麼？為什麼要先買</h2>
   <p>Go 幣是 Go Shoot <strong>線上一番賞</strong>裡的通用點數，用來抽各種主題獎單（例如戰鬥陀螺 Beyblade X、動漫聯名等）。<strong>1 Go 幣＝新台幣 1 元</strong>，儲多少就有多少 Go 幣，抽的時候直接扣點，不用每次重新結帳，抽起來更順。</p>
-  <p>線上一番賞的核心是<strong>每抽必中獎</strong>——不是碰運氣的博弈，而是一種<strong>每抽都有獎的娛樂消費</strong>。而且採<strong>公開亂數封盒、可線上驗證</strong>，抽完能自己核對，公不公平看得見。想先搞懂玩法，可搭配〈<a href="article-how-to-play-online-ichiban.html" style="color:var(--lime)">線上一番賞怎麼玩</a>〉一起看。</p>
+  <p>線上一番賞的核心是<strong>每抽必中獎</strong>——不是碰運氣的博弈，而是一種<strong>每抽都有獎的娛樂消費</strong>。而且採<strong>公開亂數封盒、可線上驗證</strong>，抽完能自己核對，公不公平看得見。想先搞懂玩法，可搭配〈<a href="article-how-to-play-online-ichiban.html" style="color:var(--gs-accent)">線上一番賞怎麼玩</a>〉一起看。</p>
 
   <h2>② 購買與回饋規則一次看</h2>
   <p>購買 Go 幣沒有門檻，1 元起就能買；但<strong>一次買多一點會有回饋加贈</strong>，同樣的錢能換到更多 Go 幣。以下是目前的規則：</p>
@@ -175,7 +175,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="card"><span class="e"><img src="/assets/brand/icon/post.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></span><b>郵局宅配</b><span class="d">運費 70 元</span></div>
     <div class="card"><span class="e"><img src="/assets/brand/icon/store.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></span><b>門市自取</b><span class="d">中和門市（8/25 開幕）</span></div>
   </div>
-  <p>如果你人在雙北、之後也想到店裡玩戰鬥陀螺對戰區，<strong>選門市自取</strong>可以省下宅配運費；住得遠就用超商取貨或郵局宅配寄到府。中獎後怎麼領、要準備什麼，另有專文〈<a href="article-online-ichiban-claim.html" style="color:var(--lime)">線上一番賞中獎後怎麼領獎品</a>〉講得更細。</p>
+  <p>如果你人在雙北、之後也想到店裡玩戰鬥陀螺對戰區，<strong>選門市自取</strong>可以省下宅配運費；住得遠就用超商取貨或郵局宅配寄到府。中獎後怎麼領、要準備什麼，另有專文〈<a href="article-online-ichiban-claim.html" style="color:var(--gs-accent)">線上一番賞中獎後怎麼領獎品</a>〉講得更細。</p>
 
   <h2>⑤ 常見問題 FAQ</h2>
   <details open><summary>Go 幣是什麼？1 Go 幣多少錢？</summary><p>Go 幣是 Go Shoot 線上一番賞的虛擬點數商品，1 Go 幣＝新台幣 1 元。購買後即可用 Go 幣抽各主題獎單，每抽必中獎。</p></details>
@@ -192,7 +192,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
   <h2>⑥ 準備好了就開抽</h2>
   <p>Go 幣的規則其實很單純：<strong>1 元 1 幣、多儲有回饋、未用可退、中獎能宅配或到中和門市自取</strong>。搞懂這些，剩下的就是挑一組喜歡的獎單開抽。<strong>Go Shoot 只賣正版景品</strong>，線上一番賞每抽必中，抽到戰鬥陀螺還能到<strong>中和門市</strong>（8/25 開幕）當場上賽場試打。</p>
-  <p style="font-size:15px">還想多了解？看〈<a href="article-what-is-online-ichiban.html" style="color:var(--lime)">線上一番賞是什麼</a>〉、〈<a href="article-online-ichiban-odds.html" style="color:var(--lime)">中獎機率怎麼算</a>〉與〈<a href="ichiban-beyblade.html" style="color:var(--lime)">戰鬥陀螺一番賞主題頁</a>〉。有問題也可直接聯絡我們：Email <a href="mailto:goshoot593@gmail.com" style="color:var(--lime)">goshoot593@gmail.com</a>、電話 <a href="tel:0976507911" style="color:var(--lime)">0976507911</a>。</p>
+  <p style="font-size:15px">還想多了解？看〈<a href="article-what-is-online-ichiban.html" style="color:var(--gs-accent)">線上一番賞是什麼</a>〉、〈<a href="article-online-ichiban-odds.html" style="color:var(--gs-accent)">中獎機率怎麼算</a>〉與〈<a href="ichiban-beyblade.html" style="color:var(--gs-accent)">戰鬥陀螺一番賞主題頁</a>〉。有問題也可直接聯絡我們：Email <a href="mailto:goshoot593@gmail.com" style="color:var(--gs-accent)">goshoot593@gmail.com</a>、電話 <a href="tel:0976507911" style="color:var(--gs-accent)">0976507911</a>。</p>
 
   <div class="related"><b>延伸閱讀</b>
     <a href="article-how-to-play-online-ichiban.html">→ 線上一番賞怎麼玩？新手 5 步驟上手</a>

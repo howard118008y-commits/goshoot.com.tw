@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--lime:#FF5A2D;--lime-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-accent-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
@@ -36,8 +36,8 @@ p{margin:12px 0;font-size:16.5px}
 .nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
 .util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
-.util b{color:var(--gold,#E8C15A)}
-.util a{color:var(--lime);font-weight:700}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 .nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
@@ -49,14 +49,14 @@ p{margin:12px 0;font-size:16.5px}
   .nav-links.open{display:flex}
 }
 .crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
-.crumb a{color:var(--lime)}
-.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--lime);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
-.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
-.btn:hover{background:var(--lime-deep)}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--gs-accent);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn:hover{background:var(--gs-accent-deep)}
 ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .steps{counter-reset:s;list-style:none;margin:14px 0;padding:0}
 .steps li{position:relative;padding:14px 16px 14px 58px;background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:10px 0}
-.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--lime);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--gs-accent);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
 .steps b{font-size:17px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:6px 20px;margin:16px 0}
 .fact .row{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}
@@ -73,23 +73,23 @@ ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .part h3{margin-top:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .tag{font-size:12px;font-weight:800;border-radius:999px;padding:3px 10px;white-space:nowrap}
 .tag.king{background:var(--coral);color:#1A1A1A}
-.tag.rare{background:var(--lime);color:#1A1A1A}
+.tag.rare{background:var(--gs-accent);color:#1A1A1A}
 .tag.norm{background:rgba(255,255,255,.08);color:var(--sec)}
 .tag.atk{background:rgba(255,90,45,.18);color:var(--coral)}
 .tag.def{background:rgba(63,200,200,.2);color:var(--sky)}
-.tag.sta{background:rgba(255,90,45,.16);color:var(--lime)}
+.tag.sta{background:rgba(255,90,45,.16);color:var(--gs-accent)}
 .part p{margin:6px 0 0;font-size:15px;color:var(--text)}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
 details p{color:var(--sec)}
 .related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
 .related b{display:block;margin-bottom:6px}
-.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 .src{font-size:12.5px;color:var(--sec);margin:22px 0 0;line-height:1.7}
 .src a{color:var(--sky);word-break:break-all}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
-footer a{color:var(--lime)}
+footer a{color:var(--gs-accent)}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
@@ -169,7 +169,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
   <h2>③ 破解迷思：金證品質真的比較好嗎？</h2>
   <p>這是收藏圈最常見的誤會。事實是：<strong>金證與銀證出自同一條產線</strong>，同一款模具、同一批工序，<strong>瑕疵比例相同</strong>。原廠會分金證、銀證，只是為了區分「這批是日本國內要的、這批是台灣代理要的、這批是香港要的」——是<strong>販售區域與定價的管理</strong>，不是品質分級。</p>
-  <p>所以如果有人用「金證比較不會有瑕疵」當賣點抬價，那並不成立。真正影響一隻公仔品相的是<strong>運送、保存與個體差異</strong>，跟證紙顏色無關。收藏時把重點放在<strong>角色人氣、造型、品相與是否正版</strong>，會比追證別實在得多。想進一步理解一番賞的獎項分級與價值，可以看〈<a href="article-ichiban-prize-grades.html" style="color:var(--lime)">一番賞賞級全解析</a>〉。</p>
+  <p>所以如果有人用「金證比較不會有瑕疵」當賣點抬價，那並不成立。真正影響一隻公仔品相的是<strong>運送、保存與個體差異</strong>，跟證紙顏色無關。收藏時把重點放在<strong>角色人氣、造型、品相與是否正版</strong>，會比追證別實在得多。想進一步理解一番賞的獎項分級與價值，可以看〈<a href="article-ichiban-prize-grades.html" style="color:var(--gs-accent)">一番賞賞級全解析</a>〉。</p>
 
   <h2>④ 金證值錢嗎？該不該為它多花錢</h2>
   <p>先講白話結論：<strong>金證通常行情略高，但「值不值得多花」要看你的目的</strong>。以市面常見的公仔行情觀察（會隨市場浮動，僅供參考）：</p>
@@ -179,11 +179,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="card"><span class="e"><img src="/assets/brand/icon/chart.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></span><b>轉售價差</b><span class="d">金證常較高<br>視角色人氣浮動</span></div>
   </div>
   <p>金證行情較高，主要來自<strong>兩個原因</strong>：一是引進成本本來就高（日本空運回台），二是收藏市場的<strong>稀缺感與心理價值</strong>——同款金證常被喊得比銀證貴上數百到上千元不等。但這些都是<strong>市場浮動行情</strong>，沒有官方定價，實際成交要看角色熱度與品相。</p>
-  <p>所以怎麼選？<strong>純自己收藏欣賞</strong>：銀證同樣正版、CP 值更高，不必為證別多花錢。<strong>想長期收藏或看重轉售保值</strong>：再考慮金證。無論哪種，前提都是<strong>買到正版</strong>——為了省錢買到無授權盜版，才是真正的虧。抽 vs 直接買哪個划算，可參考〈<a href="article-beyblade-ichiban-vs-buy.html" style="color:var(--lime)">一番賞 vs 直接買比較</a>〉。</p>
+  <p>所以怎麼選？<strong>純自己收藏欣賞</strong>：銀證同樣正版、CP 值更高，不必為證別多花錢。<strong>想長期收藏或看重轉售保值</strong>：再考慮金證。無論哪種，前提都是<strong>買到正版</strong>——為了省錢買到無授權盜版，才是真正的虧。抽 vs 直接買哪個划算，可參考〈<a href="article-beyblade-ichiban-vs-buy.html" style="color:var(--gs-accent)">一番賞 vs 直接買比較</a>〉。</p>
 
   <h2>⑤ 一番賞獎品也有證紙嗎？Go Shoot 只賣正版</h2>
   <p>會的。一番賞的獎品本質就是<strong>景品公仔</strong>，正版商品同樣會有原廠授權標示；在台灣流通時，也會出現日版與代理版的差別。換句話說，證紙這套邏輯不只用在盒玩、PVC 模型，也適用於你抽到的一番賞獎品。</p>
-  <p>這也是為什麼「<strong>在哪裡抽／買</strong>」比證別更關鍵。<strong>Go Shoot 只賣正版</strong>：<strong>線上一番賞</strong>每抽必中、手機免下載、24 小時隨時抽，公開亂數封盒、可線上驗證，抽到的景品<strong>證別依原廠出貨為準</strong>。中獎後可宅配到府、折抵店內消費，或到<strong>中和門市（8/25 開幕）</strong>自取。想確認公平性怎麼保障，看〈<a href="article-online-ichiban-fair.html" style="color:var(--lime)">線上一番賞會詐騙嗎？公平性說明</a>〉；還不清楚線上一番賞是什麼，看〈<a href="article-what-is-online-ichiban.html" style="color:var(--lime)">線上一番賞是什麼</a>〉。</p>
+  <p>這也是為什麼「<strong>在哪裡抽／買</strong>」比證別更關鍵。<strong>Go Shoot 只賣正版</strong>：<strong>線上一番賞</strong>每抽必中、手機免下載、24 小時隨時抽，公開亂數封盒、可線上驗證，抽到的景品<strong>證別依原廠出貨為準</strong>。中獎後可宅配到府、折抵店內消費，或到<strong>中和門市（8/25 開幕）</strong>自取。想確認公平性怎麼保障，看〈<a href="article-online-ichiban-fair.html" style="color:var(--gs-accent)">線上一番賞會詐騙嗎？公平性說明</a>〉；還不清楚線上一番賞是什麼，看〈<a href="article-what-is-online-ichiban.html" style="color:var(--gs-accent)">線上一番賞是什麼</a>〉。</p>
   <p><a class="btn" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">看現在有哪些正版一番賞獎單 →</a></p>
 
   <h2>⑥ 怎麼用 4 步驟辨識正版授權景品？</h2>

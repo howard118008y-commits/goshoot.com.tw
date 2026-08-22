@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--lime:#FF5A2D;--lime-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-accent-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
@@ -36,8 +36,8 @@ p{margin:12px 0;font-size:16.5px}
 .nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
 .util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
-.util b{color:var(--gold,#E8C15A)}
-.util a{color:var(--lime);font-weight:700}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 .nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
@@ -49,27 +49,27 @@ p{margin:12px 0;font-size:16.5px}
   .nav-links.open{display:flex}
 }
 .crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
-.crumb a{color:var(--lime)}
-.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--lime);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
-.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
-.btn:hover{background:var(--lime-deep)}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--gs-accent);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn:hover{background:var(--gs-accent-deep)}
 ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .note{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--coral);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:15px}
 .note b{color:var(--coral)}
 .tbl-scroll{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:14px}
 table.cmp{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px;background:var(--paper)}
 table.cmp th,table.cmp td{padding:11px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-table.cmp thead th{background:#1d1d21;color:var(--lime);font-weight:800;white-space:nowrap}
+table.cmp thead th{background:#1d1d21;color:var(--gs-accent);font-weight:800;white-space:nowrap}
 table.cmp tbody th{font-weight:800;color:var(--text);white-space:nowrap}
 table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:0}
-.tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:rgba(255,90,45,.14);color:var(--lime);border:1px solid rgba(255,90,45,.4)}
+.tag{display:inline-block;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:rgba(255,90,45,.14);color:var(--gs-accent);border:1px solid rgba(255,90,45,.4)}
 .tag.warn{background:rgba(255,90,45,.14);color:var(--coral);border-color:rgba(255,90,45,.4)}
 .check{list-style:none;margin:14px 0;padding:0}
 .check li{position:relative;padding:12px 16px 12px 46px;background:var(--paper);border:1px solid var(--line);border-radius:12px;margin:9px 0;font-size:15.5px}
 .check li::before{content:"⚠";position:absolute;left:15px;top:11px;font-size:18px}
 .steps{counter-reset:s;list-style:none;margin:14px 0;padding:0}
 .steps li{position:relative;padding:14px 16px 14px 58px;background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:10px 0}
-.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--lime);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--gs-accent);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
 .steps b{font-size:17px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
@@ -79,15 +79,15 @@ table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:0}
 .cta-box h2{margin-top:0}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
 details p{color:var(--sec)}
 .related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
 .related b{display:block;margin-bottom:6px}
-.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 .src{font-size:13px;color:var(--sec);margin:22px 0 6px}
 .src a{color:var(--sky)}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
-footer a{color:var(--lime)}
+footer a{color:var(--gs-accent)}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
@@ -227,13 +227,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <li><strong>追首發、追限定配色</strong>→ 走<strong>日版代購</strong>。日版發售最快、款式最齊，缺點是無繁中、保固得靠代購管道。</li>
     <li><strong>美版（孩之寶）</strong>包裝與部分規格不同，購買前先確認能否用於你要參加的賽事，避免買了不能打。</li>
   </ul>
-  <p>想搞懂陀螺的三段式構造（刃體 Blade／軸承 Ratchet／軸尖 Bit）與世代差異再下手，看〈<a href="guide-whatisx.html" style="color:var(--lime)">Beyblade X 是什麼</a>〉；想知道哪些配置最強，看〈<a href="guide-tierlist.html" style="color:var(--lime)">本月天梯 Tier List</a>〉。</p>
+  <p>想搞懂陀螺的三段式構造（刃體 Blade／軸承 Ratchet／軸尖 Bit）與世代差異再下手，看〈<a href="guide-whatisx.html" style="color:var(--gs-accent)">Beyblade X 是什麼</a>〉；想知道哪些配置最強，看〈<a href="guide-tierlist.html" style="color:var(--gs-accent)">本月天梯 Tier List</a>〉。</p>
 
   <div class="cta-box">
     <h2>買不到現貨？線上一番賞直接抽</h2>
     <p>缺貨潮＋黃牛翻倍，現貨真的難搶。與其付溢價賭黃牛，<strong>Go Shoot 線上一番賞</strong>讓你用親民單價<strong>每抽必中</strong>——賞品常收錄<strong>零售買不到的限定配色與稀有款陀螺</strong>，抽到能宅配到府，或到<strong>中和門市自取＋直接上賽場試打</strong>。手機免下載、24 小時隨時抽。</p>
     <p><a class="btn" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">看現在有哪些戰鬥陀螺獎單 →</a></p>
-    <p style="font-size:15px;color:var(--sec)">先了解怎麼玩：〈<a href="article-beyblade-ichiban-guide.html" style="color:var(--lime)">戰鬥陀螺一番賞怎麼抽</a>〉・〈<a href="ichiban-beyblade.html" style="color:var(--lime)">戰鬥陀螺一番賞主題頁</a>〉</p>
+    <p style="font-size:15px;color:var(--sec)">先了解怎麼玩：〈<a href="article-beyblade-ichiban-guide.html" style="color:var(--gs-accent)">戰鬥陀螺一番賞怎麼抽</a>〉・〈<a href="ichiban-beyblade.html" style="color:var(--gs-accent)">戰鬥陀螺一番賞主題頁</a>〉</p>
   </div>
 
   <div class="gs-cta">
@@ -257,7 +257,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <a href="guide-whatisx.html">→ Beyblade X 是什麼？世代與規則</a>
   </div>
 
-  <p style="font-size:14.5px;color:var(--sec)">找貨、想試打或問改裝，歡迎聯絡 Go Shoot：<a href="mailto:goshoot593@gmail.com" style="color:var(--lime)">goshoot593@gmail.com</a>・<a href="tel:0976507911" style="color:var(--lime)">0976-507-911</a>（中和捷運站旁，設有戰鬥陀螺對戰賽場）。</p>
+  <p style="font-size:14.5px;color:var(--sec)">找貨、想試打或問改裝，歡迎聯絡 Go Shoot：<a href="mailto:goshoot593@gmail.com" style="color:var(--gs-accent)">goshoot593@gmail.com</a>・<a href="tel:0976507911" style="color:var(--gs-accent)">0976-507-911</a>（中和捷運站旁，設有戰鬥陀螺對戰賽場）。</p>
 
   <div class="gs-more">
     <b>繼續讀</b>

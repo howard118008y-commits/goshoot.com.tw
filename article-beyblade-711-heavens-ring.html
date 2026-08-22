@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--lime:#FF5A2D;--lime-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-accent-deep:#E8552F;--sky:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.85}
 a{color:inherit;text-decoration:none}
@@ -36,8 +36,8 @@ p{margin:12px 0;font-size:16.5px}
 .nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
 .util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
 .util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
-.util b{color:var(--gold,#E8C15A)}
-.util a{color:var(--lime);font-weight:700}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
 .menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
 .nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
 @media(max-width:720px){
@@ -49,14 +49,14 @@ p{margin:12px 0;font-size:16.5px}
   .nav-links.open{display:flex}
 }
 .crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
-.crumb a{color:var(--lime)}
-.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--lime);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
-.btn{display:inline-block;background:var(--lime);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
-.btn:hover{background:var(--lime-deep)}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--gs-accent);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn:hover{background:var(--gs-accent-deep)}
 ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .steps{counter-reset:s;list-style:none;margin:14px 0;padding:0}
 .steps li{position:relative;padding:14px 16px 14px 58px;background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:10px 0}
-.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--lime);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--gs-accent);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
 .steps b{font-size:17px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:6px 20px;margin:16px 0}
 .fact .row{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}
@@ -73,23 +73,23 @@ ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
 .part h3{margin-top:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .tag{font-size:12px;font-weight:800;border-radius:999px;padding:3px 10px;white-space:nowrap}
 .tag.king{background:var(--coral);color:#1A1A1A}
-.tag.rare{background:var(--lime);color:#1A1A1A}
+.tag.rare{background:var(--gs-accent);color:#1A1A1A}
 .tag.norm{background:rgba(255,255,255,.08);color:var(--sec)}
 .tag.atk{background:rgba(255,90,45,.18);color:var(--coral)}
 .tag.def{background:rgba(63,200,200,.2);color:var(--sky)}
-.tag.sta{background:rgba(255,90,45,.16);color:var(--lime)}
+.tag.sta{background:rgba(255,90,45,.16);color:var(--gs-accent)}
 .part p{margin:6px 0 0;font-size:15px;color:var(--text)}
 details{border-bottom:1px solid var(--line);padding:14px 0}
 summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::before{content:"＋";color:var(--lime);margin-right:8px}details[open] summary::before{content:"－"}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
 details p{color:var(--sec)}
 .related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
 .related b{display:block;margin-bottom:6px}
-.related a{color:var(--lime);font-weight:700;display:block;padding:4px 0}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 .src{font-size:12.5px;color:var(--sec);margin:22px 0 0;line-height:1.7}
 .src a{color:var(--sky);word-break:break-all}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
-footer a{color:var(--lime)}
+footer a{color:var(--gs-accent)}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
@@ -162,7 +162,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <li><b>領預購券、選商品下單</b><br>拿到資格後於 App 領取戰鬥陀螺預購券，挑 BX-50 天堂日輪（$350）或 UX-15 鮫鯊狂鱗（$750），完成門市結帳。</li>
     <li><b>已於 7/31 開放門市取貨</b><br>依單據所載，7 月 31 日起已陸續開放到原預購門市取貨，有預購的記得留意取貨期限別放到過期。</li>
   </ol>
-  <p>候補畢竟是拚運氣與手速，若連著幾天都槓龜、或只是想要那顆天環而不想整盒賭——<a href="#no-luck" style="color:var(--lime)">跳到文末「沒搶到怎麼辦」</a>，有更穩的入手路。</p>
+  <p>候補畢竟是拚運氣與手速，若連著幾天都槓龜、或只是想要那顆天環而不想整盒賭——<a href="#no-luck" style="color:var(--gs-accent)">跳到文末「沒搶到怎麼辦」</a>，有更穩的入手路。</p>
 
   <h2>③ BX-50 天堂日輪隨機強化組，全 6 款內容物是什麼？</h2>
   <p>BX-50 是<strong>盲盒</strong>：一個 350 元，開出下列 6 款其中一款。籤王是防禦型的<strong>天環 0-80DS</strong>，也就是新聞裡人人在搶的那顆。以下逐款看用途與稀有度（配置為 刃體 Blade／軸承 Ratchet／軸尖 Bit 三段式命名）。</p>
@@ -191,7 +191,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <h3>💀 地獄犬收割者（CerberusReaper）<span class="tag norm">一般</span><span class="tag atk">攻擊型</span></h3>
     <p>三頭犬造型的攻擊型刃體，重量分布偏外緣、<strong>單發打擊力道足</strong>。造型討喜、收藏度高，實戰可拆件搭配自組攻擊陀螺。</p>
   </div>
-  <p style="font-size:14px;color:var(--sec)">※ 各款詳細零件雷達值與盲盒實際出率官方未公布，以上為型態與用途歸納；精準數值情報更新中，會依官方與社群實測補上。想自己試算配置強度，用站內〈<a href="beyblade-calculator.html" style="color:var(--lime)">改裝計算器</a>〉輸入零件即可比較。</p>
+  <p style="font-size:14px;color:var(--sec)">※ 各款詳細零件雷達值與盲盒實際出率官方未公布，以上為型態與用途歸納；精準數值情報更新中，會依官方與社群實測補上。想自己試算配置強度，用站內〈<a href="beyblade-calculator.html" style="color:var(--gs-accent)">改裝計算器</a>〉輸入零件即可比較。</p>
 
   <h2>④ UX-15 鮫鯊狂鱗改造組（$750）裡面有什麼？</h2>
   <p>和 BX-50 盲盒不同，<strong>UX-15 鮫鯊狂鱗改造組是固定內容</strong>：一組 750 元，收錄 <strong>3 款攻擊型陀螺</strong>，買了就是這三顆、不用賭。適合想一次補齊攻擊戰力、或不愛盲盒隨機性的玩家。</p>
@@ -200,7 +200,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="card"><span class="e"><img src="/assets/brand/icon/spintop.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></span><b>暴龍咆哮</b><span class="d">攻擊型</span></div>
     <div class="card"><span class="e"><img src="/assets/brand/icon/spintop.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></span><b>惡魔勇氣</b><span class="d">攻擊型</span></div>
   </div>
-  <p>三顆都走攻擊路線，換件互組可以拼出不同的攻擊角度與重心。單看價格，$750 拿三顆固定攻擊型，比一直抽 $350 盲盒賭天環穩定——但<strong>它沒有籤王天環</strong>，兩者是不同需求：要收藏稀有防禦款追 BX-50，要即戰攻擊素材選 UX-15。詳細零件系統可看〈<a href="guide-whatisx.html" style="color:var(--lime)">Beyblade X 是什麼</a>〉與〈<a href="guide-tierlist.html" style="color:var(--lime)">本月天梯 Tier List</a>〉。</p>
+  <p>三顆都走攻擊路線，換件互組可以拼出不同的攻擊角度與重心。單看價格，$750 拿三顆固定攻擊型，比一直抽 $350 盲盒賭天環穩定——但<strong>它沒有籤王天環</strong>，兩者是不同需求：要收藏稀有防禦款追 BX-50，要即戰攻擊素材選 UX-15。詳細零件系統可看〈<a href="guide-whatisx.html" style="color:var(--gs-accent)">Beyblade X 是什麼</a>〉與〈<a href="guide-tierlist.html" style="color:var(--gs-accent)">本月天梯 Tier List</a>〉。</p>
 
   <h2>⑤ 常見問題 FAQ</h2>
   <details open><summary>7-11 戰鬥陀螺天環幾點開搶？要怎麼買？</summary><p>已於 2026/7/8 上午 11 點開放，需為 7-ELEVEN uniopen PRIMA 訂閱制會員，用 OPENPOINT App 領預購券並到門市結帳。首波 5 萬名訂閱資格已額滿。</p></details>
@@ -218,7 +218,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <h2 id="no-luck">⑥ 沒搶到天環怎麼辦？線上一番賞抽稀有陀螺</h2>
   <p>候補天天槓龜、或不想為一顆天環整盒賭 350——與其被黃牛翻倍收割，不如換個穩一點的玩法。<strong>Go Shoot 就是戰鬥陀螺專門店</strong>，線上一番賞不定期上架 Beyblade X 主題獎單：<strong>每抽必中</strong>、手機免下載、24 小時隨時抽，有機會直接抽到限定配色與稀有款陀螺。抽中後宅配到府，或到<strong>中和門市</strong>自取、當場上賽場試打。</p>
   <p><a class="btn" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">看現在有哪些戰鬥陀螺獎單 →</a></p>
-  <p style="font-size:15px">想先了解玩法與獎項結構，看〈<a href="article-beyblade-ichiban-guide.html" style="color:var(--lime)">戰鬥陀螺一番賞怎麼抽</a>〉與〈<a href="ichiban-beyblade.html" style="color:var(--lime)">戰鬥陀螺一番賞主題頁</a>〉。有問題也可以直接聯絡我們：Email <a href="mailto:goshoot593@gmail.com" style="color:var(--lime)">goshoot593@gmail.com</a>、電話 <a href="tel:0976507911" style="color:var(--lime)">0976507911</a>。</p>
+  <p style="font-size:15px">想先了解玩法與獎項結構，看〈<a href="article-beyblade-ichiban-guide.html" style="color:var(--gs-accent)">戰鬥陀螺一番賞怎麼抽</a>〉與〈<a href="ichiban-beyblade.html" style="color:var(--gs-accent)">戰鬥陀螺一番賞主題頁</a>〉。有問題也可以直接聯絡我們：Email <a href="mailto:goshoot593@gmail.com" style="color:var(--gs-accent)">goshoot593@gmail.com</a>、電話 <a href="tel:0976507911" style="color:var(--gs-accent)">0976507911</a>。</p>
 
   <div class="related"><b>延伸閱讀</b>
     <a href="article-beyblade-ichiban-guide.html">→ 戰鬥陀螺一番賞怎麼抽？5 步驟教學</a>
