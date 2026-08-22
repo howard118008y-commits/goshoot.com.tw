@@ -5,7 +5,7 @@ name: Update Beyblade news
 # 由 Claude（Sonnet）在雲端執行，不需要本機 Mac。
 on:
   schedule:
-    - cron: '0 2 * * 1,4'      # 每週一、四 02:00 UTC（台灣 10:00）
+    - cron: '0 2 * * 1'        # 每週一 02:00 UTC（台灣 10:00）。2026-08-23 老闆指示由「週一＋週四」減為一週一次，理由：Claude API 費用
   workflow_dispatch: {}         # 也可在 Actions 頁面手動觸發（測試用）
 
 permissions:
