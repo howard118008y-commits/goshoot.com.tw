@@ -2,7 +2,7 @@ name: Weekly SEO content bot
 
 on:
   schedule:
-    - cron: '0 6 * * 2,5,0'   # UTC：週二/五/日 06:00 = 台灣 14:00（避開週一/四 02:00 新聞卡）
+    - cron: '0 6 * * 5'       # UTC：週五 06:00 = 台灣 14:00。2026-08-23 老闆指示由週二/五/日三次減為一週一次（Claude API 費用）；週五出文，避開週一 02:00 的新聞卡
   workflow_dispatch: {}         # 手動觸發（測試用）
 
 permissions:
@@ -26,8 +26,9 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
+          # 2026-08-23 由 claude-opus-4-8 降階成 sonnet-5（老闆指示：Claude API 費用）
           claude -p "$(cat .github/seo-content-prompt.md)" \
-            --model claude-opus-4-8 \
+            --model claude-sonnet-5 \
             --dangerously-skip-permissions
 
       - name: 提交變更（指名檔案＋rebase 防撞車）
