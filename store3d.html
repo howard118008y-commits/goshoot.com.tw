@@ -463,7 +463,21 @@ const RAIL = [
 /* ---------------- 2. three.js 場景 ---------------- */
 const cv = document.getElementById('c');
 const renderer = new THREE.WebGLRenderer({canvas:cv, antialias:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+// 幀率守門員：連續偏低就自動降解析度（Retina 的 2x 像素是最大兇手）
+let fpsSamples = [], lastQualityDrop = 0, qualityLevel = 1.5;
+function watchFps(now, dt){
+  fpsSamples.push(dt);
+  if(fpsSamples.length < 45) return;
+  const avg = fpsSamples.reduce((a,b)=>a+b,0)/fpsSamples.length;
+  fpsSamples.length = 0;
+  if(1/avg < 26 && qualityLevel > 0.75 && now - lastQualityDrop > 2500){
+    qualityLevel = qualityLevel > 1.1 ? 1.0 : 0.75;
+    renderer.setPixelRatio(qualityLevel);
+    renderer.setSize(innerWidth, innerHeight, false);
+    lastQualityDrop = now;
+  }
+}
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.25;
@@ -760,7 +774,7 @@ function buildFixtures(){
   put(st, new THREE.Mesh(new THREE.RingGeometry(.055,.07,32),
     new THREE.MeshStandardMaterial({color:0xFFC24B, emissive:0xFFC24B, emissiveIntensity:.6, side:THREE.DoubleSide})),
     0, 1.012, 0).rotation.x = -Math.PI/2;
-  const arenaLight = new THREE.PointLight(0xfff0e0, 3.2, 2.2, 2); arenaLight.position.set(0,1.55,0); st.add(arenaLight);
+  // 場地照明改用自發光材質，不再多開點光源（點光源是這場景最貴的東西）
 
   window.BEY = {
     stadium: st,
@@ -1338,7 +1352,11 @@ addEventListener('keydown', e=>{
 });
 addEventListener('keyup', ()=>{ padHeld = null; });
 
-function updatePlay(dt){
+function updatePlay(dtRaw){
+  let left = Math.min(0.25, dtRaw);
+  while(left > 0){ const step = Math.min(1/60, left); stepPlay(step); left -= step; }
+}
+function stepPlay(dt){
   const fx = PLAY.fx; if(!fx) return;
   // 移動（只有待機狀態能移動）
   if(padHeld && PLAY.state === 'idle'){
@@ -1473,15 +1491,14 @@ function battlePoint(who, kind, pts){
     document.getElementById('beyBtnTxt').textContent = '按住蓄力・放開發射';
   }
 }
-function updateBattle(dt){
+function updateBattle(dtRaw){
+  // 固定步長：畫面卡頓時補跑多步，比賽節奏不會跟著變慢
+  let left = Math.min(0.25, dtRaw);
+  while(left > 0){ const step = Math.min(1/60, left); stepBattle(step); left -= step; }
+}
+function stepBattle(dt){
   const S = BATTLE.tops, R = BEY.R, ROUT = BEY.ROUT, rr = BEY.r;
-  // 蓄力條
-  if(BATTLE.charging){
-    BATTLE.charge += BATTLE.chargeDir * dt * 1.15;
-    if(BATTLE.charge >= 1){ BATTLE.charge = 1; BATTLE.chargeDir = -1; }
-    if(BATTLE.charge <= 0){ BATTLE.charge = 0; BATTLE.chargeDir = 1; }
-    beyFill.style.width = (BATTLE.charge*100).toFixed(0)+'%';
-  }
+  // 蓄力由 tickCharge 計時器負責，不吃繪圖幀率
   if(BATTLE.phase === 'between'){
     BATTLE.t += dt;
     if(BATTLE.t > 1.2){ BATTLE.phase = 'ready'; }
@@ -1577,6 +1594,14 @@ function updateBattle(dt){
   }
 }
 // 蓄力／發射
+// 蓄力用計時器跑，跟繪圖幀率脫鉤：畫面再卡也蓄得到力
+let chargeTimer = null;
+function tickCharge(){
+  if(!BATTLE.charging) return;
+  const ph = ((performance.now() - BATTLE.chargeT0) / 1150) % 2;
+  BATTLE.charge = ph <= 1 ? ph : 2 - ph;
+  beyFill.style.width = (BATTLE.charge*100).toFixed(0)+'%';
+}
 (function bindBattle(){
   const cg = document.getElementById('beyCharge');
   const down = e=>{
@@ -1585,12 +1610,14 @@ function updateBattle(dt){
     if(BATTLE.phase === 'over'){ BATTLE.me=0; BATTLE.ai=0; beyScore();
       document.getElementById('beyState').textContent='先拿 4 分獲勝'; BATTLE.phase='ready'; }
     if(BATTLE.phase !== 'ready') return;
-    BATTLE.charging = true; BATTLE.charge = 0; BATTLE.chargeDir = 1;
+    BATTLE.charging = true; BATTLE.charge = 0; BATTLE.chargeT0 = performance.now();
+    clearInterval(chargeTimer); chargeTimer = setInterval(tickCharge, 40);
     document.getElementById('beyBtnTxt').textContent = '蓄力中…放開發射';
   };
   const up = ()=>{
     if(!BATTLE.charging) return;
-    BATTLE.charging = false;
+    tickCharge();
+    BATTLE.charging = false; clearInterval(chargeTimer); chargeTimer = null;
     const pw = BATTLE.charge; beyFill.style.width='0%';
     launchBattle(pw);
     battleLog(pw > 0.85 ? '完美發射！' : pw > 0.5 ? '不錯的力道' : '力道有點小', 1400);
@@ -1628,6 +1655,7 @@ function loop(){
   requestAnimationFrame(loop);
   const now = performance.now();
   const dt = Math.min(.05, (now - tPrev)/1000); tPrev = now;
+  watchFps(now, dt);
   applyCam();
   updateFx(now/1000);
   if(PLAY.active) updatePlay(dt);
