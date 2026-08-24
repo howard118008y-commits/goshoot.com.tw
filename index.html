@@ -412,6 +412,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
   </div>
   <div class="gsh-marquee" aria-hidden="true"><div class="gsh-mq"><b>中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ </b><b>中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ </b></div></div>
 </section>
+<!-- ═══ 立體店舖 3D（2026-08-24 老闆拍板：主頁上半放 3D、下半保留原內容）═══ -->
+<style>
+.gs3d{position:relative;padding:0;background:#0b0b0e;border-top:1px solid rgba(255,255,255,.08)}
+.gs3d .gs3d-bar{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  max-width:1120px;margin:0 auto;padding:26px 24px 14px}
+.gs3d .gs3d-bar h2{font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-.01em;color:#F7F4F1;margin:0}
+.gs3d .gs3d-bar p{margin:0;font-size:14px;color:#B7AFA9;line-height:1.6}
+.gs3d .gs3d-bar a{margin-left:auto;font-size:13px;font-weight:800;text-decoration:none;
+  color:#1A1A1A;background:#FF5A2D;padding:10px 18px;border-radius:999px}
+.gs3d .gs3d-frame{position:relative;width:100%;height:min(84vh,760px);border:0;display:block}
+@media (max-width:767px){ .gs3d{display:none} }
+</style>
+<section class="gs3d" aria-label="Go Shoot 中和店立體店舖">
+  <div class="gs3d-bar">
+    <h2>走進中和店・立體店舖</h2>
+    <p>每台機台都能點開玩法，還能線上試玩夾娃娃與陀螺對戰</p>
+    <a href="store3d.html" target="_blank" rel="noopener">全螢幕開啟 →</a>
+  </div>
+  <iframe class="gs3d-frame" src="store3d.html" loading="lazy" title="Go Shoot 中和店立體店舖"
+          allow="fullscreen" referrerpolicy="no-referrer"></iframe>
+</section>
+
 <script>
 (function(){
   var hero=document.getElementById("gshHero");
@@ -1085,6 +1107,20 @@ document.addEventListener("DOMContentLoaded",function(){
       <a class="gsm-cta gsm-ghost" href="pools.html" rel="noopener">抽線上一番賞 →</a>
     </div>
   </div>
+   <!-- 立體店舖 3D（手機版）-->
+   <a class="gsm-card gsm-3d" href="store3d.html" style="display:block;margin:12px 0;padding:0;border-radius:22px;overflow:hidden;border:1px solid rgba(255,96,72,.3);background:#141416;text-decoration:none">
+     <div style="position:relative;height:230px">
+       <iframe src="store3d.html" loading="lazy" title="Go Shoot 立體店舖"
+               style="position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none"></iframe>
+       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(10,10,12,.92) 100%)"></div>
+       <div style="position:absolute;left:16px;right:16px;bottom:14px">
+         <div style="font-size:11px;font-weight:700;letter-spacing:.12em;color:#FF8A5C">立體店舖</div>
+         <div style="font-size:19px;font-weight:900;color:#F7F4F1;margin-top:2px">走進中和店看看 →</div>
+         <div style="font-size:12px;color:#B7AFA9;margin-top:3px">點機台看玩法・可線上試玩夾娃娃與陀螺對戰</div>
+       </div>
+     </div>
+   </a>
+
 
   <div class="gsm-duo">
     <a href="#gsm-visit">
