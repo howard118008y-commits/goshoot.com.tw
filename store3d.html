@@ -131,6 +131,19 @@
     text-shadow:0 2px 12px rgba(0,0,0,.8)}
   #beyLog.on{opacity:1}
 
+  /* B1 專用：回 1F 的大按鈕 */
+  #upBtn{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(10px);z-index:26;
+    display:none;align-items:center;gap:10px;padding:16px 30px;border:0;border-radius:999px;cursor:pointer;
+    background:var(--gs-orange);color:#1A1A1A;font:800 16px/1 inherit;letter-spacing:.02em;
+    box-shadow:0 14px 34px rgba(255,90,45,.42);opacity:0;transition:.22s}
+  #upBtn.on{display:flex;opacity:1;transform:translateX(-50%)}
+  #upBtn:hover{background:#ff734b}
+  #upBtn:active{transform:translateX(-50%) scale(.96)}
+  #upBtn i{font-style:normal;font-size:20px;line-height:1}
+  @media (max-width:768px){
+    #upBtn{bottom:calc(74px + env(safe-area-inset-bottom));padding:14px 24px;font-size:15px}
+  }
+
   #toast{position:fixed;left:50%;top:76px;transform:translateX(-50%) translateY(-10px);z-index:40;
     padding:10px 18px;border-radius:999px;background:var(--gs-orange);color:#1A1A1A;font:800 14px/1 inherit;
     opacity:0;pointer-events:none;transition:.3s}
@@ -227,6 +240,7 @@
   <button id="beyExit">結束</button>
 </div>
 <div id="beyLog"></div>
+<button id="upBtn"><i>⬆</i>回到 1F 機台區</button>
 <div id="toast"></div>
 <div id="tip"></div>
 <div id="hint">點機台看玩法・點樓梯下地下室・滾輪縮放</div>
@@ -1030,7 +1044,11 @@ let view='f1', b1Unlocked=false, focused=false;
 const homeBtn = document.getElementById('homeBtn');
 function setView(v){
   if(!VIEWS[v]) v = 'f1';
-  view = v; focused = false; homeBtn.hidden = true;
+  view = v;
+  const ub = document.getElementById('upBtn');
+  if(ub) ub.classList.toggle('on', v === 'b1');
+  const hn = document.getElementById('hint');
+  if(hn) hn.style.display = (v === 'b1') ? 'none' : '';   // 別跟回上樓的按鈕疊在一起 focused = false; homeBtn.hidden = true;
   const cfg = VIEWS[v];
   cam.tTarget.set(cfg.x, cfg.y, cfg.z);
   cam.tDist = cfg.dist; cam.tPhi = cfg.phi; cam.tTheta = cfg.theta;
@@ -1045,6 +1063,7 @@ function unlockB1(){
   document.querySelectorAll('#rail button[data-b1]').forEach(b=>b.hidden = false);
 }
 homeBtn.onclick = ()=> setView(view);
+document.getElementById('upBtn').onclick = ()=>{ hideCard(); setView('f1'); };
 document.querySelectorAll('#floorSwitch button[data-view]').forEach(b=> b.onclick = ()=> setView(b.dataset.view));
 
 /* ---------------- 10. 挑選與資訊卡 ---------------- */
@@ -1299,6 +1318,7 @@ function startPlay(){
   PLAY.state = 'idle'; PLAY.held = null; PLAY.tries = 3; PLAY.won = 0;
   fx.prizes.forEach(pz=>{ pz.visible = true; pz.position.copy(pz.userData.home || pz.position); });
   playEl.classList.add('on');
+  document.getElementById('upBtn').classList.remove('on');
   document.getElementById('playName').textContent = fx.id + ' 試玩機台';
   updateScore(); hideCard();
   // 試玩時把對面那排機台暫時收起來，視線才不會被擋住
@@ -1446,6 +1466,7 @@ function startBattle(){
   BATTLE.active = true; BATTLE.phase = 'ready'; BATTLE.me = 0; BATTLE.ai = 0;
   BATTLE.charge = 0; BATTLE.dashLeft = 1;
   beyEl.classList.add('on'); beyScore(); hideCard();
+  document.getElementById('upBtn').classList.remove('on');
   document.getElementById('beyState').textContent = '先拿 4 分獲勝';
   document.getElementById('beyBtnTxt').textContent = '按住蓄力・放開發射';
   BEY.tops.forEach(t=>t.visible = false);
