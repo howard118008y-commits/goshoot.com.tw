@@ -3,7 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>Go Shoot 立體店舖</title>
+<title>中和娃娃機店｜Go Shoot 24H 立體店舖導覽・景平路捷運站旁</title>
+<meta name="description" content="新北中和 24 小時娃娃機店 Go Shoot：景平路 593-1 號、中和捷運站步行 1 分鐘。線上先逛立體店舖，每台機台看得到玩法，還能線上試玩夾娃娃與戰鬥陀螺對戰。">
+<meta name="keywords" content="中和娃娃機,中和娃娃機店,24小時娃娃機,景平路娃娃機,中和捷運站娃娃機,選物販賣機,戰鬥陀螺,線上一番賞,Go Shoot">
+<link rel="canonical" href="https://goshoot.com.tw/store3d.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Go Shoot">
+<meta property="og:title" content="中和娃娃機店｜Go Shoot 24H 立體店舖導覽">
+<meta property="og:description" content="線上先逛一遍中和店：12 台機台看得到玩法，還能線上試玩夾娃娃與陀螺對戰。景平路 593-1 號、24 小時營業。">
+<meta property="og:url" content="https://goshoot.com.tw/store3d.html">
+<meta property="og:image" content="https://goshoot.com.tw/assets/og-store3d.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"AmusementCenter",
+ "name":"Go Shoot 中和店","alternateName":"Go Shoot 娃娃機店",
+ "description":"新北市中和區 24 小時無人娃娃機店，同時是戰鬥陀螺專門店與線上一番賞平台。",
+ "url":"https://goshoot.com.tw/store3d.html",
+ "image":"https://goshoot.com.tw/assets/og-store3d.jpg",
+ "telephone":"+886-976-507-911",
+ "address":{"@type":"PostalAddress","streetAddress":"景平路593-1號","addressLocality":"中和區","addressRegion":"新北市","postalCode":"235","addressCountry":"TW"},
+ "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}],
+ "publicAccess":true,
+ "sameAs":["https://goshoot.com.tw","https://www.youtube.com/@goshoot-tw","https://line.me/R/ti/p/@722xefvm"]}
+</script>
 <style>
   :root{
     --gs-orange:#FF5A2D; --gs-orange-deep:#E24A2C; --gs-black:#1A1A1A;
@@ -132,7 +155,7 @@
   #beyLog.on{opacity:1}
 
   /* B1 專用：回 1F 的大按鈕 */
-  #upBtn{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(10px);z-index:26;
+  #upBtn{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(10px);z-index:26;
     display:none;align-items:center;gap:10px;padding:16px 30px;border:0;border-radius:999px;cursor:pointer;
     background:var(--gs-orange);color:#1A1A1A;font:800 16px/1 inherit;letter-spacing:.02em;
     box-shadow:0 14px 34px rgba(255,90,45,.42);opacity:0;transition:.22s}
@@ -144,6 +167,26 @@
     #upBtn{bottom:calc(74px + env(safe-area-inset-bottom));padding:14px 24px;font-size:15px}
   }
 
+  /* 店家資訊條：給客人也給搜尋引擎看 */
+  #shopbar{position:fixed;left:0;right:0;bottom:0;z-index:22;display:flex;align-items:center;gap:16px;
+    flex-wrap:wrap;padding:10px 18px calc(10px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,rgba(10,10,12,0),rgba(10,10,12,.92) 42%);
+    transition:opacity .25s}
+  #shopbar.hide{opacity:0;pointer-events:none}
+  #shopbar h1{margin:0;font-size:14px;font-weight:800;letter-spacing:.01em;color:var(--gs-text)}
+  #shopbar p{margin:2px 0 0;font-size:11.5px;line-height:1.5;color:var(--gs-dim)}
+  #shopbar .sb-cta{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+  #shopbar a{font:700 12px/1 inherit;text-decoration:none;padding:9px 14px;border-radius:999px;
+    background:rgba(255,255,255,.08);border:1px solid var(--gs-line);color:var(--gs-text);transition:.15s}
+  #shopbar a:hover{background:var(--gs-orange);color:#1A1A1A;border-color:transparent}
+  #shopbar a:first-child{background:var(--gs-orange);color:#1A1A1A;border-color:transparent}
+  @media (max-width:768px){
+    #shopbar{gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+    #shopbar h1{font-size:12.5px}
+    #shopbar p{font-size:10.5px}
+    #shopbar a{padding:8px 11px;font-size:11px}
+  }
+
   #toast{position:fixed;left:50%;top:76px;transform:translateX(-50%) translateY(-10px);z-index:40;
     padding:10px 18px;border-radius:999px;background:var(--gs-orange);color:#1A1A1A;font:800 14px/1 inherit;
     opacity:0;pointer-events:none;transition:.3s}
@@ -153,7 +196,7 @@
     background:rgba(255,90,45,.94);color:#1A1A1A;font-weight:700;opacity:0;transition:opacity .12s;
     transform:translate(-50%,-160%);white-space:nowrap}
   #tip.show{opacity:1}
-  #hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:15;font-size:12px;
+  #hint{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);z-index:15;font-size:12px;
     color:var(--gs-dim);background:rgba(26,26,26,.66);border:1px solid var(--gs-line);
     padding:8px 16px;border-radius:999px;backdrop-filter:blur(10px);transition:opacity .4s}
   #load{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:var(--gs-ink);
@@ -241,6 +284,18 @@
 </div>
 <div id="beyLog"></div>
 <button id="upBtn"><i>⬆</i>回到 1F 機台區</button>
+
+<footer id="shopbar">
+  <div class="sb-txt">
+    <h1>Go Shoot 中和店・24 小時娃娃機店</h1>
+    <p>娃娃機 × 戰鬥陀螺 × 線上一番賞｜新北市中和區景平路 593-1 號・中和捷運站步行 1 分鐘</p>
+  </div>
+  <nav class="sb-cta">
+    <a href="https://www.google.com/maps/search/?api=1&query=新北市中和區景平路593-1號" target="_blank" rel="noopener">📍 導航到店</a>
+    <a href="https://line.me/R/ti/p/@722xefvm" target="_blank" rel="noopener">💚 加 LINE</a>
+    <a href="https://goshoot.com.tw" target="_blank" rel="noopener">🌐 官網</a>
+  </nav>
+</footer>
 <div id="toast"></div>
 <div id="tip"></div>
 <div id="hint">點機台看玩法・點樓梯下地下室・滾輪縮放</div>
@@ -497,6 +552,19 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.25;
 
 const scene = new THREE.Scene();
+// 漸層環境反射：金屬與塑膠一次有質感（老高那種柔和感的來源之一）
+function makeEnv(){
+  const c = document.createElement('canvas'); c.width = 64; c.height = 128;
+  const x = c.getContext('2d');
+  const g = x.createLinearGradient(0,0,0,128);
+  g.addColorStop(0,'#4a4a55'); g.addColorStop(.45,'#2a2126');
+  g.addColorStop(.62,'#7a3a22'); g.addColorStop(1,'#151518');
+  x.fillStyle = g; x.fillRect(0,0,64,128);
+  const t = new THREE.CanvasTexture(c);
+  t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+scene.environment = makeEnv();
 scene.background = new THREE.Color(0x0b0b0e);
 scene.fog = new THREE.Fog(0x0b0b0e, 26, 72);
 
@@ -541,6 +609,53 @@ const SKIN = {pink:mat.pink, blue:mat.blue, orange:mat.orange};
 
 /* --- 小工具 --- */
 const box = (w,h,d,m)=> new THREE.Mesh(new THREE.BoxGeometry(w,h,d), m);
+
+// 接地陰影：一張貼圖共用，比真陰影便宜太多，但物件就不會像浮在地上
+let _shadowTex = null;
+function shadowTexture(){
+  if(_shadowTex) return _shadowTex;
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const x = c.getContext('2d');
+  const g = x.createRadialGradient(64,64,4,64,64,62);
+  g.addColorStop(0,'rgba(0,0,0,.55)'); g.addColorStop(.55,'rgba(0,0,0,.22)'); g.addColorStop(1,'rgba(0,0,0,0)');
+  x.fillStyle = g; x.fillRect(0,0,128,128);
+  _shadowTex = new THREE.CanvasTexture(c); return _shadowTex;
+}
+function groundShadow(parent, x, z, w, d, y){
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(w, d),
+    new THREE.MeshBasicMaterial({map:shadowTexture(), transparent:true, depthWrite:false, opacity:.9}));
+  m.rotation.x = -Math.PI/2; m.position.set(x, (y||0)+0.012, z);
+  parent.add(m); return m;
+}
+
+// 機台彩繪面板：招財貓風的粉色圖樣，不再是一塊死色塑膠
+const PANEL_TEX = {};
+function panelTexture(base, accent){
+  const c = document.createElement('canvas'); c.width = c.height = 256;
+  const x = c.getContext('2d');
+  x.fillStyle = base; x.fillRect(0,0,256,256);
+  x.fillStyle = accent; x.globalAlpha = .5;
+  for(let i=0;i<4;i++){
+    x.beginPath(); x.moveTo(0, 40+i*58);
+    for(let px=0; px<=256; px+=16) x.lineTo(px, 40+i*58 + Math.sin(px/26)*9);
+    x.lineTo(256, 62+i*58);
+    for(let px=256; px>=0; px-=16) x.lineTo(px, 62+i*58 + Math.sin(px/26)*9);
+    x.closePath(); x.fill();
+  }
+  x.globalAlpha = 1;
+  for(let i=0;i<26;i++){
+    x.beginPath(); x.arc((i*53)%246+6, (i*97)%246+6, 5+(i%3)*2, 0, Math.PI*2);
+    x.fillStyle = i%3 ? 'rgba(255,255,255,.55)' : accent; x.fill();
+  }
+  x.font = '600 26px "PingFang TC", sans-serif'; x.fillStyle = 'rgba(255,255,255,.9)';
+  x.textAlign = 'center'; x.fillText('GO SHOOT', 128, 138);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+function panelMat(key, base, accent){
+  if(!PANEL_TEX[key]) PANEL_TEX[key] = new THREE.MeshStandardMaterial({
+    map: panelTexture(base, accent), roughness:.55, metalness:.05});
+  return PANEL_TEX[key];
+}
 // 單面平面：法線朝室內，鏡頭在外面時自動被 backface culling 剖掉（dollhouse 視角）
 function pane(parent,w,h,m,x,y,z,ry,rx){
   const p = new THREE.Mesh(new THREE.PlaneGeometry(w,h), m);
@@ -617,8 +732,14 @@ function buildMachine(cfg){
   const marquee = new THREE.MeshStandardMaterial({color:0xffffff, emissive:0xffe9c9, emissiveIntensity:1.2});
 
   /* 底座 + 下櫃 */
+  groundShadow(g, 0, 0, 1.3, 1.3, 0.002);
   put(g, box(.86,.12,.86, mat.plinth), 0,.06,0);
-  put(g, box(.80,.86,.80, skin), 0,.55,0);
+  const skinArt = {
+    pink:   panelMat('pink',  '#e8608c', '#ffd3e2'),
+    blue:   panelMat('blue',  '#3f7bd8', '#cfe4ff'),
+    orange: panelMat('orange','#ff5a2d', '#ffd9a8')
+  }[cfg.skin] || skin;
+  put(g, box(.80,.86,.80, skinArt), 0,.55,0);
   put(g, box(.74,.24,.015, mat.white), 0,.74,.404);          // 彩繪白帶
   put(g, box(.015,.24,.74, mat.white), .404,.74,0);
   put(g, box(.015,.24,.74, mat.white), -.404,.74,0);
@@ -762,6 +883,7 @@ function buildFixtures(){
   bowl.rotation.x = Math.PI; put(st, bowl, 0,1.15,0);
   put(st, new THREE.Mesh(new THREE.TorusGeometry(.45,.035,10,32), mat.orange), 0,1.15,0).rotation.x=Math.PI/2;
   put(st, box(.92,.03,.03, mat.ledO), 0,.94,.48);
+  groundShadow(st, 0,0, 1.5,1.5, 0.002);
   st.position.set(2.42, 0, 3.60); g1.add(st); tag(st,'stadium');
 
   /* 對戰用的兩顆陀螺（平常隱藏，開打才出現） */
@@ -806,6 +928,7 @@ function buildFixtures(){
   const cLabel = new THREE.Mesh(new THREE.PlaneGeometry(.36,.14),
     new THREE.MeshStandardMaterial({map:textTexture('兌幣機',{bg:'#FF5A2D',fg:'#1A1A1A',w:360,h:140,size:88}),emissive:0xffffff,emissiveIntensity:.2}));
   put(ch, cLabel, 0,1.42,.21);
+  groundShadow(ch, 0,0,.75,.75,0.002);
   ch.position.set(x1-0.26, 0, 1.75); ch.rotation.y = -Math.PI/2; g1.add(ch); tag(ch,'changer');
 
   /* 65吋導購螢幕（後牆・機台上方） */
@@ -827,6 +950,7 @@ function buildFixtures(){
   put(ib, ibf, 0,.75,.03);
   put(ib, box(.5,.5,.02, mat.white), 0,.55,.032);
   put(ib, box(.6,.05,.3, mat.black), 0,.02,.14);
+  groundShadow(ib, 0,0,.9,.6,0.002);
   ib.position.set(-1.75, 0, 5.05); g1.add(ib); tag(ib,'ichiban');
 
   /* LINE 官方帳號立牌（原本掛牆上，現在搬進房間站著） */
@@ -838,6 +962,7 @@ function buildFixtures(){
   put(ln, lnFace, 0,.68,.03);
   put(ln, box(.34,.34,.02, mat.white), 0,.46,.032);
   put(ln, box(.55,.05,.28, mat.black), 0,.02,.12);
+  groundShadow(ln, 0,0,.85,.55,0.002);
   ln.position.set(-0.85, 0, 5.05); g1.add(ln); tag(ln,'line');
 
   /* 休息區：兩桌四椅，擺在左前開放區 */
@@ -874,8 +999,83 @@ function buildFixtures(){
       sub:'goshoot.com.tw・點我開啟'}), emissive:0xffffff, emissiveIntensity:.85}));
   tabScreen.position.set(0,1.32,.026); tabScreen.rotation.x = -0.20; tab.add(tabScreen);
   put(tab, box(.50,.70,.02, mat.ledO), 0,1.31,-.03).rotation.x = -0.20;  // 橘光邊框
+  groundShadow(tab, 0,0,.7,.7,0.002);
   tab.position.set(0.30, 0, 4.95); tab.rotation.y = Math.PI*0.06;
   g1.add(tab); tag(tab,'tablet');
+
+  /* ── 生活感小物（讓場景不只有機台）────────────────────── */
+  // 地毯
+  const rugTex = (()=>{
+    const c=document.createElement('canvas'); c.width=c.height=256; const x=c.getContext('2d');
+    x.fillStyle='#24242a'; x.fillRect(0,0,256,256);
+    x.strokeStyle='#FF5A2D'; x.lineWidth=10; x.strokeRect(16,16,224,224);
+    x.strokeStyle='rgba(255,194,75,.55)'; x.lineWidth=4; x.strokeRect(34,34,188,188);
+    x.fillStyle='rgba(255,255,255,.06)';
+    for(let i=0;i<256;i+=16) x.fillRect(i,0,7,256);
+    const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace; return t;
+  })();
+  const rug = new THREE.Mesh(new THREE.PlaneGeometry(2.5,1.9),
+    new THREE.MeshStandardMaterial({map:rugTex, roughness:.95}));
+  rug.rotation.x = -Math.PI/2; rug.position.set(-1.05, .012, 2.85); g1.add(rug);
+
+  // 觀葉植物（兩盆）
+  const plant = (px,pz,scale)=>{
+    const g2 = new THREE.Group();
+    groundShadow(g2, 0,0, .8*scale, .8*scale, 0);
+    put(g2, new THREE.Mesh(new THREE.CylinderGeometry(.15,.11,.26,14),
+      new THREE.MeshStandardMaterial({color:0xb9603c, roughness:.8})), 0,.13,0);
+    put(g2, new THREE.Mesh(new THREE.CylinderGeometry(.145,.145,.03,14),
+      new THREE.MeshStandardMaterial({color:0x2a2118, roughness:1})), 0,.27,0);
+    for(let i=0;i<7;i++){
+      const leaf = new THREE.Mesh(new THREE.ConeGeometry(.085,.46,5),
+        new THREE.MeshStandardMaterial({color:i%2?0x2f7d4f:0x3d9b60, roughness:.7}));
+      const a = i*Math.PI*2/7;
+      leaf.position.set(Math.cos(a)*.09, .5+ (i%3)*.06, Math.sin(a)*.09);
+      leaf.rotation.set(Math.cos(a)*.42, 0, -Math.sin(a)*.42);
+      g2.add(leaf);
+    }
+    g2.position.set(px,0,pz); g2.scale.setScalar(scale); g1.add(g2);
+  };
+  plant(-x1+0.45, 4.95, 1.0);
+  plant(x1-0.5, 4.55, .88);
+
+  // 掃地機器人
+  const vac = new THREE.Group();
+  groundShadow(vac, 0,0,.62,.62,0);
+  put(vac, new THREE.Mesh(new THREE.CylinderGeometry(.17,.17,.075,24),
+    new THREE.MeshStandardMaterial({color:0x1d1d21, roughness:.35, metalness:.4})), 0,.045,0);
+  put(vac, new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,.02,16),
+    new THREE.MeshStandardMaterial({color:0xFF5A2D, emissive:0xFF5A2D, emissiveIntensity:.7})), 0,.088,0);
+  vac.position.set(1.05, 0, 4.35); g1.add(vac);
+
+  // 垃圾桶
+  const bin = new THREE.Group();
+  groundShadow(bin, 0,0,.5,.5,0);
+  put(bin, new THREE.Mesh(new THREE.CylinderGeometry(.15,.13,.5,16),
+    new THREE.MeshStandardMaterial({color:0x2a2a30, roughness:.6, metalness:.3})), 0,.25,0);
+  put(bin, new THREE.Mesh(new THREE.TorusGeometry(.15,.014,8,20), mat.chrome), 0,.5,0).rotation.x=Math.PI/2;
+  bin.position.set(x1-0.35, 0, 3.15); g1.add(bin);
+
+  // 桌上的飲料杯
+  [[-1.35,2.1],[-0.8,3.6]].forEach(([cx,cz])=>{
+    const cup = new THREE.Group();
+    put(cup, new THREE.Mesh(new THREE.CylinderGeometry(.037,.028,.12,14),
+      new THREE.MeshStandardMaterial({color:0xf2ede6, roughness:.5})), 0,.06,0);
+    put(cup, new THREE.Mesh(new THREE.CylinderGeometry(.039,.039,.012,14), mat.orange), 0,.125,0);
+    cup.position.set(cx,.47,cz); g1.add(cup);
+  });
+
+  // 牆上海報（兩張，順便講清楚這是娃娃機店）
+  const poster = (txt, sub, bg, fg, px, py, pz, ry)=>{
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(.78,1.06),
+      new THREE.MeshStandardMaterial({map:textTexture(txt,{bg,fg,w:420,h:570,size:78,sub}),
+        emissive:0xffffff, emissiveIntensity:.22, roughness:.85}));
+    m.position.set(px,py,pz); if(ry) m.rotation.y = ry; g1.add(m);
+    const fr = box(.84,1.12,.03, mat.black); fr.position.set(px,py,pz); if(ry) fr.rotation.y = ry;
+    fr.translateZ(-.02); g1.add(fr);
+  };
+  poster('24H','娃娃機・戰鬥陀螺','#141416','#FF5A2D', -x1+0.06, 1.62, 1.15, Math.PI/2);
+  poster('每抽必中','線上一番賞','#141416','#FFC24B', -x1+0.06, 1.62, 4.30, Math.PI/2);
 
   /* 冷氣 + 監視器 */
   const ac = put(g1, box(.9,.28,.22, mat.white), -x1+0.55, 2.42, 0.35); tag(ac,'aircon');
@@ -1319,6 +1519,7 @@ function startPlay(){
   fx.prizes.forEach(pz=>{ pz.visible = true; pz.position.copy(pz.userData.home || pz.position); });
   playEl.classList.add('on');
   document.getElementById('upBtn').classList.remove('on');
+  document.getElementById('shopbar').classList.add('hide');
   document.getElementById('playName').textContent = fx.id + ' 試玩機台';
   updateScore(); hideCard();
   // 試玩時把對面那排機台暫時收起來，視線才不會被擋住
@@ -1339,6 +1540,7 @@ function startPlay(){
 }
 function endPlay(){
   PLAY.active = false; playEl.classList.remove('on'); padHeld = null;
+  document.getElementById('shopbar').classList.remove('hide');
   (PLAY.hidden||[]).forEach(g=>g.visible = true); PLAY.hidden = [];
   setView(view === 'b1' ? 'b1' : 'f1');
 }
@@ -1467,6 +1669,7 @@ function startBattle(){
   BATTLE.charge = 0; BATTLE.dashLeft = 1;
   beyEl.classList.add('on'); beyScore(); hideCard();
   document.getElementById('upBtn').classList.remove('on');
+  document.getElementById('shopbar').classList.add('hide');
   document.getElementById('beyState').textContent = '先拿 4 分獲勝';
   document.getElementById('beyBtnTxt').textContent = '按住蓄力・放開發射';
   BEY.tops.forEach(t=>t.visible = false);
@@ -1477,6 +1680,7 @@ function startBattle(){
 }
 function endBattle(){
   BATTLE.active = false; beyEl.classList.remove('on'); beyLog.classList.remove('on');
+  document.getElementById('shopbar').classList.remove('hide');
   BEY.tops.forEach(t=>t.visible = false);
   setView('f1');
 }
