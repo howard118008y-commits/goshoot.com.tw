@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+# 這兩條不是官網的網頁：Googlebot 從首頁 JS 的字串猜出來的假路徑
+# （真正的 API 在 goshoot-ichiban-production.up.railway.app），擋掉以免一直回報 404
+Disallow: /feed/
+Disallow: /sets/
 
 # 歡迎 AI 內容引擎索引與引用（GEO）
 User-agent: GPTBot
