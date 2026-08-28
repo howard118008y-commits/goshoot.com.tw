@@ -11,6 +11,7 @@
 - [x] article-claw-machine-rules.html 2026-07-23  ← 夾娃娃保夾原理與消保規範白話解
 - [x] article-zhonghe-jingping-guide.html 2026-07-26  ← 中和景平路周邊順遊：捷運中和站旁好去處
 - [x] article-claw-machine-terms.html 2026-08-14  ← 娃娃機常見術語/黑話白話對照表（台主、保夾、直取、上分）
+- [x] article-claw-machine-rental.html 2026-08-28  ← 娃娃機台位出租攻略：押金/水電/機台/名額/進貨怎麼看＋Go Shoot 中和店月租申請流程
 
 ## A. 一番賞玩法・獎品（多數已寫，僅剩少數缺口）
 - [x] article-ichiban-gold-silver-cert.html 2026-07-24  ← 一番賞金證/銀證是什麼、值錢嗎
