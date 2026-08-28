@@ -17,7 +17,7 @@
      （shop.html 的購買按鈕就這樣變成隱形黑字），所以這個別名一律保留。
      新頁面一律用 --coral。 */
   --gs-accent:var(--coral); --gs-accent-deep:var(--coral-deep);
-  --sky:#3FC8C8; --sky-deep:#3FC8C8; --gold:#FFC24B;
+  --gs-info:#3FC8C8; --gold:#FFC24B;
   --line:rgba(255,255,255,.10); --shadow:0 10px 34px rgba(0,0,0,.55);
   --display:'Poppins',system-ui,sans-serif;
   --body:'Noto Sans TC','Poppins',system-ui,sans-serif;
@@ -210,7 +210,7 @@ footer .copy{width:100%;border-top:1px solid var(--line);margin-top:22px;
   background:var(--gs-orange);min-width:46px;height:46px;border-radius:12px;
   display:flex;align-items:center;justify-content:center;flex:0 0 auto}
 .tier.t1 .badge{background:#2A2A30;color:var(--text)}
-.tier.t2 .badge{background:var(--sky-deep);color:#141416}
+.tier.t2 .badge{background:var(--gs-info);color:#141416}
 
 @media(max-width:860px){
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;

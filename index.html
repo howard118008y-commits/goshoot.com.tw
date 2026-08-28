@@ -48,7 +48,7 @@
   --text:#ECECEA; --muted:#B4B4BB;
   --gs-orange:#FF5A2D; --gs-orange-deep:#E8552F;
   --coral:#FF5A2D; --coral2:#FF8A6B; --coral-deep:#E8552F;
-  --sky:#3FC8C8; --sky-deep:#3FC8C8; --gold:#FFC24B;
+  --gs-info:#3FC8C8; --gold:#FFC24B;
   --disp:'Poppins','Noto Sans TC',sans-serif; --body:'Noto Sans TC','Poppins',sans-serif;
   --shadow:0 10px 34px rgba(0,0,0,.55);
 }
@@ -148,7 +148,7 @@ body>section:not(.gsh-hero)::before{content:"";position:absolute;top:0;left:0;ri
 .slide .emb img{width:clamp(170px,25vw,290px);height:auto;filter:drop-shadow(0 10px 22px rgba(0,0,0,.18))}
 .s-coral{background:linear-gradient(120deg,var(--coral),var(--coral2))}
 .s-ink{background:linear-gradient(120deg,#2f2b33,#46414b)}
-.s-sky{background:linear-gradient(120deg,var(--sky-deep),var(--sky))}
+.s-sky{background:linear-gradient(120deg,var(--gs-info),var(--gs-info))}
 .dots{position:absolute;bottom:16px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:3}
 .dots b{width:11px;height:11px;border-radius:50%;background:#ffffff8c;cursor:pointer}
 .dots b.on{background:#fff;width:26px;border-radius:6px}
@@ -168,7 +168,7 @@ body>section:not(.gsh-hero)::before{content:"";position:absolute;top:0;left:0;ri
 .prod .ph img{width:100%;height:100%;object-fit:cover}
 .prod .pb{position:absolute;top:12px;left:12px;font-family:var(--disp);font-weight:800;font-size:12px;
   padding:4px 10px;border-radius:14px;color:#1A1A1A;background:var(--gs-orange)}
-.pb.new{background:var(--sky-deep);color:#1A1A1A} .pb.hot{background:var(--coral);color:#1A1A1A} .pb.ltd{background:#2A2A30;color:var(--text)}
+.pb.new{background:var(--gs-info);color:#1A1A1A} .pb.hot{background:var(--coral);color:#1A1A1A} .pb.ltd{background:#2A2A30;color:var(--text)}
 .prod .pi{padding:14px 16px 18px}
 .prod .pi .nm{font-weight:700;margin-bottom:4px;color:var(--text)}
 .prod .pi .meta{color:var(--muted);font-size:13px}
@@ -323,7 +323,7 @@ footer a:hover{color:var(--gs-orange)}
     <a class="gsbtn gsbtn-sm" data-sent="前往抽獎" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽一番賞</a>
   </div>
   <form class="search" onsubmit="var q=this.querySelector('input').value.trim();location.href=q?('https://www.google.com/search?q='+encodeURIComponent('site:goshoot.com.tw '+q)):'ichiban.html';return false;">
-    <span>🔍</span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋全站">
+    <span><img src="/assets/brand/icon/magnifier.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></span><input type="search" placeholder="搜尋戰鬥陀螺、公仔…" aria-label="搜尋全站">
   </form>
   <button class="menu-btn" aria-label="選單"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display:block"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></nav>
@@ -431,7 +431,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     <p>景平路593號之1、中和捷運站步行 1 分鐘｜12 台機台點開就看得到玩法，還能線上試玩夾娃娃與戰鬥陀螺對戰</p>
     <a href="store3d.html" target="_blank" rel="noopener">全螢幕開啟 →</a>
   </div>
-  <iframe class="gs3d-frame" src="store3d.html" loading="lazy" title="Go Shoot 中和店立體店舖"
+  <iframe class="gs3d-frame" src="store3d.html?embed=1" loading="lazy" title="Go Shoot 中和店立體店舖"
           allow="fullscreen" referrerpolicy="no-referrer"></iframe>
 </section>
 
@@ -556,7 +556,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     .news-top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .nt-new{background:linear-gradient(135deg,var(--coral),var(--coral-deep))}
     .nt-ltd{background:linear-gradient(135deg,#2f2b33,#46414b)}
-    .nt-sky{background:linear-gradient(135deg,var(--sky-deep),#2FA8A8)}
+    .nt-sky{background:linear-gradient(135deg,var(--gs-info),#2FA8A8)}
     .nt-game{background:linear-gradient(135deg,var(--gold),#E5912A)}
     .news-emoji{font-size:46px}
     .news-tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--ink);font-family:var(--disp);font-weight:800;font-size:12px;padding:4px 11px;border-radius:12px}
@@ -869,7 +869,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       </div>
       <p style="color:#cfc8bf;font-size:14px;max-width:280px">中和捷運站旁的戰鬥陀螺情報站・娃娃機店。找得到對手、抽得到好賞。一起 Go Shoot！</p>
       <a class="gsbtn gsbtn-sm" href="mailto:goshoot593@gmail.com">✉ Email 聯絡</a>
-      <div class="fsoc"><a href="mailto:goshoot593@gmail.com" title="Email 聯絡">✉</a><a href="tel:+886976507911" title="電話 0976-507-911">📞</a></div>
+      <div class="fsoc"><a href="mailto:goshoot593@gmail.com" title="Email 聯絡"><img src="/assets/brand/icon/post.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></a><a href="tel:+886976507911" title="電話 0976-507-911"><img src="/assets/brand/icon/phone.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"></a></div>
     </div>
     <div><h4>玩家服務</h4><a href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">線上一番賞</a><a href="#products">陀螺情報</a><a href="#arena">店內賽事</a><a href="#visit">娃娃機台區</a><a href="faq.html">常見問題</a></div>
     <div><h4>攻略資源</h4><a href="guide-beginner.html">新手入門</a><a href="guide-tierlist.html">本月天梯</a><a href="guide-mods.html">改裝攻略</a><a href="guide.html">全部攻略</a></div>
@@ -1128,7 +1128,7 @@ document.addEventListener("DOMContentLoaded",function(){
    <!-- 立體店舖 3D（手機版）-->
    <a class="gsm-card gsm-3d" href="store3d.html" style="display:block;margin:12px 0;padding:0;border-radius:22px;overflow:hidden;border:1px solid rgba(255,96,72,.3);background:#141416;text-decoration:none">
      <div style="position:relative;height:230px">
-       <iframe src="store3d.html" loading="lazy" title="Go Shoot 立體店舖"
+       <iframe src="store3d.html?embed=1" loading="lazy" title="Go Shoot 立體店舖"
                style="position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none"></iframe>
        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(10,10,12,.92) 100%)"></div>
        <div style="position:absolute;left:16px;right:16px;bottom:14px">

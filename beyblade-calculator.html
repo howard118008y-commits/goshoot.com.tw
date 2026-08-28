@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#1A1A1A">
-<title>戰鬥陀螺X 改裝計算器｜最強組合模擬器（上蓋×固鎖×軸心） - Go Shoot</title>
-<meta name="description" content="Beyblade X 戰鬥陀螺改裝計算器：上蓋（Blade）×固鎖（Ratchet）×軸心（Bit）自由配裝，即時算出攻擊/防禦/持久/衝刺/爆裂耐性雷達圖與總重量，附社群公認最強組合一鍵套用、左旋發射器提示、零件出處對照。找最強配置、練改造，新手老手都好用｜Go Shoot 中和戰鬥陀螺專門店。">
+<title>戰鬥陀螺X 改裝計算器｜最強組合模擬器</title>
+<meta name="description" content="Beyblade X 戰鬥陀螺改裝計算器：上蓋（Blade）×固鎖（Ratchet）×軸心（Bit）自由配裝，即時算出攻擊/防禦/持久/衝刺/爆裂耐性雷達圖與總重量。">
 <meta name="keywords" content="戰鬥陀螺 最強組合,戰鬥陀螺X 改造,Beyblade X 配置,戰鬥陀螺 改裝,組合模擬器,上蓋 固鎖 軸心,魔導神杖 配置,強度排行">
 <link rel="canonical" href="https://goshoot.com.tw/beyblade-calculator.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
 <style>
-:root{--cream:#1A1A1A;--paper:#232326;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--sky:#3FC8C8;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+:root{--cream:#1A1A1A;--paper:#232326;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-info:#3FC8C8;--gold:#FFC24B;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.8}
 a{color:inherit;text-decoration:none}
@@ -155,7 +155,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <select id="selBit" aria-label="選擇軸心"></select>
           <div class="part-src" id="srcBit"></div>
         </div>
-        <div class="spin-warn" id="spinWarn">⚠️ 這顆上蓋是<b>左旋（L）</b>——需要左旋或左右兩用發射器才能發射。</div>
+        <div class="spin-warn" id="spinWarn"><b>注意</b>　這顆上蓋是<b>左旋（L）</b>——需要左旋或左右兩用發射器才能發射。</div>
       </div>
       <div class="radar-box">
         <svg id="radar" viewBox="0 0 320 300" role="img" aria-label="組合數值雷達圖"></svg>
@@ -169,7 +169,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <table class="stat-table" id="statTable"></table>
     <div class="share-row">
-      <button class="share-btn" id="shareBtn">🔗 複製組合分享連結</button>
+      <button class="share-btn" id="shareBtn">複製組合分享連結</button>
       <a class="buy-cta" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">缺零件？抽一番賞收機體 →</a>
     </div>
   </div>
