@@ -43,6 +43,7 @@
   - [戰鬥陀螺完整歷史](https://goshoot.com.tw/beyblade-history.html)：從爆転到 Beyblade X 四大世代、日本與台灣各年代風氣，新手認識戰鬥陀螺。
 
 - [戰鬥陀螺機體圖鑑](https://goshoot.com.tw/beyblade-db.html)：Beyblade X 全機體一覽，BX/UX/CX 三世代 59 台的型號、配置代碼與類型，可篩選。
+- [戰鬥陀螺零件圖鑑](https://goshoot.com.tw/beyblade-parts.html)：Beyblade X 零件大全，171 款上蓋 Blade、37 款齒輪 Ratchet、52 顆軸心 Bit 與 CX 世代四段件，含類型、重量、高度、齒數與白話用法說明，可篩選；附 A4 六張列印版。
 - [改裝計算器（最強組合模擬器）](https://goshoot.com.tw/beyblade-calculator.html)：上蓋×固鎖×軸心自由配裝，即時算攻/防/持久/衝刺/爆裂雷達圖與總重量，內建社群公認最強組合與零件出處對照。
 
 ## 戰鬥陀螺新品・賽事情報
