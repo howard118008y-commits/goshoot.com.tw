@@ -7,15 +7,15 @@
 <title>中和戰鬥陀螺比賽｜每週六開打・免費報名｜Go Shoot</title>
 <link rel="canonical" href="https://goshoot.com.tw/beyblade-tournament.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="description" content="Go Shoot 中和門市戰鬥陀螺比賽，每週六下午開打，免費參加、現場報名，名次可拿實體陀螺或限定景品。首戰 2026/9/5，捷運中和站旁、景平路593號之1。">
+<meta name="description" content="Go Shoot 中和門市戰鬥陀螺比賽，每週六下午開打，免費參加、LINE 報名，限額 16 名，名次可拿實體陀螺或限定景品。首戰 2026/9/5，捷運中和站旁、景平路593號之1。">
 <meta property="og:title" content="中和戰鬥陀螺比賽｜每週六開打・免費報名｜Go Shoot">
-<meta property="og:description" content="每週六下午在中和捷運站旁開打，免費參加、現場報名，名次可拿實體陀螺或限定景品。首戰 2026/9/5。">
+<meta property="og:description" content="每週六下午在中和捷運站旁開打，免費參加、LINE 報名、限額 16 名，名次可拿實體陀螺或限定景品。首戰 2026/9/5。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://goshoot.com.tw/beyblade-tournament.html">
 <meta property="og:image" content="https://goshoot.com.tw/assets/og-cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="中和戰鬥陀螺比賽｜每週六開打・免費報名｜Go Shoot">
-<meta name="twitter:description" content="每週六下午在中和捷運站旁開打，免費參加、現場報名，名次可拿實體陀螺或限定景品。首戰 2026/9/5。">
+<meta name="twitter:description" content="每週六下午在中和捷運站旁開打，免費參加、LINE 報名、限額 16 名，名次可拿實體陀螺或限定景品。首戰 2026/9/5。">
 <link rel="icon" href="assets/favicon.svg">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +51,17 @@
 .nx-date span{font-size:15px;font-weight:700;color:#ECECEA}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 18px}
 .chips span{font-size:12.5px;font-weight:700;color:#ECECEA;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:4px 12px;border-radius:999px}
+.sg{display:flex;gap:26px;align-items:center;flex-wrap:wrap;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:18px;padding:22px}
+.sg-steps{flex:1 1 320px;list-style:none;counter-reset:sg;margin:0;padding:0}
+.sg-steps li{counter-increment:sg;position:relative;padding-left:44px;margin:0 0 16px}
+.sg-steps li:last-child{margin-bottom:0}
+.sg-steps li::before{content:counter(sg);position:absolute;left:0;top:1px;width:30px;height:30px;border-radius:50%;background:var(--gs-orange,#FF5A2D);color:#1A1A1A;font:800 16px/30px 'Poppins',sans-serif;text-align:center}
+.sg-steps b{display:block;font-size:17px;font-weight:800;color:#F5F2EE}
+.sg-steps span{display:block;margin-top:2px;font-size:14px;color:#9a948c}
+.sg-qr{flex:0 0 auto;text-align:center}
+.sg-qr img{width:180px;height:180px;background:#fff;padding:8px;border-radius:12px;display:block}
+.sg-qr b{display:block;margin:10px 0 8px;font:800 18px/1 'Poppins',sans-serif;color:#FFC24B}
+@media(max-width:600px){.sg{gap:18px}.sg-qr{margin:0 auto}}
 /* 名次卡 */
 .pz{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
 @media(max-width:640px){.pz{grid-template-columns:1fr}}
@@ -63,12 +74,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"WebPage","@id":"https://goshoot.com.tw/beyblade-tournament.html","url":"https://goshoot.com.tw/beyblade-tournament.html","name":"中和戰鬥陀螺比賽｜每週六開打・免費報名｜Go Shoot","description":"Go Shoot 中和門市戰鬥陀螺比賽，每週六下午開打，免費參加、現場報名，名次可拿實體陀螺或限定景品。","isPartOf":{"@id":"https://goshoot.com.tw/#website"},"about":{"@id":"https://goshoot.com.tw/#org"}},
+{"@type":"WebPage","@id":"https://goshoot.com.tw/beyblade-tournament.html","url":"https://goshoot.com.tw/beyblade-tournament.html","name":"中和戰鬥陀螺比賽｜每週六開打・免費報名｜Go Shoot","description":"Go Shoot 中和門市戰鬥陀螺比賽，每週六下午開打，免費參加、LINE 報名、限額 16 名，名次可拿實體陀螺或限定景品。","isPartOf":{"@id":"https://goshoot.com.tw/#website"},"about":{"@id":"https://goshoot.com.tw/#org"}},
 {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://goshoot.com.tw/"},{"@type":"ListItem","position":2,"name":"賽事與會員","item":"https://goshoot.com.tw/events.html"},{"@type":"ListItem","position":3,"name":"戰鬥陀螺比賽","item":"https://goshoot.com.tw/beyblade-tournament.html"}]},
-{"@type":"Event","@id":"https://goshoot.com.tw/beyblade-tournament.html#event-2026-09-05","name":"Go Shoot 戰鬥陀螺每週賽（首戰）","startDate":"2026-09-05T14:30+08:00","endDate":"2026-09-05T17:00+08:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","isAccessibleForFree":true,"image":"https://goshoot.com.tw/assets/og-cover.png","description":"Go Shoot 中和門市戰鬥陀螺（Beyblade X）比賽首戰。免費參加、現場報名，採官方計分制，名次可獲得實體陀螺或限定景品。","location":{"@type":"Place","name":"Go Shoot 中和門市","address":{"@type":"PostalAddress","streetAddress":"景平路593號之1","addressLocality":"中和區","addressRegion":"新北市","postalCode":"235","addressCountry":"TW"}},"organizer":{"@id":"https://goshoot.com.tw/#org"},"performer":{"@type":"PerformingGroup","name":"現場報名參賽者"},"offers":{"@type":"Offer","price":"0","priceCurrency":"TWD","availability":"https://schema.org/InStock","validFrom":"2026-08-27","url":"https://goshoot.com.tw/beyblade-tournament.html"}},
+{"@type":"Event","@id":"https://goshoot.com.tw/beyblade-tournament.html#event-2026-09-05","name":"Go Shoot 戰鬥陀螺每週賽（首戰）","startDate":"2026-09-05T14:30+08:00","endDate":"2026-09-05T17:00+08:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","isAccessibleForFree":true,"maximumAttendeeCapacity":16,"image":"https://goshoot.com.tw/assets/og-cover.png","description":"Go Shoot 中和門市戰鬥陀螺（Beyblade X）比賽首戰。免費參加，需透過 LINE 官方帳號報名並取得報名號碼，限額 16 名。採官方計分制，名次可獲得實體陀螺或限定景品。","location":{"@type":"Place","name":"Go Shoot 中和門市","address":{"@type":"PostalAddress","streetAddress":"景平路593號之1","addressLocality":"中和區","addressRegion":"新北市","postalCode":"235","addressCountry":"TW"}},"organizer":{"@id":"https://goshoot.com.tw/#org"},"performer":{"@type":"PerformingGroup","name":"報名參賽者"},"offers":{"@type":"Offer","price":"0","priceCurrency":"TWD","availability":"https://schema.org/InStock","validFrom":"2026-08-27","url":"https://goshoot.com.tw/beyblade-tournament.html"}},
 {"@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"中和哪裡可以打戰鬥陀螺比賽？","acceptedAnswer":{"@type":"Answer","text":"Go Shoot 中和門市，新北市中和區景平路593號之1，捷運中和站旁。門市 2026 年 9 月 1 日開幕，戰鬥陀螺比賽自 9 月 5 日起每週六下午舉辦。"}},
-{"@type":"Question","name":"戰鬥陀螺比賽要報名費嗎？","acceptedAnswer":{"@type":"Answer","text":"不用。Go Shoot 每週六的戰鬥陀螺比賽免費參加，當天到現場報名即可，不需要事先預約。"}},
+{"@type":"Question","name":"戰鬥陀螺比賽要報名費嗎？","acceptedAnswer":{"@type":"Answer","text":"不用。Go Shoot 每週六的戰鬥陀螺比賽免費參加，不收報名費也沒有低消。"}},
+{"@type":"Question","name":"戰鬥陀螺比賽怎麼報名？","acceptedAnswer":{"@type":"Answer","text":"加 Go Shoot 官方 LINE（@722xefvm）傳「報名」兩個字，回覆參賽者姓名與年齡後會收到報名號碼，當天憑號碼報到。每場限額 16 名，額滿可登記候補。現場不受理報名。"}},
 {"@type":"Question","name":"沒有陀螺可以參加比賽嗎？","acceptedAnswer":{"@type":"Answer","text":"比賽請自備陀螺與發射器。店內設有 24 小時開放的對戰區可先練習，也販售 Beyblade X 相關商品，出發前可先用 LINE 官方帳號詢問現場庫存。"}},
 {"@type":"Question","name":"比賽怎麼計分？","acceptedAnswer":{"@type":"Answer","text":"採 Beyblade X 官方計分：Spin Finish 得 1 分、Over Finish 與 Burst Finish 各得 2 分、Xtreme Finish 得 3 分，單場先取得 4 分者獲勝。"}},
 {"@type":"Question","name":"比賽獎品是什麼？","acceptedAnswer":{"@type":"Answer","text":"冠軍、亞軍、季軍可獲得實體陀螺或限定景品，實際品項每週於現場公告。"}}
@@ -96,10 +108,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="wrap">
     <span class="eyebrow">中和門市 ・ 戰鬥陀螺比賽</span>
     <h1>每週六，<span class="g">上場開打</span></h1>
-    <p class="lead">中和捷運站旁的實體賽場，<b>免費參加、現場報名</b>，名次可拿實體陀螺或限定景品。不用預約，帶著你的陀螺直接來。</p>
+    <p class="lead">中和捷運站旁的實體賽場，<b>免費參加、LINE 報名</b>，每場限額 16 名，名次可拿實體陀螺或限定景品。加 LINE 傳「報名」拿號碼，當天帶著你的陀螺來就好。</p>
     <div class="cta-row">
-      <a class="btn" href="#info">看比賽辦法 →</a>
-      <a class="btn btn-ghost" href="https://line.me/R/ti/p/@722xefvm" target="_blank" rel="noopener">LINE 問現場狀況</a>
+      <a class="btn" href="https://line.me/R/ti/p/@722xefvm" target="_blank" rel="noopener">加 LINE 報名 →</a>
+      <a class="btn btn-ghost" href="#signup">怎麼報名</a>
+      <a class="btn btn-ghost" href="#info">看比賽辦法</a>
     </div>
   </div>
 </header>
@@ -113,8 +126,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <p class="sec-lead" style="margin-bottom:0">首戰。門市 9/1 開幕，第一場比賽在開幕後第一個週六開打。<b>14:00 開放報到、14:30 正式開賽</b>，賽程約三小時，結束時間視參賽人數調整。</p>
     <div class="chips">
       <span>免費參加</span>
-      <span>現場報名</span>
-      <span>不用預約</span>
+      <span>LINE 報名</span>
+      <span>限額 16 名</span>
       <span>名次有實體獎品</span>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
@@ -122,6 +135,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <span class="bt-count" style="color:#9a948c;font-size:13px">首戰 9/5（週六）</span>
     </div>
     <script>document.addEventListener('DOMContentLoaded',function(){var d=Math.ceil((new Date(2026,8,5)-new Date())/864e5);document.querySelectorAll('.bt-count').forEach(function(el){el.textContent=d>0?'首戰 9/5（週六）・倒數 '+d+' 天':(d===0?'首戰今天開打':'每週六開打');});});</script>
+  </div>
+</div></section>
+
+<section id="signup"><div class="wrap">
+  <h2 class="sec">怎麼報名</h2>
+  <p class="sec-lead">加 LINE 才算報名，現場不受理。每場限額 16 名，額滿可登記候補。</p>
+  <div class="sg">
+    <ol class="sg-steps">
+      <li><b>加官方 LINE 好友</b><span>掃右邊 QR，或搜尋 ID：@722xefvm</span></li>
+      <li><b>傳「報名」兩個字</b><span>再回覆參賽者姓名與年齡</span></li>
+      <li><b>收到報名號碼</b><span>當天憑號碼報到，14:00 開始</span></li>
+    </ol>
+    <div class="sg-qr">
+      <img src="assets/qr-line.png" alt="Go Shoot 官方 LINE QR code" width="180" height="180" loading="lazy">
+      <b>@722xefvm</b>
+      <a class="btn" href="https://line.me/R/ti/p/@722xefvm" target="_blank" rel="noopener">用手機加 LINE →</a>
+    </div>
   </div>
 </div></section>
 
@@ -133,10 +163,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <tr><th>時間</th><td>每週六 14:00 報到、14:30 開賽。首戰 2026 年 9 月 5 日。</td></tr>
       <tr><th>地點</th><td>Go Shoot 中和門市・新北市中和區景平路593號之1（捷運中和站旁，景平路口公車站步行約 1 分鐘）</td></tr>
       <tr><th>費用</th><td>免費。不收報名費、不設低消。</td></tr>
-      <tr><th>報名</th><td>當天現場報名，先到先排。不接受事先預約。</td></tr>
+      <tr><th>報名</th><td>加官方 LINE <b>@722xefvm</b> 傳「報名」，回覆姓名與年齡後會收到報名號碼，當天憑號碼報到。<b>加 LINE 才算報名，現場不受理。</b></td></tr>
+      <tr><th>名額</th><td>每場 16 名，依報名先後排定。額滿可登記候補，有人未報到即遞補。</td></tr>
       <tr><th>資格</th><td>不分程度，新手歡迎。視當天報名人數決定是否分兒童組與公開組；未滿 12 歲建議由家長陪同。</td></tr>
       <tr><th>器材</th><td>請自備陀螺與發射器。店內對戰區 24 小時開放，比賽前可先來練。</td></tr>
-      <tr><th>賽制</th><td>依當天報名人數編排，前四強單淘汰；決賽採三戰兩勝。</td></tr>
+      <tr><th>賽制</th><td>依報名人數編排，前四強單淘汰；決賽採三戰兩勝。</td></tr>
       <tr><th>獎品</th><td>冠軍、亞軍、季軍各有實體陀螺或限定景品，品項每週現場公告。</td></tr>
     </tbody>
   </table>
@@ -170,7 +201,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div>
       <h3 style="margin-top:0">人數與賽程</h3>
-      <p>採現場報名、先到先排，所以賽程長度看當天人數。報到截止後才編表，14:00 前到最保險。</p>
+      <p>每場 16 名，賽程長度看實際到場人數。14:00 開始報到，14:30 準時開賽——沒報到的名額會讓給現場候補，請準時。</p>
     </div>
     <div>
       <h3 style="margin-top:0">改期怎麼辦</h3>
@@ -184,8 +215,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
   <h2 class="sec">常見問題</h2>
   <div class="faq">
-  <details open><summary>中和哪裡可以打戰鬥陀螺比賽？</summary><p>Go Shoot 中和門市，新北市中和區景平路593號之1，捷運中和站旁。門市 2026 年 9 月 1 日開幕，比賽自 9 月 5 日起每週六下午舉辦。</p></details>
-  <details><summary>要報名費嗎？</summary><p>不用。免費參加，當天到現場報名即可，不需要事先預約，也沒有低消。</p></details>
+  <details open><summary>中和哪裡可以打戰鬥陀螺比賽？</summary><p>Go Shoot 中和門市，新北市中和區景平路593號之1，捷運中和站旁。門市 2026 年 9 月 1 日開幕，比賽自 9 月 5 日起每週六下午舉辦，免費參加、加 LINE 報名。</p></details>
+  <details><summary>怎麼報名？</summary><p>加 Go Shoot 官方 LINE（<b>@722xefvm</b>）傳「報名」兩個字，回覆參賽者姓名與年齡後，我們會回一組報名號碼給你，當天憑號碼報到。每場限額 16 名，額滿可登記候補。<b>現場不受理報名。</b></p></details>
+  <details><summary>要報名費嗎？</summary><p>不用。免費參加，不收報名費，也沒有低消。</p></details>
   <details><summary>沒有陀螺可以參加嗎？</summary><p>比賽請自備陀螺與發射器。店內對戰區 24 小時開放可先練習，也販售 Beyblade X 商品；想確認現場庫存，用 LINE 官方帳號問最快。</p></details>
   <details><summary>比賽怎麼計分？</summary><p>採 Beyblade X 官方計分：Spin Finish 1 分、Over Finish 2 分、Burst Finish 2 分、Xtreme Finish 3 分，單場先取 4 分者勝。決賽三戰兩勝。</p></details>
   <details><summary>小朋友可以參加嗎？</summary><p>可以。視當天報名人數決定是否分兒童組與公開組，未滿 12 歲建議由家長陪同到場。</p></details>
