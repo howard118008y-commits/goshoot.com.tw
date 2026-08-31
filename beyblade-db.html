@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#1A1A1A">
-<title>戰鬥陀螺機體圖鑑｜Beyblade X 全機體一覽 - Go Shoot</title>
-<meta name="description" content="Beyblade X 戰鬥陀螺機體大全：BX、UX、CX 三世代 59 台全列表，含型號、配置代碼、攻擊／防禦／持久／平衡類型，可即時篩選。">
+<title>戰鬥陀螺商品圖鑑｜Beyblade X 全 118 款商品圖一覽 - Go Shoot</title>
+<meta name="description" content="Beyblade X 戰鬥陀螺商品大全：BX、UX、CX 與聯名共 118 款商品圖一覽，含商品編號、類型（入門組／增強包／隨機強化組／對戰盤套組／限定）與配置代碼，可即時篩選與排序。">
 <meta name="keywords" content="戰鬥陀螺 機體,Beyblade X 一覽,戰鬥陀螺 型號,BX UX CX,戰鬥陀螺 圖鑑,機體 大全">
 <link rel="canonical" href="https://goshoot.com.tw/beyblade-db.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
@@ -83,11 +83,38 @@ details p{color:var(--sec)}
 .related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
 footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
 footer a{color:var(--gs-accent)}
+
+/* 商品圖卡格線（118 款） */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 30px}
+@media(min-width:560px){.pgrid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:900px){.pgrid{grid-template-columns:repeat(5,1fr)}}
+.pc{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:border-color .15s,transform .15s}
+.pc:hover{border-color:rgba(255,90,45,.5);transform:translateY(-2px)}
+.pc.hide{display:none}
+.pc-img{position:relative;aspect-ratio:1;background:#0E0E10;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pc-img img{width:100%;height:100%;object-fit:contain;transform:scale(.92)}
+.pc-b{position:absolute;top:4px;font-size:9px;font-weight:800;padding:2px 5px;border-radius:5px;line-height:1.4;white-space:nowrap}
+.pc-b-lim{left:4px;background:rgba(255,90,45,.9);color:#1A1A1A}
+.pc-b-rnd{right:4px;background:rgba(255,194,75,.92);color:#1A1A1A}
+.pc-b-rec{right:4px;background:rgba(63,200,200,.92);color:#1A1A1A}
+.pc-body{padding:7px 9px 9px;background:rgba(0,0,0,.35)}
+.pc-name{font-size:13px;font-weight:800;line-height:1.35;margin-bottom:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-chips{display:flex;gap:4px;flex-wrap:wrap}
+.pc-c{font-size:10px;font-weight:700;padding:2px 6px;border-radius:5px;line-height:1.5}
+.pc-c-code{background:rgba(63,200,200,.16);color:#7FE0E0;border:1px solid rgba(63,200,200,.32)}
+.pc-c-cat{background:rgba(255,90,45,.16);color:#FF9B7A;border:1px solid rgba(255,90,45,.32)}
+.pc-c-spec{background:rgba(255,194,75,.14);color:#FFC24B;border:1px solid rgba(255,194,75,.3);font-family:'Poppins',monospace}
+#filters,#filters2{position:static;top:auto;background:transparent;backdrop-filter:none;padding:10px 0 0}
+#filters2{padding-top:6px}
+.sortrow{display:flex;align-items:center;gap:8px;margin:2px 0 0;font-size:13px;color:var(--sec)}
+.sortrow select{background:var(--paper);border:1px solid var(--line);color:var(--text);font:700 13px 'Noto Sans TC';padding:8px 12px;border-radius:10px;cursor:pointer}
+.fbtn.c.on{background:var(--gold);border-color:var(--gold);color:#1A1A1A}
+@media(max-width:560px){.pc-name{font-size:12px}.pc-c{font-size:9px}}
 /* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
 </style>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "戰鬥陀螺機體圖鑑｜Beyblade X 全機體一覽（BX／UX／CX）", "description": "Beyblade X 戰鬥陀螺機體大全：BX、UX、CX 三世代全列表，含型號、配置代碼與攻擊/防禦/持久/平衡類型，可篩選查找。", "datePublished": "2026-07-06", "dateModified": "2026-07-06", "author": {"@type": "Organization", "name": "Go Shoot"}, "publisher": {"@type": "Organization", "name": "Go Shoot", "logo": {"@type": "ImageObject", "url": "https://goshoot.com.tw/assets/favicon.svg"}}, "mainEntityOfPage": "https://goshoot.com.tw/beyblade-db.html", "inLanguage": "zh-Hant", "image": "https://goshoot.com.tw/assets/news/db-hero.jpg"}, {"@type": "ItemList", "name": "Beyblade X 戰鬥陀螺機體一覽", "numberOfItems": 59, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BX-01 蒼龍神劍（攻擊型）"}, {"@type": "ListItem", "position": 2, "name": "BX-02 惡魔紅鐮（平衡型）"}, {"@type": "ListItem", "position": 3, "name": "BX-03 魔導幻箭（持久型）"}, {"@type": "ListItem", "position": 4, "name": "BX-04 騎士重盾（防禦型）"}, {"@type": "ListItem", "position": 5, "name": "BX-13 騎士長槍（防禦型）"}, {"@type": "ListItem", "position": 6, "name": "BX-14 鮫鯊鋒鰭（攻擊型）"}, {"@type": "ListItem", "position": 7, "name": "BX-15 雄獅獵爪（平衡型）"}, {"@type": "ListItem", "position": 8, "name": "BX-16 王蛇鞭尾（持久型）"}, {"@type": "ListItem", "position": 9, "name": "BX-19 戰犀號角（防禦型）"}, {"@type": "ListItem", "position": 10, "name": "BX-20 蒼龍利刃（攻擊型）"}, {"@type": "ListItem", "position": 11, "name": "BX-23 鳳凰飛翼（攻擊型）"}, {"@type": "ListItem", "position": 12, "name": "BX-26 獨角刺心（平衡型）"}, {"@type": "ListItem", "position": 13, "name": "BX-27 幻神護甲（防禦型）"}, {"@type": "ListItem", "position": 14, "name": "BX-31 暴龍霸擊（攻擊型）"}, {"@type": "ListItem", "position": 15, "name": "BX-33 皓戰猛虎（平衡型）"}, {"@type": "ListItem", "position": 16, "name": "BX-34 蒼穹龍騎士（攻擊型）"}, {"@type": "ListItem", "position": 17, "name": "BX-35 玄冥戰甲（防禦型）"}, {"@type": "ListItem", "position": 18, "name": "BX-36 巨鯨怒濤（平衡型）"}, {"@type": "ListItem", "position": 19, "name": "BX-38 赫燃天鳳（平衡型）"}, {"@type": "ListItem", "position": 20, "name": "BX-39 護城龍神（平衡型）"}, {"@type": "ListItem", "position": 21, "name": "BX-44 三角強襲（防禦型）"}, {"@type": "ListItem", "position": 22, "name": "BX-45 武士魂斬（平衡型）"}, {"@type": "ListItem", "position": 23, "name": "BX-49 翔龍突擊（攻擊型）"}, {"@type": "ListItem", "position": 24, "name": "BX-50 聖殿光環（防禦型）"}, {"@type": "ListItem", "position": 25, "name": "UX-01 蒼龍爆刃（攻擊型）"}, {"@type": "ListItem", "position": 26, "name": "UX-02 惡魔戰槌（平衡型）"}, {"@type": "ListItem", "position": 27, "name": "UX-03 魔導神杖（持久型）"}, {"@type": "ListItem", "position": 28, "name": "UX-05 忍者闇影（防禦型）"}, {"@type": "ListItem", "position": 29, "name": "UX-06 雄獅巔峰（防禦型）"}, {"@type": "ListItem", "position": 30, "name": "UX-07 鳳凰尾翼（持久型）"}, {"@type": "ListItem", "position": 31, "name": "UX-08 霜輝銀狼（持久型）"}, {"@type": "ListItem", "position": 32, "name": "UX-09 武士星劍（攻擊型）"}, {"@type": "ListItem", "position": 33, "name": "UX-10 騎士圓甲（防禦型）"}, {"@type": "ListItem", "position": 34, "name": "UX-11 衝擊龍神（攻擊型）"}, {"@type": "ListItem", "position": 35, "name": "UX-12 幽靈元魂（持久型）"}, {"@type": "ListItem", "position": 36, "name": "UX-13 魔像奇岩（防禦型）"}, {"@type": "ListItem", "position": 37, "name": "UX-14 天蠍長矛（平衡型）"}, {"@type": "ListItem", "position": 38, "name": "UX-15 鮫鯊狂鱗（攻擊型）"}, {"@type": "ListItem", "position": 39, "name": "UX-16 時鐘幻象（持久型）"}, {"@type": "ListItem", "position": 40, "name": "UX-17 隕星龍騎士（攻擊型）"}, {"@type": "ListItem", "position": 41, "name": "UX-18 木乃伊詛咒（防禦型）"}, {"@type": "ListItem", "position": 42, "name": "UX-19 子彈獅鷲（平衡型）"}, {"@type": "ListItem", "position": 43, "name": "UX-20 榮耀女武神（榮耀戰神）（攻擊型）"}, {"@type": "ListItem", "position": 44, "name": "CX-01 蒼龍勇氣（攻擊型）"}, {"@type": "ListItem", "position": 45, "name": "CX-02 魔導至尊（持久型）"}, {"@type": "ListItem", "position": 46, "name": "CX-03 英仙幽冥（防禦型）"}, {"@type": "ListItem", "position": 47, "name": "CX-05 惡魔獵魂（平衡型）"}, {"@type": "ListItem", "position": 48, "name": "CX-06 極狐九尾（攻擊型）"}, {"@type": "ListItem", "position": 49, "name": "CX-07 天馬爆擊（攻擊型）"}, {"@type": "ListItem", "position": 50, "name": "CX-08 魔犬烈焰（持久型）"}, {"@type": "ListItem", "position": 51, "name": "CX-09 焰神滅世（平衡型）"}, {"@type": "ListItem", "position": 52, "name": "CX-10 銀狼狩獵（持久型）"}, {"@type": "ListItem", "position": 53, "name": "CX-11 帝王威能（平衡型）"}, {"@type": "ListItem", "position": 54, "name": "CX-12 鳳凰炎光（防禦型）"}, {"@type": "ListItem", "position": 55, "name": "CX-13 龍王閃擊（攻擊型）"}, {"@type": "ListItem", "position": 56, "name": "CX-14 騎士堡壘（防禦型）"}, {"@type": "ListItem", "position": 57, "name": "CX-15 邪神狂怒（持久型）"}, {"@type": "ListItem", "position": 58, "name": "CX-17 獨角三角（平衡型）"}, {"@type": "ListItem", "position": 59, "name": "CX-18 腕龍古鞭（持久型）"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://goshoot.com.tw/"}, {"@type": "ListItem", "position": 2, "name": "攻略", "item": "https://goshoot.com.tw/guide.html"}, {"@type": "ListItem", "position": 3, "name": "機體圖鑑", "item": "https://goshoot.com.tw/beyblade-db.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "戰鬥陀螺型號代碼（如 3-60F）是什麼意思？", "acceptedAnswer": {"@type": "Answer", "text": "代碼由「軌道環-高度＋軸尖」組成：前面數字是軌道環齒數（影響爆擊耐受），中間數字是高度（60/70/80 等，單位 0.1mm 級距），最後字母是軸尖型式（F=Flat 平軸利於進攻走位、B=Ball 球軸利於持久、N=Needle 針軸利於防守等）。"}}, {"@type": "Question", "name": "BX、UX、CX 三個系列差在哪？", "acceptedAnswer": {"@type": "Answer", "text": "BX 是 Beyblade X 第一世代基本系列；UX（Unique X）為第二世代，導入特殊機構（如彈跳、變形）；CX（Custom X）為第三世代，刀刃可再拆分為主刃＋輔刃與鎖圈，自訂度更高。三系列零件可互相組合。"}}, {"@type": "Question", "name": "新手第一顆機體怎麼選？", "acceptedAnswer": {"@type": "Answer", "text": "建議從含發射器的 Starter 入手，攻擊型手感最直觀（如蒼龍系）；想穩一點選平衡型。可先到 Go Shoot 中和門市試打，或用線上一番賞以親民單價抽正版機體。"}}, {"@type": "Question", "name": "哪裡可以買到正版 Beyblade X 機體？", "acceptedAnswer": {"@type": "Answer", "text": "認明 TAKARA TOMY 正版與 ST 安全標誌。Go Shoot 線上一番賞獎品皆為 TAKARA TOMY 正版（原廠盒裝可驗），拒絕盜版。"}}]}]}
+{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "戰鬥陀螺商品圖鑑｜Beyblade X 全 118 款商品一覽（BX／UX／CX／聯名）", "description": "Beyblade X 戰鬥陀螺商品大全：118 款商品圖一覽，含商品編號、商品類型與配置代碼，可即時篩選與排序。", "datePublished": "2026-07-06", "dateModified": "2026-08-31", "author": {"@type": "Organization", "name": "Go Shoot"}, "publisher": {"@type": "Organization", "name": "Go Shoot", "logo": {"@type": "ImageObject", "url": "https://goshoot.com.tw/assets/favicon.svg"}}, "mainEntityOfPage": "https://goshoot.com.tw/beyblade-db.html", "inLanguage": "zh-Hant", "image": "https://goshoot.com.tw/assets/news/db-hero.jpg"}, {"@type": "ItemList", "name": "Beyblade X 戰鬥陀螺商品一覽", "numberOfItems": 118, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "BX-01 蒼龍神劍（入門組）"}, {"@type": "ListItem", "position": 2, "name": "BX-02 惡魔紅鐮（入門組）"}, {"@type": "ListItem", "position": 3, "name": "BX-03 魔導幻箭（入門組）"}, {"@type": "ListItem", "position": 4, "name": "BX-04 騎士重盾（入門組）"}, {"@type": "ListItem", "position": 5, "name": "BX-05 魔導幻箭（增強包）"}, {"@type": "ListItem", "position": 6, "name": "BX-06 騎士重盾（增強包）"}, {"@type": "ListItem", "position": 7, "name": "BX-07 BX-07 起跑包（對戰盤套組）"}, {"@type": "ListItem", "position": 8, "name": "BX-08 BX-08 3on3 對戰套組（套組）"}, {"@type": "ListItem", "position": 9, "name": "BX-13 騎士長槍（增強包）"}, {"@type": "ListItem", "position": 10, "name": "BX-14 BX-14 隨機強化組 Vol.1（隨機強化組）"}, {"@type": "ListItem", "position": 11, "name": "BX-15 雄獅獵爪（入門組）"}, {"@type": "ListItem", "position": 12, "name": "BX-16 BX-16 王蛇鞭尾選集（隨機強化組）"}, {"@type": "ListItem", "position": 13, "name": "BX-17 BX-17 戰鬥入門套組（對戰盤套組）"}, {"@type": "ListItem", "position": 14, "name": "BX-19 戰犀號角（增強包）"}, {"@type": "ListItem", "position": 15, "name": "BX-20 BX-20 蒼龍利刃改造組（套組）"}, {"@type": "ListItem", "position": 16, "name": "BX-21 BX-21 惡魔鎖鏈改造組（套組）"}, {"@type": "ListItem", "position": 17, "name": "BX-22 蒼龍神劍入門包（對戰盤套組）"}, {"@type": "ListItem", "position": 18, "name": "BX-23 鳳凰飛翼（入門組）"}, {"@type": "ListItem", "position": 19, "name": "BX-24 BX-24 隨機強化組 Vol.2（隨機強化組）"}, {"@type": "ListItem", "position": 20, "name": "BX-26 獨角刺心（增強包）"}, {"@type": "ListItem", "position": 21, "name": "BX-27 幻神護甲選集（隨機強化組）"}, {"@type": "ListItem", "position": 22, "name": "BX-31 隨機強化組 Vol.3（隨機強化組）"}, {"@type": "ListItem", "position": 23, "name": "BX-33 皓戰猛虎（增強包）"}, {"@type": "ListItem", "position": 24, "name": "BX-34 蒼穹龍騎士（入門組）"}, {"@type": "ListItem", "position": 25, "name": "BX-35 隨機強化組 Vol.4（隨機強化組）"}, {"@type": "ListItem", "position": 26, "name": "BX-36 巨鯨怒濤選集（隨機強化組）"}, {"@type": "ListItem", "position": 27, "name": "BX-37 BX-37 雙極限對戰盤套組（對戰盤套組）"}, {"@type": "ListItem", "position": 28, "name": "BX-38 赫燃天鳳（增強包）"}, {"@type": "ListItem", "position": 29, "name": "BX-39 護城龍神選集（隨機強化組）"}, {"@type": "ListItem", "position": 30, "name": "BX-44 三角強襲（增強包）"}, {"@type": "ListItem", "position": 31, "name": "BX-45 武士魂斬（增強包）"}, {"@type": "ListItem", "position": 32, "name": "BX-46 蒼穹龍神 / 戰羊阻截（對戰盤套組）"}, {"@type": "ListItem", "position": 33, "name": "BX-48 隨機強化組 Vol.9（隨機強化組）"}, {"@type": "ListItem", "position": 34, "name": "BX-49 蒼龍突擊（入門組）"}, {"@type": "ListItem", "position": 35, "name": "BX-50 BX-50 隨機強化組 Vol.11（隨機強化組）"}, {"@type": "ListItem", "position": 36, "name": "BX-00 暴風天馬 3-70RA（入門組）"}, {"@type": "ListItem", "position": 37, "name": "BX-00 蒼龍神劍 3-60F 2.0 版（V2）（限定）"}, {"@type": "ListItem", "position": 38, "name": "BX-00 BXG-00 戰鬥陀螺 25 週年紀念套組（套組）"}, {"@type": "ListItem", "position": 39, "name": "BX-00 猛獁獠牙（長毛象）（限定）"}, {"@type": "ListItem", "position": 40, "name": "BX-00 巨鱷碾碎（綠鱷魚）（限定）"}, {"@type": "ListItem", "position": 41, "name": "BX-00 烈焰飛鳳S 3-80T（增強包）"}, {"@type": "ListItem", "position": 42, "name": "BXA-03 BXA-03 美國隊長 vs 紅浩克（套組）"}, {"@type": "ListItem", "position": 43, "name": "BXA-04 BXA-04 終極蜘蛛人 vs 綠惡魔（套組）"}, {"@type": "ListItem", "position": 44, "name": "BX-00 銀牙烈虎S 4-80P（增強包）"}, {"@type": "ListItem", "position": 45, "name": "BXA-05 BXA-05 歐比王肯諾比 vs 葛里維斯將軍（套組）"}, {"@type": "ListItem", "position": 46, "name": "BXA-06 BXA-06 丘巴卡 vs 風暴兵（套組）"}, {"@type": "ListItem", "position": 47, "name": "BXG-06 BXG-06 鮫鯊鋒鰭 5-60GF 藍色金屬塗裝（增強包）"}, {"@type": "ListItem", "position": 48, "name": "BX-00 BXG-07 隨機強化組 雷霆天龍 1-60F（隨機強化組）"}, {"@type": "ListItem", "position": 49, "name": "UX-10-02 翼龍神翼（套組內款）"}, {"@type": "ListItem", "position": 50, "name": "CX-11-03 鮫鯊撕裂 5-60 FB（套組內款）"}, {"@type": "ListItem", "position": 51, "name": "BX-00 堅甲戰龜S 7-60D（增強包）"}, {"@type": "ListItem", "position": 52, "name": "BXG-13 BXG-13 神力聖劍 3-60GF（增強包）"}, {"@type": "ListItem", "position": 53, "name": "UX-15-02 暴龍咆哮 1-70L（套組內款）"}, {"@type": "ListItem", "position": 54, "name": "BXG-20 BXG-20 巨岩雄獅 6-80GN（增強包）"}, {"@type": "ListItem", "position": 55, "name": "BXG-21 BXG-21 暴風巨神 2-70M（入門組）"}, {"@type": "ListItem", "position": 56, "name": "BX-00 BXG-22 暴風龍騎士 4-60RA（增強包）"}, {"@type": "ListItem", "position": 57, "name": "BXG-29 BXG-29 復仇者聯盟 鋼鐵人 vs 薩諾斯（套組）"}, {"@type": "ListItem", "position": 58, "name": "BXG-30 BXG-30 蜘蛛人 vs 猛毒（套組）"}, {"@type": "ListItem", "position": 59, "name": "BXG-33 BXG-33 路克天行者 vs 達斯維達（套組）"}, {"@type": "ListItem", "position": 60, "name": "BXG-34 BXG-34 曼達洛人 vs 星區長吉迪恩（套組）"}, {"@type": "ListItem", "position": 61, "name": "BXG-36 BXG-36 柯博文 vs 密卡登（套組）"}, {"@type": "ListItem", "position": 62, "name": "BXG-37 BXG-37 金剛王 vs 天王星（套組）"}, {"@type": "ListItem", "position": 63, "name": "BXG-40 BXG-40 侏羅紀世界 暴龍 vs 滄龍（套組）"}, {"@type": "ListItem", "position": 64, "name": "BXG-41 BXG-41 侏羅紀世界 棘龍 vs 風神翼龍（套組）"}, {"@type": "ListItem", "position": 65, "name": "UX-01 蒼龍爆刃（入門組）"}, {"@type": "ListItem", "position": 66, "name": "UX-02 惡魔戰鎚（入門組）"}, {"@type": "ListItem", "position": 67, "name": "UX-03 魔導神杖（增強包）"}, {"@type": "ListItem", "position": 68, "name": "UX-04 UX-04 戰鬥入門套組 U（對戰盤套組）"}, {"@type": "ListItem", "position": 69, "name": "UX-05 UX-05 忍者闇影選集（隨機強化組）"}, {"@type": "ListItem", "position": 70, "name": "UX-06 雄獅巔峰（增強包）"}, {"@type": "ListItem", "position": 71, "name": "UX-07 UX-07 鳳凰尾翼改造組（套組）"}, {"@type": "ListItem", "position": 72, "name": "UX-08 霜輝銀狼（入門組）"}, {"@type": "ListItem", "position": 73, "name": "UX-09 武士星劍（入門組）"}, {"@type": "ListItem", "position": 74, "name": "UX-10 UX-10 騎士圓甲改造組（客製套組）"}, {"@type": "ListItem", "position": 75, "name": "UX-11 衝擊龍神（入門組）"}, {"@type": "ListItem", "position": 76, "name": "UX-12 UX-12 隨機強化組 Vol.5（隨機強化組）"}, {"@type": "ListItem", "position": 77, "name": "UX-13 魔像奇岩（增強包）"}, {"@type": "ListItem", "position": 78, "name": "UX-14 天蠍長矛（入門組）"}, {"@type": "ListItem", "position": 79, "name": "UX-15 UX-15 鮫鯊狂鱗改造組（套組）"}, {"@type": "ListItem", "position": 80, "name": "UX-16 UX-16 時鐘幻象選集（隨機強化組）"}, {"@type": "ListItem", "position": 81, "name": "UX-17 隕星龍騎士（入門組）"}, {"@type": "ListItem", "position": 82, "name": "UX-18 UX-18 隨機強化組 Vol.8（隨機強化組）"}, {"@type": "ListItem", "position": 83, "name": "UX-19 子彈獅鷲（入門組）"}, {"@type": "ListItem", "position": 84, "name": "UX-20 榮耀戰神（入門組）"}, {"@type": "ListItem", "position": 85, "name": "UX-21 UX-21 惡魔幽冥改造組（套組）"}, {"@type": "ListItem", "position": 86, "name": "UX-00 武士星劍 5-60K 金屬塗裝:武士藍 足球日本代表 Ver.（限定）"}, {"@type": "ListItem", "position": 87, "name": "UX-00 空力天馬 3-70A 紅色版（限定）"}, {"@type": "ListItem", "position": 88, "name": "UX-00 榮耀戰神 LF 金屬塗裝:藍（限定）"}, {"@type": "ListItem", "position": 89, "name": "BXH-10 空力天馬 3-70A 藍綠版（限定）"}, {"@type": "ListItem", "position": 90, "name": "UX-00 大蛇星叢（限定）"}, {"@type": "ListItem", "position": 91, "name": "UX-00 飛龍颶風（限定）"}, {"@type": "ListItem", "position": 92, "name": "CX-01 蒼龍勇氣（入門組）"}, {"@type": "ListItem", "position": 93, "name": "CX-02 魔導至尊（入門組）"}, {"@type": "ListItem", "position": 94, "name": "CX-03 英仙幽冥（增強包）"}, {"@type": "ListItem", "position": 95, "name": "CX-04 CX-04 戰鬥入門套組 C（對戰盤套組）"}, {"@type": "ListItem", "position": 96, "name": "CX-05 隨機強化組 Vol.6（隨機強化組）"}, {"@type": "ListItem", "position": 97, "name": "CX-06 極狐九尾選集（隨機強化組）"}, {"@type": "ListItem", "position": 98, "name": "CX-07 天馬爆擊（入門組）"}, {"@type": "ListItem", "position": 99, "name": "CX-08 隨機強化組 Vol.7（隨機強化組）"}, {"@type": "ListItem", "position": 100, "name": "CX-09 焰神滅世（入門組）"}, {"@type": "ListItem", "position": 101, "name": "CX-10 銀狼狩獵（增強包）"}, {"@type": "ListItem", "position": 102, "name": "CX-11 帝王威能改造組（套組）"}, {"@type": "ListItem", "position": 103, "name": "CX-12 鳳凰閃焰（增強包）"}, {"@type": "ListItem", "position": 104, "name": "CX-13 龍王閃擊（入門組）"}, {"@type": "ListItem", "position": 105, "name": "CX-14 騎士堡壘（入門組）"}, {"@type": "ListItem", "position": 106, "name": "CX-15 邪神狂怒（增強包）"}, {"@type": "ListItem", "position": 107, "name": "CX-16 CX-16 極限衝擊對戰組C（對戰盤套組）"}, {"@type": "ListItem", "position": 108, "name": "CX-17 隨機強化組 Vol.10（隨機強化組）"}, {"@type": "ListItem", "position": 109, "name": "CX-18 腕龍鞭打選集（隨機強化組）"}, {"@type": "ListItem", "position": 110, "name": "CX-19 巨鱷碾壓選集（隨機強化組）"}, {"@type": "ListItem", "position": 111, "name": "CX-00 迪卡狂怒（入門組）"}, {"@type": "ListItem", "position": 112, "name": "CX-00 CX-00 福音戰士改造組（套組）"}, {"@type": "ListItem", "position": 113, "name": "CX-00 蒼龍勇氣 S6-60V 金屬塗裝:黑（限定）"}, {"@type": "ListItem", "position": 114, "name": "CX-00 龍神勇氣 G4-70I 金屬塗裝:藍（限定）"}, {"@type": "ListItem", "position": 115, "name": "CX-00 虎頭蜂碉堡 R7-60T 金屬塗裝:黃（限定）"}, {"@type": "ListItem", "position": 116, "name": "CX-00 海妖里格爾 S3-70O 金屬塗裝:藍（限定）"}, {"@type": "ListItem", "position": 117, "name": "CX-00 巴克斯鹿角 B2-60D 金屬塗裝:橙（限定）"}, {"@type": "ListItem", "position": 118, "name": "CX-00 戰神伏特（限定）"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://goshoot.com.tw/"}, {"@type": "ListItem", "position": 2, "name": "攻略", "item": "https://goshoot.com.tw/guide.html"}, {"@type": "ListItem", "position": 3, "name": "商品圖鑑", "item": "https://goshoot.com.tw/beyblade-db.html"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "戰鬥陀螺型號代碼（如 3-60F）是什麼意思？", "acceptedAnswer": {"@type": "Answer", "text": "代碼由「軌道環-高度＋軸尖」組成：前面數字是軌道環齒數（影響爆擊耐受），中間數字是高度（60/70/80 等，單位 0.1mm 級距），最後字母是軸尖型式（F=Flat 平軸利於進攻走位、B=Ball 球軸利於持久、N=Needle 針軸利於防守等）。"}}, {"@type": "Question", "name": "BX、UX、CX 三個系列差在哪？", "acceptedAnswer": {"@type": "Answer", "text": "BX 是 Beyblade X 第一世代基本系列；UX（Unique X）為第二世代，導入特殊機構（如彈跳、變形）；CX（Custom X）為第三世代，刀刃可再拆分為主刃＋輔刃與鎖圈，自訂度更高。三系列零件可互相組合。"}}, {"@type": "Question", "name": "新手第一顆機體怎麼選？", "acceptedAnswer": {"@type": "Answer", "text": "建議從含發射器的 Starter 入手，攻擊型手感最直觀（如蒼龍系）；想穩一點選平衡型。可先到 Go Shoot 中和門市試打，或用線上一番賞以親民單價抽正版機體。"}}, {"@type": "Question", "name": "哪裡可以買到正版 Beyblade X 機體？", "acceptedAnswer": {"@type": "Answer", "text": "認明 TAKARA TOMY 正版與 ST 安全標誌。Go Shoot 線上一番賞獎品皆為 TAKARA TOMY 正版（原廠盒裝可驗），拒絕盜版。"}}]}]}
 </script>
 <link rel="stylesheet" href="goshoot-ui.css">
 </head>
@@ -108,329 +135,153 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </div></nav>
 
 <article class="wrap">
-  <nav class="crumb"><a href="index.html">首頁</a> ／ <a href="guide.html">攻略</a> ／ 機體圖鑑</nav>
-  <h1>戰鬥陀螺機體圖鑑<br><span style="font-size:.62em;color:var(--sec);font-weight:700">Beyblade X 全機體一覽（BX／UX／CX）</span></h1>
-  <p class="lead">三世代 <b>59 台機體</b>一次查：型號、配置代碼、類型取向。點下方按鈕即時篩選——新手選第一顆、老手查配置都好用。想自己配零件？用〈<a href="beyblade-calculator.html" style="color:var(--gs-accent)">改裝計算器</a>〉即時算雷達數值。<span class="note">（更新：2026-07-06）</span></p>
+  <nav class="crumb"><a href="index.html">首頁</a> ／ <a href="guide.html">攻略</a> ／ 商品圖鑑</nav>
+  <h1>戰鬥陀螺商品圖鑑<br><span style="font-size:.62em;color:var(--sec);font-weight:700">Beyblade X 全 118 款商品一覽（BX／UX／CX／聯名）</span></h1>
+  <p class="lead">Beyblade X 三世代 <b>118 款商品</b>一次查：入門組、增強包、隨機強化組、對戰盤套組、限定與聯名款，每款附商品圖與商品編號，58 款另標配置代碼。點下方按鈕即時篩選——新手選第一顆、老手補零件都好用。想自己配零件？看〈<a href="beyblade-parts.html" style="color:var(--gs-accent)">零件圖鑑</a>〉或用〈<a href="beyblade-calculator.html" style="color:var(--gs-accent)">改裝計算器</a>〉。<span class="note">（更新：2026-08-31）</span></p>
 
-  <img src="assets/news/db-hero.jpg" alt="戰鬥陀螺三世代機體並列的能量抽象示意圖" style="width:100%;border-radius:16px;margin:6px 0 6px;border:1px solid var(--line)" loading="lazy">
 
   <div class="filters" id="filters">
-    <input type="search" id="search" class="db-search" placeholder="搜尋機體編號或名稱…" aria-label="搜尋機體編號或名稱">
+    <input type="search" id="search" class="db-search" placeholder="搜尋商品編號或名稱…" aria-label="搜尋商品編號或名稱">
     <button class="fbtn s on" data-f="s:all">全部系列</button>
-    <button class="fbtn s" data-f="s:BX">BX（24）</button>
-    <button class="fbtn s" data-f="s:UX">UX（19）</button>
-    <button class="fbtn s" data-f="s:CX">CX（16）</button>
-    <span style="width:10px"></span>
-    <button class="fbtn on" data-f="t:all">全部類型</button>
-    <button class="fbtn" data-f="t:atk">攻擊</button>
-    <button class="fbtn" data-f="t:def">防禦</button>
-    <button class="fbtn" data-f="t:sta">持久</button>
-    <button class="fbtn" data-f="t:bal">平衡</button>
+    <button class="fbtn s" data-f="s:BX">BX（49）</button>
+    <button class="fbtn s" data-f="s:UX">UX（29）</button>
+    <button class="fbtn s" data-f="s:CX">CX（26）</button>
+    <button class="fbtn s" data-f="s:聯名">聯名（14）</button>
   </div>
-  <div class="legend">
-    <b><span class="dot" style="background:#FF5A2D"></span>攻擊：速度與爆發</b>
-    <b><span class="dot" style="background:#3FC8C8"></span>防禦：扛住衝擊</b>
-    <b><span class="dot" style="background:#FF5A2D"></span>持久：轉得最久</b>
-    <b><span class="dot" style="background:#FFC24B"></span>平衡：全能取向</b>
+  <div class="filters" id="filters2">
+    <button class="fbtn c on" data-f="c:all">全部類型</button>
+    <button class="fbtn c" data-f="c:入門組">入門組（26）</button>
+    <button class="fbtn c" data-f="c:套組">套組（21）</button>
+    <button class="fbtn c" data-f="c:隨機強化組">隨機強化組（21）</button>
+    <button class="fbtn c" data-f="c:增強包">增強包（23）</button>
+    <button class="fbtn c" data-f="c:對戰盤套組">對戰盤套組（8）</button>
+    <button class="fbtn c" data-f="c:套組內款">套組內款（3）</button>
+    <button class="fbtn c" data-f="c:客製套組">客製套組（1）</button>
+    <button class="fbtn c" data-f="c:限定">限定（15）</button>
   </div>
-  <div class="count" id="count">顯示 59 / 59 台</div>
+  <div class="sortrow"><label for="sortsel">排序</label>
+    <select id="sortsel"><option value="default">系列＋編號（預設）</option><option value="name">名稱：中文 A → Z</option></select></div>
+  <div class="count" id="count">顯示 118 / 118 款</div>
 
-  <div class="grid" id="grid">
-    <div class="mc" data-s="BX" data-t="atk">
-      <div class="mc-code">BX-01<span class="mc-spec">3-60F</span></div>
-      <div class="mc-name">蒼龍神劍</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="bal">
-      <div class="mc-code">BX-02<span class="mc-spec">4-60T</span></div>
-      <div class="mc-name">惡魔紅鐮</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="sta">
-      <div class="mc-code">BX-03<span class="mc-spec">4-80B</span></div>
-      <div class="mc-name">魔導幻箭</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="def">
-      <div class="mc-code">BX-04<span class="mc-spec">3-80N</span></div>
-      <div class="mc-name">騎士重盾</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="def">
-      <div class="mc-code">BX-13<span class="mc-spec">4-80HN</span></div>
-      <div class="mc-name">騎士長槍</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="atk">
-      <div class="mc-code">BX-14<span class="mc-spec">3-60LF</span></div>
-      <div class="mc-name">鮫鯊鋒鰭</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="bal">
-      <div class="mc-code">BX-15<span class="mc-spec">5-60P</span></div>
-      <div class="mc-name">雄獅獵爪</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="sta">
-      <div class="mc-code">BX-16<span class="mc-spec">5-80O</span></div>
-      <div class="mc-name">王蛇鞭尾</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="def">
-      <div class="mc-code">BX-19<span class="mc-spec">3-80S</span></div>
-      <div class="mc-name">戰犀號角</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="atk">
-      <div class="mc-code">BX-20<span class="mc-spec">4-60R</span></div>
-      <div class="mc-name">蒼龍利刃</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="atk">
-      <div class="mc-code">BX-23<span class="mc-spec">9-60GF</span></div>
-      <div class="mc-name">鳳凰飛翼</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="bal">
-      <div class="mc-code">BX-26<span class="mc-spec">5-60GP</span></div>
-      <div class="mc-name">獨角刺心</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="def">
-      <div class="mc-code">BX-27<span class="mc-spec">9-80GN</span></div>
-      <div class="mc-name">幻神護甲</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="atk">
-      <div class="mc-code">BX-31<span class="mc-spec">4-70Q</span></div>
-      <div class="mc-name">暴龍霸擊</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="bal">
-      <div class="mc-code">BX-33<span class="mc-spec">3-60U</span></div>
-      <div class="mc-name">皓戰猛虎</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="atk">
-      <div class="mc-code">BX-34<span class="mc-spec">2-60C</span></div>
-      <div class="mc-name">蒼穹龍騎士</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="def">
-      <div class="mc-code">BX-35<span class="mc-spec">4-60D</span></div>
-      <div class="mc-name">玄冥戰甲</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="bal">
-      <div class="mc-code">BX-36<span class="mc-spec">5-80E</span></div>
-      <div class="mc-name">巨鯨怒濤</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="bal">
-      <div class="mc-code">BX-38<span class="mc-spec">4-70TP</span></div>
-      <div class="mc-name">赫燃天鳳</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="bal">
-      <div class="mc-code">BX-39<span class="mc-spec">7-80GP</span></div>
-      <div class="mc-name">護城龍神</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="def">
-      <div class="mc-code">BX-44<span class="mc-spec">M-85BS</span></div>
-      <div class="mc-name">三角強襲</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="bal">
-      <div class="mc-code">BX-45<span class="mc-spec">6-70M</span></div>
-      <div class="mc-name">武士魂斬</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="atk">
-      <div class="mc-code">BX-49<span class="mc-spec">4-50FF</span></div>
-      <div class="mc-name">翔龍突擊</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="BX" data-t="def">
-      <div class="mc-code">BX-50<span class="mc-spec">0-80DS</span></div>
-      <div class="mc-name">聖殿光環</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="atk">
-      <div class="mc-code">UX-01<span class="mc-spec">1-60A</span></div>
-      <div class="mc-name">蒼龍爆刃</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="bal">
-      <div class="mc-code">UX-02<span class="mc-spec">3-70H</span></div>
-      <div class="mc-name">惡魔戰槌</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="sta">
-      <div class="mc-code">UX-03<span class="mc-spec">5-70DB</span></div>
-      <div class="mc-name">魔導神杖</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="def">
-      <div class="mc-code">UX-05<span class="mc-spec">1-80MN</span></div>
-      <div class="mc-name">忍者闇影</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="def">
-      <div class="mc-code">UX-06<span class="mc-spec">7-60GN</span></div>
-      <div class="mc-name">雄獅巔峰</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="sta">
-      <div class="mc-code">UX-07<span class="mc-spec">9-70G</span></div>
-      <div class="mc-name">鳳凰尾翼</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="sta">
-      <div class="mc-code">UX-08<span class="mc-spec">3-80FB</span></div>
-      <div class="mc-name">霜輝銀狼</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="atk">
-      <div class="mc-code">UX-09<span class="mc-spec">2-70L</span></div>
-      <div class="mc-name">武士星劍</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="def">
-      <div class="mc-code">UX-10<span class="mc-spec">3-85BS</span></div>
-      <div class="mc-name">騎士圓甲</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="atk">
-      <div class="mc-code">UX-11<span class="mc-spec">9-60LR</span></div>
-      <div class="mc-name">衝擊龍神</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="sta">
-      <div class="mc-code">UX-12<span class="mc-spec">0-80GB</span></div>
-      <div class="mc-name">幽靈元魂</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="def">
-      <div class="mc-code">UX-13<span class="mc-spec">1-60UN</span></div>
-      <div class="mc-name">魔像奇岩</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="bal">
-      <div class="mc-code">UX-14<span class="mc-spec">0-70Z</span></div>
-      <div class="mc-name">天蠍長矛</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="atk">
-      <div class="mc-code">UX-15<span class="mc-spec">4-50UF</span></div>
-      <div class="mc-name">鮫鯊狂鱗</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="sta">
-      <div class="mc-code">UX-16<span class="mc-spec">9-65B</span></div>
-      <div class="mc-name">時鐘幻象</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="atk">
-      <div class="mc-code">UX-17<span class="mc-spec">3-70J</span></div>
-      <div class="mc-name">隕星龍騎士</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="def">
-      <div class="mc-code">UX-18<span class="mc-spec">7-55W</span></div>
-      <div class="mc-name">木乃伊詛咒</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="bal">
-      <div class="mc-code">UX-19<span class="mc-spec">H</span></div>
-      <div class="mc-name">子彈獅鷲</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="UX" data-t="atk">
-      <div class="mc-code">UX-20<span class="mc-spec">LF</span></div>
-      <div class="mc-name">榮耀女武神（榮耀戰神）</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span><a href="article-beyblade-ux20-valkyrie.html" style="color:var(--gs-accent);font-size:12px;font-weight:700">新品情報 →</a></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="atk">
-      <div class="mc-code">CX-01<span class="mc-spec">6-60V</span></div>
-      <div class="mc-name">蒼龍勇氣</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="sta">
-      <div class="mc-code">CX-02<span class="mc-spec">4-55LO</span></div>
-      <div class="mc-name">魔導至尊</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="def">
-      <div class="mc-code">CX-03<span class="mc-spec">6-80W</span></div>
-      <div class="mc-name">英仙幽冥</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="bal">
-      <div class="mc-code">CX-05<span class="mc-spec">4-70K</span></div>
-      <div class="mc-name">惡魔獵魂</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="atk">
-      <div class="mc-code">CX-06<span class="mc-spec">9-70GR</span></div>
-      <div class="mc-name">極狐九尾</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="atk">
-      <div class="mc-code">CX-07<span class="mc-spec">Tr</span></div>
-      <div class="mc-name">天馬爆擊</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="sta">
-      <div class="mc-code">CX-08<span class="mc-spec">5-80WB</span></div>
-      <div class="mc-name">魔犬烈焰</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="bal">
-      <div class="mc-code">CX-09<span class="mc-spec">5-70TK</span></div>
-      <div class="mc-name">焰神滅世</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="sta">
-      <div class="mc-code">CX-10<span class="mc-spec">0-60DB</span></div>
-      <div class="mc-name">銀狼狩獵</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="bal">
-      <div class="mc-code">CX-11<span class="mc-spec">Op</span></div>
-      <div class="mc-name">帝王威能</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="def">
-      <div class="mc-code">CX-12<span class="mc-spec">9-80WW</span></div>
-      <div class="mc-name">鳳凰炎光</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="atk">
-      <div class="mc-code">CX-13<span class="mc-spec">1-50I</span></div>
-      <div class="mc-name">龍王閃擊</div>
-      <div class="mc-foot"><span class="tag t-atk">攻擊型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="def">
-      <div class="mc-code">CX-14<span class="mc-spec">8-70UN</span></div>
-      <div class="mc-name">騎士堡壘</div>
-      <div class="mc-foot"><span class="tag t-def">防禦型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="sta">
-      <div class="mc-code">CX-15<span class="mc-spec">4-55Y</span></div>
-      <div class="mc-name">邪神狂怒</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="bal">
-      <div class="mc-code">CX-17<span class="mc-spec">3-60GU</span></div>
-      <div class="mc-name">獨角三角</div>
-      <div class="mc-foot"><span class="tag t-bal">平衡型</span></div>
-    </div>
-    <div class="mc" data-s="CX" data-t="sta">
-      <div class="mc-code">CX-18<span class="mc-spec">5-70Nr</span></div>
-      <div class="mc-name">腕龍古鞭</div>
-      <div class="mc-foot"><span class="tag t-sta">持久型</span></div>
-    </div>
+  <div class="pgrid" id="grid">
+    <div class="pc" data-s="BX" data-c="入門組" data-n="蒼龍神劍" data-o="0" data-k="蒼龍神劍 bx-01 bx-01 dran sword 3-60f 蒼龍神劍bx01bx01dransword360f"><div class="pc-img"><img src="assets/parts/combos/bx-01.webp" alt="蒼龍神劍 BX-01 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-lim">+1 限定</span></div><div class="pc-body"><div class="pc-name">蒼龍神劍</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-01</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">3-60F</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="惡魔紅鐮" data-o="1" data-k="惡魔紅鐮 bx-02 bx-02 hells scythe 4-60t 惡魔紅鐮bx02bx02hellsscythe460t"><div class="pc-img"><img src="assets/parts/combos/bx-02.webp" alt="惡魔紅鐮 BX-02 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">惡魔紅鐮</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-02</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">4-60T</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="魔導幻箭" data-o="2" data-k="魔導幻箭 bx-03 bx-03 wizard arrow 4-80b 魔導幻箭bx03bx03wizardarrow480b"><div class="pc-img"><img src="assets/parts/combos/bx-03.webp" alt="魔導幻箭 BX-03 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">魔導幻箭</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-03</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">4-80B</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="騎士重盾" data-o="3" data-k="騎士重盾 bx-04 bx-04 knight shield 3-80n 騎士重盾bx04bx04knightshield380n"><div class="pc-img"><img src="assets/parts/combos/bx-04.webp" alt="騎士重盾 BX-04 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">騎士重盾</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-04</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">3-80N</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="魔導幻箭" data-o="4" data-k="魔導幻箭 bx-05 bx-05 wizard arrow  魔導幻箭bx05bx05wizardarrow"><div class="pc-img"><img src="assets/parts/combos/bx-05.webp" alt="魔導幻箭 BX-05 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">魔導幻箭</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-05</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="騎士重盾" data-o="5" data-k="騎士重盾 bx-06 bx-06 knight shield  騎士重盾bx06bx06knightshield"><div class="pc-img"><img src="assets/parts/combos/bx-06.webp" alt="騎士重盾 BX-06 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">騎士重盾</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-06</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="對戰盤套組" data-n="BX-07 起跑包" data-o="6" data-k="bx-07 起跑包 bx-07 bx-07 start dash set  bx07起跑包bx07bx07startdashset"><div class="pc-img"><img src="assets/parts/combos/bx-07.webp" alt="BX-07 起跑包 BX-07 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BX-07 起跑包</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-07</span><span class="pc-c pc-c-cat">對戰盤套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="套組" data-n="BX-08 3on3 對戰套組" data-o="7" data-k="bx-08 3on3 對戰套組 bx-08 bx-08 3on3 deck set  bx083on3對戰套組bx08bx083on3deckset"><div class="pc-img"><img src="assets/parts/combos/bx-08.webp" alt="BX-08 3on3 對戰套組 BX-08 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BX-08 3on3 對戰套組</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-08</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="騎士長槍" data-o="8" data-k="騎士長槍 bx-13 bx-13 knight lance 4-80hn 騎士長槍bx13bx13knightlance480hn"><div class="pc-img"><img src="assets/parts/combos/bx-13.webp" alt="騎士長槍 BX-13 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">騎士長槍</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-13</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">4-80HN</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="BX-14 隨機強化組 Vol.1" data-o="9" data-k="bx-14 隨機強化組 vol.1 bx-14 bx-14 random booster vol.1 3-60lf bx14隨機強化組vol.1bx14bx14randomboostervol.1360lf"><div class="pc-img"><img src="assets/parts/combos/bx-14.webp" alt="BX-14 隨機強化組 Vol.1 BX-14 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">BX-14 隨機強化組 Vol.1</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-14</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">3-60LF</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="雄獅獵爪" data-o="10" data-k="雄獅獵爪 bx-15 bx-15 leon claw 5-60p 雄獅獵爪bx15bx15leonclaw560p"><div class="pc-img"><img src="assets/parts/combos/bx-15.webp" alt="雄獅獵爪 BX-15 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">雄獅獵爪</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-15</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">5-60P</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="BX-16 王蛇鞭尾選集" data-o="11" data-k="bx-16 王蛇鞭尾選集 bx-16 bx-16 random booster viper tail select 5-80o bx16王蛇鞭尾選集bx16bx16randomboostervipertailselect580o"><div class="pc-img"><img src="assets/parts/combos/bx-16.webp" alt="BX-16 王蛇鞭尾選集 BX-16 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">BX-16 王蛇鞭尾選集</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-16</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">5-80O</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="對戰盤套組" data-n="BX-17 戰鬥入門套組" data-o="12" data-k="bx-17 戰鬥入門套組 bx-17 bx-17 battle entry set  bx17戰鬥入門套組bx17bx17battleentryset"><div class="pc-img"><img src="assets/parts/combos/bx-17.webp" alt="BX-17 戰鬥入門套組 BX-17 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BX-17 戰鬥入門套組</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-17</span><span class="pc-c pc-c-cat">對戰盤套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="戰犀號角" data-o="13" data-k="戰犀號角 bx-19 bx-19 rhino horn 3-80s 戰犀號角bx19bx19rhinohorn380s"><div class="pc-img"><img src="assets/parts/combos/bx-19.webp" alt="戰犀號角 BX-19 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">戰犀號角</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-19</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">3-80S</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="套組" data-n="BX-20 蒼龍利刃改造組" data-o="14" data-k="bx-20 蒼龍利刃改造組 bx-20 bx-20 dran dagger deck set 4-60r bx20蒼龍利刃改造組bx20bx20drandaggerdeckset460r"><div class="pc-img"><img src="assets/parts/combos/bx-20.webp" alt="BX-20 蒼龍利刃改造組 BX-20 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BX-20 蒼龍利刃改造組</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-20</span><span class="pc-c pc-c-cat">套組</span><span class="pc-c pc-c-spec">4-60R</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="套組" data-n="BX-21 惡魔鎖鏈改造組" data-o="15" data-k="bx-21 惡魔鎖鏈改造組 bx-21 bx-21 hells chain deck set  bx21惡魔鎖鏈改造組bx21bx21hellschaindeckset"><div class="pc-img"><img src="assets/parts/combos/bx-21.webp" alt="BX-21 惡魔鎖鏈改造組 BX-21 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BX-21 惡魔鎖鏈改造組</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-21</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="對戰盤套組" data-n="蒼龍神劍入門包" data-o="16" data-k="蒼龍神劍入門包 bx-22 bx-22 dran sword entry package  蒼龍神劍入門包bx22bx22dranswordentrypackage"><div class="pc-img"><img src="assets/parts/combos/bx-22.webp" alt="蒼龍神劍入門包 BX-22 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rec">站內推薦</span></div><div class="pc-body"><div class="pc-name">蒼龍神劍入門包</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-22</span><span class="pc-c pc-c-cat">對戰盤套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="鳳凰飛翼" data-o="17" data-k="鳳凰飛翼 bx-23 bx-23 phoenix wing 9-60gf 鳳凰飛翼bx23bx23phoenixwing960gf"><div class="pc-img"><img src="assets/parts/combos/bx-23.webp" alt="鳳凰飛翼 BX-23 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">鳳凰飛翼</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-23</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">9-60GF</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="BX-24 隨機強化組 Vol.2" data-o="18" data-k="bx-24 隨機強化組 vol.2 bx-24 bx-24 random booster vol.2  bx24隨機強化組vol.2bx24bx24randomboostervol.2"><div class="pc-img"><img src="assets/parts/combos/bx-24.webp" alt="BX-24 隨機強化組 Vol.2 BX-24 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">BX-24 隨機強化組 Vol.2</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-24</span><span class="pc-c pc-c-cat">隨機強化組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="獨角刺心" data-o="19" data-k="獨角刺心 bx-26 bx-26 unicorn sting 5-60gp 獨角刺心bx26bx26unicornsting560gp"><div class="pc-img"><img src="assets/parts/combos/bx-26.webp" alt="獨角刺心 BX-26 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">獨角刺心</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-26</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">5-60GP</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="幻神護甲選集" data-o="20" data-k="幻神護甲選集 bx-27 bx-27 sphinx cowl select 9-80gn 幻神護甲選集bx27bx27sphinxcowlselect980gn"><div class="pc-img"><img src="assets/parts/combos/bx-27.webp" alt="幻神護甲選集 BX-27 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">幻神護甲選集</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-27</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">9-80GN</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="隨機強化組 Vol.3" data-o="21" data-k="隨機強化組 vol.3 bx-31 bx-31 random booster vol.3 4-70q 隨機強化組vol.3bx31bx31randomboostervol.3470q"><div class="pc-img"><img src="assets/parts/combos/bx-31.webp" alt="隨機強化組 Vol.3 BX-31 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">隨機強化組 Vol.3</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-31</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">4-70Q</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="皓戰猛虎" data-o="22" data-k="皓戰猛虎 bx-33 bx-33 weiss tiger 3-60u 皓戰猛虎bx33bx33weisstiger360u"><div class="pc-img"><img src="assets/parts/combos/bx-33.webp" alt="皓戰猛虎 BX-33 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">皓戰猛虎</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-33</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">3-60U</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="蒼穹龍騎士" data-o="23" data-k="蒼穹龍騎士 bx-34 bx-34 cobalt dragoon 2-60c 蒼穹龍騎士bx34bx34cobaltdragoon260c"><div class="pc-img"><img src="assets/parts/combos/bx-34.webp" alt="蒼穹龍騎士 BX-34 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">蒼穹龍騎士</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-34</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">2-60C</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="隨機強化組 Vol.4" data-o="24" data-k="隨機強化組 vol.4 bx-35 bx-35 random booster vol.4 4-60d 隨機強化組vol.4bx35bx35randomboostervol.4460d"><div class="pc-img"><img src="assets/parts/combos/bx-35.webp" alt="隨機強化組 Vol.4 BX-35 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">隨機強化組 Vol.4</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-35</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">4-60D</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="巨鯨怒濤選集" data-o="25" data-k="巨鯨怒濤選集 bx-36 bx-36 whale wave select 5-80e 巨鯨怒濤選集bx36bx36whalewaveselect580e"><div class="pc-img"><img src="assets/parts/combos/bx-36.webp" alt="巨鯨怒濤選集 BX-36 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">巨鯨怒濤選集</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-36</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">5-80E</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="對戰盤套組" data-n="BX-37 雙極限對戰盤套組" data-o="26" data-k="bx-37 雙極限對戰盤套組 bx-37 bx-37 double extreme stadium set  bx37雙極限對戰盤套組bx37bx37doubleextremestadiumset"><div class="pc-img"><img src="assets/parts/combos/bx-37.webp" alt="BX-37 雙極限對戰盤套組 BX-37 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BX-37 雙極限對戰盤套組</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-37</span><span class="pc-c pc-c-cat">對戰盤套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="赫燃天鳳" data-o="27" data-k="赫燃天鳳 bx-38 bx-38 crimson garuda 4-70tp 赫燃天鳳bx38bx38crimsongaruda470tp"><div class="pc-img"><img src="assets/parts/combos/bx-38.webp" alt="赫燃天鳳 BX-38 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">赫燃天鳳</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-38</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">4-70TP</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="護城龍神選集" data-o="28" data-k="護城龍神選集 bx-39 bx-39 shelter drake select 7-80gp 護城龍神選集bx39bx39shelterdrakeselect780gp"><div class="pc-img"><img src="assets/parts/combos/bx-39.webp" alt="護城龍神選集 BX-39 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">護城龍神選集</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-39</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">7-80GP</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="三角強襲" data-o="29" data-k="三角強襲 bx-44 bx-44 tricera press m-85bs 三角強襲bx44bx44tricerapressm85bs"><div class="pc-img"><img src="assets/parts/combos/bx-44.webp" alt="三角強襲 BX-44 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">三角強襲</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-44</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">M-85BS</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="武士魂斬" data-o="30" data-k="武士魂斬 bx-45 bx-45 samurai calibur 6-70m 武士魂斬bx45bx45samuraicalibur670m"><div class="pc-img"><img src="assets/parts/combos/bx-45.webp" alt="武士魂斬 BX-45 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">武士魂斬</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-45</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">6-70M</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="對戰盤套組" data-n="蒼穹龍神 / 戰羊阻截" data-o="31" data-k="蒼穹龍神 / 戰羊阻截 bx-46 bx-46 cobalt drake / goat tackle  蒼穹龍神/戰羊阻截bx46bx46cobaltdrake/goattackle"><div class="pc-img"><img src="assets/parts/combos/bx-46.webp" alt="蒼穹龍神 / 戰羊阻截 BX-46 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">蒼穹龍神 / 戰羊阻截</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-46</span><span class="pc-c pc-c-cat">對戰盤套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="隨機強化組 Vol.9" data-o="32" data-k="隨機強化組 vol.9 bx-48 bx-48 random booster vol.9  隨機強化組vol.9bx48bx48randomboostervol.9"><div class="pc-img"><img src="assets/parts/combos/bx-48.webp" alt="隨機強化組 Vol.9 BX-48 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">隨機強化組 Vol.9</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-48</span><span class="pc-c pc-c-cat">隨機強化組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="蒼龍突擊" data-o="33" data-k="蒼龍突擊 bx-49 bx-49 dran strike 4-50ff 蒼龍突擊bx49bx49dranstrike450ff"><div class="pc-img"><img src="assets/parts/combos/bx-49.webp" alt="蒼龍突擊 BX-49 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">蒼龍突擊</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-49</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">4-50FF</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="BX-50 隨機強化組 Vol.11" data-o="34" data-k="bx-50 隨機強化組 vol.11 bx-50 bx-50 random booster vol.11 0-80ds bx50隨機強化組vol.11bx50bx50randomboostervol.11080ds"><div class="pc-img"><img src="assets/parts/combos/bx-50.webp" alt="BX-50 隨機強化組 Vol.11 BX-50 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">BX-50 隨機強化組 Vol.11</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-50</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">0-80DS</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="暴風天馬 3-70RA" data-o="35" data-k="暴風天馬 3-70ra bx-00 bx-00-bxg47 storm pegasis 3-70ra  暴風天馬370rabx00bx00bxg47stormpegasis370ra"><div class="pc-img"><img src="assets/parts/combos/bx-00-bxg47.webp" alt="暴風天馬 3-70RA BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">暴風天馬 3-70RA</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">入門組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="限定" data-n="蒼龍神劍 3-60F 2.0 版（V2）" data-o="36" data-k="蒼龍神劍 3-60f 2.0 版（v2） bx-00 bx-00-bxg49 dran sword 3-60f version 2.0  蒼龍神劍360f2.0版（v2）bx00bx00bxg49dransword360fversion2.0"><div class="pc-img"><img src="assets/parts/combos/bx-00-bxg49.webp" alt="蒼龍神劍 3-60F 2.0 版（V2） BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">蒼龍神劍 3-60F 2.0 版（V2）</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="套組" data-n="BXG-00 戰鬥陀螺 25 週年紀念套組" data-o="37" data-k="bxg-00 戰鬥陀螺 25 週年紀念套組 bx-00 bxg-00 beyblade 25th anniversary set  bxg00戰鬥陀螺25週年紀念套組bx00bxg00beyblade25thanniversaryset"><div class="pc-img"><img src="assets/parts/combos/bxg-00.webp" alt="BXG-00 戰鬥陀螺 25 週年紀念套組 BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-00 戰鬥陀螺 25 週年紀念套組</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="限定" data-n="猛獁獠牙（長毛象）" data-o="38" data-k="猛獁獠牙（長毛象） bx-00 bx-00-bxg32 mammoth tusk 2-80e (metal coat: black)  猛獁獠牙（長毛象）bx00bx00bxg32mammothtusk280e(metalcoat:black)"><div class="pc-img"><img src="assets/parts/combos/bx-00-bxg32.webp" alt="猛獁獠牙（長毛象） BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">猛獁獠牙（長毛象）</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="限定" data-n="巨鱷碾碎（綠鱷魚）" data-o="39" data-k="巨鱷碾碎（綠鱷魚） bx-00 bx-00-croco croc crunch 2-60q  巨鱷碾碎（綠鱷魚）bx00bx00crococroccrunch260q"><div class="pc-img"><img src="assets/parts/combos/bx-00-croco.webp" alt="巨鱷碾碎（綠鱷魚） BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">巨鱷碾碎（綠鱷魚）</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="烈焰飛鳳S 3-80T" data-o="40" data-k="烈焰飛鳳s 3-80t bx-00 bxg-01 dranzer spiral 3-80t  烈焰飛鳳s380tbx00bxg01dranzerspiral380t"><div class="pc-img"><img src="assets/parts/combos/bxg-01.webp" alt="烈焰飛鳳S 3-80T BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">烈焰飛鳳S 3-80T</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXA-03 美國隊長 vs 紅浩克" data-o="41" data-k="bxa-03 美國隊長 vs 紅浩克 bxa-03 bxa-03 customize set captain america vs red hulk  bxa03美國隊長vs紅浩克bxa03bxa03customizesetcaptainamericavsredhulk"><div class="pc-img"><img src="assets/parts/combos/bxa-03.webp" alt="BXA-03 美國隊長 vs 紅浩克 BXA-03 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXA-03 美國隊長 vs 紅浩克</div><div class="pc-chips"><span class="pc-c pc-c-code">BXA-03</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXA-04 終極蜘蛛人 vs 綠惡魔" data-o="42" data-k="bxa-04 終極蜘蛛人 vs 綠惡魔 bxa-04 bxa-04 customize set miles morales vs green goblin  bxa04終極蜘蛛人vs綠惡魔bxa04bxa04customizesetmilesmoralesvsgreengoblin"><div class="pc-img"><img src="assets/parts/combos/bxa-04.webp" alt="BXA-04 終極蜘蛛人 vs 綠惡魔 BXA-04 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXA-04 終極蜘蛛人 vs 綠惡魔</div><div class="pc-chips"><span class="pc-c pc-c-code">BXA-04</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="銀牙烈虎S 4-80P" data-o="43" data-k="銀牙烈虎s 4-80p bx-00 bxg-04 driger slash 4-80p  銀牙烈虎s480pbx00bxg04drigerslash480p"><div class="pc-img"><img src="assets/parts/combos/bxg-04.webp" alt="銀牙烈虎S 4-80P BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">銀牙烈虎S 4-80P</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXA-05 歐比王肯諾比 vs 葛里維斯將軍" data-o="44" data-k="bxa-05 歐比王肯諾比 vs 葛里維斯將軍 bxa-05 bxa-05 customize set obi-wan kenobi vs general grievous  bxa05歐比王肯諾比vs葛里維斯將軍bxa05bxa05customizesetobiwankenobivsgeneralgrievous"><div class="pc-img"><img src="assets/parts/combos/bxa-05.webp" alt="BXA-05 歐比王肯諾比 vs 葛里維斯將軍 BXA-05 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXA-05 歐比王肯諾比 vs 葛里維斯將軍</div><div class="pc-chips"><span class="pc-c pc-c-code">BXA-05</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXA-06 丘巴卡 vs 風暴兵" data-o="45" data-k="bxa-06 丘巴卡 vs 風暴兵 bxa-06 bxa-06 customize set chewbacca vs stormtrooper  bxa06丘巴卡vs風暴兵bxa06bxa06customizesetchewbaccavsstormtrooper"><div class="pc-img"><img src="assets/parts/combos/bxa-06.webp" alt="BXA-06 丘巴卡 vs 風暴兵 BXA-06 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXA-06 丘巴卡 vs 風暴兵</div><div class="pc-chips"><span class="pc-c pc-c-code">BXA-06</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="BXG-06 鮫鯊鋒鰭 5-60GF 藍色金屬塗裝" data-o="46" data-k="bxg-06 鮫鯊鋒鰭 5-60gf 藍色金屬塗裝 bxg-06 bxg-06 shark edge 5-60gf metal coat blue  bxg06鮫鯊鋒鰭560gf藍色金屬塗裝bxg06bxg06sharkedge560gfmetalcoatblue"><div class="pc-img"><img src="assets/parts/combos/bxg-06.webp" alt="BXG-06 鮫鯊鋒鰭 5-60GF 藍色金屬塗裝 BXG-06 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-06 鮫鯊鋒鰭 5-60GF 藍色金屬塗裝</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-06</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="隨機強化組" data-n="BXG-07 隨機強化組 雷霆天龍 1-60F" data-o="47" data-k="bxg-07 隨機強化組 雷霆天龍 1-60f bx-00 bxg-07 random booster lightning l-drago 1-60f  bxg07隨機強化組雷霆天龍160fbx00bxg07randomboosterlightningldrago160f"><div class="pc-img"><img src="assets/parts/combos/bxg-07.webp" alt="BXG-07 隨機強化組 雷霆天龍 1-60F BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">BXG-07 隨機強化組 雷霆天龍 1-60F</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">隨機強化組</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="套組內款" data-n="翼龍神翼" data-o="48" data-k="翼龍神翼 ux-10-02 ux-10-02 pteraswing  翼龍神翼ux1002ux1002pteraswing"><div class="pc-img"><img src="assets/parts/combos/ux-10-02.webp" alt="翼龍神翼 UX-10-02 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">翼龍神翼</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-10-02</span><span class="pc-c pc-c-cat">套組內款</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="套組內款" data-n="鮫鯊撕裂 5-60 FB" data-o="49" data-k="鮫鯊撕裂 5-60 fb cx-11-03 cx-11-03 sharkgill 5-60 fb  鮫鯊撕裂560fbcx1103cx1103sharkgill560fb"><div class="pc-img"><img src="assets/parts/combos/cx-11-03.webp" alt="鮫鯊撕裂 5-60 FB CX-11-03 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">鮫鯊撕裂 5-60 FB</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-11-03</span><span class="pc-c pc-c-cat">套組內款</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="堅甲戰龜S 7-60D" data-o="50" data-k="堅甲戰龜s 7-60d bx-00 bxg-11 draciel shield 7-60d  堅甲戰龜s760dbx00bxg11dracielshield760d"><div class="pc-img"><img src="assets/parts/combos/bxg-11.webp" alt="堅甲戰龜S 7-60D BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">堅甲戰龜S 7-60D</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="BXG-13 神力聖劍 3-60GF" data-o="51" data-k="bxg-13 神力聖劍 3-60gf bxg-13 bxg-13 xeno excalibur 3-60gf  bxg13神力聖劍360gfbxg13bxg13xenoexcalibur360gf"><div class="pc-img"><img src="assets/parts/combos/bxg-13.webp" alt="BXG-13 神力聖劍 3-60GF BXG-13 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-13 神力聖劍 3-60GF</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-13</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="套組內款" data-n="暴龍咆哮 1-70L" data-o="52" data-k="暴龍咆哮 1-70l ux-15-02 ux-15-02 tyrannoroar 1-70l  暴龍咆哮170lux1502ux1502tyrannoroar170l"><div class="pc-img"><img src="assets/parts/combos/ux-15-02.webp" alt="暴龍咆哮 1-70L UX-15-02 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">暴龍咆哮 1-70L</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-15-02</span><span class="pc-c pc-c-cat">套組內款</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="BXG-20 巨岩雄獅 6-80GN" data-o="53" data-k="bxg-20 巨岩雄獅 6-80gn bxg-20 bxg-20 rock leone 6-80gn  bxg20巨岩雄獅680gnbxg20bxg20rockleone680gn"><div class="pc-img"><img src="assets/parts/combos/bxg-20.webp" alt="BXG-20 巨岩雄獅 6-80GN BXG-20 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-20 巨岩雄獅 6-80GN</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-20</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="入門組" data-n="BXG-21 暴風巨神 2-70M" data-o="54" data-k="bxg-21 暴風巨神 2-70m bxg-21 bxg-21 storm spriggan 2-70m starter  bxg21暴風巨神270mbxg21bxg21stormspriggan270mstarter"><div class="pc-img"><img src="assets/parts/combos/bxg-21.webp" alt="BXG-21 暴風巨神 2-70M BXG-21 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-21 暴風巨神 2-70M</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-21</span><span class="pc-c pc-c-cat">入門組</span></div></div></div>
+    <div class="pc" data-s="BX" data-c="增強包" data-n="BXG-22 暴風龍騎士 4-60RA" data-o="55" data-k="bxg-22 暴風龍騎士 4-60ra bx-00 bxg-22 dragoon storm 4-60ra  bxg22暴風龍騎士460rabx00bxg22dragoonstorm460ra"><div class="pc-img"><img src="assets/parts/combos/bxg-22.webp" alt="BXG-22 暴風龍騎士 4-60RA BX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-22 暴風龍騎士 4-60RA</div><div class="pc-chips"><span class="pc-c pc-c-code">BX-00</span><span class="pc-c pc-c-cat">增強包</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXG-29 復仇者聯盟 鋼鐵人 vs 薩諾斯" data-o="56" data-k="bxg-29 復仇者聯盟 鋼鐵人 vs 薩諾斯 bxg-29 bxg-29 avengers customize set ironman vs thanos  bxg29復仇者聯盟鋼鐵人vs薩諾斯bxg29bxg29avengerscustomizesetironmanvsthanos"><div class="pc-img"><img src="assets/parts/combos/bxg-29.webp" alt="BXG-29 復仇者聯盟 鋼鐵人 vs 薩諾斯 BXG-29 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-29 復仇者聯盟 鋼鐵人 vs 薩諾斯</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-29</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXG-30 蜘蛛人 vs 猛毒" data-o="57" data-k="bxg-30 蜘蛛人 vs 猛毒 bxg-30 bxg-30 customize set spider-man vs venom  bxg30蜘蛛人vs猛毒bxg30bxg30customizesetspidermanvsvenom"><div class="pc-img"><img src="assets/parts/combos/bxg-30.webp" alt="BXG-30 蜘蛛人 vs 猛毒 BXG-30 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-30 蜘蛛人 vs 猛毒</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-30</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXG-33 路克天行者 vs 達斯維達" data-o="58" data-k="bxg-33 路克天行者 vs 達斯維達 bxg-33 bxg-33 customize set luke skywalker vs darth vader  bxg33路克天行者vs達斯維達bxg33bxg33customizesetlukeskywalkervsdarthvader"><div class="pc-img"><img src="assets/parts/combos/bxg-33.webp" alt="BXG-33 路克天行者 vs 達斯維達 BXG-33 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-33 路克天行者 vs 達斯維達</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-33</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXG-34 曼達洛人 vs 星區長吉迪恩" data-o="59" data-k="bxg-34 曼達洛人 vs 星區長吉迪恩 bxg-34 bxg-34 customize set the mandalorian vs moff gideon  bxg34曼達洛人vs星區長吉迪恩bxg34bxg34customizesetthemandalorianvsmoffgideon"><div class="pc-img"><img src="assets/parts/combos/bxg-34.webp" alt="BXG-34 曼達洛人 vs 星區長吉迪恩 BXG-34 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-34 曼達洛人 vs 星區長吉迪恩</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-34</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXG-36 柯博文 vs 密卡登" data-o="60" data-k="bxg-36 柯博文 vs 密卡登 bxg-36 bxg-36 customize set optimus prime vs megatron  bxg36柯博文vs密卡登bxg36bxg36customizesetoptimusprimevsmegatron"><div class="pc-img"><img src="assets/parts/combos/bxg-36.webp" alt="BXG-36 柯博文 vs 密卡登 BXG-36 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-36 柯博文 vs 密卡登</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-36</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXG-37 金剛王 vs 天王星" data-o="61" data-k="bxg-37 金剛王 vs 天王星 bxg-37 bxg-37 customize set optimus primal vs starscream  bxg37金剛王vs天王星bxg37bxg37customizesetoptimusprimalvsstarscream"><div class="pc-img"><img src="assets/parts/combos/bxg-37.webp" alt="BXG-37 金剛王 vs 天王星 BXG-37 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-37 金剛王 vs 天王星</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-37</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXG-40 侏羅紀世界 暴龍 vs 滄龍" data-o="62" data-k="bxg-40 侏羅紀世界 暴龍 vs 滄龍 bxg-40 bxg-40 jurassic world t-rex vs mosasaurus  bxg40侏羅紀世界暴龍vs滄龍bxg40bxg40jurassicworldtrexvsmosasaurus"><div class="pc-img"><img src="assets/parts/combos/bxg-40.webp" alt="BXG-40 侏羅紀世界 暴龍 vs 滄龍 BXG-40 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-40 侏羅紀世界 暴龍 vs 滄龍</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-40</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="BXG-41 侏羅紀世界 棘龍 vs 風神翼龍" data-o="63" data-k="bxg-41 侏羅紀世界 棘龍 vs 風神翼龍 bxg-41 bxg-41 jurassic world spinosaurus vs quetzalcoatlus  bxg41侏羅紀世界棘龍vs風神翼龍bxg41bxg41jurassicworldspinosaurusvsquetzalcoatlus"><div class="pc-img"><img src="assets/parts/combos/bxg-41.webp" alt="BXG-41 侏羅紀世界 棘龍 vs 風神翼龍 BXG-41 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">BXG-41 侏羅紀世界 棘龍 vs 風神翼龍</div><div class="pc-chips"><span class="pc-c pc-c-code">BXG-41</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="蒼龍爆刃" data-o="64" data-k="蒼龍爆刃 ux-01 ux-01 dran buster 1-60a 蒼龍爆刃ux01ux01dranbuster160a"><div class="pc-img"><img src="assets/parts/combos/ux-01.webp" alt="蒼龍爆刃 UX-01 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">蒼龍爆刃</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-01</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">1-60A</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="惡魔戰鎚" data-o="65" data-k="惡魔戰鎚 ux-02 ux-02 hells hammer 3-70h 惡魔戰鎚ux02ux02hellshammer370h"><div class="pc-img"><img src="assets/parts/combos/ux-02.webp" alt="惡魔戰鎚 UX-02 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">惡魔戰鎚</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-02</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">3-70H</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="增強包" data-n="魔導神杖" data-o="66" data-k="魔導神杖 ux-03 ux-03 wizard rod 5-70db 魔導神杖ux03ux03wizardrod570db"><div class="pc-img"><img src="assets/parts/combos/ux-03.webp" alt="魔導神杖 UX-03 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">魔導神杖</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-03</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">5-70DB</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="對戰盤套組" data-n="UX-04 戰鬥入門套組 U" data-o="67" data-k="ux-04 戰鬥入門套組 u ux-04 ux-04 battle entry set u  ux04戰鬥入門套組uux04ux04battleentrysetu"><div class="pc-img"><img src="assets/parts/combos/ux-04.webp" alt="UX-04 戰鬥入門套組 U UX-04 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">UX-04 戰鬥入門套組 U</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-04</span><span class="pc-c pc-c-cat">對戰盤套組</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="隨機強化組" data-n="UX-05 忍者闇影選集" data-o="68" data-k="ux-05 忍者闇影選集 ux-05 ux-05 random booster shinobi shadow select 1-80mn ux05忍者闇影選集ux05ux05randomboostershinobishadowselect180mn"><div class="pc-img"><img src="assets/parts/combos/ux-05.webp" alt="UX-05 忍者闇影選集 UX-05 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">UX-05 忍者闇影選集</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-05</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">1-80MN</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="增強包" data-n="雄獅巔峰" data-o="69" data-k="雄獅巔峰 ux-06 ux-06 leon crest 7-60gn 雄獅巔峰ux06ux06leoncrest760gn"><div class="pc-img"><img src="assets/parts/combos/ux-06.webp" alt="雄獅巔峰 UX-06 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">雄獅巔峰</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-06</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">7-60GN</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="套組" data-n="UX-07 鳳凰尾翼改造組" data-o="70" data-k="ux-07 鳳凰尾翼改造組 ux-07 ux-07 phoenix rudder deck set 9-70g ux07鳳凰尾翼改造組ux07ux07phoenixrudderdeckset970g"><div class="pc-img"><img src="assets/parts/combos/ux-07.webp" alt="UX-07 鳳凰尾翼改造組 UX-07 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">UX-07 鳳凰尾翼改造組</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-07</span><span class="pc-c pc-c-cat">套組</span><span class="pc-c pc-c-spec">9-70G</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="霜輝銀狼" data-o="71" data-k="霜輝銀狼 ux-08 ux-08 silver wolf 3-80fb 霜輝銀狼ux08ux08silverwolf380fb"><div class="pc-img"><img src="assets/parts/combos/ux-08.webp" alt="霜輝銀狼 UX-08 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">霜輝銀狼</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-08</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">3-80FB</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="武士星劍" data-o="72" data-k="武士星劍 ux-09 ux-09 samurai saber 2-70l 武士星劍ux09ux09samuraisaber270l"><div class="pc-img"><img src="assets/parts/combos/ux-09.webp" alt="武士星劍 UX-09 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-lim">+1 限定</span></div><div class="pc-body"><div class="pc-name">武士星劍</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-09</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">2-70L</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="客製套組" data-n="UX-10 騎士圓甲改造組" data-o="73" data-k="ux-10 騎士圓甲改造組 ux-10 ux-10 customize set u 3-85bs ux10騎士圓甲改造組ux10ux10customizesetu385bs"><div class="pc-img"><img src="assets/parts/combos/ux-10.webp" alt="UX-10 騎士圓甲改造組 UX-10 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">UX-10 騎士圓甲改造組</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-10</span><span class="pc-c pc-c-cat">客製套組</span><span class="pc-c pc-c-spec">3-85BS</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="衝擊龍神" data-o="74" data-k="衝擊龍神 ux-11 ux-11 impact drake 9-60lr 衝擊龍神ux11ux11impactdrake960lr"><div class="pc-img"><img src="assets/parts/combos/ux-11.webp" alt="衝擊龍神 UX-11 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">衝擊龍神</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-11</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">9-60LR</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="隨機強化組" data-n="UX-12 隨機強化組 Vol.5" data-o="75" data-k="ux-12 隨機強化組 vol.5 ux-12 ux-12 random booster vol.5 0-80gb ux12隨機強化組vol.5ux12ux12randomboostervol.5080gb"><div class="pc-img"><img src="assets/parts/combos/ux-12.webp" alt="UX-12 隨機強化組 Vol.5 UX-12 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">UX-12 隨機強化組 Vol.5</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-12</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">0-80GB</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="增強包" data-n="魔像奇岩" data-o="76" data-k="魔像奇岩 ux-13 ux-13 golem rock 1-60un 魔像奇岩ux13ux13golemrock160un"><div class="pc-img"><img src="assets/parts/combos/ux-13.webp" alt="魔像奇岩 UX-13 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">魔像奇岩</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-13</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">1-60UN</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="天蠍長矛" data-o="77" data-k="天蠍長矛 ux-14 ux-14 scorpio spear 0-70z 天蠍長矛ux14ux14scorpiospear070z"><div class="pc-img"><img src="assets/parts/combos/ux-14.webp" alt="天蠍長矛 UX-14 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">天蠍長矛</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-14</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">0-70Z</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="套組" data-n="UX-15 鮫鯊狂鱗改造組" data-o="78" data-k="ux-15 鮫鯊狂鱗改造組 ux-15 ux-15 shark scale deck set 4-50uf ux15鮫鯊狂鱗改造組ux15ux15sharkscaledeckset450uf"><div class="pc-img"><img src="assets/parts/combos/ux-15.webp" alt="UX-15 鮫鯊狂鱗改造組 UX-15 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">UX-15 鮫鯊狂鱗改造組</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-15</span><span class="pc-c pc-c-cat">套組</span><span class="pc-c pc-c-spec">4-50UF</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="隨機強化組" data-n="UX-16 時鐘幻象選集" data-o="79" data-k="ux-16 時鐘幻象選集 ux-16 ux-16 random booster clock mirage select 9-65b ux16時鐘幻象選集ux16ux16randomboosterclockmirageselect965b"><div class="pc-img"><img src="assets/parts/combos/ux-16.webp" alt="UX-16 時鐘幻象選集 UX-16 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">UX-16 時鐘幻象選集</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-16</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">9-65B</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="隕星龍騎士" data-o="80" data-k="隕星龍騎士 ux-17 ux-17 meteor dragoon 3-70j 隕星龍騎士ux17ux17meteordragoon370j"><div class="pc-img"><img src="assets/parts/combos/ux-17.webp" alt="隕星龍騎士 UX-17 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">隕星龍騎士</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-17</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">3-70J</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="隨機強化組" data-n="UX-18 隨機強化組 Vol.8" data-o="81" data-k="ux-18 隨機強化組 vol.8 ux-18 ux-18 random booster vol.8 7-55w ux18隨機強化組vol.8ux18ux18randomboostervol.8755w"><div class="pc-img"><img src="assets/parts/combos/ux-18.webp" alt="UX-18 隨機強化組 Vol.8 UX-18 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">UX-18 隨機強化組 Vol.8</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-18</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">7-55W</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="子彈獅鷲" data-o="82" data-k="子彈獅鷲 ux-19 ux-19 bullet griffon h 子彈獅鷲ux19ux19bulletgriffonh"><div class="pc-img"><img src="assets/parts/combos/ux-19.webp" alt="子彈獅鷲 UX-19 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">子彈獅鷲</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-19</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">H</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="入門組" data-n="榮耀戰神" data-o="83" data-k="榮耀戰神 ux-20 ux-20 glory valkyrie  榮耀戰神ux20ux20gloryvalkyrie"><div class="pc-img"><img src="assets/parts/combos/ux-20.webp" alt="榮耀戰神 UX-20 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-lim">+1 限定</span></div><div class="pc-body"><div class="pc-name">榮耀戰神</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-20</span><span class="pc-c pc-c-cat">入門組</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="套組" data-n="UX-21 惡魔幽冥改造組" data-o="84" data-k="ux-21 惡魔幽冥改造組 ux-21 ux-21 hellsnether deck set  ux21惡魔幽冥改造組ux21ux21hellsnetherdeckset"><div class="pc-img"><img src="assets/parts/combos/ux-21.webp" alt="UX-21 惡魔幽冥改造組 UX-21 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">UX-21 惡魔幽冥改造組</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-21</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="限定" data-n="武士星劍 5-60K 金屬塗裝:武士藍 足球日本代表 Ver." data-o="85" data-k="武士星劍 5-60k 金屬塗裝:武士藍 足球日本代表 ver. ux-00 ux-00-bxg54 samuraisaber 5-60k metal coat: samurai blue (soccer japan ver.)  武士星劍560k金屬塗裝:武士藍足球日本代表ver.ux00ux00bxg54samuraisaber560kmetalcoat:samuraiblue(soccerjapanver.)"><div class="pc-img"><img src="assets/parts/combos/ux-00-bxg54.webp" alt="武士星劍 5-60K 金屬塗裝:武士藍 足球日本代表 Ver. UX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">武士星劍 5-60K 金屬塗裝:武士藍 足球日本代表 Ver.</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="限定" data-n="空力天馬 3-70A 紅色版" data-o="86" data-k="空力天馬 3-70a 紅色版 ux-00 ux-00-bxg24 pegasus 3-70a red version  空力天馬370a紅色版ux00ux00bxg24pegasus370aredversion"><div class="pc-img"><img src="assets/parts/combos/ux-00-bxg24.webp" alt="空力天馬 3-70A 紅色版 UX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">空力天馬 3-70A 紅色版</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="限定" data-n="榮耀戰神 LF 金屬塗裝:藍" data-o="87" data-k="榮耀戰神 lf 金屬塗裝:藍 ux-00 ux-00-bxg63 glory valkyrie lf metal coat: blue  榮耀戰神lf金屬塗裝:藍ux00ux00bxg63gloryvalkyrielfmetalcoat:blue"><div class="pc-img"><img src="assets/parts/combos/ux-00-bxg63.webp" alt="榮耀戰神 LF 金屬塗裝:藍 UX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">榮耀戰神 LF 金屬塗裝:藍</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="限定" data-n="空力天馬 3-70A 藍綠版" data-o="88" data-k="空力天馬 3-70a 藍綠版 bxh-10 ux-00-bxh10 aero pegasus 3-70a double metal coat: blue×green  空力天馬370a藍綠版bxh10ux00bxh10aeropegasus370adoublemetalcoat:blue×green"><div class="pc-img"><img src="assets/parts/combos/ux-00-bxh10.webp" alt="空力天馬 3-70A 藍綠版 BXH-10 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">空力天馬 3-70A 藍綠版</div><div class="pc-chips"><span class="pc-c pc-c-code">BXH-10</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="限定" data-n="大蛇星叢" data-o="89" data-k="大蛇星叢 ux-00 ux-00-orochi orochi cluster 6-60lf  大蛇星叢ux00ux00orochiorochicluster660lf"><div class="pc-img"><img src="assets/parts/combos/ux-00-orochi.webp" alt="大蛇星叢 UX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">大蛇星叢</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="UX" data-c="限定" data-n="飛龍颶風" data-o="90" data-k="飛龍颶風 ux-00 ux-00-wyvern-hover wyvern hover 2-80gn  飛龍颶風ux00ux00wyvernhoverwyvernhover280gn"><div class="pc-img"><img src="assets/parts/combos/ux-00-wyvern-hover.webp" alt="飛龍颶風 UX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">飛龍颶風</div><div class="pc-chips"><span class="pc-c pc-c-code">UX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="入門組" data-n="蒼龍勇氣" data-o="91" data-k="蒼龍勇氣 cx-01 cx-01 dran brave 6-60v 蒼龍勇氣cx01cx01dranbrave660v"><div class="pc-img"><img src="assets/parts/combos/cx-01.webp" alt="蒼龍勇氣 CX-01 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-lim">+1 限定</span></div><div class="pc-body"><div class="pc-name">蒼龍勇氣</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-01</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">6-60V</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="入門組" data-n="魔導至尊" data-o="92" data-k="魔導至尊 cx-02 cx-02 wizard arc 4-55lo 魔導至尊cx02cx02wizardarc455lo"><div class="pc-img"><img src="assets/parts/combos/cx-02.webp" alt="魔導至尊 CX-02 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">魔導至尊</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-02</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">4-55LO</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="增強包" data-n="英仙幽冥" data-o="93" data-k="英仙幽冥 cx-03 cx-03 perseus dark 6-80w 英仙幽冥cx03cx03perseusdark680w"><div class="pc-img"><img src="assets/parts/combos/cx-03.webp" alt="英仙幽冥 CX-03 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">英仙幽冥</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-03</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">6-80W</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="對戰盤套組" data-n="CX-04 戰鬥入門套組 C" data-o="94" data-k="cx-04 戰鬥入門套組 c cx-04 cx-04 battle entry set c  cx04戰鬥入門套組ccx04cx04battleentrysetc"><div class="pc-img"><img src="assets/parts/combos/cx-04.webp" alt="CX-04 戰鬥入門套組 C CX-04 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">CX-04 戰鬥入門套組 C</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-04</span><span class="pc-c pc-c-cat">對戰盤套組</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="隨機強化組" data-n="隨機強化組 Vol.6" data-o="95" data-k="隨機強化組 vol.6 cx-05 cx-05 random booster vol.6 4-70k 隨機強化組vol.6cx05cx05randomboostervol.6470k"><div class="pc-img"><img src="assets/parts/combos/cx-05.webp" alt="隨機強化組 Vol.6 CX-05 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">隨機強化組 Vol.6</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-05</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">4-70K</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="隨機強化組" data-n="極狐九尾選集" data-o="96" data-k="極狐九尾選集 cx-06 cx-06 fox brush select 9-70gr 極狐九尾選集cx06cx06foxbrushselect970gr"><div class="pc-img"><img src="assets/parts/combos/cx-06.webp" alt="極狐九尾選集 CX-06 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">極狐九尾選集</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-06</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">9-70GR</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="入門組" data-n="天馬爆擊" data-o="97" data-k="天馬爆擊 cx-07 cx-07 pegasus blast tr 天馬爆擊cx07cx07pegasusblasttr"><div class="pc-img"><img src="assets/parts/combos/cx-07.webp" alt="天馬爆擊 CX-07 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">天馬爆擊</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-07</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">Tr</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="隨機強化組" data-n="隨機強化組 Vol.7" data-o="98" data-k="隨機強化組 vol.7 cx-08 cx-08 random booster vol.7 5-80wb 隨機強化組vol.7cx08cx08randomboostervol.7580wb"><div class="pc-img"><img src="assets/parts/combos/cx-08.webp" alt="隨機強化組 Vol.7 CX-08 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">隨機強化組 Vol.7</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-08</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">5-80WB</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="入門組" data-n="焰神滅世" data-o="99" data-k="焰神滅世 cx-09 cx-09 sol eclipse 5-70tk 焰神滅世cx09cx09soleclipse570tk"><div class="pc-img"><img src="assets/parts/combos/cx-09.webp" alt="焰神滅世 CX-09 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">焰神滅世</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-09</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">5-70TK</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="增強包" data-n="銀狼狩獵" data-o="100" data-k="銀狼狩獵 cx-10 cx-10 wolf hunt 0-60db 銀狼狩獵cx10cx10wolfhunt060db"><div class="pc-img"><img src="assets/parts/combos/cx-10.webp" alt="銀狼狩獵 CX-10 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">銀狼狩獵</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-10</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">0-60DB</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="套組" data-n="帝王威能改造組" data-o="101" data-k="帝王威能改造組 cx-11 cx-11 emperor might deck set op 帝王威能改造組cx11cx11emperormightdecksetop"><div class="pc-img"><img src="assets/parts/combos/cx-11.webp" alt="帝王威能改造組 CX-11 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">帝王威能改造組</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-11</span><span class="pc-c pc-c-cat">套組</span><span class="pc-c pc-c-spec">Op</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="增強包" data-n="鳳凰閃焰" data-o="102" data-k="鳳凰閃焰 cx-12 cx-12 phoenix flare 9-80ww 鳳凰閃焰cx12cx12phoenixflare980ww"><div class="pc-img"><img src="assets/parts/combos/cx-12.webp" alt="鳳凰閃焰 CX-12 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">鳳凰閃焰</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-12</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">9-80WW</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="入門組" data-n="龍王閃擊" data-o="103" data-k="龍王閃擊 cx-13 cx-13 bahamut blitz 1-50i 龍王閃擊cx13cx13bahamutblitz150i"><div class="pc-img"><img src="assets/parts/combos/cx-13.webp" alt="龍王閃擊 CX-13 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">龍王閃擊</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-13</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">1-50I</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="入門組" data-n="騎士堡壘" data-o="104" data-k="騎士堡壘 cx-14 cx-14 night fortress 8-70un 騎士堡壘cx14cx14nightfortress870un"><div class="pc-img"><img src="assets/parts/combos/cx-14.webp" alt="騎士堡壘 CX-14 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">騎士堡壘</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-14</span><span class="pc-c pc-c-cat">入門組</span><span class="pc-c pc-c-spec">8-70UN</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="增強包" data-n="邪神狂怒" data-o="105" data-k="邪神狂怒 cx-15 cx-15 ragnarage 4-55y 邪神狂怒cx15cx15ragnarage455y"><div class="pc-img"><img src="assets/parts/combos/cx-15.webp" alt="邪神狂怒 CX-15 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">邪神狂怒</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-15</span><span class="pc-c pc-c-cat">增強包</span><span class="pc-c pc-c-spec">4-55Y</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="對戰盤套組" data-n="CX-16 極限衝擊對戰組C" data-o="106" data-k="cx-16 極限衝擊對戰組c cx-16 cx-16 start dash set c  cx16極限衝擊對戰組ccx16cx16startdashsetc"><div class="pc-img"><img src="assets/parts/combos/cx-16.webp" alt="CX-16 極限衝擊對戰組C CX-16 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">CX-16 極限衝擊對戰組C</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-16</span><span class="pc-c pc-c-cat">對戰盤套組</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="隨機強化組" data-n="隨機強化組 Vol.10" data-o="107" data-k="隨機強化組 vol.10 cx-17 cx-17 random booster vol.10 3-60gu 隨機強化組vol.10cx17cx17randomboostervol.10360gu"><div class="pc-img"><img src="assets/parts/combos/cx-17.webp" alt="隨機強化組 Vol.10 CX-17 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">隨機強化組 Vol.10</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-17</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">3-60GU</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="隨機強化組" data-n="腕龍鞭打選集" data-o="108" data-k="腕龍鞭打選集 cx-18 cx-18 random booster brachio whip select 5-70nr 腕龍鞭打選集cx18cx18randomboosterbrachiowhipselect570nr"><div class="pc-img"><img src="assets/parts/combos/cx-18.webp" alt="腕龍鞭打選集 CX-18 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">腕龍鞭打選集</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-18</span><span class="pc-c pc-c-cat">隨機強化組</span><span class="pc-c pc-c-spec">5-70Nr</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="隨機強化組" data-n="巨鱷碾壓選集" data-o="109" data-k="巨鱷碾壓選集 cx-19 cx-19 random booster crocotread select  巨鱷碾壓選集cx19cx19randomboostercrocotreadselect"><div class="pc-img"><img src="assets/parts/combos/cx-19.webp" alt="巨鱷碾壓選集 CX-19 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"><span class="pc-b pc-b-rnd">隨機</span></div><div class="pc-body"><div class="pc-name">巨鱷碾壓選集</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-19</span><span class="pc-c pc-c-cat">隨機強化組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="入門組" data-n="迪卡狂怒" data-o="110" data-k="迪卡狂怒 cx-00 cx-00-tiga tigarage  迪卡狂怒cx00cx00tigatigarage"><div class="pc-img"><img src="assets/parts/combos/cx-00-tiga.webp" alt="迪卡狂怒 CX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">迪卡狂怒</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-00</span><span class="pc-c pc-c-cat">入門組</span></div></div></div>
+    <div class="pc" data-s="聯名" data-c="套組" data-n="CX-00 福音戰士改造組" data-o="111" data-k="cx-00 福音戰士改造組 cx-00 cx-00-eva evangelion deck set  cx00福音戰士改造組cx00cx00evaevangeliondeckset"><div class="pc-img"><img src="assets/parts/combos/cx-00-eva.webp" alt="CX-00 福音戰士改造組 CX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">CX-00 福音戰士改造組</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-00</span><span class="pc-c pc-c-cat">套組</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="限定" data-n="蒼龍勇氣 S6-60V 金屬塗裝:黑" data-o="112" data-k="蒼龍勇氣 s6-60v 金屬塗裝:黑 cx-00 cx-00-bxg51 dranbrave s6-60v metal coat: black  蒼龍勇氣s660v金屬塗裝:黑cx00cx00bxg51dranbraves660vmetalcoat:black"><div class="pc-img"><img src="assets/parts/combos/cx-00-bxg51.webp" alt="蒼龍勇氣 S6-60V 金屬塗裝:黑 CX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">蒼龍勇氣 S6-60V 金屬塗裝:黑</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="限定" data-n="龍神勇氣 G4-70I 金屬塗裝:藍" data-o="113" data-k="龍神勇氣 g4-70i 金屬塗裝:藍 cx-00 cx-00-bxh23 drake brave g4-70i metal coat: blue  龍神勇氣g470i金屬塗裝:藍cx00cx00bxh23drakebraveg470imetalcoat:blue"><div class="pc-img"><img src="assets/parts/combos/cx-00-bxh23.webp" alt="龍神勇氣 G4-70I 金屬塗裝:藍 CX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">龍神勇氣 G4-70I 金屬塗裝:藍</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="限定" data-n="虎頭蜂碉堡 R7-60T 金屬塗裝:黃" data-o="114" data-k="虎頭蜂碉堡 r7-60t 金屬塗裝:黃 cx-00 cx-00-bxg79 hornet fort r7-60t metal coat: yellow  虎頭蜂碉堡r760t金屬塗裝:黃cx00cx00bxg79hornetfortr760tmetalcoat:yellow"><div class="pc-img"><img src="assets/parts/combos/cx-00-bxg79.webp" alt="虎頭蜂碉堡 R7-60T 金屬塗裝:黃 CX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">虎頭蜂碉堡 R7-60T 金屬塗裝:黃</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="限定" data-n="海妖里格爾 S3-70O 金屬塗裝:藍" data-o="115" data-k="海妖里格爾 s3-70o 金屬塗裝:藍 cx-00 cx-00-bxg80 kraken rigur s3-70o metal coat: blue  海妖里格爾s370o金屬塗裝:藍cx00cx00bxg80krakenrigurs370ometalcoat:blue"><div class="pc-img"><img src="assets/parts/combos/cx-00-bxg80.webp" alt="海妖里格爾 S3-70O 金屬塗裝:藍 CX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">海妖里格爾 S3-70O 金屬塗裝:藍</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="限定" data-n="巴克斯鹿角 B2-60D 金屬塗裝:橙" data-o="116" data-k="巴克斯鹿角 b2-60d 金屬塗裝:橙 cx-00 cx-00-bxg81 backus antlers b2-60d metal coat: orange  巴克斯鹿角b260d金屬塗裝:橙cx00cx00bxg81backusantlersb260dmetalcoat:orange"><div class="pc-img"><img src="assets/parts/combos/cx-00-bxg81.webp" alt="巴克斯鹿角 B2-60D 金屬塗裝:橙 CX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">巴克斯鹿角 B2-60D 金屬塗裝:橙</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
+    <div class="pc" data-s="CX" data-c="限定" data-n="戰神伏特" data-o="117" data-k="戰神伏特 cx-00 cx-00-valkyrievolt valkyrie volt s4-70v (metal coat: gold)  戰神伏特cx00cx00valkyrievoltvalkyrievolts470v(metalcoat:gold)"><div class="pc-img"><img src="assets/parts/combos/cx-00-valkyrievolt.webp" alt="戰神伏特 CX-00 戰鬥陀螺" loading="lazy" decoding="async" width="440" height="440"></div><div class="pc-body"><div class="pc-name">戰神伏特</div><div class="pc-chips"><span class="pc-c pc-c-code">CX-00</span><span class="pc-c pc-c-cat">限定</span></div></div></div>
   </div>
 
   <div class="callout"><img src="/assets/brand/icon/target.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> <b>想入手圖鑑裡的機體？</b>Go Shoot 線上一番賞每抽必中、親民單價抽正版。中和門市可現場試打。
@@ -464,27 +315,42 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <a href="guide.html" aria-label="回攻略" style="position:fixed;right:14px;bottom:14px;z-index:99;background:#262329;color:#FBF6EE;font:600 14px 'Noto Sans TC';padding:11px 16px;border-radius:24px;box-shadow:0 3px 12px rgba(0,0,0,.25)">← 攻略</a>
 <script>
 (function(){
-  var fs={s:"all",t:"all"};
-  var btns=document.querySelectorAll(".fbtn"),cards=document.querySelectorAll(".mc"),cnt=document.getElementById("count");
-  var search=document.getElementById("search"),q="";
+  var fs={s:"all",c:"all"},q="",sortMode="default";
+  var grid=document.getElementById("grid"),cnt=document.getElementById("count"),
+      search=document.getElementById("search"),sel=document.getElementById("sortsel"),
+      cards=[].slice.call(grid.querySelectorAll(".pc"));
   function apply(){
     var n=0;
     cards.forEach(function(c){
-      var txt=((c.querySelector(".mc-code")?c.querySelector(".mc-code").textContent:"")+" "+(c.querySelector(".mc-name")?c.querySelector(".mc-name").textContent:"")).toLowerCase();
-      var ok=(fs.s==="all"||c.dataset.s===fs.s)&&(fs.t==="all"||c.dataset.t===fs.t)&&(q===""||txt.indexOf(q)>-1);
+      var ok=(fs.s==="all"||c.dataset.s===fs.s)&&(fs.c==="all"||c.dataset.c===fs.c)&&(q===""||c.dataset.k.indexOf(q)>-1);
       c.classList.toggle("hide",!ok); if(ok)n++;
     });
-    cnt.textContent="顯示 "+n+" / "+cards.length+" 台";
+    cnt.textContent="顯示 "+n+" / "+cards.length+" 款";
   }
-  btns.forEach(function(b){
+  function sort(){
+    var arr=cards.slice();
+    if(sortMode==="name"){
+      arr.sort(function(a,b){return a.dataset.n.localeCompare(b.dataset.n,"zh-Hant");});
+    }else{
+      arr.sort(function(a,b){return (+a.dataset.o)-(+b.dataset.o);});
+    }
+    var f=document.createDocumentFragment();
+    arr.forEach(function(c){f.appendChild(c);});
+    grid.appendChild(f);
+  }
+  document.querySelectorAll(".fbtn").forEach(function(b){
     b.addEventListener("click",function(){
-      var kv=b.dataset.f.split(":"),k=kv[0],v=kv[1];
+      var p=b.dataset.f.split(":"),k=p[0],v=p.slice(1).join(":");
       fs[k]=v;
-      btns.forEach(function(x){ var p=x.dataset.f.split(":"); if(p[0]===k)x.classList.toggle("on",p[1]===v); });
+      document.querySelectorAll(".fbtn").forEach(function(x){
+        var y=x.dataset.f.split(":"); if(y[0]===k)x.classList.toggle("on",y.slice(1).join(":")===v);
+      });
       apply();
     });
   });
-  if(search){ search.addEventListener("input",function(){ q=search.value.trim().toLowerCase(); apply(); }); }
+  if(search)search.addEventListener("input",function(){q=search.value.trim().toLowerCase();apply();});
+  if(sel)sel.addEventListener("change",function(){sortMode=sel.value;sort();});
+  apply();
 })();
 </script>
 <script src="assets/site.js" defer></script>
