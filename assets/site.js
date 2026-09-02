@@ -5,6 +5,7 @@
 =================================================================== */
 const GOSHOOT_LINKS = {
   line:   "https://line.me/R/ti/p/@722xefvm",  // LINE 官方帳號 @722xefvm（2026-08-02 開通）
+  ig:     "https://www.instagram.com/goshoot593/",  // IG @goshoot593（2026-09-02 開通）
   form:   "",  // 表單連結（Tally / Google 表單）
   signup: ""   // 賽事報名連結
 };
@@ -36,6 +37,7 @@ const GOSHOOT_ANALYTICS = {
     });
   }
   apply("[data-line]",   GOSHOOT_LINKS.line);
+  apply("[data-ig]",     GOSHOOT_LINKS.ig);
   apply("[data-form]",   GOSHOOT_LINKS.form);
   apply("[data-signup]", GOSHOOT_LINKS.signup);
 
