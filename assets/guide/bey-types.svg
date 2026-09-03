@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" role="img" aria-label="三大取向：攻擊、防禦、持久">
   <!-- 攻擊（珊瑚・尖刃）-->
   <g transform="translate(70,62)">
-    <g fill="#FF6A4D" stroke="#262329" stroke-width="4" stroke-linejoin="round">
+    <g fill="#FF5A2D" stroke="#262329" stroke-width="4" stroke-linejoin="round">
       <path d="M0 -46 l13 22 -26 0z"/><path d="M40 23 l-22 13 -7 -25z"/><path d="M-40 23 l22 13 7 -25z"/>
     </g>
-    <circle r="24" fill="#FBF6EE" stroke="#262329" stroke-width="4"/><circle r="8" fill="#FF6A4D"/>
+    <circle r="24" fill="#FBF6EE" stroke="#262329" stroke-width="4"/><circle r="8" fill="#FF5A2D"/>
     <text y="74" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-weight="800" font-size="18" fill="#262329">攻擊</text>
     <text y="96" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" fill="#6b6660">擊飛對手</text>
   </g>
