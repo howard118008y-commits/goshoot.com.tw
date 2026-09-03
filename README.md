@@ -31,7 +31,7 @@ goshoot_site/
     └── photos/           商品照片放這裡（product-1.jpg ~ product-3.jpg）
 ```
 
-品牌色：米白 `#FBF6EE`／墨黑 `#262329`／珊瑚 `#FF6A4D`／天青 `#8FCDE0`
+品牌色：VI v2 動感橘 `#FF5A2D`（深 `#E8552F`）× 炫酷黑——規範見上層 `goshoot/GOSHOOT-設計系統.md` §2。⛔ 舊色系（珊瑚 `#FF6A4D`／天青 `#8FCDE0`／青檸 `#B6F500`）已退役，不得復活；米白 `#FBF6EE`／墨黑 `#262329` 僅作 logo 內部用色
 字型：Poppins（拉丁）＋ Noto Sans TC（中文）
 
 ---
