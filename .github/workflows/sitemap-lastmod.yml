@@ -15,7 +15,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0   # lastmod 取 git 歷史，shallow 會拿錯日期
       - name: Update lastmod from git history

@@ -12,9 +12,9 @@ jobs:
   write-article:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '20'
 
@@ -30,9 +30,6 @@ jobs:
           claude -p "$(cat .github/seo-content-prompt.md)" \
             --model claude-sonnet-5 \
             --dangerously-skip-permissions
-
-      - name: 補齊 sitemap（Claude 漏改也擋得住）
-        run: python3 .github/ensure_sitemap.py
 
       - name: 提交變更（指名檔案＋rebase 防撞車）
         run: |
