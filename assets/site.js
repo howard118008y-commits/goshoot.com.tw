@@ -5,7 +5,9 @@
 =================================================================== */
 const GOSHOOT_LINKS = {
   line:   "https://line.me/R/ti/p/@722xefvm",  // LINE 官方帳號 @722xefvm（2026-08-02 開通）
-  ig:     "https://www.instagram.com/goshoot593/",  // IG @goshoot593（2026-09-02 開通）
+  ig:     "https://www.instagram.com/goshoot.tw/",  // IG @goshoot.tw（2026-09-04 定名；goshoot593 被佔）
+  fb:     "https://www.facebook.com/profile.php?id=61593811152585",  // FB 粉專 Go Shoot 中和店（2026-09-04 建）
+  threads:"https://www.threads.com/@goshoot.tw",  // Threads（跟 IG 同名）
   form:   "",  // 表單連結（Tally / Google 表單）
   signup: ""   // 賽事報名連結
 };
@@ -38,6 +40,8 @@ const GOSHOOT_ANALYTICS = {
   }
   apply("[data-line]",   GOSHOOT_LINKS.line);
   apply("[data-ig]",     GOSHOOT_LINKS.ig);
+  apply("[data-fb]",     GOSHOOT_LINKS.fb);
+  apply("[data-threads]",GOSHOOT_LINKS.threads);
   apply("[data-form]",   GOSHOOT_LINKS.form);
   apply("[data-signup]", GOSHOOT_LINKS.signup);
 
