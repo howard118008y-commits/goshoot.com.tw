@@ -26,3 +26,4 @@
 - [x] article-goshoot-topup-guide.html 2026-08-16  ← Go 幣怎麼儲值？線上一番賞回饋、退款、運費與取貨規則一次看懂
 - [x] article-beyblade-launcher-guide.html 2026-08-18  ← 戰鬥陀螺發射器怎麼選？入門／繩索／卷軸三種發射器＋左右旋分辨＋發射 4 步驟＋卡繩保養
 - [x] article-beyblade-type-matchup.html 2026-08-21  ← 戰鬥陀螺四型相剋攻略：攻擊／防禦／持久／平衡四型特性＋三角相剋通則＋依對手選陀螺＋改裝計算器
+- [x] article-beyblade-tournament-guide.html 2026-09-04  ← 中和戰鬥陀螺比賽怎麼參加：LINE 報名教學＋每週六時間地點＋Beyblade X 官方計分規則＋名次獎品
