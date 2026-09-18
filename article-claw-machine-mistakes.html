@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1A1A1A">
+<title>夾娃娃機新手常見錯誤：5 個雷區一次看懂｜Go Shoot</title>
+<meta name="description" content="第一次夾娃娃機常槓龜？整理新手最容易踩的 5 個雷區：只看外觀不看夾點、一開始就衝保夾、忽略機台標示、心急連續投幣、卡台不知道找誰，看完少走冤枉路。">
+<meta name="keywords" content="夾娃娃機 新手常見錯誤,夾娃娃 雷區,夾娃娃機 失敗原因,夾娃娃 保夾,娃娃機 新手">
+<link rel="canonical" href="https://goshoot.com.tw/article-claw-machine-mistakes.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Go Shoot">
+<meta property="og:title" content="夾娃娃機新手常見錯誤：5 個雷區一次看懂">
+<meta property="og:description" content="整理新手最容易踩的 5 個雷區：只看外觀不看夾點、一開始就衝保夾、忽略機台標示、心急連續投幣、卡台不知道找誰，看完少走冤枉路。">
+<meta property="og:url" content="https://goshoot.com.tw/article-claw-machine-mistakes.html">
+<meta property="og:image" content="https://goshoot.com.tw/assets/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"></noscript>
+<style>
+:root{--cream:#1A1A1A;--paper:#232326;--ink:#141416;--text:#ECECEA;--coral:#FF5A2D;--coral-deep:#E8552F;--gs-accent:#FF5A2D;--gs-accent-deep:#E8552F;--gs-info:#3FC8C8;--line:rgba(255,255,255,.10);--sec:#B4B4BB}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--text);font-family:'Noto Sans TC',sans-serif;line-height:1.85}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+h1{font-size:clamp(26px,5vw,40px);font-weight:900;line-height:1.25;margin:6px 0 14px}
+h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;margin:36px 0 10px}
+h3{font-size:clamp(17px,2.6vw,20px);font-weight:800;margin:22px 0 6px}
+p{margin:12px 0;font-size:16.5px}
+.nav{background:rgba(11,11,13,.86);backdrop-filter:saturate(150%) blur(10px);-webkit-backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav .wrap{display:flex;align-items:center;gap:14px;padding:12px 20px;max-width:920px}
+.brand{display:flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:800;font-size:20px}
+.brand svg{width:32px;height:32px}
+.nav-links{display:flex;gap:16px;margin-left:auto;font-size:15px}
+.util{background:#000;color:var(--muted,#B4B4BB);font-size:13px;border-bottom:1px solid var(--line)}
+.util .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.util b{color:var(--gold,#FFC24B)}
+.util a{color:var(--gs-accent);font-weight:700}
+.menu-btn{display:none;margin-left:auto;background:none;border:0;font-size:26px;color:var(--text);cursor:pointer}
+.nav-links .btn.btn-race{background:linear-gradient(100deg,#FF5A2D,#E8552F);color:#1A1A1A;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:800;text-decoration:none;box-shadow:0 0 26px rgba(255,90,45,.34);margin:0}
+@media(max-width:720px){
+  .nav .wrap{position:relative}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#1A1A1A;padding:6px 0 12px;border-bottom:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.5)}
+  .nav-links a{padding:13px 22px;font-size:16px}
+  .nav-links .btn{margin:8px 22px 0;justify-content:center;text-align:center}
+  .menu-btn{display:block}
+  .nav-links.open{display:flex}
+}
+.crumb{font-size:13px;color:var(--sec);padding:16px 0 0}
+.crumb a{color:var(--gs-accent)}
+.lead{font-size:18px;background:var(--paper);border-left:4px solid var(--gs-accent);color:var(--text);padding:14px 18px;border-radius:8px;margin:18px 0 8px;font-weight:500}
+.btn{display:inline-block;background:var(--gs-accent);color:#1A1A1A;font-weight:800;padding:13px 26px;border-radius:999px;margin:8px 0}
+.btn:hover{background:var(--gs-accent-deep)}
+ul,ol{margin:12px 0 12px 22px}li{margin:6px 0}
+.steps{counter-reset:s;list-style:none;margin:14px 0;padding:0}
+.steps li{position:relative;padding:14px 16px 14px 58px;background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:10px 0}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:30px;height:30px;background:var(--gs-accent);color:#1A1A1A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.steps b{font-size:17px}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:6px 20px;margin:16px 0}
+.fact .row{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.fact .row:last-child{border-bottom:0}
+.fact .k{flex:0 0 92px;color:var(--sec);font-weight:700}
+.fact .v{flex:1}
+.fact .v b{color:var(--coral)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+.card .e{font-size:26px}.card b{display:block;margin-top:6px;font-size:15px}
+.card span.d{display:block;margin-top:4px;font-size:12.5px;color:var(--sec)}
+.part{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0}
+.part.king{border-color:var(--coral);box-shadow:0 0 26px rgba(255,90,45,.18)}
+.part h3{margin-top:0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:800;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.tag.king{background:var(--coral);color:#1A1A1A}
+.tag.rare{background:var(--gs-accent);color:#1A1A1A}
+.tag.norm{background:rgba(255,255,255,.08);color:var(--sec)}
+.tag.atk{background:rgba(255,90,45,.18);color:var(--coral)}
+.tag.def{background:rgba(63,200,200,.2);color:var(--gs-info)}
+.tag.sta{background:rgba(255,90,45,.16);color:var(--gs-accent)}
+.part p{margin:6px 0 0;font-size:15px;color:var(--text)}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{font-weight:800;font-size:16px;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
+summary::before{content:"＋";color:var(--gs-accent);margin-right:8px}details[open] summary::before{content:"－"}
+details p{color:var(--sec)}
+.related{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:30px 0}
+.related b{display:block;margin-bottom:6px}
+.related a{color:var(--gs-accent);font-weight:700;display:block;padding:4px 0}
+.src{font-size:12.5px;color:var(--sec);margin:22px 0 0;line-height:1.7}
+.src a{color:var(--gs-info);word-break:break-all}
+footer{background:#000;color:var(--sec);border-top:1px solid var(--line);padding:32px 0;font-size:14px;text-align:center;margin-top:30px}
+footer a{color:var(--gs-accent)}
+/* 鍵盤 focus 樣式：米白 ring 在深底與橙底上都清楚可見 */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #FBF6EE;outline-offset:3px;border-radius:8px}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Article","headline":"夾娃娃機新手常見錯誤：5 個雷區一次看懂","datePublished":"2026-09-18","dateModified":"2026-09-18","author":{"@type":"Organization","name":"Go Shoot"},"publisher":{"@type":"Organization","name":"Go Shoot","logo":{"@type":"ImageObject","url":"https://goshoot.com.tw/assets/favicon.svg"}},"mainEntityOfPage":"https://goshoot.com.tw/article-claw-machine-mistakes.html","inLanguage":"zh-Hant","about":"夾娃娃機新手最常踩的雷區與避免方法","speakable":{"@type":"SpeakableSpecification","cssSelector":[".gs-tldr"]}},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://goshoot.com.tw/"},{"@type":"ListItem","position":2,"name":"中和門市","item":"https://goshoot.com.tw/store.html"},{"@type":"ListItem","position":3,"name":"夾娃娃機新手常見錯誤","item":"https://goshoot.com.tw/article-claw-machine-mistakes.html"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"夾娃娃機新手最常犯的錯誤是什麼？","acceptedAnswer":{"@type":"Answer","text":"最常見的是只看娃娃可愛就下手、卻沒觀察夾點與重心；其次是一開始就衝保夾金額、忽略機台標示、心急連續投幣，以及卡台或有爭議時不知道找誰處理。"}},
+{"@type":"Question","name":"保夾金額是不是投越多就一定划算？","acceptedAnswer":{"@type":"Answer","text":"不一定。保夾／保證取物是指投入累積到機台標示的金額後即可取得商品，但那是「取得上限」，不是「划算與否」的保證。先花小額觀察爪力強弱，覺得這台好夾才決定要不要衝，比一開始就衝金額理性。"}},
+{"@type":"Question","name":"機台沒標示保夾金額或業者聯絡方式，還可以投嗎？","acceptedAnswer":{"@type":"Answer","text":"建議先別投。依經濟部「自助選物販賣事業管理規範」，機台應揭示業者名稱、聯絡方式與保證取物金額，標示不清楚的機台，出問題時很難申訴，換一台比較安心。"}},
+{"@type":"Question","name":"卡台或扣款沒出貨，要去哪反映？","acceptedAnswer":{"@type":"Answer","text":"先拍照或錄影保留機台編號、商品狀態與付款紀錄，再依機台標示的業者聯絡方式反映；無法解決可撥消費者服務專線 1950，或洽當地縣市政府商業主管機關。"}},
+{"@type":"Question","name":"Go Shoot 中和門市對新手友善嗎？","acceptedAnswer":{"@type":"Answer","text":"友善。Go Shoot 中和門市只賣正版商品，機台標示清楚、選品定期更換，24 小時無人自助，新手也能安心夾；不確定怎麼玩可先看站內夾娃娃機系列文章。"}}]}]}
+</script>
+<link rel="stylesheet" href="goshoot-ui.css">
+</head>
+<body>
+<div class="util"><div class="wrap"><span><img src="/assets/brand/icon/claw.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 娃娃機 24H・<img src="/assets/brand/icon/spintop.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 戰鬥陀螺 24H　|　<img src="/assets/brand/icon/target.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> <b>中和捷運站旁</b></span><a href="https://goshoot-ichiban.vercel.app/draw" rel="noopener"><img src="/assets/brand/icon/trophy.jpg" alt="" style="display:inline-block;width:.95em;height:.95em;border-radius:50%;vertical-align:-.12em;object-fit:cover"> 線上一番賞・馬上抽 →</a></div></div>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><svg viewBox="0 0 512 512" aria-hidden="true"><circle cx="256" cy="256" r="160" fill="none" stroke="#ECECEA" stroke-width="24"/><circle cx="256" cy="256" r="109" fill="none" stroke="#ECECEA" stroke-width="13" stroke-opacity="0.35"/><circle cx="256" cy="256" r="49" fill="#FF5A2D"/><circle cx="256" cy="256" r="18" fill="#ECECEA"/><path d="M256 72 A184 184 0 0 1 440 256" fill="none" stroke="#FF5A2D" stroke-width="26" stroke-linecap="round"/></svg>Go Shoot</a>
+  <div class="nav-links">
+    <a href="index.html#products">情報</a>
+    <a href="ichiban.html">線上一番賞</a>
+    <a href="events.html">賽事</a>
+    <a href="store3d.html">立體店舖</a>
+    <a href="guide.html">攻略</a>
+    <a href="faq.html">常見問題</a>
+    <a class="btn btn-sm btn-race" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">抽一番賞</a>
+  </div>
+  <button class="menu-btn" aria-label="選單" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display:block"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></nav>
+
+<article class="wrap article">
+  <nav class="crumb"><a href="index.html">首頁</a> ／ <a href="store.html">中和門市</a> ／ 夾娃娃機新手常見錯誤</nav>
+  <h1>夾娃娃機新手常見錯誤：5 個雷區一次看懂</h1>
+  <p class="lead">投了好幾百塊，娃娃還是動也不動？很多時候問題不是手氣不好，而是<strong>先踩了幾個新手常犯的雷</strong>。這頁整理<strong>夾娃娃機新手最容易犯的 5 個錯誤</strong>，從只看外觀不看夾點、一開始就衝保夾金額，到機台標示、投幣節奏與遇到爭議該找誰，看完再上機，能少走不少冤枉路。</p>
+
+  <div class="gs-tldr">
+    <b>三句話看完</b>
+    <ul>
+      <li>先觀察夾點與爪力，別只看娃娃可愛就下手</li>
+      <li>保夾是「取得上限」不是「划算保證」，先小額試手氣</li>
+      <li>機台標示不清楚、卡台沒人管，先別投、找標示的業者反映</li>
+    </ul>
+  </div>
+
+  <h2>① 為什麼問題常常不是手氣，而是先踩了雷</h2>
+  <p>夾娃娃機看起來很直覺——投錢、操作、夾起來，但每台機台的<strong>爪力設定、取物條件、商品擺放</strong>都不一樣。新手常常是還沒搞懂這台的「遊戲規則」就急著出手，結果就是槓龜好幾次才發現方向錯了。先花一分鐘觀察，再決定要不要投，會比連續猜運氣有效率。</p>
+
+  <h2>② 新手最常犯的 5 個錯誤</h2>
+  <p>以下按常見程度排序，看看自己中了幾個。</p>
+  <ol class="steps">
+    <li><b>只看娃娃可愛，不看夾點與重心</b><br>直取機要看的是爪子能不能咬住商品的重心，不是商品好不好看。同一隻娃娃擺在洞口邊和擺在正中間，難度差很多，先觀察商品怎麼卡位再決定要不要投。</li>
+    <li><b>一開始就衝保夾金額</b><br>保夾（保證取物）是投到機台標示的金額上限就一定能拿到，但那是「取得保證」不是「划算保證」。比較穩的做法是先花小額觀察這一輪的爪力強弱，覺得這台真的好夾再考慮要不要衝到底。</li>
+    <li><b>忽略機台上的標示</b><br>依規範，機台應標示業者名稱、聯絡方式與保證取物金額。看不到這些資訊、或機台裝了明顯的擋板、多層網等疑似降低取得機率的設施，最好先換一台，別勉強投。</li>
+    <li><b>手氣不好還連續投幣</b><br>爪力常會依設定在強弱之間變化，連續猜的時候容易忘記觀察「這次力道跟上次不一樣」。連輸兩三次先停下來看別人玩，或换一台，比悶著頭一直投更划算。</li>
+    <li><b>卡台或有爭議，不知道找誰</b><br>商品卡住、扣款沒出貨時，先拍照或錄影保留機台編號與付款紀錄，再依機台標示的業者聯絡方式反映；不知道去哪反映，白白吃虧的機率最高。</li>
+  </ol>
+
+  <h2>③ 進階一點：上機前先看這 4 件事</h2>
+  <p>把上面的錯誤反過來想，就是上機前該花幾秒鐘檢查的重點：</p>
+  <div class="fact">
+    <div class="row"><div class="k">商品擺放</div><div class="v">商品是否卡在<b>不利夾取的角度</b>，例如緊貼護欄或壓在其他商品下方</div></div>
+    <div class="row"><div class="k">保夾標示</div><div class="v">機台是否清楚寫出<b>保證取物金額</b>與目前已投入金額</div></div>
+    <div class="row"><div class="k">業者資訊</div><div class="v">是否標示<b>業者名稱與聯絡方式</b>，出狀況時知道找誰</div></div>
+    <div class="row"><div class="k">機關設施</div><div class="v">有無明顯<b>擋板、多層網</b>等疑似降低取得機率的裝置</div></div>
+  </div>
+  <p>想更深入了解爪型、擺台與保夾原理，可以看〈<a href="article-claw-machine-tips.html" style="color:var(--gs-accent)">夾娃娃機技巧入門</a>〉與〈<a href="article-claw-machine-rules.html" style="color:var(--gs-accent)">保夾原理與消保規範白話解</a>〉；聽不懂店家在講什麼術語，看〈<a href="article-claw-machine-terms.html" style="color:var(--gs-accent)">娃娃機術語黑話對照表</a>〉。</p>
+
+  <h2>④ 常見問題 FAQ</h2>
+  <details open><summary>夾娃娃機新手最常犯的錯誤是什麼？</summary><p>最常見的是只看娃娃可愛就下手、卻沒觀察夾點與重心；其次是一開始就衝保夾金額、忽略機台標示、心急連續投幣，以及卡台或有爭議時不知道找誰處理。</p></details>
+  <details><summary>保夾金額是不是投越多就一定划算？</summary><p>不一定。保夾／保證取物是指投入累積到機台標示的金額後即可取得商品，但那是「取得上限」，不是「划算與否」的保證。先花小額觀察爪力強弱，覺得這台好夾才決定要不要衝，比一開始就衝金額理性。</p></details>
+  <details><summary>機台沒標示保夾金額或業者聯絡方式，還可以投嗎？</summary><p>建議先別投。依經濟部「自助選物販賣事業管理規範」，機台應揭示業者名稱、聯絡方式與保證取物金額，標示不清楚的機台，出問題時很難申訴，換一台比較安心。</p></details>
+  <details><summary>卡台或扣款沒出貨，要去哪反映？</summary><p>先拍照或錄影保留機台編號、商品狀態與付款紀錄，再依機台標示的業者聯絡方式反映；無法解決可撥消費者服務專線 1950，或洽當地縣市政府商業主管機關。</p></details>
+  <details><summary>Go Shoot 中和門市對新手友善嗎？</summary><p>友善。Go Shoot 中和門市只賣正版商品，機台標示清楚、選品定期更換，24 小時無人自助，新手也能安心夾；不確定怎麼玩可先看站內夾娃娃機系列文章。</p></details>
+
+  <div class="gs-cta">
+    <b>想邊玩邊避開這些雷？</b>
+    <p>Go Shoot 中和門市 24H 無人娃娃機，機台標示清楚、只賣正版商品。</p>
+    <a href="#goshoot">看門市資訊 →</a>
+  </div>
+
+  <h2 id="goshoot">來 Go Shoot 中和門市，新手友善、只賣正版</h2>
+  <p><strong>Go Shoot 中和門市</strong>已正式開幕，結合 24 小時無人娃娃機、戰鬥陀螺對戰台與線上一番賞，位於<strong>新北市中和區景平路593號之1</strong>、捷運中和站旁。機台標示清楚、選品定期更換，我們<strong>只賣正版商品</strong>，新手也能安心夾。</p>
+  <p>不想只靠手氣，也可以到<strong>線上一番賞</strong>試試——手機免下載、24 小時隨時抽、<strong>每抽必中</strong>，抽到的正版商品可宅配到府或到中和門市自取：</p>
+  <p><a class="btn" href="https://goshoot-ichiban.vercel.app/draw" target="_blank" rel="noopener">看現在有哪些一番賞獎單 →</a></p>
+  <p style="font-size:15px">有問題可以直接聯絡我們：Email <a href="mailto:goshoot593@gmail.com" style="color:var(--gs-accent)">goshoot593@gmail.com</a>、電話 <a href="tel:0976507911" style="color:var(--gs-accent)">0976507911</a>。</p>
+
+  <div class="related"><b>延伸閱讀</b>
+    <a href="article-claw-machine-tips.html">→ 夾娃娃機技巧入門：爪力、爪型、擺台</a>
+    <a href="article-claw-machine-terms.html">→ 娃娃機術語黑話對照表</a>
+    <a href="article-claw-machine-rules.html">→ 夾娃娃「保夾」原理與消保規範白話解</a>
+    <a href="store.html">→ Go Shoot 中和門市（24H 娃娃機）</a>
+  </div>
+
+  <div class="gs-more">
+    <b>繼續讀</b>
+    <div class="gs-more-grid">
+      <a href="article-claw-machine-tips.html"><img src="assets/news/card-claw-machine-tips.jpg" alt="夾娃娃機技巧入門：從爪力、爪型到擺台，新手也能提高成功率" loading="lazy"><span>夾娃娃機技巧入門</span></a>
+      <a href="article-claw-machine-rules.html"><img src="assets/news/card-claw-machine-rules.jpg" alt="夾娃娃「保夾」是什麼？原理與台灣消保規範白話解" loading="lazy"><span>保夾原理與消保規範</span></a>
+      <a href="article-korean-claw-machine.html"><img src="assets/news/card-korean-claw-machine.jpg" alt="韓系娃娃機是什麼？和台式夾娃娃店差在哪，一次看懂" loading="lazy"><span>韓系娃娃機是什麼</span></a>
+    </div>
+  </div>
+
+  <p class="src">說明：本文為夾娃娃機新手常見錯誤的一般性整理，各機台的爪力設定、取物條件與商品擺放依現場實際情形而定，不構成保證取得的承諾。法規部分參考經濟部「自助選物販賣事業管理規範」，實際規定與申訴管道以主管機關公告為準（查閱日期 2026-09-18）。Go Shoot 中和門市服務內容以站內公告為準。</p>
+</article>
+
+<footer><div class="wrap">© 2026 Go Shoot ・ <a href="ichiban.html">線上一番賞</a> ・ <a href="index.html">回首頁</a><br>旋賞數位有限公司｜統一編號 62149294 ・ 新北市中和區景平路593號之1</div></footer>
+<a href="store.html" aria-label="回中和門市" style="position:fixed;left:14px;bottom:14px;z-index:99;background:#262329;color:#FBF6EE;font:600 14px 'Noto Sans TC';padding:11px 16px;border-radius:24px;box-shadow:0 3px 12px rgba(0,0,0,.25)">← 中和門市</a>
+<script src="assets/site.js" defer></script>
+  <script defer src="assistant.js"></script>
+<script src="goshoot-nav.js" defer></script>
+<script src="goshoot-article.js" defer></script>
+</body>
+</html>
