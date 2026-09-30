@@ -345,6 +345,9 @@ footer a:hover{color:var(--gs-orange)}
    DOM 順序已在 grain/deco 之後，自然疊上，不需 z-index。 */
 /* 背景影片（9/5 陀螺賽，調暗一半）：無 z-index，靠 DOM 順序墊在最底層——.gsh-top 不可設 z-index */
 .gsh-bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5);pointer-events:none}
+.gsh-sound{position:absolute;top:22px;right:24px;z-index:3;display:flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border-radius:999px;border:1px solid rgba(251,246,238,.25);background:rgba(26,26,26,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#FBF6EE;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.gsh-sound:hover{border-color:#FF5A2D}.gsh-sound[hidden]{display:none}
+.gsh-sound .ic-on,.gsh-sound[aria-pressed="true"] .ic-off{display:none}.gsh-sound[aria-pressed="true"] .ic-on{display:block}
 .gsh-top{position:relative;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(14px,2.4vh,28px) 22px;gap:clamp(12px,2.4vh,26px)}
 .gsh-deco{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:190px 190px;background-position:center top}
 .gsh-deco i{position:absolute;border:1px solid rgba(255,255,255,.055);border-radius:230px}
@@ -416,6 +419,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     </div>
   </div>
   <div class="gsh-marquee" aria-hidden="true"><div class="gsh-mq"><b>中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ </b><b>中和戰鬥陀螺專門店 ✦ 線上一番賞 ✦ 24H 娃娃機 ✦ </b></div></div>
+  <button class="gsh-sound" type="button" aria-pressed="false" aria-label="開啟音效" hidden><svg class="ic-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><svg class="ic-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg><span class="gsh-sound-t">開啟音效</span></button>
 </section>
 <!-- ═══ 立體店舖 3D（2026-08-24 老闆拍板：主頁上半放 3D、下半保留原內容）═══ -->
 <style>
@@ -1050,7 +1054,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 /* Hero：品牌＋內容入口（不主推抽賞） */#gsapp .gsm-hero-brand{border-radius:22px;border:1px solid var(--line);overflow:hidden;
   background:radial-gradient(140% 90% at 50% 30%,#221410 0%,#1A1A1A 62%);
-  padding:28px 18px 18px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}#gsapp .gsm-hero-brand{position:relative;isolation:isolate}#gsapp .gsm-hero-brand .gsm-bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5);z-index:-1;pointer-events:none}#gsapp .gsm-hero-brand .gsm-logo{width:min(80%,300px)}#gsapp .gsm-hero-brand .gsm-subline{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;align-items:center;
+  padding:28px 18px 18px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}#gsapp .gsm-hero-brand{position:relative;isolation:isolate}#gsapp .gsm-hero-brand .gsm-bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5);z-index:-1;pointer-events:none}#gsapp .gsm-sound{padding:0;cursor:pointer;color:#D4D4D4}#gsapp .gsm-sound[hidden]{display:none}#gsapp .gsm-sound[aria-pressed="true"]{color:var(--orange)}#gsapp .gsm-sound .ic-on,#gsapp .gsm-sound[aria-pressed="true"] .ic-off{display:none}#gsapp .gsm-sound[aria-pressed="true"] .ic-on{display:block}#gsapp .gsm-hero-brand .gsm-logo{width:min(80%,300px)}#gsapp .gsm-hero-brand .gsm-subline{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;align-items:center;
   font-weight:900;font-size:14px;color:#FBF6EE;padding:8px 16px;border-radius:999px;
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}#gsapp .gsm-hero-brand .gsm-subline .gsm-x{color:var(--orange);font-family:var(--num);font-weight:800}#gsapp .gsm-hero-brand .gsm-ctas{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:2px}
 
@@ -1101,6 +1105,7 @@ document.addEventListener("DOMContentLoaded",function(){
 <header class="gsm-topbar"><div class="gsm-col">
   <a class="gsm-brand" href="index.html" style="color:#FFF"><b>GO</b>SHOOT</a>
   <div class="gsm-top-right">
+    <button class="gsm-icon-btn gsm-sound" type="button" aria-pressed="false" aria-label="開啟音效" hidden><svg class="ic-off" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg><svg class="ic-on" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
     <a class="gsm-pts" href="https://goshoot-ichiban.vercel.app/draw" rel="noopener">
       <span class="gsm-coin"></span><span class="gsm-num" style="font-size:14px;font-weight:800">1,240</span><span style="font-size:11px;color:var(--muted)">點</span>
     </a>
@@ -1519,17 +1524,32 @@ document.addEventListener("DOMContentLoaded",function(){
 </script>
 
 <script>
-/* 首頁背景影片：只載入目前版面那一支；減少動態效果或省流量模式時只留封面圖 */
+/* 首頁背景影片：只載入目前版面那一支；減少動態效果或省流量模式時只留封面圖，按「開啟音效」才載入 */
 (function(){
   if (!window.matchMedia) return;
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  if (navigator.connection && navigator.connection.saveData) return;
   var mobile = matchMedia("(max-width:767px)").matches;
   var v = document.querySelector(mobile ? ".gsm-bgvid" : ".gsh-bgvid");
   if (!v) return;
+  var btn = document.querySelector(mobile ? ".gsm-sound" : ".gsh-sound");
+  function start() {
+    if (!v.getAttribute("src")) v.src = "assets/video/hero-bg-" + (mobile ? "v" : "h") + ".mp4";
+    var p = v.play(); if (p && p.catch) p.catch(function(){});
+  }
   v.muted = true;
-  v.src = "assets/video/hero-bg-" + (mobile ? "v" : "h") + ".mp4";
-  var p = v.play(); if (p && p.catch) p.catch(function(){});
+  var calm = matchMedia("(prefers-reduced-motion: reduce)").matches || (navigator.connection && navigator.connection.saveData);
+  if (!calm) start();
+  if (!btn) return;
+  btn.hidden = false;
+  btn.addEventListener("click", function(){
+    var on = v.muted;
+    v.muted = !on;
+    v.volume = 0.7;
+    if (on) start();
+    var label = on ? "關閉音效" : "開啟音效";
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.setAttribute("aria-label", label);
+    var t = btn.querySelector(".gsh-sound-t"); if (t) t.textContent = label;
+  });
 })();
 </script>
 </body>
