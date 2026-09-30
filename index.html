@@ -343,6 +343,8 @@ footer a:hover{color:var(--gs-orange)}
 /* flex:1 佔據 hero 扣掉底部 marquee 後的空間；內容在其中置中，永不與 marquee 重疊（矮視窗曾蓋住 CTA）。
    ⚠️ 不可設 z-index：會建立 stacking context 讓 h1img 的 mix-blend-mode:screen 失效、logo 黑底變黑框。
    DOM 順序已在 grain/deco 之後，自然疊上，不需 z-index。 */
+/* 背景影片（9/5 陀螺賽，調暗一半）：無 z-index，靠 DOM 順序墊在最底層——.gsh-top 不可設 z-index */
+.gsh-bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5);pointer-events:none}
 .gsh-top{position:relative;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(14px,2.4vh,28px) 22px;gap:clamp(12px,2.4vh,26px)}
 .gsh-deco{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:190px 190px;background-position:center top}
 .gsh-deco i{position:absolute;border:1px solid rgba(255,255,255,.055);border-radius:230px}
@@ -392,6 +394,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 @media(prefers-reduced-motion:reduce){.gsh-mq{animation:none}}
 </style>
 <section class="gsh-hero" id="gshHero" aria-label="Go Shoot 首頁主視覺">
+  <video class="gsh-bgvid" muted loop playsinline preload="none" poster="assets/video/hero-bg-h.webp" aria-hidden="true" tabindex="-1"></video>
   <div class="gsh-grain"></div>
   <div class="gsh-deco" aria-hidden="true"><i></i><i></i></div>
   <div class="gsh-top">
@@ -1047,7 +1050,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 /* Hero：品牌＋內容入口（不主推抽賞） */#gsapp .gsm-hero-brand{border-radius:22px;border:1px solid var(--line);overflow:hidden;
   background:radial-gradient(140% 90% at 50% 30%,#221410 0%,#1A1A1A 62%);
-  padding:28px 18px 18px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}#gsapp .gsm-hero-brand .gsm-logo{width:min(80%,300px)}#gsapp .gsm-hero-brand .gsm-subline{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;align-items:center;
+  padding:28px 18px 18px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}#gsapp .gsm-hero-brand{position:relative;isolation:isolate}#gsapp .gsm-hero-brand .gsm-bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5);z-index:-1;pointer-events:none}#gsapp .gsm-hero-brand .gsm-logo{width:min(80%,300px)}#gsapp .gsm-hero-brand .gsm-subline{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;align-items:center;
   font-weight:900;font-size:14px;color:#FBF6EE;padding:8px 16px;border-radius:999px;
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}#gsapp .gsm-hero-brand .gsm-subline .gsm-x{color:var(--orange);font-family:var(--num);font-weight:800}#gsapp .gsm-hero-brand .gsm-ctas{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:2px}
 
@@ -1117,6 +1120,7 @@ document.addEventListener("DOMContentLoaded",function(){
 <!-- ═══ HERO：品牌＋內容入口（照原官網：推情報內文，抽賞退居次要 CTA）═══ -->
 <section class="gsm-col" style="padding-top:14px">
   <div class="gsm-hero-brand">
+    <video class="gsm-bgvid" muted loop playsinline preload="none" poster="assets/video/hero-bg-v.webp" aria-hidden="true" tabindex="-1"></video>
     <img class="gsm-logo" src="assets/brand/logo-main-cutout.webp" alt="Go Shoot｜中和戰鬥陀螺專門店・線上一番賞・娃娃機 9/1 開幕" fetchpriority="high">
     <div class="gsm-subline"><b>戰鬥陀螺</b><span class="gsm-x">×</span><b>娃娃機</b><span class="gsm-x">×</span><b>線上一番賞</b></div>
     <div class="gsm-ctas">
@@ -1514,5 +1518,19 @@ document.addEventListener("DOMContentLoaded",function(){
 
 </script>
 
+<script>
+/* 首頁背景影片：只載入目前版面那一支；減少動態效果或省流量模式時只留封面圖 */
+(function(){
+  if (!window.matchMedia) return;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (navigator.connection && navigator.connection.saveData) return;
+  var mobile = matchMedia("(max-width:767px)").matches;
+  var v = document.querySelector(mobile ? ".gsm-bgvid" : ".gsh-bgvid");
+  if (!v) return;
+  v.muted = true;
+  v.src = "assets/video/hero-bg-" + (mobile ? "v" : "h") + ".mp4";
+  var p = v.play(); if (p && p.catch) p.catch(function(){});
+})();
+</script>
 </body>
 </html>
