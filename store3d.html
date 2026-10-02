@@ -329,6 +329,43 @@
     #playMessage{font-size:10px;min-height:15px}
   }
 
+
+  body[data-activity=battle] #rail,body[data-activity=battle] #labels,body[data-activity=battle] #hint,body[data-activity=battle] #scene-caption,body[data-activity=battle] #motionToggle{display:none}
+  #bey,.gs-embed #bey{left:auto;right:24px;bottom:50%;width:330px;max-width:calc(100vw - 16px);padding:18px;gap:13px;transform:translateY(50%);border-radius:20px;background:rgba(18,22,28,.97);border:1px solid #ffffff26;box-shadow:0 24px 70px #0009;flex-direction:column;align-items:stretch}
+  #bey.on{display:flex;transform:translateY(50%)}#bey{transition:opacity .2s}#bey [hidden]{display:none!important}
+  #bey button{min-height:44px;border-radius:10px;cursor:pointer;font-family:inherit;touch-action:manipulation}
+  #bey button:disabled{opacity:.38;cursor:default;transform:none}#bey .bey-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .bey-heading small{display:block;font-size:9px;letter-spacing:.12em;color:#ff956c;margin-bottom:5px}.bey-heading b{font-size:19px}.bey-heading b span{font-size:10px;color:#92befe}
+  #beyExit{padding:9px 14px}.bey-status{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid #ffffff1a;font-size:13px}#beyTimer{color:#ffb38f;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+  .bey-meters{display:grid;grid-template-columns:1fr 1fr;gap:14px}.bey-meters label{display:flex;justify-content:space-between;font-size:11px;color:#cad1db;margin-bottom:6px}.bey-meter{height:7px;overflow:hidden;background:#ffffff15;border-radius:5px}.bey-meter i{display:block;width:100%;height:100%;background:#ff734b;border-radius:5px}#beyAiFill{background:#65a5ff}
+  .bey-aim label{display:flex;justify-content:space-between;font-size:12px;color:#c0cad6}.bey-aim output{font-variant-numeric:tabular-nums;color:#ffc09c}
+  #beyAim{width:100%;height:44px;margin:0;accent-color:#ff7849;touch-action:pan-y;cursor:pointer}
+  .bey-controls{display:flex;gap:8px}#beyCharge{position:relative;flex:1;width:auto;height:62px;padding:8px!important;overflow:hidden;background:#29343e;border:1px solid #ff7849;touch-action:none}
+  #beyCharge .fill{position:absolute;inset:0 auto 0 0;width:0%;background:#ff5a2d66;transition:none}#beyCharge span,#beyCharge b{position:relative;display:block;font-size:11px}#beyCharge b{font-size:20px;color:#ffc09c;margin-top:3px}
+  #beyDash{width:94px;padding:8px!important;background:#ff5a2d;color:#15181d;font-weight:800;font-size:12px}
+  #beyLog{position:static;left:auto;right:auto;top:auto;bottom:auto;transform:none;opacity:1;display:block;min-height:36px;margin:0;padding:0;background:none;border:0;box-shadow:none;text-shadow:none;color:#cbd3df;font-size:12px;line-height:1.6;text-align:left;pointer-events:none}
+  #beyAgain{width:100%;padding:10px;background:#ff5a2d;color:#15181d;font-weight:800;font-size:14px}
+  #bey .bey-rules,#bey .bey-keys{margin:0;color:#8f9aa9;font-size:9px;line-height:1.6;text-align:center}
+  #bey[data-phase=fight] .bey-aim,#bey[data-phase=over] .bey-aim,#bey[data-phase=over] .bey-controls{display:none}
+  #bey[data-phase=fight] #beyCharge{display:none}#bey[data-phase=fight] #beyDash{width:100%;height:48px}
+  @media(max-width:768px),(max-height:540px) and (min-width:600px){
+    #bey,.gs-embed #bey{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));width:calc(100vw - 16px);padding:12px;gap:9px;transform:none;border-radius:16px;flex-wrap:nowrap}
+    #bey.on{transform:none}.bey-heading small{display:none}.bey-heading b{font-size:15px}.bey-heading b span{font-size:9px}.bey-status{padding-top:7px;font-size:12px}#beyTimer{font-size:16px}
+    #bey .bey-keys{display:none}#bey .bey-rules{font-size:9px}#beyLog{font-size:11px;min-height:33px;line-height:1.5}
+    #bey .bey-heading{display:contents}.bey-heading>div{display:none}#beyExit{position:absolute;right:12px;top:12px;width:44px;padding:5px!important;font-size:11px}
+    .bey-status{min-height:44px;padding:0 54px 0 0;border:0}.bey-meters label{font-size:10px;margin-bottom:4px}.bey-aim label{font-size:11px}
+    #beyCharge{height:58px}#beyDash{width:90px}.bey-controls{gap:7px}
+  }
+  @media(max-width:350px){#bey,.gs-embed #bey{padding:8px;gap:6px}#beyExit{top:8px;right:8px}#beyLog{font-size:10px;min-height:30px}#bey .bey-rules{font-size:8px}#beyCharge{height:54px}#beyCharge span{font-size:10px}#beyDash{font-size:11px;width:84px}}
+
+
+  @media(max-height:540px) and (min-width:600px){
+    body[data-activity=battle] #topbar{display:none}
+    body[data-activity=battle] #floorSwitch,body[data-activity=battle] #scene-actions{top:12px}
+    #bey,.gs-embed #bey{left:auto;right:8px;bottom:8px;width:300px;max-height:calc(100vh - 80px);overflow-y:auto;padding:8px;gap:5px}
+    #beyExit{right:8px;top:8px}#beyLog{font-size:10px;min-height:30px}#bey .bey-rules{font-size:8px}
+  }
+
 </style>
 </head>
 <body>
@@ -367,17 +404,16 @@
   <button id="playStart" class="round-action" type="button">開始挑戰 · 20 秒</button><button id="playAgain" class="round-action" type="button" hidden>再玩一局</button>
   <p class="virtual-note">免費虛擬遊戲・不兌換實物</p>
 </section>
-<div id="bey">
-  <div class="score">
-    <b>陀螺對戰台</b>
-    <div class="pts"><i id="beyMe">0</i> : <s id="beyAi">0</s></div>
-    <span id="beyState">先拿 4 分獲勝</span>
-  </div>
-  <div id="beyCharge"><div class="fill" id="beyFill"></div><span id="beyBtnTxt">按住蓄力・放開發射</span></div>
-  <button class="dash" id="beyDash">衝刺</button>
-  <button id="beyExit">結束</button>
-</div>
-<div id="beyLog"></div>
+<section id="bey" aria-label="免費 3D 陀螺對戰">
+  <div class="bey-heading"><div><small>FREE 3D BATTLE</small><b>陀螺對戰 <span>VS CPU</span></b></div><button id="beyExit" type="button">退出</button></div>
+  <div class="bey-status"><strong id="beyPhase">準備發射</strong><span id="beyTimer">25 秒</span></div>
+  <div class="bey-meters"><div><label>你 · 橘 <span id="beyMeSpin">100%</span></label><div class="bey-meter"><i id="beyMeFill"></i></div></div><div><label>CPU · 藍 <span id="beyAiSpin">100%</span></label><div class="bey-meter"><i id="beyAiFill"></i></div></div></div>
+  <div class="bey-aim"><label for="beyAim">發射方向 <output id="beyAngle">0°</output></label><input id="beyAim" type="range" min="-60" max="60" step="2" value="0" aria-label="發射方向"></div>
+  <div class="bey-controls"><button id="beyCharge" type="button"><i class="fill" id="beyFill"></i><span id="beyBtnTxt">按住蓄力 · 放開發射</span><b id="beyPower">0%</b></button><button id="beyDash" type="button" disabled>衝刺 · 1 次</button></div>
+  <p id="beyLog" role="status" aria-live="polite"></p>
+  <button id="beyAgain" type="button" hidden>再戰一局</button>
+  <p class="bey-rules">簡化規則：先停轉或出界輸・25 秒到仍存活則平手</p><p class="bey-keys">← → 瞄準 · 按住空白鍵蓄力 · D 衝刺</p>
+</section>
 
 <footer id="shopbar">
   <div class="sb-txt">
@@ -969,16 +1005,18 @@ function buildFixtures(){
       new THREE.MeshStandardMaterial({color:ring, emissive:ring, emissiveIntensity:.6, roughness:.3})), 0,.036,0)
       .rotation.x = Math.PI/2;
     put(t, new THREE.Mesh(new THREE.ConeGeometry(.016,.03,10), mat.chrome), 0,-.008,0).rotation.x = Math.PI;
-    for(let i=0;i<4;i++){
-      const b = put(t, box(.052,.012,.014, new THREE.MeshStandardMaterial({color:0xe8e4dd, roughness:.4, metalness:.5})), 0,.03,0);
-      b.rotation.y = i*Math.PI/2 + .4; b.position.set(Math.cos(i*Math.PI/2)*.032, .03, Math.sin(i*Math.PI/2)*.032);
+    for(let i=0;i<3;i++){
+      const a=i*Math.PI*2/3;
+      const blade=put(t,box(.052,.012,.014,new THREE.MeshStandardMaterial({color:0xe8e4dd,roughness:.4,metalness:.5})),Math.cos(a)*.021,.03,Math.sin(a)*.021);
+      blade.rotation.y=-a+.18;
     }
+    put(t,new THREE.Mesh(new THREE.CylinderGeometry(.019,.019,.015,16),new THREE.MeshStandardMaterial({color:0x26313e,roughness:.3,metalness:.5})),0,.043,0);
     t.visible = false; st.add(t); return t;
   };
   // 碗內戰鬥場地：底盤 + 出界圈
   const arenaMat = new THREE.MeshStandardMaterial({color:0x2b2b31, roughness:.45, metalness:.3});
-  put(st, new THREE.Mesh(new THREE.CircleGeometry(.335, 48), arenaMat), 0, 1.005, 0).rotation.x = -Math.PI/2;
-  put(st, new THREE.Mesh(new THREE.RingGeometry(.30,.322,48),
+  put(st, new THREE.Mesh(new THREE.CircleGeometry(.405,48), arenaMat), 0, 1.005, 0).rotation.x = -Math.PI/2;
+  put(st, new THREE.Mesh(new THREE.RingGeometry(.395,.410,48),
     new THREE.MeshStandardMaterial({color:0xFF5A2D, emissive:0xFF5A2D, emissiveIntensity:.85, side:THREE.DoubleSide})),
     0, 1.012, 0).rotation.x = -Math.PI/2;
   put(st, new THREE.Mesh(new THREE.RingGeometry(.055,.07,32),
@@ -989,7 +1027,7 @@ function buildFixtures(){
   window.BEY = {
     stadium: st,
     tops: [ makeTop(0xFF5A2D, 0xFFC24B), makeTop(0x3f7bd8, 0x9fd0ff) ],
-    y: 1.03, R: 0.30, ROUT: 0.335, r: 0.052
+    y:1.03,R:.34,ROUT:.405,r:.052
   };
 
 
@@ -1189,8 +1227,8 @@ function applyCam(){
   cam.phi   += (cam.tPhi-cam.phi)*.12;
   cam.dist  += (cam.tDist-cam.dist)*.10;
   cam.target.lerp(cam.tTarget,.10);
-  const p = cam.phi, t = cam.theta, d = cam.dist * (PLAY.active ? 1 : FIT);
-  const yOff = !PLAY.active && !isEmbedded && innerWidth >= 768 ? -.3 : 0;
+  const p = cam.phi, t = cam.theta, d = cam.dist * (PLAY.active || BATTLE.active ? 1 : FIT);
+  const yOff = !PLAY.active && !BATTLE.active && !isEmbedded && innerWidth >= 768 ? -.3 : 0;
   const ty = cam.target.y + yOff;
   camera.position.set(
     cam.target.x + d*Math.sin(p)*Math.sin(t),
@@ -1201,9 +1239,9 @@ function applyCam(){
   if(CEIL.userData.b1){ CEIL.userData.b1.position.y = gB.position.y; CEIL.userData.b1.visible = (view !== 'f1'); }
 }
 let drag=null;
-cv.addEventListener('pointerdown', e=>{ if(PLAY.active)return;drag={x:e.clientX,y:e.clientY,moved:0}; try{ cv.setPointerCapture(e.pointerId); }catch(_){} });
+cv.addEventListener('pointerdown', e=>{ if(PLAY.active||BATTLE.active)return;drag={x:e.clientX,y:e.clientY,moved:0}; try{ cv.setPointerCapture(e.pointerId); }catch(_){} });
 cv.addEventListener('pointermove', e=>{
-  if(PLAY.active)return;
+  if(PLAY.active||BATTLE.active)return;
   // 畫面固定：拖曳只做極小幅度的視差，不會轉走（要正面看某樣東西就點它）
   if(drag){
     const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
@@ -1215,10 +1253,10 @@ cv.addEventListener('pointermove', e=>{
   } else hover(e);
 });
 addEventListener('pointerup', e=>{ if(drag && drag.moved<6) click(e); drag=null; });
-cv.addEventListener('wheel', e=>{ e.preventDefault();if(PLAY.active)return; cam.tDist = Math.max(3.5, Math.min(34, cam.tDist + e.deltaY*0.012)); }, {passive:false});
+cv.addEventListener('wheel', e=>{ e.preventDefault();if(PLAY.active||BATTLE.active)return; cam.tDist = Math.max(3.5, Math.min(34, cam.tDist + e.deltaY*0.012)); }, {passive:false});
 let pinch=0;
 cv.addEventListener('touchmove', e=>{
-  if(PLAY.active)return;
+  if(PLAY.active||BATTLE.active)return;
   if(e.touches.length===2){
     const d = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
     if(pinch) cam.tDist = Math.max(3.5, Math.min(34, cam.tDist + (pinch-d)*0.03));
@@ -1237,7 +1275,9 @@ let view='f1', focused=false;
 function stopActivities(){
   cancelClawRound();PLAY.active=false;playEl.classList.remove('on');clearClawInput();delete document.body.dataset.activity;
   (PLAY.hidden||[]).forEach(g=>g.visible=true);PLAY.hidden=[];
-  BATTLE.active=false;BATTLE.charging=false;clearInterval(chargeTimer);chargeTimer=null;
+  clearBattleControls();BATTLE.active=false;BATTLE.phase='idle';BATTLE.t=0;BATTLE.accumulator=0;
+  BATTLE.tops.forEach(t=>{t.alive=false;t.vx=0;t.vz=0;});
+  (BATTLE.hidden||[]).forEach(g=>g.visible=true);BATTLE.hidden=[];battleFX.visible=false;
   beyEl.classList.remove('on');beyLog.classList.remove('on');beyFill.style.width='0%';
   BEY.tops.forEach(t=>t.visible=false);
   document.getElementById('shopbar').classList.remove('hide');
@@ -1315,13 +1355,13 @@ function showCard(key, extra, obj){
   cSub.textContent = (extra? '台號 '+extra+'　·　':'') + (d.sub||'');
   const selectedFx=MACHINE_FX.find(fx=>fx.id===extra)||MACHINE_FX.find(fx=>fx.key===key);
   let h=selectedFx?`<div class="claw-invite"><strong>免費 3D 夾娃娃挑戰</strong><p>20 秒移動瞄準・正側視角切換<br>僅限虛擬獎品，不兌換實物。</p><a class="cta" href="#" id="playBtn">進入 ${selectedFx.id} 機台 →</a></div>`:'';
+  if(d.battle)h+=`<div class="claw-invite"><strong>免費 3D 陀螺對戰 · VS CPU</strong><p>調整方向、蓄力發射，抓準時機衝刺。</p><a class="cta" href="#" id="beyBtn">進入戰盤 →</a></div>`;
   if(d.photo && PHOTOS[d.photo]) h += `<img class="shot" src="${PHOTOS[d.photo]}" alt="${d.name} 實景">`;
   if(d.desc) h += `<p class="desc">${d.desc}</p>`;
   if(d.meta && d.meta.length) h += `<div class="meta">${d.meta.map(m=>`<span>${m}</span>`).join('')}</div>`;
   if(d.how && d.how.length) h += `<h3>玩法</h3><ol>${d.how.map(s=>`<li>${s}</li>`).join('')}</ol>`;
   if(d.link) h += `<a class="cta" href="${d.link.url}" target="_blank" rel="noopener">${d.link.label}</a>`;
   if(d.goto) h += `<a class="cta" href="#" id="gotoBtn">下樓看看 B1 →</a>`;
-  if(d.battle) h += `<a class="cta" href="#" id="beyBtn">⚔ 開始陀螺對戰</a>`;
   cBody.innerHTML = h;
   const gb = document.getElementById('gotoBtn');
   if(gb) gb.onclick = ev=>{ ev.preventDefault(); setView(d.goto); };
@@ -1598,218 +1638,164 @@ function stepPlay(dt){
   setClaw(fx,PLAY.x,PLAY.z,PLAY.drop,open);
 }
 
-/* ---------------- 10.8 陀螺對戰小遊戲 ----------------
-   做法照社群通例：圓形碰撞 + 出界判定 + 耐力衰減（沒有現成 Beyblade 引擎可抄）。
-   計分照 Beyblade X：Spin Finish 1 分、Over Finish 2 分、Burst Finish 2 分，先 4 分勝。 */
-const BATTLE = {
-  active:false, phase:'idle', t:0, me:0, ai:0,
-  charge:0, charging:false, chargeDir:1, dashLeft:1,
-  tops:[ {x:0,z:0,vx:0,vz:0,spin:0,alive:false,spinDir:1},
-         {x:0,z:0,vx:0,vz:0,spin:0,alive:false,spinDir:-1} ]
-};
-const beyEl   = document.getElementById('bey');
-const beyFill = document.getElementById('beyFill');
-const beyLog  = document.getElementById('beyLog');
-let beyLogTimer = null;
-function battleLog(msg, hold){
-  beyLog.textContent = msg; beyLog.classList.add('on');
-  clearTimeout(beyLogTimer); beyLogTimer = setTimeout(()=>beyLog.classList.remove('on'), hold||1600);
+/* ---------------- 10.8 免費 3D 陀螺對戰 ---------------- */
+const BATTLE={active:false,phase:'ready',t:0,aim:0,charge:0,charging:false,pointer:null,chargeSource:null,dashLeft:1,cpuDash:true,hidden:[],lastNow:0,accumulator:0,result:'',hits:0,
+  tops:[{x:0,z:0,vx:0,vz:0,spin:0,alive:false,spinDir:1},{x:0,z:0,vx:0,vz:0,spin:0,alive:false,spinDir:-1}]};
+const beyEl=document.getElementById('bey'),beyFill=document.getElementById('beyFill'),beyLog=document.getElementById('beyLog');
+const beyCharge=document.getElementById('beyCharge'),beyAim=document.getElementById('beyAim');
+let chargeTimer=null;
+const battleFX=new THREE.Group();BEY.stadium.add(battleFX);battleFX.visible=false;
+const launchArrow=new THREE.ArrowHelper(new THREE.Vector3(0,0,-1),new THREE.Vector3(0,BEY.y+.06,.23),.20,0xff7849,.055,.035);battleFX.add(launchArrow);
+const trailColors=[0xff7849,0x6faaff];
+const trails=trailColors.map(color=>{const line=new THREE.Line(new THREE.BufferGeometry(),new THREE.LineBasicMaterial({color,transparent:true,opacity:.42,depthWrite:false}));line.geometry.setAttribute('position',new THREE.BufferAttribute(new Float32Array(42*3),3));line.geometry.setDrawRange(0,0);line.frustumCulled=false;battleFX.add(line);return{line,points:[],clock:0};});
+const sparks=Array.from({length:12},(_,i)=>{const mesh=new THREE.Mesh(new THREE.SphereGeometry(.006,5,4),new THREE.MeshBasicMaterial({color:i%2?0xffd78b:0xffffff,transparent:true}));mesh.visible=false;battleFX.add(mesh);return{mesh,age:1,vx:0,vy:0,vz:0};});
+function clearBattleControls(){
+  const pointer=BATTLE.pointer;BATTLE.pointer=null;BATTLE.charging=false;BATTLE.chargeSource=null;
+  if(pointer!==null&&beyCharge.hasPointerCapture(pointer))beyCharge.releasePointerCapture(pointer);
+  clearInterval(chargeTimer);chargeTimer=null;BATTLE.charge=0;beyFill.style.width='0%';
 }
-function beyScore(){
-  document.getElementById('beyMe').textContent = BATTLE.me;
-  document.getElementById('beyAi').textContent = BATTLE.ai;
+function battleCamera(snap=false){
+  if(!BATTLE.active)return;
+  const hud=beyEl.getBoundingClientRect(),landscape=innerWidth>=600&&innerHeight<540,mobile=innerWidth<769&&!landscape,top=landscape?72:isEmbedded?80:132;
+  const safe=mobile?{left:12,right:innerWidth-12,top,bottom:Math.max(top+140,hud.top-10)}:{left:35,right:Math.max(220,hud.left-28),top:landscape?72:135,bottom:innerHeight-35};
+  const h=safe.bottom-safe.top,w=safe.right-safe.left,tan=Math.tan(camera.fov*Math.PI/360),dist=1.72/(2*tan)*innerHeight/Math.min(w,h),phi=.24;
+  const screenHeight=2*dist*tan,screenWidth=screenHeight*innerWidth/innerHeight;
+  const target=BEY.stadium.localToWorld(new THREE.Vector3(0,1.08,0));
+  target.x+=(innerWidth/2-(safe.left+safe.right)/2)/innerWidth*screenWidth;
+  const offset=((safe.top+safe.bottom)/2-innerHeight/2)/innerHeight*screenHeight;
+  target.y+=Math.sin(phi)*offset;target.z-=Math.cos(phi)*offset;
+  cam.tTarget.copy(target);cam.tDist=dist;cam.tPhi=phi;cam.tTheta=0;
+  if(snap){cam.target.copy(target);cam.dist=dist;cam.phi=phi;cam.theta=0;}
+}
+function setBattleAim(value){
+  BATTLE.aim=THREE.MathUtils.clamp(Number(value),-60,60);beyAim.value=BATTLE.aim;
+  document.getElementById('beyAngle').textContent=(BATTLE.aim>0?'+':'')+BATTLE.aim+'°';
+  const angle=BATTLE.aim*Math.PI/180;launchArrow.setDirection(new THREE.Vector3(Math.sin(angle),0,-Math.cos(angle)));
+}
+function syncBattleHUD(){
+  const ready=BATTLE.phase==='ready',over=BATTLE.phase==='over';
+  beyEl.dataset.phase=BATTLE.phase;beyAim.disabled=!ready;beyCharge.disabled=!ready;
+  document.getElementById('beyDash').disabled=BATTLE.phase!=='fight'||BATTLE.dashLeft===0;
+  document.getElementById('beyAgain').hidden=!over;
+  document.getElementById('beyPhase').textContent=over?BATTLE.result:ready?'準備發射':'對戰中';
+  document.getElementById('beyTimer').textContent=ready?'25 秒':over?'本局結束':Math.max(0,25-BATTLE.t).toFixed(1)+' 秒';
+  document.getElementById('beyBtnTxt').textContent=BATTLE.charging?'放開發射 · 滑出取消':'按住蓄力 · 放開發射';
+  document.getElementById('beyDash').textContent=BATTLE.dashLeft?'衝刺 · 1 次':'衝刺已用完';
+  BATTLE.tops.forEach((t,i)=>{const value=ready?100:Math.max(0,Math.round(t.spin/1.2*100));document.getElementById(i?'beyAiFill':'beyMeFill').style.width=value+'%';document.getElementById(i?'beyAiSpin':'beyMeSpin').textContent=value+'%';});
+}
+function resetBattleRound(){
+  clearBattleControls();BATTLE.phase='ready';BATTLE.t=0;BATTLE.accumulator=0;BATTLE.lastNow=performance.now();BATTLE.dashLeft=1;BATTLE.cpuDash=true;BATTLE.hits=0;BATTLE.result='';
+  BATTLE.tops.forEach((t,i)=>{Object.assign(t,{x:0,z:i?-.23:.23,vx:0,vz:0,spin:1.2,alive:true,reason:null});BEY.tops[i].visible=true;BEY.tops[i].position.set(t.x,BEY.y,t.z);BEY.tops[i].rotation.set(0,0,0);});
+  trails.forEach(t=>{t.points=[];t.clock=0;t.line.geometry.setDrawRange(0,0);});sparks.forEach(s=>{s.age=1;s.mesh.visible=false;});
+  launchArrow.visible=true;beyLog.textContent='橘色是你。先調方向，再按住蓄力；滑出按鈕放開可取消。';
+  document.getElementById('beyPower').textContent='0%';setBattleAim(0);syncBattleHUD();battleCamera(true);
 }
 function startBattle(){
-  if(!window.BEY) return;
-  setView('f1');
-  BATTLE.active = true; BATTLE.phase = 'ready'; BATTLE.me = 0; BATTLE.ai = 0;
-  BATTLE.charge = 0; BATTLE.dashLeft = 1;
-  beyEl.classList.add('on'); beyScore(); hideCard();
-  document.getElementById('shopbar').classList.add('hide');
-  document.getElementById('beyState').textContent = '先拿 4 分獲勝';
-  document.getElementById('beyBtnTxt').textContent = '按住蓄力・放開發射';
-  BEY.tops.forEach(t=>t.visible = false);
-  const p = BEY.stadium.getWorldPosition(new THREE.Vector3());
-  cam.tTarget.set(p.x, .74, p.z); cam.tDist = 3.65; cam.tPhi = 0.52; cam.tTheta = -2.30;
-  cam.target.copy(cam.tTarget); cam.dist = cam.tDist; cam.phi = cam.tPhi; cam.theta = cam.tTheta;
-  battleLog('按住「蓄力」再放開發射', 2600);
+  setView('f1');BATTLE.active=true;document.body.dataset.activity='battle';beyEl.classList.add('on');document.getElementById('shopbar').classList.add('hide');
+  BATTLE.hidden=g1.children.filter(o=>o!==BEY.stadium&&!o.isLight&&o.visible);BATTLE.hidden.forEach(o=>o.visible=false);EXT.visible=false;
+  battleFX.visible=true;resetBattleRound();
 }
 function endBattle(){setView('f1');}
+function beginBattleCharge(source,pointer=null){
+  if(!BATTLE.active||BATTLE.phase!=='ready'||BATTLE.charging)return;
+  BATTLE.charging=true;BATTLE.chargeSource=source;BATTLE.pointer=pointer;BATTLE.chargeT0=performance.now();
+  chargeTimer=setInterval(tickCharge,30);tickCharge();syncBattleHUD();
+}
+function tickCharge(){
+  if(!BATTLE.charging)return;
+  const phase=((performance.now()-BATTLE.chargeT0)/1050)%2;BATTLE.charge=phase<=1?phase:2-phase;
+  beyFill.style.width=(BATTLE.charge*100).toFixed(0)+'%';document.getElementById('beyPower').textContent=Math.round(BATTLE.charge*100)+'%';
+}
+function cancelBattleCharge(){
+  if(!BATTLE.charging)return;
+  clearBattleControls();document.getElementById('beyPower').textContent='0%';
+  if(BATTLE.active&&BATTLE.phase==='ready'){beyLog.textContent='已取消發射。調好方向後，再按住蓄力。';syncBattleHUD();}
+}
+function releaseBattleCharge(){
+  if(!BATTLE.active||BATTLE.phase!=='ready'||!BATTLE.charging)return;
+  tickCharge();const power=BATTLE.charge;clearBattleControls();launchBattle(power);
+}
 function launchBattle(power){
-  const S = BATTLE.tops, R = BEY.R;
-  const aiPower = 0.55 + Math.random()*0.42;
-  [[0, power, 1], [1, aiPower, -1]].forEach(([i, pw, dir])=>{
-    const a = i ? Math.PI*0.35 : Math.PI*1.35;
-    S[i].x = Math.cos(a)*R*0.7; S[i].z = Math.sin(a)*R*0.7;
-    const toC = Math.atan2(-S[i].z, -S[i].x) + (0.95 + (Math.random()-.5)*0.3);
-    const sp = 0.42 + pw*0.55;
-    S[i].vx = Math.cos(toC)*sp; S[i].vz = Math.sin(toC)*sp;
-    S[i].spin = (i ? 0.62 : 0.55) + pw*0.45; S[i].alive = true; S[i].spinDir = dir;
-    BEY.tops[i].visible = true;
-  });
-  BATTLE.phase = 'fight'; BATTLE.t = 0; BATTLE.dashLeft = 1;
-  document.getElementById('beyDash').disabled = false;
-  document.getElementById('beyBtnTxt').textContent = '對戰中…';
+  if(!BATTLE.active||BATTLE.phase!=='ready')return;
+  BATTLE.phase='fight';BATTLE.t=0;BATTLE.accumulator=0;BATTLE.lastNow=performance.now();BATTLE.dashLeft=1;BATTLE.cpuDash=true;
+  const angles=[BATTLE.aim*Math.PI/180,-.38],powers=[THREE.MathUtils.clamp(power,0,1),.78];
+  BATTLE.tops.forEach((t,i)=>{const speed=.38+powers[i]*.65;t.vx=Math.sin(angles[i])*speed;t.vz=(i?1:-1)*Math.cos(angles[i])*speed;t.spin=.25+powers[i]*.95;t.alive=true;});
+  launchArrow.visible=false;beyLog.textContent='發射力度 '+Math.round(power*100)+'%。看準碰撞時機衝刺，衝刺會消耗耐久。';syncBattleHUD();battleCamera();
 }
-function battlePoint(who, kind, pts){
-  if(who === 'me') BATTLE.me += pts; else BATTLE.ai += pts;
-  beyScore();
-  battleLog((who === 'me' ? '你 ' : '對手 ') + kind + ' +' + pts + ' 分', 2000);
-  BATTLE.phase = 'between'; BATTLE.t = 0;
-  BEY.tops.forEach(t=>t.visible = false);
-  if(BATTLE.me >= 4 || BATTLE.ai >= 4){
-    BATTLE.phase = 'over';
-    const win = BATTLE.me >= 4;
-    document.getElementById('beyState').textContent = win ? '你贏了！' : '對手獲勝';
-    document.getElementById('beyBtnTxt').textContent = '再打一場';
-    battleLog(win ? '🏆 你贏了！到店裡打真的' : '這場輸了，再來一次', 3200);
-  } else {
-    document.getElementById('beyBtnTxt').textContent = '按住蓄力・放開發射';
-  }
+function dashTop(index){
+  const t=BATTLE.tops[index],other=BATTLE.tops[1-index];if(!t.alive||!other.alive)return;
+  const dx=other.x-t.x,dz=other.z-t.z,d=Math.hypot(dx,dz)||1;
+  t.vx+=dx/d*.82;t.vz+=dz/d*.82;t.spin=Math.max(0,t.spin-.13);
 }
-function updateBattle(dtRaw){
-  // 固定步長：畫面卡頓時補跑多步，比賽節奏不會跟著變慢
-  let left = Math.min(0.25, dtRaw);
-  while(left > 0){ const step = Math.min(1/60, left); stepBattle(step); left -= step; }
+function playerDash(){
+  if(!BATTLE.active||BATTLE.phase!=='fight'||!BATTLE.dashLeft)return;
+  BATTLE.dashLeft=0;dashTop(0);beyLog.textContent='衝刺！方向朝向對手，耐久 −11%。';syncBattleHUD();
+}
+function emitBattleSparks(x,z,impact){
+  sparks.forEach((s,i)=>{const a=i*Math.PI*2/sparks.length;s.age=0;s.mesh.visible=true;s.mesh.position.set(x,BEY.y+.05,z);s.vx=Math.cos(a)*(.12+impact*.08);s.vz=Math.sin(a)*(.12+impact*.08);s.vy=.14+(i%3)*.035;});
+}
+function finishBattle(lost){
+  if(BATTLE.phase!=='fight')return;
+  BATTLE.phase='over';clearBattleControls();
+  if(lost.length===2){BATTLE.result='平手';beyLog.textContent='雙方同時失去戰鬥能力。再來一局！';}
+  else if(!lost.length){BATTLE.result='時間到 · 平手';beyLog.textContent='25 秒到，雙方仍在旋轉，本局平手。';}
+  else{const index=lost[0],reason=BATTLE.tops[index].reason==='out'?'飛出戰盤':'先停止旋轉';BATTLE.result=index===1?'你贏了！':'CPU 獲勝';beyLog.textContent=(index===1?'CPU':'你的陀螺')+reason+'。';}
+  syncBattleHUD();battleCamera();
 }
 function stepBattle(dt){
-  const S = BATTLE.tops, R = BEY.R, ROUT = BEY.ROUT, rr = BEY.r;
-  // 蓄力由 tickCharge 計時器負責，不吃繪圖幀率
-  if(BATTLE.phase === 'between'){
-    BATTLE.t += dt;
-    if(BATTLE.t > 1.2){ BATTLE.phase = 'ready'; }
-    return;
-  }
-  if(BATTLE.phase !== 'fight') return;
-  BATTLE.t += dt;
-
-  for(let i=0;i<2;i++){
-    const t = S[i]; if(!t.alive) continue;
-    // 碗的內傾：離中心越遠，往中心拉越大
-    const d = Math.hypot(t.x, t.z) || 1e-6;
-    const pull = 9.5 * d;
-    t.vx -= (t.x/d) * pull * dt;
-    t.vz -= (t.z/d) * pull * dt;
-    // 自轉造成的繞行（讓軌跡像陀螺不像彈珠）
-    t.vx += (-t.z/d) * t.spinDir * 0.85 * t.spin * dt;
-    t.vz += ( t.x/d) * t.spinDir * 0.85 * t.spin * dt;
-    // 摩擦與耐力
-    const fr = Math.pow(0.88, dt);
-    t.vx *= fr; t.vz *= fr;
-    // 對手比較會衝，速度高＝耐力掉快，所以基礎衰減給它低一點才公平
-    t.spin -= dt * ((i ? 0.020 : 0.027) + 0.006*Math.hypot(t.vx,t.vz));
-    t.x += t.vx * dt; t.z += t.vz * dt;
-    // 出界
-    const rNow = Math.hypot(t.x,t.z);
-    if(rNow > R){
-      const nx = t.x/rNow, nz = t.z/rNow;
-      const outSpd = t.vx*nx + t.vz*nz;               // 往外衝的速度
-      if(outSpd > 1.25 || rNow > ROUT){                // 夠猛才會飛出碗
-        t.alive = false;
-        return battlePoint(i===0 ? 'ai' : 'me', 'Over Finish（打出場外）', 2);
-      }
-      if(outSpd > 0){                                  // 否則撞碗壁彈回場內
-        t.vx -= nx*outSpd*1.55; t.vz -= nz*outSpd*1.55;
-        t.spin -= 0.003 * outSpd;
-      }
-      t.x = nx*R*0.995; t.z = nz*R*0.995;
-    }
-    // 停轉
-    if(t.spin <= 0){
-      t.alive = false;
-      return battlePoint(i===0 ? 'ai' : 'me', 'Spin Finish（對手停轉）', 1);
+  if(BATTLE.phase!=='fight')return;const S=BATTLE.tops;BATTLE.t+=dt;
+  if(BATTLE.cpuDash&&BATTLE.t>=1.6){BATTLE.cpuDash=false;dashTop(1);}
+  S.forEach(t=>{
+    const radius=Math.hypot(t.x,t.z)||1;t.vx-=t.x*3.2*dt;t.vz-=t.z*3.2*dt;
+    t.vx+=-t.z/radius*t.spinDir*.22*t.spin*dt;t.vz+=t.x/radius*t.spinDir*.22*t.spin*dt;
+    const friction=Math.exp(-.50*dt);t.vx*=friction;t.vz*=friction;
+    t.spin-=dt*(.037+.014*Math.hypot(t.vx,t.vz));t.x+=t.vx*dt;t.z+=t.vz*dt;
+    const r=Math.hypot(t.x,t.z),nx=t.x/(r||1),nz=t.z/(r||1),out=t.vx*nx+t.vz*nz;
+    if(r>BEY.R&&r<=BEY.ROUT&&out>0&&out<.78){t.vx-=nx*out*1.55;t.vz-=nz*out*1.55;t.x=nx*BEY.R;t.z=nz*BEY.R;t.spin-=out*.006;}
+  });
+  const dx=S[1].x-S[0].x,dz=S[1].z-S[0].z,dist=Math.hypot(dx,dz),diameter=BEY.r*2;
+  if(dist<diameter){
+    const nx=dist?dx/dist:1,nz=dist?dz/dist:0,overlap=(diameter-dist)/2+.0001;
+    S[0].x-=nx*overlap;S[0].z-=nz*overlap;S[1].x+=nx*overlap;S[1].z+=nz*overlap;
+    const closing=(S[1].vx-S[0].vx)*nx+(S[1].vz-S[0].vz)*nz;
+    if(closing<0){
+      const impulse=-closing*.91;S[0].vx-=nx*impulse;S[0].vz-=nz*impulse;S[1].vx+=nx*impulse;S[1].vz+=nz*impulse;
+      const v0=Math.hypot(S[0].vx,S[0].vz),v1=Math.hypot(S[1].vx,S[1].vz),sum=v0+v1||1;
+      S[0].spin-=impulse*.09*(.4+v1/sum);S[1].spin-=impulse*.09*(.4+v0/sum);
+      if(impulse>.10){BATTLE.hits++;emitBattleSparks((S[0].x+S[1].x)/2,(S[0].z+S[1].z)/2,impulse);}
     }
   }
-  // 碰撞
-  const dx = S[1].x-S[0].x, dz = S[1].z-S[0].z;
-  const dist = Math.hypot(dx,dz) || 1e-6;
-  if(dist < rr*2 && S[0].alive && S[1].alive){
-    const nx = dx/dist, nz = dz/dist;
-    const rvx = S[1].vx-S[0].vx, rvz = S[1].vz-S[0].vz;
-    const vn = rvx*nx + rvz*nz;
-    if(vn < 0){
-      const imp = -vn * 0.85;
-      S[0].vx -= nx*imp; S[0].vz -= nz*imp;
-      S[1].vx += nx*imp; S[1].vz += nz*imp;
-      // 分開避免黏住
-      const ov = (rr*2 - dist)/2 + .001;
-      S[0].x -= nx*ov; S[0].z -= nz*ov;
-      S[1].x += nx*ov; S[1].z += nz*ov;
-      // 傷害：撞擊力道 × 對方轉速比
-      const hit = Math.min(1.2, -vn);
-      const v0 = Math.hypot(S[0].vx, S[0].vz), v1 = Math.hypot(S[1].vx, S[1].vz);
-      const tot = v0 + v1 + 1e-6;
-      const p0 = S[0].spin, p1 = S[1].spin;
-      S[0].spin -= hit * 0.105 * (v1/tot);      // 對手撞得越快，我掉越多
-      S[1].spin -= hit * 0.105 * (v0/tot);
-      if(hit > 1.0 && Math.random() < 0.10){
-        const loser = p0 < p1 ? 0 : 1;
-        S[loser].alive = false; S[loser].spin = 0;
-        return battlePoint(loser===0 ? 'ai' : 'me', 'Burst Finish（爆開）', 2);
-      }
-    }
-  }
-  // 對手 AI：偶爾主動撞過來
-  if(S[1].alive && S[0].alive && Math.random() < dt*0.32){
-    const ax = S[0].x-S[1].x, az = S[0].z-S[1].z, ad = Math.hypot(ax,az)||1e-6;
-    S[1].vx += (ax/ad)*0.38; S[1].vz += (az/ad)*0.38;
-  }
-  // 畫面同步
-  for(let i=0;i<2;i++){
-    const m = BEY.tops[i], t = S[i];
-    m.visible = t.alive;
-    m.position.set(t.x, BEY.y, t.z);
-    m.rotation.y += t.spinDir * (18 + t.spin*40) * dt;
-    m.rotation.z = Math.min(.28, Math.hypot(t.vx,t.vz)*.12) * (t.spinDir);
-  }
-  // 沒人動了也算 Spin Finish（保險）
-  if(BATTLE.t > 26){
-    const loser = S[0].spin < S[1].spin ? 0 : 1;
-    S[loser].alive = false;
-    battlePoint(loser===0 ? 'ai' : 'me', 'Spin Finish（撐比較久）', 1);
-  }
+  const lost=[];S.forEach((t,i)=>{if(Math.hypot(t.x,t.z)>BEY.ROUT){t.alive=false;t.reason='out';lost.push(i);}else if(t.spin<=0){t.spin=0;t.alive=false;t.reason='spin';lost.push(i);}});
+  if(lost.length)finishBattle(lost);else if(BATTLE.t>=25)finishBattle([]);
 }
-// 蓄力／發射
-// 蓄力用計時器跑，跟繪圖幀率脫鉤：畫面再卡也蓄得到力
-let chargeTimer = null;
-function tickCharge(){
-  if(!BATTLE.charging) return;
-  const ph = ((performance.now() - BATTLE.chargeT0) / 1150) % 2;
-  BATTLE.charge = ph <= 1 ? ph : 2 - ph;
-  beyFill.style.width = (BATTLE.charge*100).toFixed(0)+'%';
+function renderBattle(dt){
+  BATTLE.tops.forEach((t,i)=>{
+    const mesh=BEY.tops[i];mesh.visible=true;mesh.position.set(t.x,BEY.y+(t.reason==='out'?.035:0),t.z);
+    if(BATTLE.phase==='fight')mesh.rotation.y+=t.spinDir*(14+Math.max(0,t.spin)*55)*dt;
+    mesh.rotation.z=t.reason==='spin'?.85:Math.min(.18,Math.hypot(t.vx,t.vz)*.12)*t.spinDir;
+    const trail=trails[i];if(BATTLE.phase==='fight'){trail.clock+=dt;if(trail.clock>=.045){trail.clock=0;trail.points.push([t.x,BEY.y+.009,t.z]);if(trail.points.length>42)trail.points.shift();const array=trail.line.geometry.attributes.position.array;trail.points.forEach((p,j)=>array.set(p,j*3));trail.line.geometry.attributes.position.needsUpdate=true;trail.line.geometry.setDrawRange(0,trail.points.length);}}
+  });
+  sparks.forEach(s=>{s.age+=dt;s.mesh.visible=s.age<.35;if(s.mesh.visible){s.vy-=.8*dt;s.mesh.position.x+=s.vx*dt;s.mesh.position.z+=s.vz*dt;s.mesh.position.y+=s.vy*dt;s.mesh.material.opacity=1-s.age/.35;}});
 }
-(function bindBattle(){
-  const cg = document.getElementById('beyCharge');
-  const down = e=>{
-    e.preventDefault();
-    if(!BATTLE.active) return;
-    if(BATTLE.phase === 'over'){ BATTLE.me=0; BATTLE.ai=0; beyScore();
-      document.getElementById('beyState').textContent='先拿 4 分獲勝'; BATTLE.phase='ready'; }
-    if(BATTLE.phase !== 'ready') return;
-    BATTLE.charging = true; BATTLE.charge = 0; BATTLE.chargeT0 = performance.now();
-    clearInterval(chargeTimer); chargeTimer = setInterval(tickCharge, 40);
-    document.getElementById('beyBtnTxt').textContent = '蓄力中…放開發射';
-  };
-  const up = ()=>{
-    if(!BATTLE.charging) return;
-    tickCharge();
-    BATTLE.charging = false; clearInterval(chargeTimer); chargeTimer = null;
-    const pw = BATTLE.charge; beyFill.style.width='0%';
-    launchBattle(pw);
-    battleLog(pw > 0.85 ? '完美發射！' : pw > 0.5 ? '不錯的力道' : '力道有點小', 1400);
-  };
-  cg.addEventListener('pointerdown', down);
-  ['pointerup','pointerleave','pointercancel'].forEach(ev=>cg.addEventListener(ev, up));
-  document.getElementById('beyDash').onclick = ()=>{
-    if(!BATTLE.active || BATTLE.phase !== 'fight' || BATTLE.dashLeft <= 0) return;
-    const S = BATTLE.tops;
-    const ax = S[1].x-S[0].x, az = S[1].z-S[0].z, ad = Math.hypot(ax,az)||1e-6;
-    S[0].vx += (ax/ad)*1.5; S[0].vz += (az/ad)*1.5;
-    BATTLE.dashLeft = 0; document.getElementById('beyDash').disabled = true;
-    battleLog('衝刺！', 900);
-  };
-  document.getElementById('beyExit').onclick = endBattle;
-})();
+function updateBattle(){
+  const now=performance.now(),dt=Math.min(.25,(now-BATTLE.lastNow)/1000);BATTLE.lastNow=now;
+  BATTLE.accumulator+=dt;while(BATTLE.accumulator>=1/120){stepBattle(1/120);BATTLE.accumulator-=1/120;}
+  renderBattle(dt);if(BATTLE.phase==='fight')syncBattleHUD();
+}
+beyAim.addEventListener('input',()=>{if(BATTLE.phase==='ready')setBattleAim(beyAim.value);});
+beyCharge.addEventListener('pointerdown',e=>{e.preventDefault();if(BATTLE.charging||BATTLE.phase!=='ready')return;beginBattleCharge('pointer',e.pointerId);if(BATTLE.charging)beyCharge.setPointerCapture(e.pointerId);});
+beyCharge.addEventListener('pointerup',e=>{if(BATTLE.pointer!==e.pointerId)return;const r=beyCharge.getBoundingClientRect(),inside=e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;if(inside)releaseBattleCharge();else cancelBattleCharge();});
+['pointercancel','lostpointercapture'].forEach(type=>beyCharge.addEventListener(type,cancelBattleCharge));
+addEventListener('blur',cancelBattleCharge);document.addEventListener('visibilitychange',()=>{cancelBattleCharge();BATTLE.lastNow=performance.now();});
+addEventListener('keydown',e=>{
+  if(!BATTLE.active)return;
+  if(e.code==='Escape'){e.preventDefault();endBattle();return;}
+  if(BATTLE.phase==='ready'&&['ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();setBattleAim(BATTLE.aim+(e.code==='ArrowLeft'?-2:2));}
+  if(e.code==='Space'){e.preventDefault();if(!e.repeat)beginBattleCharge('keyboard');}
+  if(e.code==='KeyD'&&!e.repeat){e.preventDefault();playerDash();}
+});
+addEventListener('keyup',e=>{if(e.code==='Space'&&BATTLE.chargeSource==='keyboard'){e.preventDefault();releaseBattleCharge();}});
+document.getElementById('beyDash').onclick=playerDash;document.getElementById('beyAgain').onclick=resetBattleRound;document.getElementById('beyExit').onclick=endBattle;
 
 /* ---------------- 11. 迴圈 ---------------- */
 function resize(){
@@ -1818,6 +1804,7 @@ function resize(){
   if(!isEmbedded && innerWidth >= 768) FIT *= 1.1;
   camera.aspect = a; camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight, false);
+  if(BATTLE.active)battleCamera(true);
 }
 addEventListener('resize', resize); resize();
 
@@ -1839,7 +1826,7 @@ const qv = qs.get('view');
 setView(qv==='b1'?'b1':'f1');
 loop();
 if(qs.has('play'))setTimeout(()=>startPlay(MACHINE_FX.find(fx=>fx.id===qs.get('play'))),400);    // 直接連進試玩模式
-if(qs.has('battle')) setTimeout(()=>{ startBattle(); if(qs.has('auto')) setTimeout(()=>launchBattle(0.9), 500); }, 400);
+if(qs.has('battle'))setTimeout(startBattle,400);
 
 /* 載入動畫 */
 const lb=document.getElementById('loadBar'), lt=document.getElementById('loadTxt');
