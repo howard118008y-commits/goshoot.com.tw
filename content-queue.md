@@ -30,3 +30,4 @@
 - [x] article-beyblade-tournament-guide.html 2026-09-04  ← 中和戰鬥陀螺比賽怎麼參加：LINE 報名教學＋每週六時間地點＋Beyblade X 官方計分規則＋名次獎品
 - [x] article-beyblade-stadium-guide.html 2026-09-11  ← 戰鬥陀螺競技盤怎麼選：官方標準款 Xtreme Stadium vs 加大款 Wide Xtreme Stadium 差異＋Xtreme 收尾機關解密＋依場地人數挑選建議（陀螺/發射器/競技盤三大配備缺口補完）
 - [x] article-beyblade-maintenance-guide.html 2026-09-25  ← 戰鬥陀螺保養收納怎麼做：轉不順/掉漆常見原因＋清潔保養 4 步驟＋零件分類收納/防潮防曬技巧＋保養頻率建議（queue 已全數做完，此題為新選，A/C 方向補缺，前一篇為 B 方向故本篇輪替回陀螺玩法）
+- [x] article-beyblade-calculator-guide.html 2026-10-02  ← 戰鬥陀螺改裝計算器怎麼用：上蓋/固鎖/軸心 3 步驟配裝教學＋雷達圖數值解讀＋一鍵套用最強組合＋左旋發射器提示（queue 已全數做完，此題為新選，C 方向補缺，前一篇為 A 方向故本篇輪替）
