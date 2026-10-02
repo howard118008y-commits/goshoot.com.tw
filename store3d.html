@@ -119,16 +119,11 @@
     border-radius:20px;background:rgba(18,18,20,.9);border:1px solid var(--gs-line);
     backdrop-filter:blur(20px);box-shadow:0 20px 50px rgba(0,0,0,.6);opacity:0;transition:.25s}
   #play.on{display:grid;opacity:1;transform:translateX(-50%)}
-  #play .pad{display:grid;grid-template-columns:repeat(3,44px);grid-template-rows:repeat(2,44px);gap:6px}
   #play button{appearance:none;border:1px solid var(--gs-line);background:rgba(255,255,255,.06);
     color:var(--gs-text);border-radius:12px;font:700 16px/1 inherit;cursor:pointer;transition:.12s;
     display:grid;place-items:center;touch-action:manipulation}
   #play button:active{background:var(--gs-orange);color:#1A1A1A;transform:scale(.94)}
   #play .drop{width:96px;height:94px;background:var(--gs-orange);color:#1A1A1A;font-weight:800;font-size:14px;border:0}
-  #play .info{display:flex;flex-direction:column;gap:4px;padding-right:6px;min-width:96px}
-  #play .info b{font-size:13px}
-  #play .info span{font-size:11px;color:var(--gs-dim)}
-  #play .exit{height:30px;font-size:12px;font-weight:600}
   /* 陀螺對戰面板 */
   #bey{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(16px);z-index:28;
     display:none;gap:14px;align-items:center;padding:14px 18px;border-radius:20px;
@@ -210,10 +205,6 @@
     #rail button{font-size:12px;padding:9px 11px;flex:0 0 auto}
     #card{left:8px;right:8px;bottom:calc(62px + env(safe-area-inset-bottom));width:auto;max-height:54vh}
     .lbl{font-size:10.5px;padding:4px 8px}
-    #play{bottom:calc(66px + env(safe-area-inset-bottom));padding:10px 12px;gap:6px}
-    #play .pad{grid-template-columns:repeat(3,40px);grid-template-rows:repeat(2,40px)}
-    #play .drop{width:80px;height:86px}
-    #play .info{min-width:72px}
     #bey{bottom:calc(66px + env(safe-area-inset-bottom));padding:10px 12px;gap:10px}
     #beyCharge{width:112px;height:42px}
     #bey .score{min-width:84px}
@@ -236,11 +227,11 @@
   .lbl.on{pointer-events:auto}
   #hint{bottom:157px;background:transparent;border:0;font-size:11px}
   #topbar .brand{gap:12px}.brand span{font-size:10px}
-  #play,#bey{max-width:calc(100vw - 16px);bottom:158px}
+  #bey{max-width:calc(100vw - 16px);bottom:158px}
   #shopbar p{max-width:65vw}
   #c:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #FF5A2D;outline-offset:3px}
   .gs-embed #scene-caption{top:22px}.gs-embed #scene-actions{top:20px}
-  .gs-embed #rail{bottom:20px}.gs-embed #card{bottom:88px}.gs-embed #play,.gs-embed #bey{bottom:88px}
+  .gs-embed #rail{bottom:20px}.gs-embed #card{bottom:88px}.gs-embed #bey{bottom:88px}
   @media(max-width:768px){
     #scene-caption{left:15px;top:62px}#scene-caption strong{font-size:9px;letter-spacing:.14em}#scene-caption span{font-size:9px;max-width:205px;line-height:1.5}
     #scene-actions{top:108px;right:12px;gap:5px}#scene-actions button{padding:9px;font-size:10px}
@@ -250,11 +241,6 @@
     #card,.gs-embed #card{bottom:70px;max-height:56vh}
     #shopbar{bottom:62px;pointer-events:none;padding:8px 12px}#shopbar p,#shopbar .sb-cta{display:none}
     #shopbar h1{font-size:11px;color:#9aa3ae}
-    #play,.gs-embed #play{bottom:70px;width:calc(100vw - 16px);grid-template-columns:76px 1fr 68px;padding:9px;gap:6px}
-    #play .info{min-width:0;padding:0}#play .info b{font-size:11px}
-    #play .pad{grid-template-columns:repeat(3,minmax(28px,1fr));grid-template-rows:repeat(2,39px);gap:4px}
-    #play .drop{width:68px;height:82px}#playAgain{grid-column:1 / -1;height:30px!important}
-    #playAgain br{display:none}
     #bey,.gs-embed #bey{bottom:70px;gap:7px;padding:10px;flex-wrap:wrap;justify-content:center;width:calc(100vw - 16px)}
     #bey .score{min-width:80px}#beyCharge{width:116px}#bey button{padding:12px 10px}
     .lbl{font-size:10px;padding:7px 9px}#beyLog{bottom:195px;width:90%;text-align:center}
@@ -283,6 +269,66 @@
     .gs-embed #scene-caption,.gs-embed #scene-actions,.gs-embed #floorSwitch,.gs-embed #rail,.gs-embed #labels{display:none}
   }
   @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+  /* 聚焦機台時，操作與導覽分開；各樓層控制仍可隨時退出遊戲。 */
+  body[data-activity=claw] #rail,body[data-activity=claw] #labels,body[data-activity=claw] #hint,body[data-activity=claw] #scene-caption,body[data-activity=claw] #motionToggle{display:none}
+  .claw-invite{padding:14px;border:1px solid #ff5a2d66;background:#ff5a2d0d;border-radius:12px;margin-bottom:16px}
+  .claw-invite p{font-size:12px;color:var(--gs-dim);line-height:1.7;margin:7px 0}.claw-invite .cta{margin:8px 0 0}
+  #play,.gs-embed #play{left:auto;right:24px;bottom:50%;width:330px;max-width:calc(100vw - 16px);transform:translateY(50%);padding:18px;gap:12px;grid-template-columns:1fr;border-radius:20px;background:rgba(18,22,28,.97);border:1px solid #ffffff26;box-shadow:0 24px 70px #0009}
+  #play.on{display:grid;transform:translateY(50%)}
+  #play button{min-height:44px;border-radius:10px;cursor:pointer;font-family:inherit;transition:background .15s}
+  #play button:disabled{opacity:.4;cursor:default;transform:none}
+  #play [hidden]{display:none!important}
+  #play .game-heading{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  #play .game-heading small{display:block;color:#ff8a60;font-size:9px;letter-spacing:.12em;margin-bottom:4px}
+  #play .game-heading b{display:block;font-size:20px}#playExit{padding:8px 15px!important}
+  #play .game-toolbar{display:flex;gap:10px;justify-content:space-between;align-items:center}
+  #play .machine-picker{font-size:11px;color:#aaa;display:flex;gap:6px;align-items:center}
+  #machineSelect{min-width:110px;max-width:145px;min-height:44px;background:#242930;border:1px solid #ffffff26;border-radius:9px;color:white;padding:7px;font:inherit;font-size:12px}
+  #play .camera-picker{display:flex;gap:4px}#play .camera-picker button{padding:8px 12px;font-size:12px}
+  #play .camera-picker button.on{background:#ff5a2d;color:#14171b;border-color:#ff5a2d;font-weight:800}
+  #play .game-status{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid #ffffff1a;padding-top:12px;font-size:11px;color:#b5bcc7}
+  #playTimer{color:#ffc09e;font-size:19px;font-variant-numeric:tabular-nums}#playState{color:white}
+  #playMessage{font-size:12px;line-height:1.65;min-height:40px;margin:0;color:#d2d6dc}
+  #play .game-controls{display:flex;align-items:center;justify-content:space-around;gap:14px}
+  #joystick{width:116px;height:116px;flex:0 0 116px;position:relative;border-radius:50%;border:1px solid #ffffff30;background:radial-gradient(circle,#343d49 0,#1b2028 67%);touch-action:none;user-select:none}
+  #stickThumb{width:43px;height:43px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:linear-gradient(145deg,#ff956f,#ff5a2d);box-shadow:0 4px 15px #0008;pointer-events:none}
+  .stick-mark{position:absolute;color:#7f8995;font-size:12px;pointer-events:none}.stick-mark.up{top:4px;left:calc(50% - 5px)}.stick-mark.down{bottom:4px;left:calc(50% - 5px)}.stick-mark.left{left:6px;top:calc(50% - 8px)}.stick-mark.right{right:6px;top:calc(50% - 8px)}
+  #play .drop-area{display:flex;flex-direction:column;align-items:center;gap:7px}#play .drop-area>span{font-size:9px;text-align:center;line-height:1.6;color:#9ca7b5}
+  #play .drop{width:105px;height:76px;border-radius:16px;font-size:12px}#play .drop b{display:block;font-size:25px;letter-spacing:.05em}
+  #play .round-action{width:100%;height:44px!important;grid-column:auto;padding:8px!important;background:#ff5a2d;color:#161a1f;font-size:14px;font-weight:800}
+  #play .virtual-note{margin:0;color:#8e98a6;font-size:10px;text-align:center}
+  #play[data-phase=prepare] .game-controls,#play[data-phase=result] .game-controls{display:none}
+  @media(max-width:768px){
+    #play,.gs-embed #play{left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));width:calc(100vw - 16px);padding:12px;gap:7px;transform:none;border-radius:16px}
+    #play.on{transform:none}#play .game-heading b{font-size:15px}#play .game-heading small{font-size:8px;margin-bottom:2px}
+    #play .game-heading{gap:5px}#play .game-toolbar{gap:5px}#play .camera-picker button{padding:8px 13px}
+    #play .game-status{padding-top:7px;font-size:10px}#playTimer{font-size:17px}
+    #playMessage{font-size:11px;min-height:32px;line-height:1.45}
+    #joystick{width:96px;height:96px;flex-basis:96px}#stickThumb{width:36px;height:36px}
+    #play .game-controls{justify-content:space-evenly;gap:8px}#play .drop{width:112px;height:66px}
+    #play .drop-area>span{font-size:8px;line-height:1.3}#play .virtual-note{font-size:9px}
+    body[data-activity=claw] #toast{top:125px}
+  }
+  @media(max-width:350px){#play,.gs-embed #play{padding:8px;gap:5px}#play .game-heading small{display:none}#play .machine-picker{font-size:10px}#machineSelect{min-width:99px;max-width:116px}#play .camera-picker button{padding:7px 10px}#playMessage{font-size:10px;min-height:29px}#joystick{width:80px;height:80px;flex-basis:80px}#play .drop{height:58px}#play .drop-area>span{display:none}}
+
+
+  @media(max-width:768px){
+    #play .game-heading small,#play .drop-area>span{display:none}
+    #play .game-heading{display:contents}#play .game-heading>div{display:none}
+    #playExit{position:absolute;right:12px;top:12px;width:44px;padding:5px!important;font-size:11px}
+    #play .game-toolbar{padding-right:52px;justify-content:flex-start;gap:8px}
+    #play .machine-picker{font-size:0;gap:0}#machineSelect{min-width:110px;max-width:140px}
+    #play .camera-picker button{min-width:44px;padding:8px 10px}
+    #play .game-status{padding-top:7px}#play .game-controls{justify-content:space-evenly}
+    #playMessage{min-height:16px}#play .virtual-note{line-height:1.3}
+  }
+  @media(max-width:350px){
+    #playExit{right:8px;top:8px}#play .game-toolbar{gap:5px}#machineSelect{min-width:90px;max-width:106px;font-size:11px}
+    #play .camera-picker{gap:3px}#play .camera-picker button{padding:7px 8px;font-size:11px}
+    #playMessage{font-size:10px;min-height:15px}
+  }
+
 </style>
 </head>
 <body>
@@ -312,20 +358,15 @@
 </div>
 
 <div id="labels"></div>
-<div id="play">
-  <div class="info">
-    <b id="playName">試玩機台</b>
-    <span id="playScore">夾到 0 個</span>
-    <span id="playTries">剩 3 次</span>
-    <button class="exit" id="playExit">結束試玩</button>
-  </div>
-  <div class="pad">
-    <button data-dir="ul">↖</button><button data-dir="u">↑</button><button data-dir="ur">↗</button>
-    <button data-dir="l">←</button><button data-dir="d">↓</button><button data-dir="r">→</button>
-  </div>
-  <button class="drop" id="playDrop">下爪<br>GO</button>
-  <button class="exit" id="playAgain" style="height:94px;padding:0 12px">再玩<br>一次</button>
-</div>
+<section id="play" aria-label="免費 3D 夾娃娃">
+  <div class="game-heading"><div><small>FREE 3D CHALLENGE</small><b id="playName">夾娃娃</b></div><button id="playExit" type="button">退出</button></div>
+  <div class="game-toolbar"><label class="machine-picker">選機 <select id="machineSelect" aria-label="選擇機台"></select></label><div class="camera-picker" aria-label="機台視角"><button type="button" data-claw-view="front">正面</button><button type="button" data-claw-view="side">側面</button></div></div>
+  <div class="game-status"><span id="playState">準備挑戰</span><strong id="playTimer">20 秒</strong><span id="playScore">本台夾到 0 / 6</span></div>
+  <p id="playMessage" role="status" aria-live="polite"></p>
+  <div class="game-controls"><div id="joystick" role="group" aria-label="360 度移動搖桿"><span class="stick-mark up">↑</span><span class="stick-mark left">←</span><span class="stick-mark right">→</span><span class="stick-mark down">↓</span><span id="stickThumb"></span></div><div class="drop-area"><button id="playDrop" class="drop" type="button" disabled>下爪 <b>GO</b></button><span>方向鍵 / WASD 移動<br>空白鍵下爪 · C 換視角</span></div></div>
+  <button id="playStart" class="round-action" type="button">開始挑戰 · 20 秒</button><button id="playAgain" class="round-action" type="button" hidden>再玩一局</button>
+  <p class="virtual-note">免費虛擬遊戲・不兌換實物</p>
+</section>
 <div id="bey">
   <div class="score">
     <b>陀螺對戰台</b>
@@ -596,6 +637,7 @@ function watchFps(now, dt){
     qualityLevel = qualityLevel > 1.1 ? 1.0 : 0.75;
     renderer.setPixelRatio(qualityLevel);
     renderer.setSize(innerWidth, innerHeight, false);
+  if(PLAY.active)playCamera(true);
     lastQualityDrop = now;
   }
 }
@@ -767,6 +809,12 @@ function buildShell(){
 const MACHINE_FX = [];                       // 每台機台的動畫控制點
 const PRIZE_COLORS = [0xffd166,0xef476f,0x06d6a0,0x4cc9f0,0xf78c6b,0xc77dff,0xffffff];
 
+function machineDeck(g,y,height,half,material){
+  const left=CHUTE.x-CHUTE.half,right=CHUTE.x+CHUTE.half,back=CHUTE.z-CHUTE.half,front=CHUTE.z+CHUTE.half;
+  [[-half,half,-half,back],[-half,half,front,half],[-half,left,back,front],[right,half,back,front]].forEach(([x0,x1,z0,z1])=>{
+    if(x1>x0&&z1>z0)put(g,box(x1-x0,height,z1-z0,material),(x0+x1)/2,y,(z0+z1)/2);
+  });
+}
 function buildMachine(cfg){
   const g = new THREE.Group();
   const skin = SKIN[cfg.skin] || mat.pink;
@@ -789,8 +837,8 @@ function buildMachine(cfg){
   put(g, box(.34,.24,.02, mat.black), -.17,.32,.406);
   put(g, box(.36,.025,.06, mat.chrome), -.17,.20,.415);
   /* 檯面 */
-  put(g, box(.84,.05,.84, mat.steel), 0,1.005,0);
-  put(g, box(.86,.02,.86, mat.chrome), 0,1.035,0);
+  machineDeck(g,1.005,.05,.42,mat.steel);
+  machineDeck(g,1.035,.02,.43,mat.chrome);
 
   /* 展示箱：四角鍍鉻柱 + 玻璃 */
   const GH = .80, GY = 1.03 + GH/2;
@@ -799,18 +847,21 @@ function buildMachine(cfg){
   put(g, box(.80,GH,.80, mat.glass), 0,GY,0);
   put(g, box(.84,.03,.84, mat.chrome), 0,1.03+GH,0);
   /* 獎品床 + 獎品 */
-  put(g, box(.74,.03,.74, mat.bed), 0,1.055,0);
+  machineDeck(g,1.055,.03,.37,mat.bed);
+  put(g,box(CHUTE.half*2,.012,CHUTE.half*2,mat.black),CHUTE.x,1.012,CHUTE.z);
+  [[CHUTE.x-CHUTE.half,CHUTE.z,.012,CHUTE.half*2],[CHUTE.x+CHUTE.half,CHUTE.z,.012,CHUTE.half*2],
+   [CHUTE.x,CHUTE.z-CHUTE.half,CHUTE.half*2,.012],[CHUTE.x,CHUTE.z+CHUTE.half,CHUTE.half*2,.012]].forEach(([x,z,w,d])=>put(g,box(w,.012,d,mat.orange),x,1.077,z));
   const prizes = [];
-  const N = 5 + (cfg.id.charCodeAt(1)%3);
+  const N = 6;
   for(let i=0;i<N;i++){
     const col = PRIZE_COLORS[(i*3 + cfg.id.charCodeAt(1)) % PRIZE_COLORS.length];
     const m = new THREE.Mesh(
       i%2 ? new THREE.SphereGeometry(.075,16,12) : new THREE.CapsuleGeometry(.055,.07,6,14),
       new THREE.MeshStandardMaterial({color:col, roughness:.55}));
-    const a = (i/N)*Math.PI*2 + cfg.id.charCodeAt(1);
-    m.position.set(Math.cos(a)*(.10+.14*((i%3)/2)), 1.14, Math.sin(a)*(.10+.14*((i%3)/2)));
-    m.rotation.set(0, a, i%2?0:Math.PI/2);
-    m.userData.home = m.position.clone();
+    const bounds=i%2?{x:.075,y:.075,z:.075}:{x:.09,y:.055,z:.055};
+    m.position.set([-.22,0,.22][i%3],1.07+bounds.y,i<3?-.22:.02);
+    m.rotation.set(0,0,i%2?0:Math.PI/2);
+    m.userData.home=m.position.clone();m.userData.bounds=bounds;m.userData.collected=false;
     g.add(m); prizes.push(m);
   }
 
@@ -877,14 +928,14 @@ function buildMachine(cfg){
   g1.add(g); tag(g, cfg.key, cfg.id);
 
   const fx = {id:cfg.id, key:cfg.key, group:g, led, marquee, bridge, carriage, head, cable, fingers,
-              prizes, seed: MACHINE_FX.length, playable: cfg.key === 'claw-demo'};
+              prizes,price,storePriceMap:price.material.map,seed:MACHINE_FX.length,playable:true,game:{wins:0,rounds:0}};
   MACHINE_FX.push(fx);
-  if(fx.playable) window.DEMO = fx;
+  if(cfg.key==='claw-demo') window.DEMO=fx;
   return g;
 }
 
 /* 夾爪的可動範圍（機台本地座標） */
-const CLAW_LIMIT = .30, CLAW_TOP = 0, CLAW_BOTTOM = -.62, CHUTE = {x:-.17, z:.26};
+const CLAW_LIMIT=.30, CLAW_TOP=0, CLAW_BOTTOM=-.30, CHUTE={x:-.22,z:.25,half:.12};
 
 function setClaw(fx, x, z, drop, open){
   fx.carriage.position.x = Math.max(-CLAW_LIMIT, Math.min(CLAW_LIMIT, x));
@@ -1138,8 +1189,8 @@ function applyCam(){
   cam.phi   += (cam.tPhi-cam.phi)*.12;
   cam.dist  += (cam.tDist-cam.dist)*.10;
   cam.target.lerp(cam.tTarget,.10);
-  const p = cam.phi, t = cam.theta, d = cam.dist * FIT;
-  const yOff = !isEmbedded && innerWidth >= 768 ? -.3 : 0;
+  const p = cam.phi, t = cam.theta, d = cam.dist * (PLAY.active ? 1 : FIT);
+  const yOff = !PLAY.active && !isEmbedded && innerWidth >= 768 ? -.3 : 0;
   const ty = cam.target.y + yOff;
   camera.position.set(
     cam.target.x + d*Math.sin(p)*Math.sin(t),
@@ -1150,8 +1201,9 @@ function applyCam(){
   if(CEIL.userData.b1){ CEIL.userData.b1.position.y = gB.position.y; CEIL.userData.b1.visible = (view !== 'f1'); }
 }
 let drag=null;
-cv.addEventListener('pointerdown', e=>{ drag={x:e.clientX,y:e.clientY,moved:0}; try{ cv.setPointerCapture(e.pointerId); }catch(_){} });
+cv.addEventListener('pointerdown', e=>{ if(PLAY.active)return;drag={x:e.clientX,y:e.clientY,moved:0}; try{ cv.setPointerCapture(e.pointerId); }catch(_){} });
 cv.addEventListener('pointermove', e=>{
+  if(PLAY.active)return;
   // 畫面固定：拖曳只做極小幅度的視差，不會轉走（要正面看某樣東西就點它）
   if(drag){
     const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
@@ -1163,9 +1215,10 @@ cv.addEventListener('pointermove', e=>{
   } else hover(e);
 });
 addEventListener('pointerup', e=>{ if(drag && drag.moved<6) click(e); drag=null; });
-cv.addEventListener('wheel', e=>{ e.preventDefault(); cam.tDist = Math.max(3.5, Math.min(34, cam.tDist + e.deltaY*0.012)); }, {passive:false});
+cv.addEventListener('wheel', e=>{ e.preventDefault();if(PLAY.active)return; cam.tDist = Math.max(3.5, Math.min(34, cam.tDist + e.deltaY*0.012)); }, {passive:false});
 let pinch=0;
 cv.addEventListener('touchmove', e=>{
+  if(PLAY.active)return;
   if(e.touches.length===2){
     const d = Math.hypot(e.touches[0].clientX-e.touches[1].clientX, e.touches[0].clientY-e.touches[1].clientY);
     if(pinch) cam.tDist = Math.max(3.5, Math.min(34, cam.tDist + (pinch-d)*0.03));
@@ -1182,7 +1235,7 @@ const VIEWS = {
 };
 let view='f1', focused=false;
 function stopActivities(){
-  PLAY.active=false;playEl.classList.remove('on');padHeld=null;
+  cancelClawRound();PLAY.active=false;playEl.classList.remove('on');clearClawInput();delete document.body.dataset.activity;
   (PLAY.hidden||[]).forEach(g=>g.visible=true);PLAY.hidden=[];
   BATTLE.active=false;BATTLE.charging=false;clearInterval(chargeTimer);chargeTimer=null;
   beyEl.classList.remove('on');beyLog.classList.remove('on');beyFill.style.width='0%';
@@ -1235,7 +1288,7 @@ function hover(e){
     document.body.style.cursor = o? 'pointer':'default';
   }
   if(o && INFO[o.userData.key]){
-    tip.textContent = o.userData.key==='stairs' ? (view==='b1'?'回到 1F 機台區':'前往 B1 休息空間') : INFO[o.userData.key].name + (o.userData.extra? '（'+o.userData.extra+'）':'');
+    tip.textContent = o.userData.key==='stairs' ? (view==='b1'?'回到 1F 機台區':'前往 B1 休息空間') : INFO[o.userData.key].name + (o.userData.extra? '（'+o.userData.extra+'）':'')+(o.userData.key.startsWith('claw-')?' · 可玩 3D 挑戰':'');
     tip.style.left = e.clientX+'px'; tip.style.top = e.clientY+'px';
     tip.classList.add('show');
   } else tip.classList.remove('show');
@@ -1260,20 +1313,20 @@ function showCard(key, extra, obj){
   cTag.textContent = d.tag;
   cName.textContent = d.name;
   cSub.textContent = (extra? '台號 '+extra+'　·　':'') + (d.sub||'');
-  let h = '';
+  const selectedFx=MACHINE_FX.find(fx=>fx.id===extra)||MACHINE_FX.find(fx=>fx.key===key);
+  let h=selectedFx?`<div class="claw-invite"><strong>免費 3D 夾娃娃挑戰</strong><p>20 秒移動瞄準・正側視角切換<br>僅限虛擬獎品，不兌換實物。</p><a class="cta" href="#" id="playBtn">進入 ${selectedFx.id} 機台 →</a></div>`:'';
   if(d.photo && PHOTOS[d.photo]) h += `<img class="shot" src="${PHOTOS[d.photo]}" alt="${d.name} 實景">`;
   if(d.desc) h += `<p class="desc">${d.desc}</p>`;
   if(d.meta && d.meta.length) h += `<div class="meta">${d.meta.map(m=>`<span>${m}</span>`).join('')}</div>`;
   if(d.how && d.how.length) h += `<h3>玩法</h3><ol>${d.how.map(s=>`<li>${s}</li>`).join('')}</ol>`;
   if(d.link) h += `<a class="cta" href="${d.link.url}" target="_blank" rel="noopener">${d.link.label}</a>`;
   if(d.goto) h += `<a class="cta" href="#" id="gotoBtn">下樓看看 B1 →</a>`;
-  if(d.play) h += `<a class="cta" href="#" id="playBtn">▶ 開始試玩這台</a>`;
   if(d.battle) h += `<a class="cta" href="#" id="beyBtn">⚔ 開始陀螺對戰</a>`;
   cBody.innerHTML = h;
   const gb = document.getElementById('gotoBtn');
   if(gb) gb.onclick = ev=>{ ev.preventDefault(); setView(d.goto); };
   const pb = document.getElementById('playBtn');
-  if(pb) pb.onclick = ev=>{ ev.preventDefault(); startPlay(); };
+  if(pb) pb.onclick = ev=>{ ev.preventDefault(); startPlay(selectedFx); };
   const bb2 = document.getElementById('beyBtn');
   if(bb2) bb2.onclick = ev=>{ ev.preventDefault(); startBattle(); };
   card.classList.add('show');
@@ -1379,146 +1432,171 @@ function updateFx(t){
   }
 }
 
-/* ---------------- 10.7 試玩夾娃娃 ---------------- */
-const PLAY = {active:false, fx:null, x:0, z:0, drop:0, state:'idle', t:0, held:null, won:0, tries:3, slipped:false};
-let padHeld = null;
-const DIRS = {u:[0,-1], d:[0,1], l:[-1,0], r:[1,0], ul:[-1,-1], ur:[1,-1]};
-const playEl = document.getElementById('play');
-const toastEl = document.getElementById('toast');
-let toastTimer = null;
-function toast(msg){
-  toastEl.textContent = msg; toastEl.classList.add('on');
-  clearTimeout(toastTimer); toastTimer = setTimeout(()=>toastEl.classList.remove('on'), 1800);
+/* ---------------- 10.7 免費 3D 夾娃娃 ---------------- */
+const PLAY = {active:false,fx:null,state:'prepare',x:0,z:.28,drop:0,t:0,held:null,falling:null,offset:null,pickup:null,deadline:0,view:'front',result:'',hidden:[]};
+const playEl=document.getElementById('play'),toastEl=document.getElementById('toast');
+const playInput={x:0,z:0,pointer:null,keys:new Set()};
+let toastTimer=null;
+function toast(msg){toastEl.textContent=msg;toastEl.classList.add('on');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('on'),1800);}
+const virtualPrice=textTexture('FREE',{bg:'#0b0b0d',fg:'#71f1b4',w:260,h:110,size:65});
+const playStage=new THREE.Group();playStage.visible=false;g1.add(playStage);
+put(playStage,new THREE.Mesh(new THREE.CylinderGeometry(.69,.76,.08,48),mat.steel),0,-.045,0);
+groundShadow(playStage,0,0,1.8,1.8,-.09);
+const stageNames={prepare:'準備挑戰',aim:'移動瞄準',lowering:'夾爪下降',gripping:'正在夾取',lifting:'向上提起',returning:'運回取物口',falling:'獎品落下',result:'本局結果'};
+const machineSelect=document.getElementById('machineSelect');
+MACHINE_FX.forEach(fx=>{const op=document.createElement('option');op.value=fx.id;op.textContent=fx.id+' · '+({'claw-normal':'一般爪','claw-select':'選物','claw-beyblade':'陀螺','claw-demo':'試玩'}[fx.key]);machineSelect.appendChild(op);});
+function clearClawInput(){
+  const pointer=playInput.pointer;playInput.pointer=null;
+  if(pointer!==null&&stick.hasPointerCapture(pointer))stick.releasePointerCapture(pointer);
+  playInput.x=0;playInput.z=0;playInput.keys.clear();
+  document.getElementById('stickThumb').style.transform='translate(-50%,-50%)';
+}
+function cancelClawRound(){
+  if(!PLAY.fx)return;
+  const prize=PLAY.held||(PLAY.falling&&PLAY.falling.prize);
+  if(prize&&!prize.userData.collected&&PLAY.pickup)prize.position.copy(PLAY.pickup);
+  PLAY.held=null;PLAY.falling=null;PLAY.pickup=null;PLAY.offset=null;PLAY.drop=0;
+  PLAY.fx.price.material.map=PLAY.fx.price.material.emissiveMap=PLAY.fx.storePriceMap;setClaw(PLAY.fx,0,.28,0,true);if(PLAY.fx.aim)PLAY.fx.aim.visible=false;playStage.visible=false;
 }
 function updateScore(){
-  document.getElementById('playScore').textContent = `夾到 ${PLAY.won} 個`;
-  const tr = document.getElementById('playTries');
-  if(tr) tr.textContent = PLAY.tries > 0 ? `剩 ${PLAY.tries} 次` : '次數用完';
+  const fx=PLAY.fx;if(!fx)return;
+  document.getElementById('playScore').textContent='本台夾到 '+fx.game.wins+' / '+fx.prizes.length;
+  document.getElementById('playState').textContent=stageNames[PLAY.state];
+  playEl.dataset.phase=PLAY.state;
+  document.getElementById('playDrop').disabled=PLAY.state!=='aim';
+  document.getElementById('playStart').hidden=PLAY.state!=='prepare';
+  document.getElementById('playAgain').hidden=PLAY.state!=='result';
+  document.getElementById('playAgain').textContent=fx.game.wins===fx.prizes.length?'補滿虛擬獎品再玩':'再玩一局';
+  document.getElementById('playMessage').textContent=PLAY.state==='prepare'?'按開始才計時。對準獎品中心，正／側面都確認後再下爪。':PLAY.state==='result'?PLAY.result:PLAY.state==='aim'?'移動搖桿瞄準・20 秒到會自動下爪':PLAY.state==='gripping'?'偏心抓取容易滑落，結果依實際落點判定。':'等待機台完成動作';
 }
-
-function startPlay(){
-  const fx = window.DEMO; if(!fx){ toast('這台不能線上試玩'); return; }
-  setView('f1');
-  PLAY.active = true; PLAY.fx = fx; PLAY.x = 0; PLAY.z = 0; PLAY.drop = 0;
-  PLAY.state = 'idle'; PLAY.held = null; PLAY.tries = 3; PLAY.won = 0;
-  fx.prizes.forEach(pz=>{ pz.visible = true; pz.position.copy(pz.userData.home || pz.position); });
-  playEl.classList.add('on');
-  document.getElementById('shopbar').classList.add('hide');
-  document.getElementById('playName').textContent = fx.id + ' 試玩機台';
-  updateScore(); hideCard();
-  // 試玩時把對面那排機台暫時收起來，視線才不會被擋住
-  PLAY.hidden = [];
-  const side = Math.sign(fx.group.position.x);
-  MACHINE_FX.forEach(o=>{
-    if(o !== fx && Math.sign(o.group.position.x) !== side && o.group.visible){
-      o.group.visible = false; PLAY.hidden.push(o.group);
+function playCamera(snap=false){
+  if(!PLAY.active||!PLAY.fx)return;
+  const fx=PLAY.fx,dir=new THREE.Vector3();fx.group.getWorldDirection(dir);
+  const theta=Math.atan2(dir.x,dir.z)+(PLAY.view==='side'?Math.PI/2:0),phi=PLAY.view==='side'?1.10:1.20;
+  const hud=playEl.getBoundingClientRect(),mobile=innerWidth<769,top=isEmbedded?78:125;
+  const safe=mobile?{left:12,right:innerWidth-12,top,bottom:Math.max(top+130,hud.top-10)}:{left:40,right:Math.max(360,hud.left-30),top:125,bottom:innerHeight-50};
+  const h=safe.bottom-safe.top,w=safe.right-safe.left,tan=Math.tan(camera.fov*Math.PI/360);
+  const close=mobile&&!['prepare','falling','result'].includes(PLAY.state);
+  const dist=Math.max(2.55,(close?1.20:2.40)/(2*tan)*(innerHeight/h),(close?1.04:1.30)/(2*tan)*(innerHeight/w));
+  const screenHeight=2*dist*tan,screenWidth=screenHeight*innerWidth/innerHeight;
+  const right=new THREE.Vector3(Math.cos(theta),0,-Math.sin(theta));
+  const up=new THREE.Vector3(-Math.cos(phi)*Math.sin(theta),Math.sin(phi),-Math.cos(phi)*Math.cos(theta));
+  const target=fx.group.localToWorld(new THREE.Vector3(0,close?1.46:1.01,0));
+  target.addScaledVector(right,(innerWidth/2-(safe.left+safe.right)/2)/innerWidth*screenWidth);
+  target.addScaledVector(up,((safe.top+safe.bottom)/2-innerHeight/2)/innerHeight*screenHeight);
+  cam.tTarget.copy(target);cam.tDist=dist;cam.tPhi=phi;cam.tTheta=theta;
+  if(snap){cam.target.copy(target);cam.dist=dist;cam.phi=phi;cam.theta=theta;}
+}
+function ensureAim(fx){
+  if(fx.aim)return;
+  const aim=new THREE.Group();
+  const ring=new THREE.Mesh(new THREE.RingGeometry(.036,.040,32),new THREE.MeshBasicMaterial({color:0xff5a2d,side:THREE.DoubleSide,transparent:true,opacity:.9,depthWrite:false}));
+  ring.rotation.x=-Math.PI/2;aim.add(ring);
+  const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0),new THREE.Vector3(0,.46,0)]),new THREE.LineBasicMaterial({color:0xffc9aa,transparent:true,opacity:.3}));aim.add(line);
+  fx.group.add(aim);fx.aim=aim;
+}
+function startPlay(selected){
+  const fx=selected&&selected.group?selected:(window.DEMO||MACHINE_FX[0]);
+  setView('f1');PLAY.active=true;PLAY.fx=fx;PLAY.state='prepare';PLAY.x=0;PLAY.z=.28;PLAY.drop=0;PLAY.t=0;PLAY.view='front';PLAY.result='';
+  document.body.dataset.activity='claw';playEl.classList.add('on');
+  document.getElementById('shopbar').classList.add('hide');document.getElementById('playName').textContent=fx.id+' 夾娃娃';machineSelect.value=fx.id;
+  document.getElementById('playTimer').textContent='20 秒';
+  PLAY.hidden=g1.children.filter(o=>o!==fx.group&&o!==playStage&&!o.isLight&&o.visible);PLAY.hidden.forEach(o=>o.visible=false);EXT.visible=false;
+  playStage.position.copy(fx.group.position);playStage.visible=true;ensureAim(fx);fx.aim.visible=false;
+  fx.price.material.map=fx.price.material.emissiveMap=virtualPrice;setClaw(fx,PLAY.x,PLAY.z,0,true);updateScore();syncPlayView();playCamera(true);
+}
+function startClawRound(){
+  if(!PLAY.active||!['prepare','result'].includes(PLAY.state))return;
+  const fx=PLAY.fx;cancelClawRound();clearClawInput();fx.price.material.map=fx.price.material.emissiveMap=virtualPrice;playStage.visible=true;
+  if(fx.game.wins===fx.prizes.length){fx.game.wins=0;fx.prizes.forEach(p=>{p.userData.collected=false;p.visible=true;p.position.copy(p.userData.home);});}
+  PLAY.x=0;PLAY.z=.28;PLAY.drop=0;PLAY.t=0;PLAY.state='aim';PLAY.result='';PLAY.deadline=performance.now()+20000;fx.game.rounds++;
+  fx.aim.visible=true;updateScore();setClaw(fx,PLAY.x,PLAY.z,0,true);playCamera(true);
+}
+function endPlay(){setView('f1');}
+function dropClaw(){if(!PLAY.active||PLAY.state!=='aim')return;clearClawInput();PLAY.state='lowering';PLAY.t=0;PLAY.fx.aim.visible=false;updateScore();}
+function finishClaw(message){
+  PLAY.state='result';PLAY.t=0;PLAY.held=null;PLAY.falling=null;PLAY.pickup=null;PLAY.result=message;PLAY.fx.aim.visible=false;
+  document.getElementById('playTimer').textContent='本局結束';clearClawInput();updateScore();playCamera();
+}
+function syncPlayView(){document.querySelectorAll('[data-claw-view]').forEach(b=>{const on=b.dataset.clawView===PLAY.view;b.classList.toggle('on',on);b.setAttribute('aria-pressed',String(on));});}
+document.querySelectorAll('[data-claw-view]').forEach(b=>b.onclick=()=>{PLAY.view=b.dataset.clawView;syncPlayView();playCamera(true);});
+machineSelect.onchange=()=>startPlay(MACHINE_FX.find(fx=>fx.id===machineSelect.value));
+document.getElementById('playExit').onclick=endPlay;document.getElementById('playStart').onclick=startClawRound;document.getElementById('playAgain').onclick=startClawRound;document.getElementById('playDrop').onclick=dropClaw;
+const stick=document.getElementById('joystick');
+function moveStick(e){
+  if(playInput.pointer!==e.pointerId||PLAY.state!=='aim')return;
+  const b=stick.getBoundingClientRect(),radius=b.width*.34;let x=(e.clientX-b.left-b.width/2)/radius,z=(e.clientY-b.top-b.height/2)/radius;
+  const d=Math.hypot(x,z);if(d>1){x/=d;z/=d;}playInput.x=x;playInput.z=z;
+  document.getElementById('stickThumb').style.transform=`translate(calc(-50% + ${x*radius}px),calc(-50% + ${z*radius}px))`;
+}
+stick.addEventListener('pointerdown',e=>{if(PLAY.state!=='aim')return;e.preventDefault();playInput.pointer=e.pointerId;stick.setPointerCapture(e.pointerId);moveStick(e);});
+stick.addEventListener('pointermove',moveStick);
+['pointerup','pointercancel','lostpointercapture'].forEach(type=>stick.addEventListener(type,clearClawInput));
+addEventListener('blur',clearClawInput);document.addEventListener('visibilitychange',clearClawInput);
+const clawKeys={ArrowUp:[0,-1],KeyW:[0,-1],ArrowDown:[0,1],KeyS:[0,1],ArrowLeft:[-1,0],KeyA:[-1,0],ArrowRight:[1,0],KeyD:[1,0]};
+addEventListener('keydown',e=>{
+  if(!PLAY.active||e.target.matches('select,input,textarea'))return;
+  if(clawKeys[e.code]){e.preventDefault();if(PLAY.state==='aim')playInput.keys.add(e.code);}
+  if((e.code==='Space'||e.code==='Enter')&&PLAY.state==='aim'){e.preventDefault();dropClaw();}
+  if(e.code==='KeyC'&&!e.repeat){PLAY.view=PLAY.view==='front'?'side':'front';syncPlayView();playCamera(true);}
+  if(e.code==='Escape')endPlay();
+});
+addEventListener('keyup',e=>playInput.keys.delete(e.code));
+function updatePlay(dtRaw){let left=Math.min(.25,dtRaw);while(left>0){const dt=Math.min(1/60,left);stepPlay(dt);left-=dt;}}
+function beginPrizeFall(prize,vx=0,vz=0){PLAY.falling={prize,vy:0,vx,vz,inOutlet:false};PLAY.held=null;}
+function stepPrizeFall(dt){
+  const fall=PLAY.falling;if(!fall)return false;const p=fall.prize,r=p.userData.bounds;
+  const oldBottom=p.position.y-r.y;fall.vy-=3.6*dt;p.position.y+=fall.vy*dt;
+  if(!fall.inOutlet){p.position.x+=fall.vx*dt;p.position.z+=fall.vz*dt;}
+  if(!fall.inOutlet&&oldBottom>=1.069&&p.position.y-r.y<=1.07){
+    const fits=Math.abs(p.position.x-CHUTE.x)+r.x<=CHUTE.half&&Math.abs(p.position.z-CHUTE.z)+r.z<=CHUTE.half;
+    if(fits){fall.inOutlet=true;fall.entryX=p.position.x;fall.entryZ=p.position.z;}
+    else {p.position.y=1.07+r.y;p.position.x=THREE.MathUtils.clamp(p.position.x,-.30,.30);p.position.z=THREE.MathUtils.clamp(p.position.z,-.30,.30);PLAY.falling=null;PLAY.pickup=null;return false;}
+  }
+  if(fall.inOutlet){
+    const t=THREE.MathUtils.clamp((1.07-p.position.y)/.75,0,1);p.position.x=THREE.MathUtils.lerp(fall.entryX,-.17,t);p.position.z=THREE.MathUtils.lerp(fall.entryZ,.46,t);
+    if(p.position.y<=.28){
+      PLAY.fx.prizes.forEach(other=>{if(other.userData.collected)other.visible=false;});
+      p.position.set(-.17,.28,.46);p.userData.collected=true;PLAY.fx.game.wins++;
+      finishClaw('夾到了！虛擬獎品已實際落進取物口。');return true;
     }
-  });
-  const p = fx.group.getWorldPosition(new THREE.Vector3());
-  const front = -side;                       // 機台正面朝向的世界 x 方向
-  cam.tTarget.set(p.x, 1.22, p.z);
-  cam.tDist = 3.55; cam.tPhi = 1.26; cam.tTheta = front > 0 ? 1.57 : -1.57;
-  // 直接就位，不做飛行（試玩要馬上看到機台正面）
-  cam.target.copy(cam.tTarget); cam.dist = cam.tDist; cam.phi = cam.tPhi; cam.theta = cam.tTheta;
-  toast('方向鍵移動，按 GO 下爪');
-}
-function endPlay(){setView(view==='b1'?'b1':'f1');}
-function dropClaw(){
-  if(!PLAY.active || PLAY.state !== 'idle') return;
-  if(PLAY.tries <= 0){ toast('次數用完了，按「再玩一次」'); return; }
-  PLAY.tries--; PLAY.slipped = false; updateScore();
-  PLAY.state = 'descend'; PLAY.t = 0;
-}
-
-document.getElementById('playExit').onclick = endPlay;
-document.getElementById('playAgain').onclick = ()=>{
-  if(!PLAY.fx) return;
-  PLAY.tries = 3; PLAY.won = 0; PLAY.state = 'idle'; PLAY.held = null; PLAY.drop = 0;
-  PLAY.fx.prizes.forEach(pz=>{ pz.visible = true; if(pz.userData.home) pz.position.copy(pz.userData.home); });
-  updateScore(); toast('重新投幣，三次機會');
-};
-document.getElementById('playDrop').onclick = dropClaw;
-document.querySelectorAll('#play .pad button').forEach(b=>{
-  const on = e=>{ e.preventDefault(); padHeld = b.dataset.dir; };
-  const off = ()=>{ padHeld = null; };
-  b.addEventListener('pointerdown', on);
-  ['pointerup','pointerleave','pointercancel'].forEach(ev=>b.addEventListener(ev, off));
-});
-addEventListener('keydown', e=>{
-  if(!PLAY.active) return;
-  const m = {ArrowUp:'u', ArrowDown:'d', ArrowLeft:'l', ArrowRight:'r'}[e.key];
-  if(m){ padHeld = m; e.preventDefault(); }
-  if(e.key === ' ' || e.key === 'Enter'){ dropClaw(); e.preventDefault(); }
-  if(e.key === 'Escape') endPlay();
-});
-addEventListener('keyup', ()=>{ padHeld = null; });
-
-function updatePlay(dtRaw){
-  let left = Math.min(0.25, dtRaw);
-  while(left > 0){ const step = Math.min(1/60, left); stepPlay(step); left -= step; }
+  }
+  return false;
 }
 function stepPlay(dt){
-  const fx = PLAY.fx; if(!fx) return;
-  // 移動（只有待機狀態能移動）
-  if(padHeld && PLAY.state === 'idle'){
-    const [dx,dz] = DIRS[padHeld] || [0,0];
-    PLAY.x = Math.max(-CLAW_LIMIT, Math.min(CLAW_LIMIT, PLAY.x + dx*0.55*dt));
-    PLAY.z = Math.max(-CLAW_LIMIT, Math.min(CLAW_LIMIT, PLAY.z + dz*0.55*dt));
-  }
-  PLAY.t += dt;
-  const S = PLAY.state;
-  if(S === 'descend'){
-    PLAY.drop = Math.max(CLAW_BOTTOM, PLAY.drop - 0.75*dt);
-    if(PLAY.drop <= CLAW_BOTTOM + 0.001){ PLAY.state='close'; PLAY.t=0; }
-  } else if(S === 'close'){
-    if(PLAY.t > 0.45){
-      // 判定：範圍內最近的獎品
-      let best=null, bd=0.17;
-      fx.prizes.forEach(pz=>{
-        if(!pz.visible) return;
-        const d = Math.hypot(pz.position.x - PLAY.x, pz.position.z - PLAY.z);
-        if(d < bd){ bd = d; best = pz; }
-      });
-      PLAY.held = best; PLAY.state='ascend'; PLAY.t=0;
-      if(!best) toast('差一點，再試一次');
-      else if(Math.random() < 0.22){ PLAY.slipped = true; }   // 爪力不足會滑手
+  const fx=PLAY.fx;if(!fx)return;PLAY.t+=dt;
+  if(PLAY.state==='aim'){
+    const remaining=Math.max(0,(PLAY.deadline-performance.now())/1000);document.getElementById('playTimer').textContent=Math.ceil(remaining)+' 秒';
+    let x=playInput.x,z=playInput.z;playInput.keys.forEach(k=>{x+=clawKeys[k][0];z+=clawKeys[k][1];});const length=Math.hypot(x,z);if(length>1){x/=length;z/=length;}
+    if(PLAY.view==='side'){const frontX=x;x=z;z=-frontX;}
+    PLAY.x=THREE.MathUtils.clamp(PLAY.x+x*.24*dt,-CLAW_LIMIT,CLAW_LIMIT);PLAY.z=THREE.MathUtils.clamp(PLAY.z+z*.24*dt,-CLAW_LIMIT,CLAW_LIMIT);
+    fx.aim.position.set(PLAY.x,1.079,PLAY.z);if(remaining===0)dropClaw();
+  } else if(PLAY.state==='lowering'){
+    PLAY.drop=Math.max(CLAW_BOTTOM,PLAY.drop-.46*dt);if(PLAY.drop===CLAW_BOTTOM){PLAY.state='gripping';PLAY.t=0;updateScore();}
+  } else if(PLAY.state==='gripping'&&PLAY.t>=.45){
+    let chosen=null,distance=1.25;
+    fx.prizes.forEach(p=>{if(p.userData.collected||!p.visible)return;const r=p.userData.bounds,d=Math.hypot((p.position.x-PLAY.x)/r.x,(p.position.z-PLAY.z)/r.z);if(d<distance){distance=d;chosen=p;}});
+    if(chosen){PLAY.held=chosen;PLAY.pickup=chosen.position.clone();PLAY.offset={x:chosen.position.x-PLAY.x,z:chosen.position.z-PLAY.z,quality:distance};}
+    PLAY.state='lifting';PLAY.t=0;updateScore();
+  } else if(PLAY.state==='lifting'){
+    PLAY.drop=Math.min(0,PLAY.drop+.44*dt);
+    if(PLAY.held&&PLAY.offset.quality>.55&&PLAY.drop-CLAW_BOTTOM>.10+.12*(1-Math.min(1,PLAY.offset.quality))){
+      const d=Math.hypot(PLAY.offset.x,PLAY.offset.z)||1;beginPrizeFall(PLAY.held,PLAY.offset.x/d*.08,PLAY.offset.z/d*.08);
     }
-  } else if(S === 'ascend'){
-    PLAY.drop = Math.min(0, PLAY.drop + 0.75*dt);
-    if(PLAY.drop >= -0.001){ PLAY.state = PLAY.held ? 'travel' : 'idle'; PLAY.t=0; }
-  } else if(S === 'travel'){
-    if(PLAY.slipped && PLAY.t > 0.45 && PLAY.held){          // 半路滑掉
-      const pz = PLAY.held; PLAY.held = null; PLAY.slipped = false;
-      pz.position.y = 1.14; toast('滑掉了！爪力不夠');
-      PLAY.state = 'idle'; PLAY.t = 0;
-      if(PLAY.tries <= 0) setTimeout(()=>toast(`結算：夾到 ${PLAY.won} 個`), 900);
-      return;
+    if(PLAY.drop===0){
+      if(PLAY.held){PLAY.state='returning';PLAY.t=0;updateScore();}
+      else if(!PLAY.falling)finishClaw(PLAY.offset?'偏心滑落，獎品仍在機台內。試著讓夾爪更接近中心。':'這次抓空了。切到側面確認前後位置，再試一次。');
     }
-    const sx = Math.sign(CHUTE.x - PLAY.x), sz = Math.sign(CHUTE.z - PLAY.z);
-    PLAY.x += sx*0.5*dt; PLAY.z += sz*0.5*dt;
-    if(Math.abs(CHUTE.x - PLAY.x) < 0.03) PLAY.x = CHUTE.x;
-    if(Math.abs(CHUTE.z - PLAY.z) < 0.03) PLAY.z = CHUTE.z;
-    if(PLAY.x === CHUTE.x && PLAY.z === CHUTE.z){ PLAY.state='release'; PLAY.t=0; }
-  } else if(S === 'release'){
-    if(PLAY.held){
-      PLAY.held.position.y -= 1.6*dt;
-      if(PLAY.held.position.y < 1.05){
-        PLAY.held.visible = false; PLAY.held = null;
-        PLAY.won++; updateScore(); toast('夾到了！🎉');
-        if(PLAY.tries <= 0) setTimeout(()=>toast(`結算：夾到 ${PLAY.won} 個・按「再玩一次」`), 1200);
-      }
-    }
-    if(PLAY.t > 0.6 && !PLAY.held){ PLAY.state='idle'; PLAY.t=0; }
-  }
-  const open = !(S === 'close' && PLAY.t > 0.18) && !(S === 'ascend' || S === 'travel');
-  setClaw(fx, PLAY.x, PLAY.z, PLAY.drop, open);
-  if(PLAY.held && S !== 'release'){
-    PLAY.held.position.set(PLAY.x, 1.74 + (-0.10 + PLAY.drop) - 0.10, PLAY.z);
-  } else if(PLAY.held && S === 'release'){
-    PLAY.held.position.x = PLAY.x; PLAY.held.position.z = PLAY.z;
-  }
+  } else if(PLAY.state==='returning'){
+    const dx=CHUTE.x-PLAY.x,dz=CHUTE.z-PLAY.z,d=Math.hypot(dx,dz),step=.34*dt;
+    if(d<=step){PLAY.x=CHUTE.x;PLAY.z=CHUTE.z;PLAY.state='falling';PLAY.t=0;updateScore();PLAY.held.position.set(PLAY.x+PLAY.offset.x,PLAY.pickup.y-CLAW_BOTTOM,PLAY.z+PLAY.offset.z);beginPrizeFall(PLAY.held);playCamera();}
+    else {PLAY.x+=dx/d*step;PLAY.z+=dz/d*step;}
+  } else if(PLAY.state==='falling'&&!PLAY.falling){finishClaw('獎品擦到出口邊緣，沒有落入。下次再靠近中心一點。');}
+  if(PLAY.held){PLAY.held.position.set(PLAY.x+PLAY.offset.x,PLAY.pickup.y+PLAY.drop-CLAW_BOTTOM,PLAY.z+PLAY.offset.z);}
+  if(stepPrizeFall(dt))return;
+  const open=['prepare','aim','lowering','falling','result'].includes(PLAY.state)||(PLAY.state==='gripping'&&PLAY.t<.15);
+  setClaw(fx,PLAY.x,PLAY.z,PLAY.drop,open);
 }
-
 
 /* ---------------- 10.8 陀螺對戰小遊戲 ----------------
    做法照社群通例：圓形碰撞 + 出界判定 + 耐力衰減（沒有現成 Beyblade 引擎可抄）。
@@ -1760,7 +1838,7 @@ const qs = new URLSearchParams(location.search);
 const qv = qs.get('view');
 setView(qv==='b1'?'b1':'f1');
 loop();
-if(qs.has('play')) setTimeout(startPlay, 400);    // 直接連進試玩模式
+if(qs.has('play'))setTimeout(()=>startPlay(MACHINE_FX.find(fx=>fx.id===qs.get('play'))),400);    // 直接連進試玩模式
 if(qs.has('battle')) setTimeout(()=>{ startBattle(); if(qs.has('auto')) setTimeout(()=>launchBattle(0.9), 500); }, 400);
 
 /* 載入動畫 */
