@@ -156,19 +156,6 @@
     text-shadow:0 2px 12px rgba(0,0,0,.8)}
   #beyLog.on{opacity:1}
 
-  /* B1 專用：回 1F 的大按鈕 */
-  #upBtn{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(10px);z-index:26;
-    display:none;align-items:center;gap:10px;padding:16px 30px;border:0;border-radius:999px;cursor:pointer;
-    background:var(--gs-orange);color:#1A1A1A;font:800 16px/1 inherit;letter-spacing:.02em;
-    box-shadow:0 14px 34px rgba(255,90,45,.42);opacity:0;transition:.22s}
-  #upBtn.on{display:flex;opacity:1;transform:translateX(-50%)}
-  #upBtn:hover{background:#ff734b}
-  #upBtn:active{transform:translateX(-50%) scale(.96)}
-  #upBtn i{font-style:normal;font-size:20px;line-height:1}
-  @media (max-width:768px){
-    #upBtn{bottom:calc(74px + env(safe-area-inset-bottom));padding:14px 24px;font-size:15px}
-  }
-
   /* 店家資訊條：給客人也給搜尋引擎看 */
   #shopbar{position:fixed;left:0;right:0;bottom:0;z-index:22;display:flex;align-items:center;gap:16px;
     flex-wrap:wrap;padding:10px 18px calc(10px + env(safe-area-inset-bottom));
@@ -272,8 +259,28 @@
     #bey .score{min-width:80px}#beyCharge{width:116px}#bey button{padding:12px 10px}
     .lbl{font-size:10px;padding:7px 9px}#beyLog{bottom:195px;width:90%;text-align:center}
   }
+  /* B1 navigation is always visible in full scenes, including the homepage embed. */
+  #floorSwitch{position:fixed;left:26px;top:78px;z-index:30;border-radius:10px;padding:4px;gap:4px}
+  #floorSwitch button{min-height:44px;padding:10px 15px;border-radius:7px;font-size:12px;white-space:nowrap}
+  #scene-caption{top:147px}
+  @media(min-width:769px){
+    #card{max-height:min(640px,calc(100vh - 310px))}
+    .gs-embed #card{max-height:min(640px,calc(100vh - 230px))}
+  }
+  .gs-embed #floorSwitch{top:20px}.gs-embed #scene-caption{top:87px}
+  body[data-floor=b1] #floorSwitch button[data-view=f1]{color:#FF8B69;border:1px solid rgba(255,90,45,.55)}
+  #scene-actions{top:82px}.gs-embed #scene-actions{top:24px}
+  @media(max-width:768px){
+    #floorSwitch{left:12px;top:60px;padding:3px;gap:2px}
+    #floorSwitch button{min-height:44px;padding:9px 11px;font-size:11px}
+    #scene-actions{right:12px;top:63px;gap:4px}
+    #scene-actions button{padding:8px;font-size:10px}
+    #scene-caption{top:124px}
+    #toast{top:164px;max-width:calc(100vw - 24px);text-align:center}
+    .gs-embed #floorSwitch{top:14px}.gs-embed #scene-actions{top:17px}.gs-embed #scene-caption{top:79px}
+  }
   @media(max-height:300px){
-    .gs-embed #scene-caption,.gs-embed #scene-actions,.gs-embed #rail,.gs-embed #labels{display:none}
+    .gs-embed #scene-caption,.gs-embed #scene-actions,.gs-embed #floorSwitch,.gs-embed #rail,.gs-embed #labels{display:none}
   }
   @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
@@ -286,12 +293,11 @@
 <div id="topbar">
   <div class="brand"><b>GO<i>SHOOT</i></b><span>中和景平路・立體店舖</span></div>
   <div class="spacer"></div>
-  <div id="floorSwitch">
-    <button data-view="f1" data-long="1F 機台" data-short="1F" class="on">1F 機台</button>
-    <button data-view="b1" data-long="B1 電腦" data-short="B1" id="b1Btn" hidden>B1 電腦</button>
-    <button id="homeBtn" hidden>⤺ 回到全店</button>
-  </div>
 </div>
+<nav id="floorSwitch" aria-label="切換樓層">
+  <button type="button" data-view="f1" aria-pressed="true" class="on">1F 機台</button>
+  <button type="button" data-view="b1" aria-pressed="false" id="b1Btn">B1 休息</button>
+</nav>
 
 <div id="rail"></div>
 
@@ -331,7 +337,6 @@
   <button id="beyExit">結束</button>
 </div>
 <div id="beyLog"></div>
-<button id="upBtn"><i>⬆</i>回到 1F 機台區</button>
 
 <footer id="shopbar">
   <div class="sb-txt">
@@ -533,8 +538,8 @@ const INFO = {
 /* 黑橘競技基地：虛擬空間以中央對戰台為焦點；實際配置依門市現場為準。 */
 const W1 = 8.80, DEPTH = 6.80, H1 = 3.00;          // 虛擬展示空間 8.8m × 6.8m
 const x1 = W1/2;
-const WBS = 3.60, DBS = 4.40, HB = 2.40, B1Y = -3.40;   // B1 比樓上小
-const BCX = 0.35, bz0 = 0.30, bz1 = bz0 + DBS;
+const WBS = 6.80, DBS = 4.80, HB = 2.50, B1Y = -3.40;   // B1 比樓上小
+const BCX = 0, bz0 = 0.80, bz1 = bz0 + DBS;
 const bx0 = BCX-WBS/2, bx1 = BCX+WBS/2;
 // 樓梯開口（1F／B1 共用）：房間中段偏右
 const SX0 = 2.55, SX1 = 3.85, SZ0 = 3.95, SZ1 = 5.70;
@@ -569,8 +574,10 @@ const RAIL = [
   {label:'關於品牌',pick:'insign'},
   {label:'休息區',pick:'resttable'},
   {label:'B1 空間',pick:'stairs'},
-  {label:'B1 電腦',pick:'pc'},
-  {label:'B1 休息',pick:'b1rest'}
+  {label:'電腦座位',pick:'pc'},
+  {label:'休息座位',pick:'b1rest'},
+  {label:'廁所',pick:'toilet'},
+  {label:'備品區',pick:'backroom'}
 ];
 
 /* ---------------- 2. three.js 場景 ---------------- */
@@ -995,78 +1002,106 @@ function buildFixtures(){
   const ac=put(g1,box(.78,.21,.18,mat.white),-3.72,2.54,.08);tag(ac,'aircon');
   const security=put(g1,new THREE.Mesh(new THREE.SphereGeometry(.07,12,8),mat.white),4.17,2.67,.12);tag(security,'cctv');
 }
-/* ---------------- 6. B1（比樓上小・一樣只露兩堵牆） ---------------- */
+/* ---------------- 6. B1 / RECHARGE LOUNGE ---------------- */
 function buildB1(){
-  const SX0=.45, SX1=1.95, SZ1=3.90, SCX=1.20, SW=1.50;
-  const bcz = (bz0+bz1)/2;
-  put(gB, box(WBS,.1,DBS, mat.floorB), BCX,-.05,bcz);
-  pane(gB, DBS,HB, mat.wall, bx0, HB/2, bcz,  Math.PI/2);
-  pane(gB, DBS,HB, mat.wall, bx1, HB/2, bcz, -Math.PI/2);
-  pane(gB, WBS,HB, mat.wall, BCX, HB/2, bz0, 0);
-  pane(gB, WBS,HB, mat.wall, BCX, HB/2, bz1, Math.PI);
-  const cB = new THREE.Group(); cB.position.y = B1Y; CEIL.add(cB); CEIL.userData.b1 = cB;
-  pane(cB, WBS,DBS, mat.ceilB, BCX, HB, bcz, 0, Math.PI/2);
-  put(cB, box(.045,.035,DBS-.8, mat.led), BCX-1.1, HB-.12, bcz);
-  put(cB, box(.045,.035,DBS-.8, mat.led), BCX+1.1, HB-.12, bcz);
-  [bz0+1.0, bcz, bz1-1.0].forEach(z=>{ const p=new THREE.PointLight(0xffe9d2,8,7,2); p.position.set(BCX,HB-.4,z); gB.add(p); });
-
-  const st = new THREE.Group();
-  const stepMat = new THREE.MeshStandardMaterial({color:0x54545c, roughness:.5, metalness:.5});
+  const bcz=(bz0+bz1)/2;
+  const fabric=new THREE.MeshStandardMaterial({color:0x515863,roughness:.95});
+  const warmWall=new THREE.MeshStandardMaterial({color:0x2b2929,roughness:.9});
+  const timber=new THREE.MeshStandardMaterial({color:0x8b6548,roughness:.78});
+  const softLight=new THREE.MeshStandardMaterial({color:0xffdcb2,emissive:0xffc28b,emissiveIntensity:.48});
+  const slab=new THREE.Shape();
+  slab.moveTo(bx0-.2,bz0-.2);slab.lineTo(bx1+.2,bz0-.2);slab.lineTo(bx1+.2,bz1-.35);
+  slab.lineTo(bx1-.45,bz1+.3);slab.lineTo(bx0+.45,bz1+.3);slab.lineTo(bx0-.2,bz1-.35);slab.closePath();
+  const base=new THREE.Mesh(new THREE.ExtrudeGeometry(slab,{depth:.22,bevelEnabled:true,bevelSize:.06,bevelThickness:.04,bevelSegments:1,steps:1}),mat.steel);
+  base.rotation.x=Math.PI/2;base.position.y=-.055;gB.add(base);
+  const floor=new THREE.Mesh(new THREE.ShapeGeometry(slab),mat.floorB);
+  mat.floorB.side=THREE.DoubleSide;mat.floorB.roughness=.78;mat.floorB.metalness=.12;floor.rotation.x=Math.PI/2;floor.position.y=.005;gB.add(floor);
+  put(gB,box(WBS+.18,HB,.14,warmWall),BCX,HB/2,bz0-.1);
+  put(gB,box(.13,.32,DBS-.2,mat.steel),bx0-.08,.16,bcz-.1);
+  put(gB,box(.13,.32,DBS-.2,mat.steel),bx1+.08,.16,bcz-.1);
+  put(gB,box(WBS,.025,.035,softLight),BCX,HB-.09,bz0+.005);
+  [-2.6,-1.3,0,1.3,2.6].forEach(x=>put(gB,box(.012,.007,DBS-.25,mat.steel),x,.009,bcz));
+  for(let z=bz0+.7;z<bz1;z+=.7) put(gB,box(WBS-.12,.007,.012,mat.steel),BCX,.009,z);
+  // 暖色木格柵與品牌牆區分休息層，保留低刺激的間接照明。
+  for(let x=-3.2;x<=3.2;x+=.22) put(gB,box(.065,.48,.055,timber),x,2.15,bz0+.005);
+  const face=(parent,txt,sub,w,h,x,y,z,fg='#F5F2EF',bg='#1a1b1f')=>{
+    const texHeight=Math.round(1024*h/w);
+    const texture=textTexture(txt,{bg,fg,w:1024,h:texHeight,size:Math.min(Math.round(texHeight*.52),Math.round(1250/Math.max(txt.length,5))),sub,subColor:'#FF5A2D'});
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshStandardMaterial({map:texture,emissiveMap:texture,emissive:0xffffff,emissiveIntensity:.28,roughness:.65}));
+    return put(parent,mesh,x,y,z);
+  };
+  put(gB,box(3.9,.52,.09,mat.black),-.3,2.12,bz0+.05);
+  face(gB,'GO SHOOT / B1','休息空間・電腦座位',3.72,.43,-.3,2.12,bz0+.101);
+  // 四個既有電腦座位排在後方，視線與前方休息座位互不遮擋。
+  [-2.62,-1.47,-.32,.83].forEach((x,i)=>{
+    const pc=new THREE.Group();
+    put(pc,box(1.03,.07,.70,mat.steel),0,.75,0);
+    put(pc,box(.98,.017,.025,softLight),0,.70,.35);
+    [-.42,.42].forEach(px=>put(pc,box(.055,.72,.52,mat.frame),px,.36,0));
+    put(pc,box(.68,.40,.045,mat.black),0,1.07,-.13);
+    face(pc,'GO SHOOT','線上一番賞',.63,.35,0,1.07,-.101,'#FF5A2D','#101319');
+    put(pc,box(.04,.16,.035,mat.chrome),0,.83,-.13);
+    put(pc,box(.24,.025,.17,mat.black),0,.80,-.13);
+    put(pc,box(.37,.025,.13,mat.black),-.06,.8,.19);
+    put(pc,box(.065,.028,.09,mat.black),.24,.8,.19);
+    put(pc,box(.42,.09,.43,fabric),0,.46,.73);
+    put(pc,box(.43,.50,.075,fabric),0,.70,.93);
+    put(pc,new THREE.Mesh(new THREE.CylinderGeometry(.035,.045,.41,12),mat.chrome),0,.22,.73);
+    put(pc,new THREE.Mesh(new THREE.CylinderGeometry(.23,.23,.03,20),mat.frame),0,.025,.73);
+    pc.position.set(x,0,1.43);gB.add(pc);tag(pc,'pc','座位 '+(i+1));
+  });
+  // 休息區以L型座椅、低桌與暖光成為B1主視覺。
+  const rest=new THREE.Group();
+  put(rest,box(2.70,.23,.78,mat.frame),0,.20,0);
+  put(rest,box(2.58,.17,.73,fabric),0,.41,0);
+  put(rest,box(2.7,.57,.17,fabric),0,.66,-.34);
+  [-1.3,1.3].forEach(x=>put(rest,box(.18,.47,.84,fabric),x,.48,0));
+  [-.84,0,.84].forEach(x=>put(rest,box(.022,.18,.67,mat.frame),x,.40,.025));
+  put(rest,box(.76,.28,1.13,mat.frame),-1.03,.24,.67);
+  put(rest,box(.72,.16,1.07,fabric),-1.03,.45,.67);
+  put(rest,box(.15,.44,1.17,fabric),-1.35,.50,.63);
+  put(rest,box(1.20,.07,.65,timber),.15,.38,1.08);
+  [-.28,.57].forEach(x=>put(rest,box(.065,.34,.43,mat.frame),x,.18,1.08));
+  groundShadow(rest,0,.35,3.8,2.9,.012);
+  const rug=new THREE.Mesh(new THREE.PlaneGeometry(3.2,2.5),new THREE.MeshStandardMaterial({color:0x323538,roughness:1}));
+  rug.rotation.x=-Math.PI/2;put(rest,rug,0,.019,.52);
+  rest.position.set(-.95,0,3.46);gB.add(rest);tag(rest,'b1rest');
+  const floorLabel=face(gB,'RECHARGE','B1 / 休息空間',2.35,.56,-.83,.023,5.39,'#b7b1a8','#3a3a41');
+  floorLabel.rotation.x=-Math.PI/2;
+  // 回一樓樓梯獨立置右，前端橘色箭頭與固定頂部按鈕使用同一動作。
+  const stairs=new THREE.Group();
   for(let i=0;i<7;i++){
-    put(st, box(SW-.26,.05,.26, stepMat), SCX, HB-.28*i-.15, SZ1-.9+i*.26);
-    put(st, box(SW-.26,.025,.025, mat.ledO), SCX, HB-.28*i-.11, SZ1-1.02+i*.26);
+    put(stairs,box(1.12,.22,.26,mat.steel),0,.11+i*.22,-i*.24);
+    put(stairs,box(1.06,.015,.024,softLight),0,.225+i*.22,.115-i*.24);
   }
-  put(st, box(.05,1.0,.05, mat.steel), SX0,.5,SZ1);
-  put(st, box(.05,1.0,.05, mat.steel), SX1,.5,SZ1);
-  gB.add(st); tag(st,'stairs');
-
-  for(let i=0;i<4;i++){
-    const z = bz1-0.75 - i*0.98, g = new THREE.Group();
-    put(g, box(.58,.04,.9, mat.desk), 0,.74,0);
-    put(g, box(.02,.02,.82, mat.ledO), .28,.72,0);
-    [[-.24,-.37],[.24,-.37],[-.24,.37],[.24,.37]].forEach(([x,zz])=>put(g,box(.04,.74,.04,mat.steel),x,.37,zz));
-    const scr = new THREE.Mesh(new THREE.PlaneGeometry(.5,.31), mat.screen);
-    put(g, box(.54,.33,.03, mat.black), .11,.98,0).rotation.y = Math.PI/2;
-    put(g, scr, .125,.98,0).rotation.y = Math.PI/2;
-    put(g, box(.16,.02,.16, mat.black), .11,.78,0);
-    put(g, box(.03,.2,.03, mat.black), .11,.86,0);
-    put(g, box(.14,.02,.38, mat.black), -.06,.77,0);
-    const ch = new THREE.Group();
-    put(ch, box(.42,.06,.42, mat.seat), 0,.45,0);
-    put(ch, box(.42,.48,.06, mat.seat), 0,.7,.19);
-    put(ch, new THREE.Mesh(new THREE.CylinderGeometry(.04,.04,.45,10), mat.frame), 0,.22,0);
-    put(ch, new THREE.Mesh(new THREE.CylinderGeometry(.23,.23,.03,16), mat.frame), 0,.02,0);
-    ch.position.set(-.68,0,0); g.add(ch);
-    g.position.set(bx0+0.42, 0, z); gB.add(g); tag(g,'pc','座位 '+(i+1));
-  }
-
-  const rest = new THREE.Group();
-  put(rest, box(1.4,.42,.65, mat.seat), 0,.21,0);
-  put(rest, box(1.4,.5,.16, mat.seat), 0,.55,-.25);
-  put(rest, box(.75,.04,.45, mat.tabletop), 0,.42,.7);
-  [[-.3,.55],[.3,.55],[-.3,.85],[.3,.85]].forEach(([x,z])=>put(rest,box(.04,.4,.04,mat.frame),x,.2,z));
-  rest.position.set(bx1-0.85, 0, bz1-0.85); rest.rotation.y = -Math.PI/2; gB.add(rest); tag(rest,'b1rest');
-
-  const wc = new THREE.Group();
-  const WH = 1.20;                                   // 矮隔間，不會擋住整個地下室
-  put(wc, box(1.10,WH,.06, mat.white), 0, WH/2, .52);
-  put(wc, box(.06,WH,1.10, mat.white), -.52, WH/2, 0);
-  put(wc, box(1.16,.04,.10, mat.ledO), 0, WH+.02, .52);
-  put(wc, box(.10,.04,1.16, mat.ledO), -.52, WH+.02, 0);
-  put(wc, box(.62,WH-.06,.05, new THREE.MeshStandardMaterial({color:0xd8d3cb, roughness:.6})), .12, (WH-.06)/2, -.50);
-  const wcSign = new THREE.Mesh(new THREE.PlaneGeometry(.36,.19),
-    new THREE.MeshStandardMaterial({map:textTexture('廁所',{bg:'#1A1A1A',fg:'#FFC24B',w:340,h:180,size:104}),
-      emissive:0xffffff, emissiveIntensity:.6, side:THREE.DoubleSide}));
-  put(wc, wcSign, 0, 1.52, -.10);
-  wc.position.set(bx1-0.72, 0, bz0+0.78); gB.add(wc); tag(wc,'toilet');
-
-  const rack = new THREE.Group();
-  for(let i=0;i<4;i++) put(rack, box(1.0,.04,.4, mat.steel), 0,.35+i*.45,0);
-  [[-.48,-.18],[.48,-.18],[-.48,.18],[.48,.18]].forEach(([x,z])=>put(rack,box(.04,1.8,.04,mat.steel),x,.9,z));
-  for(let i=0;i<7;i++) put(rack, box(.22,.2,.28, i%2? mat.wood : mat.orange), -.33+(i%3)*.33, .48+Math.floor(i/3)*.45, 0);
-  rack.position.set(bx0+0.28, 0, bz0+0.7); rack.rotation.y = Math.PI/2; gB.add(rack); tag(rack,'backroom');
-
-  put(gB, box(.85,.26,.2, mat.white), bx0+0.6, 2.05, bz1-0.15);
+  [-.62,.62].forEach(x=>{
+    put(stairs,box(.035,1.80,.035,mat.chrome),x,.90,-1.44);
+    put(stairs,box(.035,.76,.035,mat.chrome),x,.38,0);
+    const rail=put(stairs,box(.035,.035,1.98,mat.chrome),x,1.24,-.72);rail.rotation.x=.62;
+  });
+  face(stairs,'↑ 1F','機台・戰鬥陀螺',.95,.50,0,1.80,-1.38,'#FF5A2D');
+  stairs.position.set(2.45,0,5.05);gB.add(stairs);tag(stairs,'stairs');
+  // 原有廁所與備品收在右後方，保留設備入口及說明。
+  const wc=new THREE.Group();
+  put(wc,box(1.03,1.43,.08,mat.steel),0,.715,0);
+  put(wc,box(.065,1.43,.54,mat.steel),-.49,.715,-.25);
+  put(wc,box(.64,1.27,.025,warmWall),.06,.635,.054);
+  put(wc,box(.03,.17,.025,mat.chrome),.28,.78,.077);
+  face(wc,'WC','廁所',.64,.30,0,1.22,.084);
+  wc.position.set(2.43,0,1.83);gB.add(wc);tag(wc,'toilet');
+  const rack=new THREE.Group();
+  [0,.45,.90].forEach(y=>put(rack,box(.98,.035,.43,mat.steel),0,.30+y,0));
+  [-.46,.46].forEach(x=>put(rack,box(.035,1.27,.39,mat.frame),x,.64,0));
+  for(let i=0;i<5;i++) put(rack,box(.25,.23,.28,i%2?timber:mat.black),-.29+(i%2)*.55,.44+Math.floor(i/2)*.45,0);
+  rack.position.set(2.43,0,2.48);gB.add(rack);tag(rack,'backroom');
+  const lamp=new THREE.Group();
+  put(lamp,new THREE.Mesh(new THREE.CylinderGeometry(.17,.21,.04,20),mat.frame),0,.025,0);
+  put(lamp,new THREE.Mesh(new THREE.CylinderGeometry(.018,.022,1.58,12),mat.chrome),0,.82,0);
+  put(lamp,new THREE.Mesh(new THREE.CylinderGeometry(.25,.31,.21,24),softLight),0,1.59,0);
+  lamp.position.set(-2.93,0,3.07);gB.add(lamp);
+  put(gB,box(.79,.23,.19,mat.white),2.72,2.21,bz0+.10);
+  const warm=new THREE.PointLight(0xffd8ad,11,10,2);warm.position.set(-1.3,2.65,3.7);gB.add(warm);
+  const deskLight=new THREE.PointLight(0xffe8ca,8,9,2);deskLight.position.set(.4,2.8,1.7);gB.add(deskLight);
 }
 /* ---------------- 7. 環境光 ---------------- */
 scene.add(new THREE.AmbientLight(0xffffff, .65));
@@ -1143,38 +1178,40 @@ cv.addEventListener('touchend', ()=>pinch=0);
 /* 固定機位：站在店門這一側的斜上方，只會看到「後牆＋左牆」兩片，正面全開（照老高小茉那種角落剖面） */
 const VIEWS = {
   f1: {x:0,   y:0.20,     z:0.00, dist:16.7, phi:.98, theta:.55},
-  b1: {x:BCX, y:B1Y+0.85,  z:-0.20, dist:8.0,  phi:1.13, theta:0.62}
+  b1: {x:BCX, y:B1Y+.20, z:-.10, dist:12.8, phi:.95, theta:.42}
 };
-let view='f1', b1Unlocked=false, focused=false;
-const homeBtn = document.getElementById('homeBtn');
+let view='f1', focused=false;
+function stopActivities(){
+  PLAY.active=false;playEl.classList.remove('on');padHeld=null;
+  (PLAY.hidden||[]).forEach(g=>g.visible=true);PLAY.hidden=[];
+  BATTLE.active=false;BATTLE.charging=false;clearInterval(chargeTimer);chargeTimer=null;
+  beyEl.classList.remove('on');beyLog.classList.remove('on');beyFill.style.width='0%';
+  BEY.tops.forEach(t=>t.visible=false);
+  document.getElementById('shopbar').classList.remove('hide');
+}
 function setView(v){
-  if(!VIEWS[v]) v = 'f1';
-  view = v;
-  const ub = document.getElementById('upBtn');
-  if(ub) ub.classList.toggle('on', v === 'b1');
-  const hn = document.getElementById('hint');
-  if(hn) hn.style.display = (v === 'b1') ? 'none' : '';   // 別跟回上樓的按鈕疊在一起
-  focused = false; homeBtn.hidden = true;
-  const cfg = VIEWS[v];
-  cam.tTarget.set(cfg.x, cfg.y, cfg.z);
-  cam.tDist = cfg.dist; cam.tPhi = cfg.phi; cam.tTheta = cfg.theta;
-  gB.position.y = B1Y;
-  g1.visible = (v==='f1'); gB.visible = (v==='b1'); EXT.visible = (v==='f1');
-  if(window.STOREFRONT) STOREFRONT.forEach(o=>o.visible = false);   // 正面保持全開
-  document.querySelectorAll('#floorSwitch button[data-view]').forEach(b=>b.classList.toggle('on', b.dataset.view===v));
+  if(!VIEWS[v])v='f1';
+  stopActivities();hideCard();view=v;focused=false;
+  hovered=null;tip.classList.remove('show');document.body.style.cursor='default';
+  document.getElementById('hint').textContent=v==='b1'?'點座位看介紹・上方「回一樓」返回機台區':'點機台看玩法・點樓梯下地下室・滾輪縮放';
+  document.body.dataset.floor=v;
+  const cfg=VIEWS[v];
+  cam.tTarget.set(cfg.x,cfg.y,cfg.z);cam.tDist=cfg.dist;cam.tPhi=cfg.phi;cam.tTheta=cfg.theta;
+  cam.target.copy(cam.tTarget);cam.dist=cam.tDist;cam.phi=cam.tPhi;cam.theta=cam.tTheta;
+  gB.position.y=B1Y;g1.visible=v==='f1';gB.visible=v==='b1';EXT.visible=v==='f1';
+  const caption=document.querySelector('#scene-caption strong');
+  caption.textContent=v==='b1'?'B1 / 休息空間':'1F / GO SHOOT PLAY SPACE';
+  document.querySelectorAll('#floorSwitch button[data-view]').forEach(b=>{
+    const active=b.dataset.view===v;b.classList.toggle('on',active);b.setAttribute('aria-pressed',String(active));
+    if(b.dataset.view==='f1')b.textContent=v==='b1'?'↑ 回一樓':'1F 機台';
+  });
+  document.querySelectorAll('#rail button').forEach(b=>{b.hidden=v==='b1'?!B1KEYS.includes(b.dataset.key):B1KEYS.includes(b.dataset.key);});
 }
-function unlockB1(){
-  if(b1Unlocked) return; b1Unlocked = true;
-  const b = document.getElementById('b1Btn'); if(b) b.hidden = false;
-  document.querySelectorAll('#rail button[data-b1]').forEach(b=>b.hidden = false);
-}
-homeBtn.onclick = ()=> setView(view);
-document.getElementById('resetView').onclick=()=>{if(PLAY.active)endPlay();if(BATTLE.active)endBattle();hideCard();setView(view);};
+document.getElementById('resetView').onclick=()=>setView(view);
 const motionToggle=document.getElementById('motionToggle');
 function syncMotion(){motionToggle.setAttribute('aria-pressed',String(ambientPaused));motionToggle.textContent=ambientPaused?'播放動態':'暫停動態';}
 motionToggle.onclick=()=>{ambientPaused=!ambientPaused;syncMotion();};
 reducedMotion.addEventListener('change',()=>{ambientPaused=reducedMotion.matches;syncMotion();});syncMotion();
-document.getElementById('upBtn').onclick = ()=>{ hideCard(); setView('f1'); };
 document.querySelectorAll('#floorSwitch button[data-view]').forEach(b=> b.onclick = ()=> setView(b.dataset.view));
 
 /* ---------------- 10. 挑選與資訊卡 ---------------- */
@@ -1198,7 +1235,7 @@ function hover(e){
     document.body.style.cursor = o? 'pointer':'default';
   }
   if(o && INFO[o.userData.key]){
-    tip.textContent = INFO[o.userData.key].name + (o.userData.extra? '（'+o.userData.extra+'）':'');
+    tip.textContent = o.userData.key==='stairs' ? (view==='b1'?'回到 1F 機台區':'前往 B1 休息空間') : INFO[o.userData.key].name + (o.userData.extra? '（'+o.userData.extra+'）':'');
     tip.style.left = e.clientX+'px'; tip.style.top = e.clientY+'px';
     tip.classList.add('show');
   } else tip.classList.remove('show');
@@ -1217,8 +1254,8 @@ document.getElementById('cardClose').onclick = hideCard;
 function showCard(key, extra, obj){
   const d = INFO[key]; if(!d) return;
   if(key === 'stairs'){                       // 點樓梯＝直接換樓層
-    unlockB1();
     setView(view === 'f1' ? 'b1' : 'f1');
+    return;
   }
   cTag.textContent = d.tag;
   cName.textContent = d.name;
@@ -1255,7 +1292,7 @@ function focusOn(obj){
   cam.tDist = Math.max(2.6, Math.min(9.5, size*1.9 + 1.5));
   cam.tPhi  = 1.14;
   cam.tTheta = Math.atan2(dir.x, dir.z);
-  focused = true; homeBtn.hidden = false;
+  focused = true;
 }
 function isChildOf(o,p){ let q=o; while(q){ if(q===p) return true; q=q.parent; } return false; }
 
@@ -1268,7 +1305,7 @@ RAIL.forEach(item=>{
   if(B1KEYS.includes(item.pick)){ b.dataset.b1 = '1'; b.hidden = true; }
   b.onclick = ()=>{
     const inB1 = B1KEYS.includes(item.pick);
-    if(inB1 && view!=='b1'){ unlockB1(); setView('b1'); }
+    if(inB1 && view!=='b1')setView('b1');
     if(!inB1 && view==='b1' && item.pick!=='stairs') setView('f1');
     setTimeout(()=>showCard(item.pick, REP[item.pick]&&REP[item.pick].userData.extra, REP[item.pick]), 20);
   };
@@ -1280,7 +1317,7 @@ const LABEL_DEFS = [
   {key:'claw-demo',text:'01  夾娃娃試玩',floor:'f1',play:true},
   {key:'stadium',text:'02  陀螺對戰',floor:'f1'},
   {key:'ichiban',text:'03  線上一番賞',floor:'f1'},
-  {key:'stairs',text:'B1  休息空間',floor:'both'},
+  {key:'stairs',text:'B1  休息空間',floor:'f1'},
   {key:'pc',text:'電腦區',floor:'b1'},
   {key:'b1rest',text:'休息區',floor:'b1'},
   {key:'toilet',text:'廁所',floor:'b1'}
@@ -1361,12 +1398,11 @@ function updateScore(){
 
 function startPlay(){
   const fx = window.DEMO; if(!fx){ toast('這台不能線上試玩'); return; }
-  if(view === 'b1') setView('f1');
+  setView('f1');
   PLAY.active = true; PLAY.fx = fx; PLAY.x = 0; PLAY.z = 0; PLAY.drop = 0;
   PLAY.state = 'idle'; PLAY.held = null; PLAY.tries = 3; PLAY.won = 0;
   fx.prizes.forEach(pz=>{ pz.visible = true; pz.position.copy(pz.userData.home || pz.position); });
   playEl.classList.add('on');
-  document.getElementById('upBtn').classList.remove('on');
   document.getElementById('shopbar').classList.add('hide');
   document.getElementById('playName').textContent = fx.id + ' 試玩機台';
   updateScore(); hideCard();
@@ -1386,12 +1422,7 @@ function startPlay(){
   cam.target.copy(cam.tTarget); cam.dist = cam.tDist; cam.phi = cam.tPhi; cam.theta = cam.tTheta;
   toast('方向鍵移動，按 GO 下爪');
 }
-function endPlay(){
-  PLAY.active = false; playEl.classList.remove('on'); padHeld = null;
-  document.getElementById('shopbar').classList.remove('hide');
-  (PLAY.hidden||[]).forEach(g=>g.visible = true); PLAY.hidden = [];
-  setView(view === 'b1' ? 'b1' : 'f1');
-}
+function endPlay(){setView(view==='b1'?'b1':'f1');}
 function dropClaw(){
   if(!PLAY.active || PLAY.state !== 'idle') return;
   if(PLAY.tries <= 0){ toast('次數用完了，按「再玩一次」'); return; }
@@ -1512,11 +1543,10 @@ function beyScore(){
 }
 function startBattle(){
   if(!window.BEY) return;
-  if(view !== 'f1') setView('f1');
+  setView('f1');
   BATTLE.active = true; BATTLE.phase = 'ready'; BATTLE.me = 0; BATTLE.ai = 0;
   BATTLE.charge = 0; BATTLE.dashLeft = 1;
   beyEl.classList.add('on'); beyScore(); hideCard();
-  document.getElementById('upBtn').classList.remove('on');
   document.getElementById('shopbar').classList.add('hide');
   document.getElementById('beyState').textContent = '先拿 4 分獲勝';
   document.getElementById('beyBtnTxt').textContent = '按住蓄力・放開發射';
@@ -1526,12 +1556,7 @@ function startBattle(){
   cam.target.copy(cam.tTarget); cam.dist = cam.tDist; cam.phi = cam.tPhi; cam.theta = cam.tTheta;
   battleLog('按住「蓄力」再放開發射', 2600);
 }
-function endBattle(){
-  BATTLE.active = false; beyEl.classList.remove('on'); beyLog.classList.remove('on');
-  document.getElementById('shopbar').classList.remove('hide');
-  BEY.tops.forEach(t=>t.visible = false);
-  setView('f1');
-}
+function endBattle(){setView('f1');}
 function launchBattle(power){
   const S = BATTLE.tops, R = BEY.R;
   const aiPower = 0.55 + Math.random()*0.42;
@@ -1713,12 +1738,6 @@ function resize(){
   const a = innerWidth/innerHeight;
   FIT = a < 1 ? 1.16 / Math.max(a,.28) : 1;
   if(!isEmbedded && innerWidth >= 768) FIT *= 1.1;
-  const narrow = innerWidth < 520;
-  document.querySelectorAll('#floorSwitch button[data-view]').forEach(b=>{
-    b.textContent = narrow ? b.dataset.short : b.dataset.long;
-  });
-  const hb = document.getElementById('homeBtn');
-  if(hb) hb.textContent = narrow ? '⤺ 全店' : '⤺ 回到全店';
   camera.aspect = a; camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight, false);
 }
@@ -1739,7 +1758,7 @@ function loop(){
 }
 const qs = new URLSearchParams(location.search);
 const qv = qs.get('view');
-if(qv === 'b1'){ unlockB1(); setView('b1'); } else setView('f1');
+setView(qv==='b1'?'b1':'f1');
 loop();
 if(qs.has('play')) setTimeout(startPlay, 400);    // 直接連進試玩模式
 if(qs.has('battle')) setTimeout(()=>{ startBattle(); if(qs.has('auto')) setTimeout(()=>launchBattle(0.9), 500); }, 400);
