@@ -1098,6 +1098,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 /* footer */#gsapp footer{margin-top:30px;padding:28px 0 20px;background:#141414;border-top:1px solid var(--line2)}#gsapp footer .gsm-fb{font-family:var(--num);font-weight:900;font-size:18px;margin-bottom:6px}#gsapp footer .gsm-fb b{color:var(--orange)}#gsapp footer .gsm-fdesc{font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:16px}#gsapp .gsm-fcols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}#gsapp .gsm-fcols h4{font-size:12px;font-weight:800;color:var(--soft);margin-bottom:8px;letter-spacing:.06em}#gsapp .gsm-fcols a{display:block;color:var(--body2);font-size:13px;padding:4px 0}#gsapp .gsm-fcols a:hover{color:var(--orange)}#gsapp .gsm-legal{border-top:1px solid var(--line2);padding-top:14px;font-size:11.5px;color:var(--dim);line-height:1.8;text-align:center}#gsapp .gsm-legal a{color:inherit}
 
+/* 手機版 hero 影片滿版：扣掉頂欄 57px＋跑馬燈 32px，填滿一整個螢幕、左右貼齊邊緣 */#gsapp .gsm-hero-sec{padding-top:0}#gsapp .gsm-hero-brand{margin:0 -16px;border-radius:0;border:0;min-height:calc(100vh - 89px);min-height:calc(100svh - 89px);justify-content:center;padding:28px 34px 22px}
 </style>
 <div id="gsapp" aria-label="Go Shoot 手機版">
   <div class="gsm-scroll">
@@ -1123,7 +1124,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 <main>
 <!-- ═══ HERO：品牌＋內容入口（照原官網：推情報內文，抽賞退居次要 CTA）═══ -->
-<section class="gsm-col" style="padding-top:14px">
+<section class="gsm-col gsm-hero-sec">
   <div class="gsm-hero-brand">
     <video class="gsm-bgvid" muted loop playsinline preload="none" poster="assets/video/hero-bg-v.webp" aria-hidden="true" tabindex="-1"></video>
     <img class="gsm-logo" src="assets/brand/logo-main-cutout.webp" alt="Go Shoot｜中和戰鬥陀螺專門店・線上一番賞・娃娃機 9/1 開幕" fetchpriority="high">
@@ -1538,6 +1539,9 @@ document.addEventListener("DOMContentLoaded",function(){
   v.muted = true;
   var calm = matchMedia("(prefers-reduced-motion: reduce)").matches || (navigator.connection && navigator.connection.saveData);
   if (!calm) start();
+  /* iOS 低耗電模式等會擋自動播放：使用者第一次觸碰／滑動時再補播一次 */
+  function retry(){ if (v.paused && !calm) start(); ["touchstart","pointerdown","scroll"].forEach(function(e){ removeEventListener(e, retry, true); }); }
+  ["touchstart","pointerdown","scroll"].forEach(function(e){ addEventListener(e, retry, {capture:true, passive:true}); });
   if (!btn) return;
   btn.hidden = false;
   btn.addEventListener("click", function(){
