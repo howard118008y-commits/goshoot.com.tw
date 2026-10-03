@@ -366,9 +366,28 @@
     #beyExit{right:8px;top:8px}#beyLog{font-size:10px;min-height:30px}#bey .bey-rules{font-size:8px}
   }
 
+
+  .sign-icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;flex:0 0 24px}
+  .sign-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  #rail .service-entry,.service-label{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px}
+  #rail button[data-key=line] .sign-icon,.service-label[data-key=line] .sign-icon{color:#06c755}
+  #rail button[data-key=line].on{background:#06c755;color:#071d10}#rail button[data-key=line].on .sign-icon{color:#071d10}
+  .service-label{padding:8px 12px;font-size:12px;background:#161c24;border:1px solid #fff9;color:#fff}
+  .service-label[data-key=line]{border-color:#06c755}.service-label .sign-icon{width:23px;height:23px;flex-basis:23px}
+  #card.qr-card{transition:opacity .2s;border-color:#ff5a2d}#card.qr-card[data-sign=line]{border-color:#06c755}
+  #card.qr-card .hd{position:sticky;top:0;z-index:1;background:#191c21}
+  #card a.qr-direct{display:flex;align-items:center;justify-content:center;gap:9px;min-height:48px;margin:0 0 14px;padding:10px;font-size:14px}
+  #card[data-sign=line] .qr-direct{background:#06c755;color:#071d10}#card[data-sign=line] .qr-direct .sign-icon{color:#fff}
+  .qr-service figure{margin:0 0 18px;text-align:center}.service-qr{display:block;width:240px;height:240px;max-width:100%;object-fit:contain;margin:0 auto;background:#fff;image-rendering:pixelated}
+  .qr-service figcaption{font-size:11px;line-height:1.6;color:#c9d3df;margin-top:9px}
+  #signView{display:none}#signCard{position:fixed;z-index:26;left:50%;transform:translateX(-50%);bottom:82px;min-height:44px;padding:9px 18px;border:1px solid #fff8;border-radius:10px;background:#18232b;color:#fff;font-weight:700}#signCard[hidden]{display:none}
+  @media(max-width:768px){#card.qr-card{max-height:min(60vh,calc(100vh - 188px))}#card.qr-card .hd{padding:12px 158px 12px 14px;min-height:60px}#card.qr-card .tag,#card.qr-card .sub{display:none}#card.qr-card h2{font-size:14px;margin:0;line-height:1.3}#card.qr-card #cardClose{width:44px;height:44px;top:8px;right:8px}#card.qr-card #signView{display:inline-flex;align-items:center;position:absolute;right:58px;top:8px;min-height:44px;border:1px solid #fff5;border-radius:8px;padding:6px 9px;background:#26323a;color:#fff;font-size:12px}#card.qr-card .bd{padding:12px}.qr-card .qr-direct{margin-bottom:10px}.qr-service figcaption{font-size:10px}.service-label{font-size:11px;padding:6px 9px}}
+  @media(max-width:350px){.service-qr{width:216px;height:216px}#card .qr-direct{font-size:12px}.qr-service figcaption{font-size:9px}}
+
 </style>
 </head>
 <body>
+<button id="signCard" type="button" hidden>顯示掃碼卡</button>
 <canvas id="c" aria-label="Go Shoot 互動立體空間，可從下方選擇機台與設施"></canvas>
 <div id="scene-caption"><strong>GO SHOOT / PLAY SPACE</strong><span>互動空間示意・實際配置依門市現場為準</span></div>
 <div id="scene-actions"><button id="resetView" type="button">↺ 全景</button><button id="motionToggle" type="button" aria-pressed="false">暫停動態</button></div>
@@ -387,6 +406,7 @@
 <div id="card">
   <div class="hd">
     <button id="cardClose" aria-label="關閉資訊">×</button>
+    <button id="signView" type="button">看 3D 立牌</button>
     <span class="tag" id="cTag">機台</span>
     <h2 id="cName">—</h2>
     <div class="sub" id="cSub"></div>
@@ -562,7 +582,7 @@ const INFO = {
   },
   'tablet': {
     tag:'官網', name:'官網平板', sub:'開放側・點螢幕直接開官網',
-    desc:'店裡這台平板就是官網入口：最新獎單、比賽公告、店家資訊、線上一番賞都在上面。手機掃 QR 或按下面的按鈕都能開。',
+    desc:'店裡這台平板就是官網入口：最新獎單、比賽公告、店家資訊、線上一番賞都在上面。手機掃 QR 或直接點按鈕開啟。',
     how:['點平板螢幕','或用手機掃店內任一張 QR','官網有完整獎單與比賽資訊'],
     meta:['goshoot.com.tw','24H 可看','手機也能開'],
     link:{label:'開啟 Go Shoot 官網 →', url:'https://goshoot.com.tw'}
@@ -657,6 +677,23 @@ const RAIL = [
   {label:'備品區',pick:'backroom'}
 ];
 
+const SIGN_ICONS={
+  line:'<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M27 14c0 6-5 10-12 10l-5 4 1-5C6 22 3 18 3 14 3 8 8 4 15 4s12 4 12 10Z"/><text x="6" y="17" fill="#fff" stroke="none" font-size="8" font-weight="900">LINE</text></svg>',
+  tablet:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 7h14M5 17h14"/></svg>',
+  tv:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>',
+  changer:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 8h-5a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H9m3-10v12"/></svg>',
+  ichiban:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v11H3zM2 6h20v4H2zm10 0v15"/><path d="M12 6C6 6 5 2 8 2c2 0 4 4 4 4Zm0 0c6 0 7-4 4-4-2 0-4 4-4 4Z"/></svg>'
+};
+const QR_SIGNS={
+  line:{src:'assets/qr-line-goshoot.png',url:'https://line.me/R/ti/p/@722xefvm',label:'加入 Go Shoot 官方 LINE',caption:'LINE 官方帳號 · @722xefvm',color:0x06c755},
+  tablet:{src:'assets/qr-goshoot-website.png',url:'https://goshoot.com.tw/',label:'開啟 Go Shoot 官網',caption:'Go Shoot 官方網站 · goshoot.com.tw',color:0xff5a2d}
+};
+function signIcon(key){return '<span class="sign-icon">'+SIGN_ICONS[key]+'</span>';}
+function qrFace(key,size){
+  const map=new THREE.TextureLoader().load(QR_SIGNS[key].src);map.colorSpace=THREE.SRGBColorSpace;map.magFilter=THREE.NearestFilter;map.minFilter=THREE.NearestFilter;map.generateMipmaps=false;
+  return new THREE.Mesh(new THREE.PlaneGeometry(size,size),new THREE.MeshBasicMaterial({map,toneMapped:false}));
+}
+
 /* ---------------- 2. three.js 場景 ---------------- */
 const cv = document.getElementById('c');
 const isEmbedded = new URLSearchParams(location.search).get('embed') === '1';
@@ -682,6 +719,8 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.05;
 
 const scene = new THREE.Scene();
+let focusedSign=null;
+const signOutline=new THREE.Box3Helper(new THREE.Box3(),0xff5a2d);signOutline.visible=false;signOutline.material.depthTest=false;signOutline.renderOrder=10;scene.add(signOutline);
 // 漸層環境反射：金屬與塑膠一次有質感（老高那種柔和感的來源之一）
 function makeEnv(){
   const c = document.createElement('canvas'); c.width = 64; c.height = 128;
@@ -1055,15 +1094,18 @@ function buildFixtures(){
   const tab=new THREE.Group();
   put(tab,box(.24,.035,.22,mat.steel),0,.87,0);
   put(tab,box(.05,.25,.05,mat.chrome),0,1,0);
-  put(tab,box(.48,.36,.045,mat.black),0,1.20,0);
-  const tabFace=new THREE.Mesh(new THREE.PlaneGeometry(.43,.31),new THREE.MeshStandardMaterial({
-    map:textTexture('GO SHOOT',{bg:'#141416',fg:'#FF5A2D',w:500,h:330,size:80,sub:'goshoot.com.tw'}),emissive:0xffffff,emissiveIntensity:.6}));
-  put(tab,tabFace,0,1.20,.025);tab.position.set(-1.9,0,5.88);g1.add(tab);tag(tab,'tablet');
+  put(tab,box(.68,.54,.045,mat.black),0,1.20,0);
+  const tabHeader=new THREE.Mesh(new THREE.PlaneGeometry(.61,.10),new THREE.MeshBasicMaterial({map:textTexture('官網 / GO SHOOT',{bg:'#FF5A2D',fg:'#141416',w:640,h:110,size:56}),toneMapped:false}));
+  put(tab,tabHeader,0,1.40,.026);
+  put(tab,qrFace('tablet',.35),-.135,1.16,.027);
+  const tabLabel=new THREE.Mesh(new THREE.PlaneGeometry(.23,.22),new THREE.MeshBasicMaterial({map:textTexture('官網',{bg:'#F5F2EF',fg:'#141416',w:250,h:250,size:85,sub:'掃碼開啟',subColor:'#414954'}),toneMapped:false}));
+  put(tab,tabLabel,.20,1.17,.027);tab.position.set(-1.9,0,5.88);g1.add(tab);tag(tab,'tablet');
   const ln=new THREE.Group();
-  put(ln,box(.37,.42,.055,mat.black),0,1.08,0);
-  const lnFace=new THREE.Mesh(new THREE.PlaneGeometry(.32,.36),new THREE.MeshBasicMaterial({
-    map:textTexture('LINE',{bg:'#141416',fg:'#F5F2EF',w:300,h:340,size:76,sub:'@722xefvm',subColor:'#FF5A2D'})}));
-  put(ln,lnFace,0,1.08,.035);ln.position.set(-1.18,0,5.88);g1.add(ln);tag(ln,'line');
+  put(ln,box(.62,.90,.055,mat.black),0,1.29,0);
+  const lnHeader=new THREE.Mesh(new THREE.PlaneGeometry(.56,.13),new THREE.MeshBasicMaterial({map:textTexture('LINE 加好友',{bg:'#06C755',fg:'#FFFFFF',w:620,h:150,size:70}),toneMapped:false}));
+  put(ln,lnHeader,0,1.64,.035);put(ln,qrFace('line',.52),0,1.285,.036);
+  const lnLabel=new THREE.Mesh(new THREE.PlaneGeometry(.55,.10),new THREE.MeshBasicMaterial({map:textTexture('@722xefvm',{bg:'#F5F2EF',fg:'#141416',w:550,h:100,size:55}),toneMapped:false}));
+  put(ln,lnLabel,0,.935,.035);ln.position.set(-1.18,0,5.88);g1.add(ln);tag(ln,'line');
   const ch=new THREE.Group();
   put(ch,box(.48,1.35,.42,mat.steel),0,.675,0);
   put(ch,box(.48,.055,.44,mat.ledO),0,1.32,0);
@@ -1075,7 +1117,7 @@ function buildFixtures(){
   const tv=new THREE.Group();
   put(tv,box(1.22,.64,.08,mat.black),0,0,0);
   const tvFace=new THREE.Mesh(new THREE.PlaneGeometry(1.13,.55),new THREE.MeshStandardMaterial({
-    map:textTexture('BEYBLADE X',{bg:'#141416',fg:'#FF5A2D',w:900,h:440,size:98,sub:'BATTLE / 戰鬥陀螺專區'}),emissive:0xffffff,emissiveIntensity:.5}));
+    map:textTexture('導購螢幕',{bg:'#F5F2EF',fg:'#141416',w:900,h:440,size:132,sub:'BEYBLADE X / 戰鬥陀螺專區',subColor:'#FF5A2D'}),emissive:0xffffff,emissiveIntensity:.5}));
   put(tv,tvFace,0,0,.045);tv.position.set(3.1,2.38,.09);g1.add(tv);tag(tv,'tv');
 
   // 兩個低矮休息座位，讓中央場地四周保持淨空。
@@ -1227,8 +1269,8 @@ function applyCam(){
   cam.phi   += (cam.tPhi-cam.phi)*.12;
   cam.dist  += (cam.tDist-cam.dist)*.10;
   cam.target.lerp(cam.tTarget,.10);
-  const p = cam.phi, t = cam.theta, d = cam.dist * (PLAY.active || BATTLE.active ? 1 : FIT);
-  const yOff = !PLAY.active && !BATTLE.active && !isEmbedded && innerWidth >= 768 ? -.3 : 0;
+  const p = cam.phi, t = cam.theta, d = cam.dist * (PLAY.active || BATTLE.active || focusedSign ? 1 : FIT);
+  const yOff = !PLAY.active && !BATTLE.active && !focusedSign && !isEmbedded && innerWidth >= 768 ? -.3 : 0;
   const ty = cam.target.y + yOff;
   camera.position.set(
     cam.target.x + d*Math.sin(p)*Math.sin(t),
@@ -1343,6 +1385,9 @@ const card=document.getElementById('card'), cTag=document.getElementById('cTag')
       cName=document.getElementById('cName'), cSub=document.getElementById('cSub'),
       cBody=document.getElementById('cBody');
 document.getElementById('cardClose').onclick = hideCard;
+const signCard=document.getElementById('signCard');
+document.getElementById('signView').onclick=()=>{card.classList.remove('show');signCard.hidden=false;focusSign(focusedSign);};
+signCard.onclick=()=>showCard(focusedSign,null,REP[focusedSign]);
 
 function showCard(key, extra, obj){
   const d = INFO[key]; if(!d) return;
@@ -1350,17 +1395,19 @@ function showCard(key, extra, obj){
     setView(view === 'f1' ? 'b1' : 'f1');
     return;
   }
+  signCard.hidden=true;focusedSign=null;signOutline.visible=false;card.classList.toggle('qr-card',!!QR_SIGNS[key]);card.dataset.sign=key;
   cTag.textContent = d.tag;
   cName.textContent = d.name;
   cSub.textContent = (extra? '台號 '+extra+'　·　':'') + (d.sub||'');
   const selectedFx=MACHINE_FX.find(fx=>fx.id===extra)||MACHINE_FX.find(fx=>fx.key===key);
   let h=selectedFx?`<div class="claw-invite"><strong>免費 3D 夾娃娃挑戰</strong><p>20 秒移動瞄準・正側視角切換<br>僅限虛擬獎品，不兌換實物。</p><a class="cta" href="#" id="playBtn">進入 ${selectedFx.id} 機台 →</a></div>`:'';
   if(d.battle)h+=`<div class="claw-invite"><strong>免費 3D 陀螺對戰 · VS CPU</strong><p>調整方向、蓄力發射，抓準時機衝刺。</p><a class="cta" href="#" id="beyBtn">進入戰盤 →</a></div>`;
+  if(QR_SIGNS[key]){const q=QR_SIGNS[key];h=`<div class="qr-service"><a class="cta qr-direct" href="${q.url}" target="_blank" rel="noopener">${signIcon(key)}<span>${q.label} ↗</span></a><figure><img class="service-qr" src="${q.src}" width="240" height="240" alt="${q.caption}可掃描 QR Code"><figcaption>${q.caption}<br>用另一支手機掃碼，或直接點上方按鈕</figcaption></figure></div>`+h;}
   if(d.photo && PHOTOS[d.photo]) h += `<img class="shot" src="${PHOTOS[d.photo]}" alt="${d.name} 實景">`;
   if(d.desc) h += `<p class="desc">${d.desc}</p>`;
   if(d.meta && d.meta.length) h += `<div class="meta">${d.meta.map(m=>`<span>${m}</span>`).join('')}</div>`;
   if(d.how && d.how.length) h += `<h3>玩法</h3><ol>${d.how.map(s=>`<li>${s}</li>`).join('')}</ol>`;
-  if(d.link) h += `<a class="cta" href="${d.link.url}" target="_blank" rel="noopener">${d.link.label}</a>`;
+  if(d.link && !QR_SIGNS[key]) h += `<a class="cta" href="${d.link.url}" target="_blank" rel="noopener">${d.link.label}</a>`;
   if(d.goto) h += `<a class="cta" href="#" id="gotoBtn">下樓看看 B1 →</a>`;
   cBody.innerHTML = h;
   const gb = document.getElementById('gotoBtn');
@@ -1369,11 +1416,30 @@ function showCard(key, extra, obj){
   if(pb) pb.onclick = ev=>{ ev.preventDefault(); startPlay(selectedFx); };
   const bb2 = document.getElementById('beyBtn');
   if(bb2) bb2.onclick = ev=>{ ev.preventDefault(); startBattle(); };
-  card.classList.add('show');
+  card.scrollTop=0;card.classList.add('show');
   document.querySelectorAll('#rail button').forEach(b=>b.classList.toggle('on', b.dataset.key===key));
-  if(obj && obj.visible) focusOn(obj);
+  const target=SIGN_ICONS[key]?REP[key]:obj;
+  if(target&&target.visible){
+    if(SIGN_ICONS[key]){signOutline.box.setFromObject(target).expandByScalar(.025);signOutline.material.color.setHex(QR_SIGNS[key]?.color||0xff5a2d);signOutline.visible=true;}
+    if(QR_SIGNS[key])focusSign(key);else focusOn(target);
+  }
 }
-function hideCard(){ card.classList.remove('show'); document.querySelectorAll('#rail button').forEach(b=>b.classList.remove('on')); }
+function hideCard(){
+  signCard.hidden=true;const wasSign=focusedSign;focusedSign=null;signOutline.visible=false;card.classList.remove('show','qr-card');document.querySelectorAll('#rail button').forEach(b=>b.classList.remove('on'));
+  if(wasSign){const home=VIEWS[view];cam.tTarget.set(home.x,home.y,home.z);cam.tDist=home.dist;cam.tPhi=home.phi;cam.tTheta=home.theta;focused=false;}
+}
+function focusSign(key){
+  const obj=REP[key];if(!obj)return;focusedSign=key;focused=true;
+  const box=new THREE.Box3().setFromObject(obj),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
+  const hud=card.getBoundingClientRect(),mobile=innerWidth<769,top=isEmbedded?90:158,cardOpen=card.classList.contains('show');
+  const safe=mobile?{left:16,right:innerWidth-16,top,bottom:cardOpen?Math.max(top+100,hud.top-14):signCard.getBoundingClientRect().top-14}:{left:28,right:Math.max(280,hud.left-24),top,bottom:innerHeight-130};
+  const h=safe.bottom-safe.top,w=safe.right-safe.left,tan=Math.tan(camera.fov*Math.PI/360);
+  const dist=Math.max((size.y+.12)/(2*tan)*innerHeight/h,(size.x+.12)/(2*tan)*innerHeight/w);
+  const dir=new THREE.Vector3();obj.getWorldDirection(dir);const theta=Math.atan2(dir.x,dir.z),right=new THREE.Vector3(Math.cos(theta),0,-Math.sin(theta));
+  center.addScaledVector(right,(innerWidth/2-(safe.left+safe.right)/2)/innerWidth*(2*dist*tan*camera.aspect));
+  center.y+=((safe.top+safe.bottom)/2-innerHeight/2)/innerHeight*(2*dist*tan);
+  cam.tTarget.copy(center);cam.tDist=dist;cam.tPhi=Math.PI/2;cam.tTheta=theta;
+}
 
 function focusOn(obj){
   const b = new THREE.Box3().setFromObject(obj);
@@ -1394,7 +1460,8 @@ const rail = document.getElementById('rail');
 const B1KEYS = ['pc','b1rest','toilet','backroom'];
 RAIL.forEach(item=>{
   const b = document.createElement('button');
-  b.textContent = item.label; b.dataset.key = item.pick;
+  if(SIGN_ICONS[item.pick]){b.innerHTML=signIcon(item.pick)+'<span>'+item.label+'</span>';b.classList.add('service-entry');}else b.textContent=item.label;
+  b.dataset.key = item.pick;
   if(B1KEYS.includes(item.pick)){ b.dataset.b1 = '1'; b.hidden = true; }
   b.onclick = ()=>{
     const inB1 = B1KEYS.includes(item.pick);
@@ -1410,6 +1477,8 @@ const LABEL_DEFS = [
   {key:'claw-demo',text:'01  夾娃娃試玩',floor:'f1',play:true},
   {key:'stadium',text:'02  陀螺對戰',floor:'f1'},
   {key:'ichiban',text:'03  線上一番賞',floor:'f1'},
+  {key:'line',text:'LINE 加好友',floor:'f1',dx:80,dy:52},
+  {key:'tablet',text:'官網掃碼',floor:'f1',dx:-60,dy:-8},
   {key:'stairs',text:'B1  休息空間',floor:'f1'},
   {key:'pc',text:'電腦區',floor:'b1'},
   {key:'b1rest',text:'休息區',floor:'b1'},
@@ -1420,7 +1489,8 @@ LABEL_DEFS.forEach(d=>{
   const el = document.createElement('button');
   el.type='button';
   el.className = 'lbl' + (d.play? ' play':'');
-  el.innerHTML = d.play ? '<b>▶</b>'+d.text : d.text;
+  el.innerHTML=SIGN_ICONS[d.key]?signIcon(d.key)+'<span>'+d.text+'</span>':d.play?'<b>▶</b>'+d.text:d.text;
+  if(SIGN_ICONS[d.key]){el.classList.add('service-label');el.dataset.key=d.key;}
   el.onclick = ()=>{ if(d.play){ showCard(d.key, null, REP[d.key]); } else showCard(d.key, REP[d.key] && REP[d.key].userData.extra, REP[d.key]); };
   labelBox.appendChild(el); d.el = el;
 });
@@ -1444,7 +1514,7 @@ function updateLabels(){
     o.getWorldPosition(_lp); _lp.add(anchorOf(o));
     const v = _lp.clone().project(camera);
     if(v.z > 1){ d.el.classList.remove('on');d.el.tabIndex=-1; return; }
-    list.push({d, x:(v.x*.5+.5)*innerWidth, y:(-v.y*.5+.5)*innerHeight, depth:v.z});
+    list.push({d, x:(v.x*.5+.5)*innerWidth+(d.dx||0), y:(-v.y*.5+.5)*innerHeight+(d.dy||0), depth:v.z});
   });
   list.sort((a,b)=> LABEL_DEFS.indexOf(a.d)-LABEL_DEFS.indexOf(b.d));
   const placed = [];
@@ -1452,8 +1522,12 @@ function updateLabels(){
   list.forEach(it=>{
     const w = it.d.el.offsetWidth || 88, h = it.d.el.offsetHeight || 24;
     it.x=Math.max(padL+w/2,Math.min(innerWidth-padR-w/2,it.x));
-    const r = {l:it.x-w/2, r:it.x+w/2, t:it.y-h, b:it.y};
-    const clash = placed.some(q=> !(r.r < q.l-8 || r.l > q.r+8 || r.b < q.t-6 || r.t > q.b+6));
+    let r = {l:it.x-w/2, r:it.x+w/2, t:it.y-h, b:it.y};
+    const collides=r=>placed.some(q=> !(r.r < q.l-8 || r.l > q.r+8 || r.b < q.t-6 || r.t > q.b+6));
+    if(QR_SIGNS[it.d.key]&&collides(r)){
+      for(const dy of [52,-52,104,-104]){const next={...r,t:r.t+dy,b:r.b+dy};if(next.t>(isEmbedded?80:158)&&next.b<innerHeight-100&&!collides(next)){r=next;it.y+=dy;break;}}
+    }
+    const clash = collides(r);
     const inView = r.l >= padL && r.r <= innerWidth-padR && it.y > 72 && it.y < innerHeight-100;
     const on = !clash && inView;
     it.d.el.classList.toggle('on', on);it.d.el.tabIndex=on?0:-1;
@@ -1804,7 +1878,7 @@ function resize(){
   if(!isEmbedded && innerWidth >= 768) FIT *= 1.1;
   camera.aspect = a; camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight, false);
-  if(BATTLE.active)battleCamera(true);
+  if(BATTLE.active)battleCamera(true);if(focusedSign)focusSign(focusedSign);
 }
 addEventListener('resize', resize); resize();
 
